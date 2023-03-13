@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
+# Third party plugins
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $(brew --prefix powerlevel10k)/powerlevel10k.zsh-theme
+
+# My dotfiles
+for i in $HOME/git/dotfiles/zsh/*.zsh; do
+  source "$i"
+done
+
+for i in $HOME/git/dotfiles/zsh/thirdparty/*.zsh; do
+  source "$i"
+done
+
+if [ -f "$HOME/.zshrc_local" ]; then
+  source ~/.zshrc_local
+fi
+
+# Plugins that need to be sourced last
+source /opt/homebrew/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source /opt/homebrew/share/zsh-autopair/autopair.zsh
