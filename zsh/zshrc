@@ -9,7 +9,7 @@ fi
 
 
 # Third party plugins
-source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $(brew --prefix powerlevel10k)/powerlevel10k.zsh-theme
 
 # My dotfiles
@@ -26,5 +26,5 @@ if [ -f "$HOME/.zshrc_local" ]; then
 fi
 
 # Plugins that need to be sourced last
-source /opt/homebrew/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source /opt/homebrew/share/zsh-autopair/autopair.zsh
+source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $(brew --prefix)/share/zsh-autopair/autopair.zsh
