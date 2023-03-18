@@ -94,6 +94,7 @@ cask "iterm2"
 cask "meld"
 cask "obsidian"
 cask "omnifocus"
+cask "raindropio"
 cask "raycast"
 cask "secretive"
 cask "timing"
@@ -105,6 +106,7 @@ mas "Day One", id: 1055511498
 mas "MindNode", id: 1289197285
 mas "OmniOutliner 5", id: 1142578772
 mas "Reeder", id: 1529448980
+mas "Save to Raindrop.io", id: 1549370672
 mas "Slack", id: 803453959
 mas "SnippetsLab", id: 1006087419
 mas "TextSniper", id: 1528890965
