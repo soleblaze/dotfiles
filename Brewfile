@@ -98,6 +98,7 @@ cask "raycast"
 cask "secretive"
 cask "timing"
 cask "visual-studio-code"
+mas "Amphetamine", id: 937984704
 mas "1Password for Safari", id: 1569813296
 mas "Dark Noise", id: 1465439395
 mas "Day One", id: 1055511498
