@@ -110,6 +110,7 @@ mas "Reeder", id: 1529448980
 mas "Save to Raindrop.io", id: 1549370672
 mas "Slack", id: 803453959
 mas "SnippetsLab", id: 1006087419
+mas "TestFlight", id: 899247664
 mas "TextSniper", id: 1528890965
 mas "Wipr", id: 1320666476
 mas "Wireguard", id: 1451685025
