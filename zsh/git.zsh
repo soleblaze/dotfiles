@@ -25,7 +25,7 @@ alias glp="git log -p --decorate"
 alias gmv="git mv"
 alias gp='git push origin HEAD'
 alias gpo='git push origin'
-alias gpu='git pull --rebase=merges --prune'
+alias gpu='git pull --prune origin HEAD'
 alias gpub='git pull --rebase=merges --prune origin'
 alias gr="git rm"
 alias grb="git rebase"
