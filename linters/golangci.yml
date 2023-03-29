@@ -1,0 +1,89 @@
+---
+linters-settings:
+  gocognit:
+    min-complexity: 10
+  goconst:
+    min-len: 3
+    min-occurrences: 3
+  gocyclo:
+    min-complexity: 10
+  govet:
+    check-shadowing: true
+  lll:
+    line-length: 140
+  misspell:
+    locale: US
+  nestif:
+    min-complexity: 4
+  revive:
+    ignore-generated-header: true
+    rules:
+      - name: exported
+        severity: warning
+        disabled: false
+        arguments:
+          - "checkPrivateReceivers"
+          - "sayRepetitiveInsteadOfStutters"
+      - name: package-comments
+        severity: warning
+        disabled: false
+  tagliatelle:
+    case:
+      use-field-name: true
+      rules:
+        json: camel
+        yaml: camel
+        xml: camel
+        bson: camel
+        avro: snake
+        mapstructure: kebab
+  varnamelen:
+    ignore-decls:
+      - t testing.T
+    ignore-names:
+      - err
+linters:
+  enable:
+    - bidichk
+    - bodyclose
+    - deadcode
+    - dogsled
+    - durationcheck
+    - errcheck
+    - errname
+    - errorlint
+    - funlen
+    - goconst
+    - gocritic
+    - gocyclo
+    - gocognit
+    - godox
+    - godot
+    - gofmt
+    - goimports
+    - goprintffuncname
+    - gosec
+    - gosimple
+    - govet
+    - ifshort
+    - ineffassign
+    - ireturn
+    - lll
+    - misspell
+    - nakedret
+    - nestif
+    - nilnil
+    - nolintlint
+    - predeclared
+    - revive
+    - staticcheck
+    - stylecheck
+    - tagliatelle
+    - wastedassign
+    - wsl
+issues:
+  exclude-use-default: false
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - goconst

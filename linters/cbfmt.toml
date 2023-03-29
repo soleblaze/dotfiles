@@ -1,0 +1,5 @@
+[languages]
+bash = ["shfmt -i 2 -"]
+go = ["gofumpt"]
+lua = ["stylua -s -"]
+python = ["black --fast -"]
