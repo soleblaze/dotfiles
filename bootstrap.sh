@@ -67,4 +67,8 @@ linkFile "$PWD/linters/golangci.yml" ~/.golangci.yml
 linkFile "$PWD/linters/markdownlint.yaml" ~/.markdownlint.yaml
 
 mkdir -p ~/.config/yamllint
-linkFile "$PWD/linters/yamllint.yml" ~/.yamllint/config
+linkFile "$PWD/linters/yamllint.yml" ~/.config/yamllint/config
+
+mkdir -p ~/.config/vale
+linkFile "$PWD/linters/vale.ini" ~/.config/vale/vale.ini
+vale sync --config ~/.config/vale/vale.ini
