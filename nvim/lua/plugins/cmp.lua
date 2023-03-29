@@ -6,6 +6,7 @@ return {
     { "hrsh7th/cmp-nvim-lua" },
     { "hrsh7th/cmp-path" },
     { "saadparwaiz1/cmp_luasnip" },
+    { "zbirenbaum/copilot-cmp" },
 
     -- Snippets
     { "L3MON4D3/LuaSnip" },
@@ -29,6 +30,8 @@ return {
       cmp_autopairs.on_confirm_done()
     )
 
+    require("copilot_cmp").setup()
+
     cmp.setup({
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
@@ -51,11 +54,11 @@ return {
             buffer = "(Buffer)",
           })[entry.source.name]
           vim_item.dup = ({
-            buffer = 1,
-            path = 1,
-            nvim_lsp = 0,
-            luasnip = 1,
-          })[entry.source.name] or 0
+                buffer = 1,
+                path = 1,
+                nvim_lsp = 0,
+                luasnip = 1,
+              })[entry.source.name] or 0
           return vim_item
         end,
         duplicates_default = 0,
@@ -74,13 +77,14 @@ return {
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-e>"] = cmp.mapping.close(),
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        ["<Tab>"] = cmp.mapping(function()
           if luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
-          elseif cmp and cmp.visible() then
-            cmp.confirm()
           else
-            fallback()
+            cmp.confirm({
+              behavior = cmp.ConfirmBehavior.Replace,
+              select = false,
+            })
           end
         end, { "i", "s", }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
@@ -127,12 +131,37 @@ return {
         end, {}),
       },
       sources = {
-        { name = "luasnip" },
-        { name = "nvim_lsp" },
-        { name = "path" },
-        { name = "treesitter" },
-        { name = "buffer" },
+        { name = "copilot",    group_index = 2 },
+        { name = "luasnip",    group_index = 2 },
+        { name = "nvim_lsp",   group_index = 2 },
+        { name = "path",       group_index = 2 },
+        { name = "treesitter", group_index = 2 },
+        { name = "buffer",     group_index = 2 },
+      },
+      sorting = {
+        priority_weight = 2,
+        comparators = {
+          require("copilot_cmp.comparators").prioritize,
+          -- Below is the default comparitor list and order for nvim-cmp
+          cmp.config.compare.offset,
+          -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+          cmp.config.compare.exact,
+          cmp.config.compare.score,
+          cmp.config.compare.recently_used,
+          cmp.config.compare.locality,
+          cmp.config.compare.kind,
+          cmp.config.compare.sort_text,
+          cmp.config.compare.length,
+          cmp.config.compare.order,
+        },
       },
     })
+    cmp.event:on("menu_opened", function()
+      vim.b.copilot_suggestion_hidden = true
+    end)
+
+    cmp.event:on("menu_closed", function()
+      vim.b.copilot_suggestion_hidden = false
+    end)
   end
 }
