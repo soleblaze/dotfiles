@@ -71,7 +71,7 @@ map("v", "<leader>rv", "<Cmd>lua require('refactoring').debug.print_var({})<CR>"
 map("v", "<leader>rv", "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>")
 
 -- yank
-map("v", "<leader>y", ":OSCYank<cr>")
+map("v", "<leader>y", ":OSCYankVisual<cr>")
 map("n", "<leader>y", "<Plug>OSCYank", { noremap = false })
 
 -- neotest
