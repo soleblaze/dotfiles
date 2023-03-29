@@ -7,6 +7,7 @@ return {
     { "hrsh7th/cmp-path" },
     { "saadparwaiz1/cmp_luasnip" },
     { "zbirenbaum/copilot-cmp" },
+    { "onsails/lspkind.nvim" },
 
     -- Snippets
     { "L3MON4D3/LuaSnip" },
@@ -32,6 +33,8 @@ return {
 
     require("copilot_cmp").setup()
 
+    local lspkind = require('lspkind')
+
     cmp.setup({
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
@@ -46,22 +49,21 @@ return {
         keyword_length = 2,
       },
       formatting = {
-        format = function(entry, vim_item)
-          vim_item.menu = ({
-            luasnip = "(Snippet)",
-            nvim_lsp = "(LSP)",
-            path = "(Path)",
-            buffer = "(Buffer)",
-          })[entry.source.name]
-          vim_item.dup = ({
-                buffer = 1,
-                path = 1,
-                nvim_lsp = 0,
-                luasnip = 1,
-              })[entry.source.name] or 0
-          return vim_item
-        end,
-        duplicates_default = 0,
+        format = lspkind.cmp_format({
+          mode = 'symbol',
+          maxwidth = 50,
+          ellipsis_char = '...',
+          symbol_map = { Copilot = "" },
+          before = function(entry, vim_item)
+            vim_item.dup = ({
+                  buffer = 1,
+                  path = 1,
+                  nvim_lsp = 0,
+                  luasnip = 1,
+                })[entry.source.name] or 0
+            return vim_item
+          end
+        })
       },
       snippet = {
         expand = function(args)
