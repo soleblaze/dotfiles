@@ -18,6 +18,8 @@ require("vscode.map")
 else
 
 require("settings")
+require("toggle-autoformat")
+require("toggle-cmp")
 require("lazy").setup("plugins")
 require("map")
 

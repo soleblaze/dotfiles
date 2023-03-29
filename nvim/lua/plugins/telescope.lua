@@ -12,6 +12,8 @@ return {
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("repo")
     require('telescope').load_extension('vimwiki')
+    require('telescope').load_extension('neoclip')
+    require("telescope").load_extension("refactoring")
 
     vim.cmd("command! -bang Keymap Telescope keymaps")
   end,
