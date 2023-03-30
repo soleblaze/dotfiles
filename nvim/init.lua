@@ -12,18 +12,18 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 if vim.g.vscode then
-require("vscode.settings")
-require("lazy").setup("vscode.plugins")
-require("vscode.map")
+  require("vscode.settings")
+  require("lazy").setup("vscode.plugins")
+  require("vscode.map")
 else
+  require("settings")
+  require("toggle-autoformat")
+  require("toggle-cmp")
+  require("lazy").setup("plugins")
+  require("map")
 
-require("settings")
-require("toggle-autoformat")
-require("toggle-cmp")
-require("lazy").setup("plugins")
-require("map")
-
-vim.cmd("source ~/.config/nvim/vim/git.vim")
-vim.cmd("source ~/.config/nvim/vim/toggle.vim")
-vim.cmd("source ~/.config/nvim/vim/colors.vim")
+  vim.cmd("source ~/.config/nvim/vim/tmux.vim")
+  vim.cmd("source ~/.config/nvim/vim/git.vim")
+  vim.cmd("source ~/.config/nvim/vim/toggle.vim")
+  vim.cmd("source ~/.config/nvim/vim/colors.vim")
 end
