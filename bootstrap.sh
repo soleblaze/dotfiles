@@ -73,4 +73,4 @@ mkdir -p ~/.config/vale
 linkFile "$PWD/linters/vale.ini" ~/.config/vale/vale.ini
 vale sync --config ~/.config/vale/vale.ini
 
-linkfile "$PWD/zsh/starship.toml" ~/.config/starship.toml
+linkFile "$PWD/zsh/starship.toml" ~/.config/starship.toml

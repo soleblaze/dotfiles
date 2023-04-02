@@ -1,6 +1,9 @@
 #!/bin/zsh
 
 # Override Commands
+alias dig="dog"
+alias df="duf"
+alias du="dust -b"
 alias free="free -h"
 alias grep="grep --color -i"
 alias la="exa -a --no-time --no-user --git --group-directories-first"
