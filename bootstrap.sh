@@ -18,7 +18,6 @@ mkdir -p ~/.local/share
 
 linkFile "$PWD/zsh/zshrc" ~/.zshrc
 linkFile "$PWD/zsh/zshenv" ~/.zshenv
-linkFile "$PWD/tmux/tmux.conf" ~/.tmux.conf
 linkFile "$PWD/digrc/digrc" ~/.digrc
 
 if ! [ -d ~/.config/bat ]; then
@@ -26,11 +25,6 @@ if ! [ -d ~/.config/bat ]; then
   linkFile "$PWD/bat/config" ~/.config/bat/config
   git clone https://github.com/wesbos/cobalt2.git ~/.config/bat/themes/cobalt2
   bat cache --build
-fi
-
-if ! [ -f ~/.tmux/plugins/tpm/bin/install_plugins ]; then
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  ~/.tmux/plugins/tpm/bin/install_plugins
 fi
 
 mkdir -p ~/.config/nvim/lua
