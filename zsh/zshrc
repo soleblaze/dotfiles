@@ -1,5 +1,6 @@
 #!/bin/zsh
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 # My dotfiles
 for i in $HOME/git/dotfiles/zsh/*.zsh; do
