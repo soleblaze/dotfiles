@@ -33,7 +33,8 @@ format = '[$symbol($version)]($style) '
 format = '[$symbol($version)]($style) '
 
 [kubernetes]
-format = '[$symbol$context( \($namespace\))]($style) '
+disabled = false
+format = '[$symbol$context]($style) '
 
 [openstack]
 format = '[$symbol$cloud(\($project\))]($style) '

@@ -45,3 +45,10 @@ alias sshnhr='ssh -l root -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /
 alias -g ...="../.."
 alias -g ....="../../.."
 alias -g .....="../../../.."
+
+# colima
+if [ "$(uname -m)" == "arm64" ]; then
+  alias cs='colima start --arch aarch64 --vm-type=vz --vz-rosetta --cpu 2 --memory 4'
+else
+  alias cs='colima start --cpu 2 --memory 4'
+fi
