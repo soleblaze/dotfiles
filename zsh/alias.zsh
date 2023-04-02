@@ -3,7 +3,7 @@
 # Override Commands
 alias free="free -h"
 alias grep="grep --color -i"
-alias ls="ls -G"
+alias ls="exa"
 alias ping='prettyping --nolegend'
 alias vi=nvim
 alias wget=wget --hsts-file="$HOME/.local/share/wget-hsts"
