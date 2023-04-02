@@ -52,3 +52,4 @@ if [ "$(uname -m)" == "arm64" ]; then
 else
   alias cs='colima start --cpu 2 --memory 4'
 fi
+alias cstop='colima stop'

@@ -67,3 +67,16 @@ linkFile "$PWD/linters/vale.ini" ~/.config/vale/vale.ini
 vale sync --config ~/.config/vale/vale.ini
 
 linkFile "$PWD/zsh/starship.toml" ~/.config/starship.toml
+
+mkdir -p ~/.docker/cli-plugins
+linkFile "$(brew --prefix)/bin/docker-buildx" ~/.docker/cli-plugins/docker-buildx
+
+if ! [ -e "$HOME/.docker/cli-plugins/docker-scan" ]; then
+  curl "https://github.com/docker/scan-cli-plugin/releases/latest/download/docker-scan_darwin_$(uname -m)" -L -s -S -o ~/.docker/cli-plugins/docker-scan
+  chmod +x ~/.docker/cli-plugins/docker-scan
+fi
+
+if ! [ -e "$HOME/.docker/scan/config.json" ]; then
+  mkdir -p ~/.docker/scan
+  echo "{}" >~/.docker/scan/config.json
+fi
