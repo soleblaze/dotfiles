@@ -18,7 +18,6 @@ mkdir -p ~/.local/share
 
 linkFile "$PWD/zsh/zshrc" ~/.zshrc
 linkFile "$PWD/zsh/zshenv" ~/.zshenv
-linkFile "$PWD/digrc/digrc" ~/.digrc
 
 if ! [ -d ~/.config/bat ]; then
   mkdir -p ~/.config/bat/themes
