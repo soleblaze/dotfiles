@@ -51,10 +51,6 @@ linkFile ~/Library/Mobile\ Documents/com~apple~CloudDocs ~/iCloud
 # Disable ApplePressandHold
 defaults write -g ApplePressAndHoldEnabled -bool false
 
-if ! [ -e "$(brew --prefix)/bin/doing" ]; then
-  brew gem install doing
-fi
-
 linkFile "$PWD/linters/cbfmt.toml" ~/.cbfmt.toml
 linkFile "$PWD/linters/golangci.yml" ~/.golangci.yml
 linkFile "$PWD/linters/markdownlint.yaml" ~/.markdownlint.yaml
