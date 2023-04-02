@@ -72,3 +72,6 @@ linkFile "$PWD/linters/yamllint.yml" ~/.config/yamllint/config
 mkdir -p ~/.config/vale
 linkFile "$PWD/linters/vale.ini" ~/.config/vale/vale.ini
 vale sync --config ~/.config/vale/vale.ini
+
+mkdir -p ~/.config/spaceship
+linkfile "$PWD/zsh/spaceship/spaceship.zsh" ~/.config/spaceship/spaceship.zsh
