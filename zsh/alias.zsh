@@ -3,7 +3,15 @@
 # Override Commands
 alias free="free -h"
 alias grep="grep --color -i"
-alias ls="exa"
+alias la="exa -a --no-time --no-user --git --group-directories-first"
+alias ld="exa -D --no-time --no-user --git --group-directories-first"
+alias ldl="exa -lFD --no-time --no-user --git --group-directories-first"
+alias le="exa -lF --extended --no-time --no-user --git --group-directories-first"
+alias ll="exa -lF --no-time --no-user --git --group-directories-first"
+alias lla="exa --lFa --no-time --no-user --git --group-directories-first"
+alias ls="exa --no-time --no-user --git --group-directories-first"
+alias lsize="exa -lF --no-time --no-user --git --group-directories-first --sort=size"
+alias lt="exa -lF --no-user --git --group-directories-first"
 alias ping='prettyping --nolegend'
 alias vi=nvim
 alias wget=wget --hsts-file="$HOME/.local/share/wget-hsts"
