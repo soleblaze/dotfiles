@@ -43,3 +43,7 @@ format = '[$symbol$stack]($style) '
 
 [python]
 format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style) '
+
+[status]
+disabled = false
+format = '[$status]($style) '
