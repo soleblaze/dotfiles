@@ -2,7 +2,7 @@
 
 # Override Commands
 alias dig="dog"
-alias df="duf"
+alias df="duf --hide-mp '*ystem*olume*,*ecovery,/dev'"
 alias du="dust -b"
 alias free="free -h"
 alias grep="grep --color -i"
