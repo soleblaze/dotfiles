@@ -15,7 +15,7 @@ source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   source $(brew --prefix powerlevel10k)/powerlevel10k.zsh-theme
 else
-  source $(brew --prefix)/opt/spaceship/spaceship.zsh
+  eval "$(starship init zsh)"
 fi
 
 # My dotfiles
