@@ -25,7 +25,6 @@ alias rgi="batgrep -i"
 alias rgs="batgrep -s"
 
 # Other Aliases
-alias ctags="/opt/homebrew/bin/ctags"
 alias ndu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias sih="sudo -i -H"
 alias svi="sudo -e"
@@ -39,7 +38,6 @@ alias catp='bat'
 # ssh aliases
 alias scpnh='scp -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
 alias sshnh='ssh -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
-alias sshnhr='ssh -l root -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
 
 # dot aliases
 alias -g ...="../.."
