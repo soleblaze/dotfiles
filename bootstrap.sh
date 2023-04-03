@@ -6,12 +6,16 @@ linkFile() {
   fi
 }
 
-if ! [ -f /opt/homebrew/bin/brew ]; then
+if ! [ -f /opt/homebrew/bin/brew ] && ! [ -f '/usr/local/bin/brew' ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  chmod 755 /opt/homebrew/share
+  chmod 755 /opt/homebrew/share || chmod 755 /usr/local/share
 fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ -f "/opt/homebrew/bin/brew" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  eval "$(/usr/localbin/brew shellenv)"
+fi
 brew bundle
 
 mkdir -p ~/.local/share
@@ -42,9 +46,6 @@ touch ~/.config/nvim/lua/local.lua
 
 mkdir -p ~/.config/karabiner
 linkFile "$PWD/karabiner/karabiner.json" ~/.config/karabiner/karabiner.json
-
-mkdir -p ~/.hammerspoon
-linkFile "$PWD/hammerspoon/init.lua" ~/.hammerspoon/init.lua
 
 linkFile ~/Library/Mobile\ Documents/com~apple~CloudDocs ~/iCloud
 
