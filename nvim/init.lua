@@ -22,6 +22,7 @@ else
   require("lazy").setup("plugins")
   require("map")
 
+  vim.cmd("source ~/.config/nvim/vim/tmux.vim")
   vim.cmd("source ~/.config/nvim/vim/git.vim")
   vim.cmd("source ~/.config/nvim/vim/toggle.vim")
   vim.cmd("source ~/.config/nvim/vim/colors.vim")

@@ -55,11 +55,11 @@ map("n", "]q", "<cmd>cnext<CR>")
 map("n", "]t", "<cmd>tnext<CR>")
 map("v", "<C-s>", "<Esc><cmd>w<cr>")
 
--- window movement
-map("n", "<C-h>", "<cmd>wincmd h<cr>")
-map("n", "<C-j>", "<cmd>wincmd j<cr>")
-map("n", "<C-k>", "<cmd>wincmd k<cr>")
-map("n", "<C-l>", "<cmd>wincmd l<cr>")
+-- tmux navigator
+map("n", "<C-h>", '<cmd>NavigatorLeft<cr>')
+map("n", "<C-l>", '<cmd>NavigatorRight<cr>')
+map("n", "<C-k>", '<cmd>NavigatorUp<cr>')
+map("n", "<C-j>", '<cmd>NavigatorDown<cr>')
 
 -- refactoring
 map("v", "<leader>re", "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>")
