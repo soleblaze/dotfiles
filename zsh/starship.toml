@@ -10,7 +10,10 @@ $kubernetes\
 $helm\
 $gcloud\
 $openstack\
-$status"""
+$status
+$character"""
+
+right_format = """$time"""
 
 
 [cmd_duration]
@@ -44,6 +47,10 @@ format = '[$symbol$stack]($style) '
 
 [python]
 format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style) '
+
+[time]
+disabled = false
+format = '[$time]($style)'
 
 [status]
 disabled = false

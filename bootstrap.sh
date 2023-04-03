@@ -76,3 +76,9 @@ if ! [ -e "$HOME/.docker/scan/config.json" ]; then
   mkdir -p ~/.docker/scan
   echo "{}" >~/.docker/scan/config.json
 fi
+
+linkFile "$PWD/tmux/tmux.conf" ~/.tmux.conf
+if ! [ -f ~/.tmux/plugins/tpm/bin/install_plugins ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ~/.tmux/plugins/tpm/bin/install_plugins
+fi

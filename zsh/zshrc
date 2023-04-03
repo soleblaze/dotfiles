@@ -2,6 +2,8 @@
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
 # My dotfiles
 for i in $HOME/git/dotfiles/zsh/*.zsh; do
   source "$i"
@@ -10,3 +12,7 @@ done
 if [ -f "$HOME/.zshrc_local" ]; then
   source ~/.zshrc_local
 fi
+
+# Plugins that need to be sourced last
+source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $(brew --prefix)/share/zsh-autopair/autopair.zsh
