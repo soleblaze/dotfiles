@@ -25,7 +25,6 @@ alias glp="git log -p --decorate"
 alias gmv="git mv"
 alias gp='git push origin HEAD'
 alias gpo='git push origin'
-alias gpu='git pull --prune'
 alias gpub='git pull --rebase=merges --prune origin'
 alias gr="git rm"
 alias grb="git rebase"
@@ -83,4 +82,7 @@ function gu() {
 
 function gsearch() {
   git rev-list --all | xargs git grep -F "$*"
+}
+function gpu() {
+  git pull origin $(git rev-parse --abbrev-ref HEAD)
 }
