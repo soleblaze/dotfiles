@@ -54,40 +54,15 @@ function set_title_tab {
         #  Use with functions settitle (to set iterm title bar to current directory)
         #  and chpwd
 
-
-    if [[ $TERM_PROGRAM == iTerm.app && -z "$KONSOLE_DCOP_SESSION" ]];then
-
-      # The $rlength variable prints only the 20 rightmost characters. Otherwise iTerm truncates
-      # what appears in the tab from the left.
-
-
-        # Chage the following to change the string that actually appears in the tab:
-
-          tab_label="$PWD:h:t/$PWD:t"
+          if  git rev-parse --show-toplevel >/dev/null 2>&1; then
+            tab_label="[GIT] $(basename $(git rev-parse --show-toplevel))"
+          else
+            tab_label="[ZSH] $PWD"
+          fi
 
           rlength="20"   # number of characters to appear before truncation from the left
 
-                echo -ne "\e]1;${(l:rlength:)tab_label}\a"
-
-
-    else
-
-        # For KDE konsole tabs
-
-        # Chage the following to change the string that actually appears in the tab:
-
-          tab_label="$PWD:h:t/$PWD:t"
-
-          rlength="20"   # number of characters to appear before truncation from the left
-
-            # If we have a functioning KDE console, set the tab in the same way
-            if [[ -n "$KONSOLE_DCOP_SESSION" && ( -x $(which dcop)  )  ]];then
-                    dcop "$KONSOLE_DCOP_SESSION" renameSession "${(l:rlength:)tab_label}"
-            else
-                : # do nothing if tabs don't exist
-            fi
-
-    fi
+          echo -ne "\e]1;${(l:rlength:)tab_label}\a"
   }
 
     function settitle   {
@@ -96,7 +71,11 @@ function set_title_tab {
     # Change the following string to change what appears in the Title Bar label:
 
 
-      title_lab=$PWD
+          if  git rev-parse --show-toplevel >/dev/null 2>&1; then
+            title_lab="[GIT] $(basename $(git rev-parse --show-toplevel))"
+          else
+            title_lab="[ZSH] $PWD"
+          fi
         # Prints the host name, two colons, absolute path for current directory
 
       # Change the title bar label dynamically:
