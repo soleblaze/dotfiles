@@ -3,7 +3,10 @@ return {
   dependencies = { "kyazdani42/nvim-web-devicons" },
   config = function()
     require("bufferline").setup {
-      icons = "numbers",
+      icons = {
+        buffer_index = true,
+        filetype = { enabled = false }
+      },
       closable = true,
       clickable = false,
       maximum_padding = 1,
