@@ -83,3 +83,8 @@ if ! [ -f ~/.tmux/plugins/tpm/bin/install_plugins ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   ~/.tmux/plugins/tpm/bin/install_plugins
 fi
+
+mkdir -p ~/bin
+for file in bin/*; do
+  linkFile "$PWD/$file" "$HOME/$file"
+done
