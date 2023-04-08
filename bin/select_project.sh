@@ -1,6 +1,11 @@
 #!/bin/bash
 set -eo pipefail
 
+if ! [ "$1" ]; then
+  echo "Missing project name"
+  exit 1
+fi
+
 ROOTDIR="$HOME/projects"
 PROJECT="$1"
 
