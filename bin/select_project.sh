@@ -1,12 +1,10 @@
 #!/bin/bash
-set -euo pipefail
+set -eo pipefail
 
 ROOTDIR="$HOME/projects"
 PROJECT="$1"
 
-if [[ -d "$ROOTDIR/$PROJECT" ]]; then
-  smug start project PROJECT="${PROJECT}"
-else
+if ! [[ -d "$ROOTDIR/$PROJECT" ]]; then
   if [[ "$PROJECT_REPO_BASE" ]]; then
     echo "What repo do you want to use? (${PROJECT_REPO_BASE})"
   else
@@ -15,21 +13,28 @@ else
   fi
 
   # Get a list of repos from the user
-  IFS=$'\n' read -r -d $'\0' -a repos
+  repos=()
+  while IFS= read -r line; do
+    [[ $line ]] || break
+    repos+=("$line")
+  done
 
   echo "Which branch do you want to base your PR on?"
-  read -e -r -i zdefaultz branch
+  read -e -r branch
+  [[ "$branch" ]] || branch=zdefaultz
 
   mkdir -p "${ROOTDIR}/${PROJECT}"
   cd "${ROOTDIR}/${PROJECT}" || exit
   for repo in "${repos[@]}"; do
-    git clone "${PROJECT_REPO_BASE}${repo}"
-    pushd "${PROJECT_REPO_BASE}${repo}" >/dev/null
+    repodir="$(echo "${repo##*/}" | cut -d. -f1)"
+    git clone "${PROJECT_REPO_BASE}${repo}" "$repodir"
+
+    pushd "$repodir" >/dev/null || exit
     if [[ "$branch" != "zdefaultz" ]]; then
       git checkout "$branch"
     fi
     git checkout -b "${PROJECT}"
-    popd
+    popd || exit
   done
 
   note="${ROOTDIR}/notes/${PROJECT}.md"
@@ -41,3 +46,6 @@ else
     fi
   fi
 fi
+
+smug start project PROJECT="${PROJECT}"
+tmux switch -t "${PROJECT}"
