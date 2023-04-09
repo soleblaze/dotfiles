@@ -4,7 +4,7 @@ hs.window.animationDuration = 0
 -- Setup Key Shortcuts
 local hyper = { "shift", "cmd", "alt", "ctrl" }
 
-function moveWindowToThirds(position)
+function MoveWindowToThirds(position)
   local win = hs.window.focusedWindow()
 
   if win == nil then
@@ -16,30 +16,22 @@ function moveWindowToThirds(position)
   local screenFrame = screen:frame()
 
   if position == "left" then
-    win:setFrame({
-      x = screenFrame.x,
-      y = screenFrame.y,
-      w = screenFrame.w / 3,
-      h = screenFrame.h
-    })
+    Xoffset = 0
   elseif position == "center" then
-    win:setFrame({
-      x = screenFrame.x + (screenFrame.w / 3),
-      y = screenFrame.y,
-      w = screenFrame.w / 3,
-      h = screenFrame.h
-    })
+    Xoffset = (screenFrame.w / 3)
   elseif position == "right" then
-    win:setFrame({
-      x = screenFrame.x + (screenFrame.w * 2 / 3),
-      y = screenFrame.y,
-      w = screenFrame.w / 3,
-      h = screenFrame.h
-    })
+    Xoffset = (screenFrame.w * 2 / 3)
   end
+
+  win:setFrame({
+    x = screenFrame.x + Xoffset,
+    y = screenFrame.y,
+    w = screenFrame.w / 3,
+    h = screenFrame.h
+  })
 end
 
-function moveWindowToLeftOrRight(position)
+function MoveWindowToLeftOrRight(position)
   local win = hs.window.focusedWindow()
 
   if win == nil then
@@ -51,20 +43,17 @@ function moveWindowToLeftOrRight(position)
   local screenFrame = screen:frame()
 
   if position == "left" then
-    win:setFrame({
-      x = screenFrame.x,
-      y = screenFrame.y,
-      w = screenFrame.w / 2,
-      h = screenFrame.h
-    })
+    Xoffset = 0
   elseif position == "right" then
-    win:setFrame({
-      x = screenFrame.x + (screenFrame.w / 2),
-      y = screenFrame.y,
-      w = screenFrame.w / 2,
-      h = screenFrame.h
-    })
+    Xoffset = (screenFrame.w / 2)
   end
+
+  win:setFrame({
+    x = screenFrame.x + Xoffset,
+    y = screenFrame.y,
+    w = screenFrame.w / 2,
+    h = screenFrame.h
+  })
 end
 
 function moveLeftHalf(position)
@@ -79,23 +68,21 @@ function moveLeftHalf(position)
   local screenFrame = screen:frame()
 
   if position == "top" then
-    win:setFrame({
-      x = screenFrame.x,
-      y = screenFrame.y,
-      w = screenFrame.w / 2,
-      h = screenFrame.h / 2
-    })
+    Yoffset = 0
   elseif position == "bottom" then
     win:setFrame({
-      x = screenFrame.x,
-      y = screenFrame.y + (screenFrame.h / 2),
-      w = screenFrame.w / 2,
-      h = screenFrame.h / 2
+      Yoffset = (screenFrame.h / 2)
     })
   end
+  win:setFrame({
+    x = screenFrame.x,
+    y = screenFrame.y + Yoffset,
+    w = screenFrame.w / 2,
+    h = screenFrame.h / 2
+  })
 end
 
-function moveLeftThird(position)
+function MoveLeftThird(position)
   local win = hs.window.focusedWindow()
 
   if win == nil then
@@ -107,20 +94,17 @@ function moveLeftThird(position)
   local screenFrame = screen:frame()
 
   if position == "top" then
-    win:setFrame({
-      x = screenFrame.x,
-      y = screenFrame.y,
-      w = screenFrame.w / 3,
-      h = screenFrame.h / 2
-    })
+    Yoffset = 0
   elseif position == "bottom" then
-    win:setFrame({
-      x = screenFrame.x,
-      y = screenFrame.y + (screenFrame.h / 2),
-      w = screenFrame.w / 3,
-      h = screenFrame.h / 2
-    })
+    Yoffset = (screenFrame.h / 2)
   end
+
+  win:setFrame({
+    x = screenFrame.x,
+    y = screenFrame.y + Yoffset,
+    w = screenFrame.w / 3,
+    h = screenFrame.h / 2
+  })
 end
 
 function toggleFullScreen()
@@ -157,23 +141,23 @@ hs.hotkey.bind(hyper, "o", function()
 end)
 
 hs.hotkey.bind(hyper, "j", function()
-  moveWindowToThirds("left")
+  MoveWindowToThirds("left")
 end)
 
 hs.hotkey.bind(hyper, "k", function()
-  moveWindowToThirds("center")
+  MoveWindowToThirds("center")
 end)
 
 hs.hotkey.bind(hyper, "l", function()
-  moveWindowToThirds("right")
+  MoveWindowToThirds("right")
 end)
 
 hs.hotkey.bind(hyper, "i", function()
-  moveWindowToLeftOrRight("left")
+  MoveWindowToLeftOrRight("left")
 end)
 
 hs.hotkey.bind(hyper, "p", function()
-  moveWindowToLeftOrRight("right")
+  MoveWindowToLeftOrRight("right")
 end)
 
 hs.hotkey.bind(hyper, ",", function()
@@ -185,11 +169,11 @@ hs.hotkey.bind(hyper, ",", function()
 end)
 
 hs.hotkey.bind(hyper, "u", function()
-  moveLeftThird("top")
+  MoveLeftThird("top")
 end)
 
 hs.hotkey.bind(hyper, "m", function()
-  moveLeftThird("bottom")
+  MoveLeftThird("bottom")
 end)
 
 hs.hotkey.bind(hyper, "0", function()
