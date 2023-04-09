@@ -134,6 +134,7 @@ wk.register({
       '<cmd>lua require"telescope".extensions.repo.list{file_ignore_patterns={"/%.cache/", "/%.cargo/", "/%.local/", "/%.zinit/", "/%.tmux/", "/%.config/", ".fzf", "/%Library/", "/%Documents/"}}<cr>',
       "RepoList",
     },
+    y = { "<cmd>Telescope yaml_schema<cr>", "YamlSchema" }
   },
   g = {
     name = "+Git",
@@ -188,4 +189,13 @@ wk.register({
     w = { "<cmd>Trouble workspace_diagnostics<cr>", "WorkSpaceDiag" },
     x = { "<cmd>Trouble<cr>", "Trouble" },
   },
+  Y = {
+    name = "+Yaml",
+    k = { "<cmd>YAMLYankKey<cr>", "YankKey" },
+    l = { "<cmd>YAMLView<cr>", "View" },
+    q = { "<cmd>YAMLQuickfix<cr>", "QuickFix" },
+    t = { "<cmd>YAMLTelescope<cr>", "Telescope" },
+    v = { "<cmd>YAMLYankValue<cr>", "YankValue" },
+    y = { "<cmd>YAMLYank<cr>", "Yank" },
+  }
 }, { prefix = "<leader>" })
