@@ -90,7 +90,7 @@ vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 -- LSP
 map("n", "<leader>h", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 map("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>")
-map("n", "<leader>c", "<cmd>Telescope lsp_code_actions<CR>")
+map("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
 map("n", "<leader>F", "<cmd>lua vim.lsp.buf.format()<CR>")
 map("n", "<leader>o", "<cmd>Telescope lsp_document_symbols<CR>")
