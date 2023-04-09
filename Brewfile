@@ -84,8 +84,6 @@ cask "1password"
 cask "bunch"
 cask "bartender"
 cask "dash"
-cask "devonagent"
-cask "devonthink"
 cask "discord"
 cask "font-dejavu"
 cask "font-dejavu-sans-mono-nerd-font"
@@ -97,17 +95,18 @@ cask "keyboard-maestro"
 cask "istat-menus"
 cask "iterm2"
 cask "meld"
-cask "omnifocus"
 cask "openlens"
 cask "raindropio"
 cask "raycast"
 cask "secretive"
+cask "thingsmacsandboxhelper"
 cask "timing"
 cask "visual-studio-code"
-mas "Amphetamine", id: 937984704
 mas "1Password for Safari", id: 1569813296
+mas "Amphetamine", id: 937984704
 mas "Dark Noise", id: 1465439395
 mas "Day One", id: 1055511498
+mas "Keep It", id: 1272768911
 mas "MindNode", id: 1289197285
 mas "OmniOutliner 5", id: 1142578772
 mas "Reeder", id: 1529448980
@@ -116,6 +115,7 @@ mas "Slack", id: 803453959
 mas "SnippetsLab", id: 1006087419
 mas "TestFlight", id: 899247664
 mas "TextSniper", id: 1528890965
+mas "Things 3", id: 904280696
 mas "Vimari", id: 1480933944
 mas "Wipr", id: 1320666476
 mas "Wireguard", id: 1451685025
