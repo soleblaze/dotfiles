@@ -135,6 +135,7 @@ wk.register({
   g = {
     name = "+Git",
     b = { "<cmd>Git blame<cr>", "Blame" },
+    c = { "<cmd>lua require('neogit').open({'commit'})<cr>", "Neogit Commit" },
     l = {
       name = "+Linker",
       u = { '<cmd>lua require"gitlinker".get_repo_url()<cr>', "RepoUrl" },
@@ -148,6 +149,7 @@ wk.register({
       },
       l = { "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", "LineUrl" },
     },
+    n = { "<cmd>lua require('neogit').open()<cr>", "Neogit" },
   },
   t = {
     name = "+NeoTest",
