@@ -2,7 +2,6 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     { "ElPiloto/telescope-vimwiki.nvim" },
-    { "cljoly/telescope-repo.nvim" },
     { "debugloop/telescope-undo.nvim" },
     { "nvim-lua/plenary.nvim" },
     { "nvim-telescope/telescope-dap.nvim" },
@@ -23,7 +22,6 @@ return {
     })
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("refactoring")
-    require("telescope").load_extension("repo")
     require("telescope").load_extension("undo")
     require("telescope").load_extension("yaml_schema")
     require('telescope').load_extension('neoclip')

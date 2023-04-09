@@ -54,7 +54,11 @@ setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
-path+="${HOME}/go/bin"
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export GOROOT=/opt/homebrew/bin
+
+path+="${GOBIN}"
 path+="${HOME}/.yarn/bin"
 path=("${HOME}/bin" "${HOME}/.local/bin" "${HOME}/.krew/bin" $path)
 

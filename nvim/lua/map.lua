@@ -73,7 +73,7 @@ map("v", "<leader>rv", "<Esc><Cmd>lua require('refactoring').refactor('Extract V
 
 -- yank
 map("v", "<leader>y", ":OSCYankVisual<cr>")
-map("n", "<leader>y", "<Plug>OSCYank", { noremap = false })
+map("n", "<leader>y", "<Plug>OSCYankOperator", { noremap = false })
 
 -- neotest
 map("n", "[t", '<cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>')
@@ -130,10 +130,6 @@ wk.register({
     j = { "<cmd>Telescope jumplist<cr>", "JumpList" },
     l = { "<cmd>Telescope loclist<cr>", "LocList" },
     m = { "<cmd>Telescope marks<cr>", "Marks" },
-    r = {
-      '<cmd>lua require"telescope".extensions.repo.list{file_ignore_patterns={"/%.cache/", "/%.cargo/", "/%.local/", "/%.zinit/", "/%.tmux/", "/%.config/", ".fzf", "/%Library/", "/%Documents/"}}<cr>',
-      "RepoList",
-    },
     y = { "<cmd>Telescope yaml_schema<cr>", "YamlSchema" }
   },
   g = {
