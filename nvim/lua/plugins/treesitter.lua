@@ -15,7 +15,6 @@ return {
         "gitignore",
         "go",
         "gomod",
-        "help",
         "html",
         "jq",
         "json",
