@@ -189,6 +189,7 @@ wk.register({
     },
     u = { '<cmd>lua require("gitsigns").undo_stage_hunk()<CR>', "Undo Hunk Stage" },
   },
+  l = { "<cmd>HopLineStart<cr>", "HopLineStart" },
   t = {
     name = "+NeoTest",
     a = { '<cmd>lua require("neotest").run.attach()<CR>', "Attach" },
@@ -211,6 +212,7 @@ wk.register({
     r = { "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Telescope" },
     v = { "<cmd>lua require('refactoring').debug.print_var({ normal = true })<CR>", "Debug Print Var" },
   },
+  s = { "<cmd>HopChar1<cr>", "HopChar 1" },
   w = {
     name = "+Window",
     o = { "<C-w>o", "Close Other Windows" },
@@ -234,5 +236,6 @@ wk.register({
     t = { "<cmd>YAMLTelescope<cr>", "Telescope" },
     v = { "<cmd>YAMLYankValue<cr>", "YankValue" },
     y = { "<cmd>YAMLYank<cr>", "Yank" },
-  }
+  },
+  ["/"] = { "<cmd>HopPattern<cr>", "HopPattern" },
 }, { prefix = "<leader>" })
