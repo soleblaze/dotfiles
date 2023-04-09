@@ -181,37 +181,96 @@ hs.hotkey.bind(hyper, "0", function()
 end)
 
 -- Switch Window Focus
-hs.hotkey.bind(hyper, '[', function()
-  if hs.window.focusedWindow() then
-    hs.window.focusedWindow():focusWindowWest()
+local wf = hs.window.filter
+local visibleWindows = wf.new():setDefaultFilter({
+  visible = true,
+  currentSpace = true,
+  allowRoles = '*',
+  fullscreen = false
+})
+
+function getFullyVisibleWindows(windows)
+  local fullyVisibleWindows = {}
+  for _, win in ipairs(windows) do
+    if win:isStandard() then
+      table.insert(fullyVisibleWindows, win)
+    end
+  end
+  return fullyVisibleWindows
+end
+
+hs.hotkey.bind(hyper, "[", function()
+  local currentWindow = hs.window.focusedWindow()
+  local westWindows = visibleWindows:windowsToWest(currentWindow, { sortHorizontalFirst = true })
+  local fullyVisibleWestWindows = getFullyVisibleWindows(westWindows)
+  local previousWindow = fullyVisibleWestWindows[1]
+
+  if not currentWindow then
+    hs.alert.show("No active window detected", 2)
+    return
+  end
+
+  if previousWindow then
+    previousWindow:focus()
   else
-    hs.alert.show("No Active Window")
+    hs.alert.show("No window to the West", 2)
   end
 end)
 
-hs.hotkey.bind(hyper, ']', function()
-  if hs.window.focusedWindow() then
-    hs.window.focusedWindow():focusWindowEast()
+hs.hotkey.bind(hyper, "]", function()
+  local currentWindow = hs.window.focusedWindow()
+  local eastWindows = visibleWindows:windowsToEast(currentWindow, { sortHorizontalFirst = true })
+  local fullyVisibleEastWindows = getFullyVisibleWindows(eastWindows)
+  local nextWindow = fullyVisibleEastWindows[1]
+
+  if not currentWindow then
+    hs.alert.show("No active window detected", 2)
+    return
+  end
+
+  if nextWindow then
+    nextWindow:focus()
   else
-    hs.alert.show("No Active Window")
+    hs.alert.show("No window to the East", 2)
   end
 end)
 
-hs.hotkey.bind(hyper, '-', function()
-  if hs.window.focusedWindow() then
-    hs.window.focusedWindow():focusWindowNorth()
+hs.hotkey.bind(hyper, "-", function()
+  local currentWindow = hs.window.focusedWindow()
+  local northWindows = visibleWindows:windowsToNorth(currentWindow, { sortVerticalFirst = true })
+  local fullyVisibleNorthWindows = getFullyVisibleWindows(northWindows)
+  local nextWindow = fullyVisibleNorthWindows[1]
+
+  if not currentWindow then
+    hs.alert.show("No active window detected", 2)
+    return
+  end
+
+  if nextWindow then
+    nextWindow:focus()
   else
-    hs.alert.show("No Active Window")
+    hs.alert.show("No window to the North", 2)
   end
 end)
 
-hs.hotkey.bind(hyper, '=', function()
-  if hs.window.focusedWindow() then
-    hs.window.focusedWindow():focusWindowSouth()
+hs.hotkey.bind(hyper, "=", function()
+  local currentWindow = hs.window.focusedWindow()
+  local southWindows = visibleWindows:windowsToSouth(currentWindow, { sortVerticalFirst = true })
+  local fullyVisibleSouthWindows = getFullyVisibleWindows(southWindows)
+  local nextWindow = fullyVisibleSouthWindows[1]
+
+  if not currentWindow then
+    hs.alert.show("No active window detected", 2)
+    return
+  end
+
+  if nextWindow then
+    nextWindow:focus()
   else
-    hs.alert.show("No Active Window")
+    hs.alert.show("No window to the South", 2)
   end
 end)
+
 
 
 -- Hint Shortcut
