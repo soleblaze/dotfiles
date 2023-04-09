@@ -54,6 +54,7 @@ map("n", "]l", "<cmd>lnext<CR>")
 map("n", "]q", "<cmd>cnext<CR>")
 map("n", "]t", "<cmd>tnext<CR>")
 map("v", "<C-s>", "<Esc><cmd>w<cr>")
+map("n", "<leader>u", "<cmd>Telescope undo<cr>")
 
 -- tmux navigator
 map("n", "<C-h>", '<cmd>NavigatorLeft<cr>')
