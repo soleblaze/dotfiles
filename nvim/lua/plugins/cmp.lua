@@ -5,6 +5,7 @@ return {
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
     { "hrsh7th/cmp-path" },
+    { "hrsh7th/cmp-cmdline" },
     { "saadparwaiz1/cmp_luasnip" },
     { "zbirenbaum/copilot-cmp" },
     { "onsails/lspkind.nvim" },
@@ -165,5 +166,26 @@ return {
     cmp.event:on("menu_closed", function()
       vim.b.copilot_suggestion_hidden = false
     end)
+
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' }
+      }, {
+        {
+          name = 'cmdline',
+          option = {
+            ignore_cmds = { 'Man', '!' }
+          }
+        }
+      })
+    })
+
+    cmp.setup.cmdline('/', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' }
+      }
+    })
   end
 }
