@@ -81,6 +81,7 @@ brew "zsh-completions"
 brew "zsh-fast-syntax-highlighting"
 brew "zsh-history-substring-search"
 cask "1password"
+cask "bunch"
 cask "bartender"
 cask "dash"
 cask "devonagent"
@@ -107,6 +108,7 @@ mas "1Password for Safari", id: 1569813296
 mas "Dark Noise", id: 1465439395
 mas "Day One", id: 1055511498
 mas "MindNode", id: 1289197285
+mas "Moom", id: 419330170
 mas "OmniOutliner 5", id: 1142578772
 mas "Reeder", id: 1529448980
 mas "Save to Raindrop.io", id: 1549370672
