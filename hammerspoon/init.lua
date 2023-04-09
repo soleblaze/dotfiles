@@ -4,20 +4,26 @@ hs.window.animationDuration = 0
 -- Setup Key Shortcuts
 local hyper = { "shift", "cmd", "alt", "ctrl" }
 
+-- Helper function to handle nil window case
+local function handleNilWindow(win)
+  if win == nil then
+    hs.alert.show("No active window detected")
+    return true
+  end
+  return false
+end
+
+-- Move window to thirds of the screen (left, center, right)
 function MoveWindowToThirds(position)
   local win = hs.window.focusedWindow()
 
-  if win == nil then
-    hs.alert.show("No active window detected")
-    return
-  end
+  if handleNilWindow(win) then return end
 
   local screen = win:screen()
   local screenFrame = screen:frame()
+  local Xoffset = 0
 
-  if position == "left" then
-    Xoffset = 0
-  elseif position == "center" then
+  if position == "center" then
     Xoffset = (screenFrame.w / 3)
   elseif position == "right" then
     Xoffset = (screenFrame.w * 2 / 3)
@@ -31,20 +37,17 @@ function MoveWindowToThirds(position)
   })
 end
 
+-- Move window to left or right half of the screen
 function MoveWindowToLeftOrRight(position)
   local win = hs.window.focusedWindow()
 
-  if win == nil then
-    hs.alert.show("No active window detected")
-    return
-  end
+  if handleNilWindow(win) then return end
 
   local screen = win:screen()
   local screenFrame = screen:frame()
+  local Xoffset = 0
 
-  if position == "left" then
-    Xoffset = 0
-  elseif position == "right" then
+  if position == "right" then
     Xoffset = (screenFrame.w / 2)
   end
 
@@ -56,24 +59,16 @@ function MoveWindowToLeftOrRight(position)
   })
 end
 
+-- Move window to top or bottom half of the left side of the screen
 function moveLeftHalf(position)
   local win = hs.window.focusedWindow()
 
-  if win == nil then
-    hs.alert.show("No active window detected")
-    return
-  end
+  if handleNilWindow(win) then return end
 
   local screen = win:screen()
   local screenFrame = screen:frame()
+  local Yoffset = position == "top" and 0 or (screenFrame.h / 2)
 
-  if position == "top" then
-    Yoffset = 0
-  elseif position == "bottom" then
-    win:setFrame({
-      Yoffset = (screenFrame.h / 2)
-    })
-  end
   win:setFrame({
     x = screenFrame.x,
     y = screenFrame.y + Yoffset,
@@ -82,22 +77,15 @@ function moveLeftHalf(position)
   })
 end
 
+-- Move window to top or bottom third of the left side of the screen
 function MoveLeftThird(position)
   local win = hs.window.focusedWindow()
 
-  if win == nil then
-    hs.alert.show("No active window detected")
-    return
-  end
+  if handleNilWindow(win) then return end
 
   local screen = win:screen()
   local screenFrame = screen:frame()
-
-  if position == "top" then
-    Yoffset = 0
-  elseif position == "bottom" then
-    Yoffset = (screenFrame.h / 2)
-  end
+  local Yoffset = position == "top" and 0 or (screenFrame.h / 2)
 
   win:setFrame({
     x = screenFrame.x,
@@ -107,13 +95,11 @@ function MoveLeftThird(position)
   })
 end
 
+-- Toggle full screen for the focused window
 function toggleFullScreen()
   local win = hs.window.focusedWindow()
 
-  if win == nil then
-    hs.alert.show("No active window detected")
-    return
-  end
+  if handleNilWindow(win) then return end
 
   local screen = win:screen()
   local max = screen:frame()
@@ -121,6 +107,7 @@ function toggleFullScreen()
   win:setFrame(max)
 end
 
+-- Set frames for two frontmost windows
 function setTwoWindowsFrames()
   local allWindows = hs.window.orderedWindows()
 
@@ -136,50 +123,6 @@ function setTwoWindowsFrames()
   secondFrontmostWindow:setFrame(hs.geometry.rect(0, 25, 1281, 1271))
 end
 
-hs.hotkey.bind(hyper, "o", function()
-  toggleFullScreen()
-end)
-
-hs.hotkey.bind(hyper, "j", function()
-  MoveWindowToThirds("left")
-end)
-
-hs.hotkey.bind(hyper, "k", function()
-  MoveWindowToThirds("center")
-end)
-
-hs.hotkey.bind(hyper, "l", function()
-  MoveWindowToThirds("right")
-end)
-
-hs.hotkey.bind(hyper, "i", function()
-  MoveWindowToLeftOrRight("left")
-end)
-
-hs.hotkey.bind(hyper, "p", function()
-  MoveWindowToLeftOrRight("right")
-end)
-
-hs.hotkey.bind(hyper, ",", function()
-  moveLeftHalf("top")
-end)
-
-hs.hotkey.bind(hyper, ",", function()
-  moveLeftHalf("bottom")
-end)
-
-hs.hotkey.bind(hyper, "u", function()
-  MoveLeftThird("top")
-end)
-
-hs.hotkey.bind(hyper, "m", function()
-  MoveLeftThird("bottom")
-end)
-
-hs.hotkey.bind(hyper, "0", function()
-  setTwoWindowsFrames()
-end)
-
 -- Switch Window Focus
 local wf = hs.window.filter
 local visibleWindows = wf.new():setDefaultFilter({
@@ -189,6 +132,7 @@ local visibleWindows = wf.new():setDefaultFilter({
   fullscreen = false
 })
 
+-- Helper function to filter fully visible windows
 function getFullyVisibleWindows(windows)
   local fullyVisibleWindows = {}
   for _, win in ipairs(windows) do
@@ -199,102 +143,42 @@ function getFullyVisibleWindows(windows)
   return fullyVisibleWindows
 end
 
-hs.hotkey.bind(hyper, "[", function()
+-- Functions to focus windows in different directions
+local function focusWindowInDirection(direction)
   local currentWindow = hs.window.focusedWindow()
-  local westWindows = visibleWindows:windowsToWest(currentWindow, { sortHorizontalFirst = true })
-  local fullyVisibleWestWindows = getFullyVisibleWindows(westWindows)
-  local previousWindow = fullyVisibleWestWindows[1]
+  local directionWindows = visibleWindows["windowsTo" .. direction](visibleWindows, currentWindow,
+    { sortHorizontalFirst = true })
+  local fullyVisibleDirectionWindows = getFullyVisibleWindows(directionWindows)
+  local targetWindow = fullyVisibleDirectionWindows[1]
 
-  if not currentWindow then
-    hs.alert.show("No active window detected", 2)
-    return
-  end
+  if handleNilWindow(currentWindow) then return end
 
-  if previousWindow then
-    previousWindow:focus()
+  if targetWindow then
+    targetWindow:focus()
   else
-    hs.alert.show("No window to the West", 2)
+    hs.alert.show("No window to the " .. direction, 2)
   end
-end)
-
-hs.hotkey.bind(hyper, "]", function()
-  local currentWindow = hs.window.focusedWindow()
-  local eastWindows = visibleWindows:windowsToEast(currentWindow, { sortHorizontalFirst = true })
-  local fullyVisibleEastWindows = getFullyVisibleWindows(eastWindows)
-  local nextWindow = fullyVisibleEastWindows[1]
-
-  if not currentWindow then
-    hs.alert.show("No active window detected", 2)
-    return
-  end
-
-  if nextWindow then
-    nextWindow:focus()
-  else
-    hs.alert.show("No window to the East", 2)
-  end
-end)
-
-hs.hotkey.bind(hyper, "-", function()
-  local currentWindow = hs.window.focusedWindow()
-  local northWindows = visibleWindows:windowsToNorth(currentWindow, { sortVerticalFirst = true })
-  local fullyVisibleNorthWindows = getFullyVisibleWindows(northWindows)
-  local nextWindow = fullyVisibleNorthWindows[1]
-
-  if not currentWindow then
-    hs.alert.show("No active window detected", 2)
-    return
-  end
-
-  if nextWindow then
-    nextWindow:focus()
-  else
-    hs.alert.show("No window to the North", 2)
-  end
-end)
-
-hs.hotkey.bind(hyper, "=", function()
-  local currentWindow = hs.window.focusedWindow()
-  local southWindows = visibleWindows:windowsToSouth(currentWindow, { sortVerticalFirst = true })
-  local fullyVisibleSouthWindows = getFullyVisibleWindows(southWindows)
-  local nextWindow = fullyVisibleSouthWindows[1]
-
-  if not currentWindow then
-    hs.alert.show("No active window detected", 2)
-    return
-  end
-
-  if nextWindow then
-    nextWindow:focus()
-  else
-    hs.alert.show("No window to the South", 2)
-  end
-end)
-
-
+end
 
 -- Hint Shortcut
 hs.hints.hintChars = { 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' }
 hs.hints.showTitleThresh = 0
-hs.hotkey.bind(hyper, 'w', function()
-  hs.hints.windowHints()
-end)
 
---[[
-function showFocusedWindowFrame()
-  local win = hs.window.focusedWindow()
+-- Bind Keys
 
-  if win == nil then
-    hs.alert.show("No active window detected")
-    return
-  end
-
-  local winFrame = win:frame()
-  hs.alert.show("X: " ..
-    math.floor(winFrame.x) ..
-    ", Y: " .. math.floor(winFrame.y) .. ", Width: " .. math.floor(winFrame.w) .. ", Height: " .. math.floor(winFrame.h), 10)
-end
-
-hs.hotkey.bind({ "ctrl", "shift" }, "P", function()
-  showFocusedWindowFrame()
-end) ]]
+hs.hotkey.bind(hyper, ",", function() moveLeftHalf("top") end)
+hs.hotkey.bind(hyper, "-", function() focusWindowInDirection("North") end)
+hs.hotkey.bind(hyper, ".", function() moveLeftHalf("bottom") end)
+hs.hotkey.bind(hyper, "0", setTwoWindowsFrames)
+hs.hotkey.bind(hyper, "=", function() focusWindowInDirection("South") end)
+hs.hotkey.bind(hyper, "[", function() focusWindowInDirection("West") end)
+hs.hotkey.bind(hyper, "]", function() focusWindowInDirection("East") end)
+hs.hotkey.bind(hyper, "i", function() MoveWindowToLeftOrRight("left") end)
+hs.hotkey.bind(hyper, "j", function() MoveWindowToThirds("left") end)
+hs.hotkey.bind(hyper, "k", function() MoveWindowToThirds("center") end)
+hs.hotkey.bind(hyper, "l", function() MoveWindowToThirds("right") end)
+hs.hotkey.bind(hyper, "m", function() MoveLeftThird("bottom") end)
+hs.hotkey.bind(hyper, "o", toggleFullScreen)
+hs.hotkey.bind(hyper, "p", function() MoveWindowToLeftOrRight("right") end)
+hs.hotkey.bind(hyper, "u", function() MoveLeftThird("top") end)
+hs.hotkey.bind(hyper, 'w', function() hs.hints.windowHints() end)
