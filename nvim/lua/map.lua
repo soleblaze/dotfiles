@@ -126,6 +126,19 @@ map("v", "<leader>k", "y:<C-U>call Dasht(getreg(0))<CR>")
 -- Which Key Mappings
 local wk = require("which-key")
 wk.register({
+  b = {
+    name = "+Buffer",
+    p = { "<cmd>BufferPin<cr>", "Pin" },
+    c = { "<cmd>BufferClose<cr>", "Close" },
+    d = { "<cmd>BufferPickDelete<cr>", "Pick Delete" },
+    r = { "<cmd>BufferRestore<cr>", "Restore" },
+    s = {
+      b = { "<cmd>BufferOrderByBufferNumber<cr>", "Order By Number" },
+      d = { "<cmd>BufferOrderByDirectory<cr>", "Order By Directory" },
+      l = { "<cmd>BufferOrderByLanguage<cr>", "Order By Language" },
+      w = { "<cmd>BufferOrderByWindowNumber<cr>", "Order By Window Number" },
+    }
+  },
   f = {
     name = "+Telescope",
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },

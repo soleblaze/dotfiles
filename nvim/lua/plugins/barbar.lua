@@ -4,10 +4,10 @@ return {
   config = function()
     require("bufferline").setup {
       icons = {
+        button = ' ',
         buffer_index = true,
-        filetype = { enabled = false }
+        filetype = { enabled = false },
       },
-      closable = true,
       clickable = false,
       maximum_padding = 1,
     }
