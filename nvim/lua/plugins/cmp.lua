@@ -51,7 +51,7 @@ return {
       },
       formatting = {
         format = lspkind.cmp_format({
-          mode = 'symbol_text',
+          mode = 'symbol',
           maxwidth = 50,
           ellipsis_char = '...',
           symbol_map = { Copilot = "" },
@@ -72,9 +72,12 @@ return {
         end,
       },
       window = {
-        documentation = {
-          border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-        },
+        completion = cmp.config.window.bordered({
+          winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None'
+        }),
+        documentation = cmp.config.window.bordered({
+          winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None'
+        }),
       },
       mapping = {
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),

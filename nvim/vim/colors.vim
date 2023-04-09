@@ -16,7 +16,7 @@ hi BufferInactiveTarget gui=bold guifg=red guibg=#1f4461
 hi BufferTabpages gui=bold guifg=#ffffff guibg=#193549
 hi BufferTabpageFill guifg=#193549 guibg=#193549
 
-hi PMenu guifg=#9E9E9E guibg=#1f4461
+hi PMenu guifg=#9E9E9E guibg=#193549
 hi PMenuSBar guibg=#626262
 hi PMenuSel guifg=#1C1C1C guibg=#FFC600
 hi PMenuThumb guibg=#BCBCBC
