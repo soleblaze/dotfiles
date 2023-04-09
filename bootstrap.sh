@@ -88,3 +88,7 @@ mkdir -p ~/bin
 for file in bin/*; do
   linkFile "$PWD/$file" "$HOME/$file"
 done
+
+if ! [[ -f "$HOME/.terminfo/74/tmux-256color" ]]; then
+  tic -x "$PWD/terminfo/tmux-256color.terminfo"
+fi
