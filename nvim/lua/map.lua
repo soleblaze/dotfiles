@@ -33,6 +33,14 @@ map("n", "<leader>7", "<cmd>BufferGoto 7<CR>")
 map("n", "<leader>8", "<cmd>BufferGoto 8<CR>")
 map("n", "<leader>9", "<cmd>BufferGoto 9<CR>")
 
+-- git signs
+map('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
+map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
+map('o', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+map('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+map('v', '<leader>hs', ':Gitsigns stage_hunk<CR>')
+map('v', '<leader>hr', ':Gitsigns reset_hunk<CR>')
+
 -- other
 map("i", "<F7>", "<C-o><cmd>set spell!<cr>")
 map("i", "<F8>", "<C-o><cmd>set list!<cr>")
@@ -88,7 +96,7 @@ vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 -- LSP
-map("n", "<leader>h", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+--map("n", "<leader>h", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 map("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>")
 map("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
@@ -150,6 +158,17 @@ wk.register({
       l = { "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", "LineUrl" },
     },
     n = { "<cmd>lua require('neogit').open()<cr>", "Neogit" },
+  },
+  h = {
+    name = "+Git Hunks",
+    R = { '<cmd>lua require("gitsigns").reset_buffer()<CR>', "Reset Buffer" },
+    S = { '<cmd>lua require("gitsigns").stage_buffer()<CR>', "Stage Buffer" },
+    U = { '<cmd>lua require("gitsigns").reset_buffer_index()<CR>', "Reset Buffer Index", },
+    b = { '<cmd>lua require("gitsigns").blame_line{full=true}<CR>', "Blame Line" },
+    p = { '<cmd>lua require("gitsigns").preview_hunk()<CR>', "Preview Hunk" },
+    r = { '<cmd>lua require("gitsigns").reset_hunk()<CR>', "Reset Hunk" },
+    s = { '<cmd>lua require("gitsigns").stage_hunk()<CR>', "Stage Hunk" },
+    u = { '<cmd>lua require("gitsigns").undo_stage_hunk()<CR>', "Undo Hunk Stage" },
   },
   t = {
     name = "+NeoTest",

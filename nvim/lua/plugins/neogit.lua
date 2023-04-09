@@ -4,7 +4,8 @@ return {
   config = function()
     local neogit = require('neogit')
     neogit.setup({
-      integrations = { diffview = true }
+      integrations = { diffview = true },
+      disable_commit_confirmation = true
     })
   end
 }
