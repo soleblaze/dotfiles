@@ -174,6 +174,8 @@ wk.register({
   },
   h = {
     name = "+Git Hunks",
+    d = { '<cmd>Gitsigns diffthis split=botright<CR>', "Diff This" },
+    D = { '<cmd>Gitsigns diffthis ~ split=botright<CR>', "Diff File" },
     R = { '<cmd>lua require("gitsigns").reset_buffer()<CR>', "Reset Buffer" },
     S = { '<cmd>lua require("gitsigns").stage_buffer()<CR>', "Stage Buffer" },
     U = { '<cmd>lua require("gitsigns").reset_buffer_index()<CR>', "Reset Buffer Index", },
@@ -181,6 +183,10 @@ wk.register({
     p = { '<cmd>lua require("gitsigns").preview_hunk()<CR>', "Preview Hunk" },
     r = { '<cmd>lua require("gitsigns").reset_hunk()<CR>', "Reset Hunk" },
     s = { '<cmd>lua require("gitsigns").stage_hunk()<CR>', "Stage Hunk" },
+    t = {
+      d = { '<cmd>Gitsigns toggle_deleted<CR>', "Toggle Deleted" },
+      b = { '<cmd>Gitsigns toggle_current_line_blame<CR>', "Toggle Current Line Blame" },
+    },
     u = { '<cmd>lua require("gitsigns").undo_stage_hunk()<CR>', "Undo Hunk Stage" },
   },
   t = {
@@ -207,6 +213,7 @@ wk.register({
   },
   w = {
     name = "+Window",
+    o = { "<C-w>o", "Close Other Windows" },
     p = { "<cmd>pclose<cr>", "ClosePreview" },
     x = { "<cmd>close<cr>", "Close" }
   },
