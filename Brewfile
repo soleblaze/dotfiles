@@ -90,6 +90,7 @@ cask "discord"
 cask "font-dejavu"
 cask "font-dejavu-sans-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
+cask "hammerspoon"
 cask "hookmark"
 cask "karabiner-elements"
 cask "keyboard-maestro"
@@ -108,7 +109,6 @@ mas "1Password for Safari", id: 1569813296
 mas "Dark Noise", id: 1465439395
 mas "Day One", id: 1055511498
 mas "MindNode", id: 1289197285
-mas "Moom", id: 419330170
 mas "OmniOutliner 5", id: 1142578772
 mas "Reeder", id: 1529448980
 mas "Save to Raindrop.io", id: 1549370672

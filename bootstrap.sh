@@ -92,3 +92,6 @@ done
 if ! [[ -f "$HOME/.terminfo/74/tmux-256color" ]]; then
   tic -x "$PWD/terminfo/tmux-256color.terminfo"
 fi
+
+mkdir -p ~/.hammerspoon
+linkFile "$PWD/hammerspoon/init.lua" ~/.hammerspoon/init.lua
