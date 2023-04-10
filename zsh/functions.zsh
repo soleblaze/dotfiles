@@ -12,7 +12,7 @@ function diff() {
 }
 
 
-function cdgr() {
+function cdgb() {
   if git rev-parse --show-toplevel >/dev/null 2>&1; then
     cd $(git rev-parse --show-toplevel)
   else
