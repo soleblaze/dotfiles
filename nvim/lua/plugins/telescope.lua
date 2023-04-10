@@ -1,6 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
+    { "aaronhallaert/advanced-git-search.nvim" },
     { "ElPiloto/telescope-vimwiki.nvim" },
     { "debugloop/telescope-undo.nvim" },
     { "jemag/telescope-diff.nvim" },
@@ -19,6 +20,9 @@ return {
             preview_height = 0.8,
           },
         },
+        advanced_git_search = {
+          diff_plugin = "diffview",
+        },
       },
     })
     require("telescope").load_extension("fzf")
@@ -28,6 +32,7 @@ return {
     require('telescope').load_extension('neoclip')
     require('telescope').load_extension('vimwiki')
     require("telescope").load_extension("diff")
+    require("telescope").load_extension("advanced_git_search")
 
     vim.cmd("command! -bang Keymap Telescope keymaps")
 

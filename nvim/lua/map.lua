@@ -139,9 +139,12 @@ wk.register({
   },
   d = {
     name = "+Diff",
+    b = { '<cmd>Telescope advanced_git_search diff_branch_file<cr>', "Diff Git Branch" },
     C = { '<cmd>lua require("telescope").extensions.diff.diff_files({ hidden = true })<cr>', "Compare 2 files" },
     c = { '<cmd>lua require("telescope").extensions.diff.diff_current({ hidden = true })<cr>',
       "Compare file with current" },
+    l = { '<cmd>Telescope advanced_git_search diff_commit_line<cr>', "Diff Commit Lines" },
+    f = { '<cmd>Telescope advanced_git_search diff_commit_file<cr>', "Diff commit Files" },
   },
   f = {
     name = "+Telescope",
@@ -159,6 +162,8 @@ wk.register({
   },
   g = {
     name = "+Git",
+    B = { '<cmd>Telescope advanced_git_search changed_on_branch<cr>', "List changes on current branch" },
+    L = { '<cmd>Telescope advanced_git_search search_log_content<cr>', "Search all commits" },
     D = { '<cmd>Gitsigns diffthis ~ split=botright<CR>', "Diff File" },
     R = { '<cmd>lua require("gitsigns").reset_buffer()<CR>', "Reset Buffer" },
     S = { '<cmd>lua require("gitsigns").stage_buffer()<CR>', "Stage Buffer" },
@@ -166,6 +171,7 @@ wk.register({
     b = { '<cmd>lua require("gitsigns").blame_line{full=true}<CR>', "Blame Line" },
     c = { "<cmd>lua require('neogit').open({'commit'})<cr>", "Neogit Commit" },
     d = { '<cmd>Gitsigns diffthis split=botright<CR>', "Diff This" },
+    f = { '<cmd>Telescope advanced_git_search search_log_content_file<cr>', "Search commits on file" },
     l = {
       name = "+Linker",
       u = { '<cmd>lua require"gitlinker".get_repo_url()<cr>', "RepoUrl" },
