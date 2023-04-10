@@ -1,6 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = { "p00f/nvim-ts-rainbow" },
+  dependencies = {
+    "p00f/nvim-ts-rainbow",
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
   config = function()
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
@@ -50,6 +53,23 @@ return {
           peek_definition_code = {
             ["DF"] = "@function.outer",
           },
+        },
+        select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+            ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+          },
+          selection_modes = {
+            ['@parameter.outer'] = 'v', -- charwise
+            ['@function.outer'] = 'V',  -- linewise
+            ['@class.outer'] = '<c-v>', -- blockwise
+          },
+          include_surrounding_whitespace = true,
         },
       },
       rainbow = {
