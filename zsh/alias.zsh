@@ -15,6 +15,7 @@ alias lla="exa --lFa --no-time --no-user --git --group-directories-first"
 alias ls="exa --no-time --no-user --git --group-directories-first"
 alias lsize="exa -lF --no-time --no-user --git --group-directories-first --sort=size"
 alias lt="exa -lF --no-user --git --group-directories-first"
+alias man="batman"
 alias ping='prettyping --nolegend'
 alias vi=nvim
 alias wget=wget --hsts-file="$HOME/.local/share/wget-hsts"
