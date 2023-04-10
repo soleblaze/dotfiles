@@ -10,3 +10,12 @@ function catnc() {
 function diff() {
   batdiff --delta --terminal-width=$(($COLUMNS-1)) $1 $2
 }
+
+
+function cdgr() {
+  if git rev-parse --show-toplevel >/dev/null 2>&1; then
+    cd $(git rev-parse --show-toplevel)
+  else
+    echo "Not in a git repo."
+  fi
+}
