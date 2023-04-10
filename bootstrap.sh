@@ -95,3 +95,13 @@ fi
 
 mkdir -p ~/.hammerspoon
 linkFile "$PWD/hammerspoon/init.lua" ~/.hammerspoon/init.lua
+
+if ! grep -q /etc/shells "$(brew --prefix)/bin/zsh"; then
+  echo "Adding $(brew --prefix)/bin/zsh to /etc/shells"
+  echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
+fi
+
+if [[ "$SHELL" != "$(brew --prefix)/bin/zsh" ]]; then
+  echo "Changing shell to $(brew --prefix)/bin/zsh"
+  chsh -s "$(brew --prefix)/bin/zsh"
+fi
