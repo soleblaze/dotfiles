@@ -83,11 +83,9 @@ brew "zsh-autopair"
 brew "zsh-completions"
 brew "zsh-fast-syntax-highlighting"
 brew "zsh-history-substring-search"
-cask "1password"
 cask "bunch"
 cask "bartender"
 cask "dash"
-cask "discord"
 cask "font-dejavu"
 cask "font-dejavu-sans-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
@@ -105,17 +103,12 @@ cask "secretive"
 cask "thingsmacsandboxhelper"
 cask "timing"
 cask "visual-studio-code"
-mas "1Password for Safari", id: 1569813296
-mas "Amphetamine", id: 937984704
 mas "Dark Noise", id: 1465439395
-mas "Day One", id: 1055511498
 mas "GoodLinks", id: 1474335294
 mas "Keep It", id: 1272768911
 mas "MindNode", id: 1289197285
 mas "OmniOutliner 5", id: 1142578772
-mas "Reeder", id: 1529448980
 mas "Save to Raindrop.io", id: 1549370672
-mas "Slack", id: 803453959
 mas "SnippetsLab", id: 1006087419
 mas "TestFlight", id: 899247664
 mas "TextSniper", id: 1528890965
