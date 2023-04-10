@@ -6,6 +6,7 @@ return {
     { "hrsh7th/cmp-nvim-lua" },
     { "hrsh7th/cmp-path" },
     { "hrsh7th/cmp-cmdline" },
+    { "petertriho/cmp-git" },
     { "saadparwaiz1/cmp_luasnip" },
     { "zbirenbaum/copilot-cmp" },
     { "onsails/lspkind.nvim" },
@@ -33,6 +34,8 @@ return {
     )
 
     require("copilot_cmp").setup()
+
+    require("cmp_git").setup()
 
     local lspkind = require('lspkind')
 
@@ -139,6 +142,7 @@ return {
       sources = {
         { name = "copilot",    group_index = 2 },
         { name = "luasnip",    group_index = 2 },
+        { name = "git",        group_index = 2 },
         { name = "nvim_lsp",   group_index = 2 },
         { name = "path",       group_index = 2 },
         { name = "treesitter", group_index = 2 },
@@ -152,11 +156,11 @@ return {
           cmp.config.compare.offset,
           -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
           cmp.config.compare.exact,
+          cmp.config.compare.sort_text,
           cmp.config.compare.score,
           cmp.config.compare.recently_used,
           cmp.config.compare.locality,
           cmp.config.compare.kind,
-          cmp.config.compare.sort_text,
           cmp.config.compare.length,
           cmp.config.compare.order,
         },

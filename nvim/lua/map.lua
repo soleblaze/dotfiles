@@ -99,7 +99,7 @@ map("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>")
 map("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
 map("n", "<leader>F", "<cmd>lua vim.lsp.buf.format()<CR>")
-map("n", "<leader>o", "<cmd>Telescope lsp_document_symbols<CR>")
+--map("n", "<leader>o", "<cmd>Telescope lsp_document_symbols<CR>")
 map("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
 map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
@@ -129,6 +129,7 @@ wk.register({
     p = { "<cmd>BufferPin<cr>", "Pin" },
     c = { "<cmd>BufferClose<cr>", "Close" },
     d = { "<cmd>BufferPickDelete<cr>", "Pick Delete" },
+    f = { "<cmd>bdelete!<cr>", "Force Delete Buffer" },
     r = { "<cmd>BufferRestore<cr>", "Restore" },
     s = {
       b = { "<cmd>BufferOrderByBufferNumber<cr>", "Order By Number" },
@@ -196,6 +197,36 @@ wk.register({
     u = { '<cmd>lua require("gitsigns").undo_stage_hunk()<CR>', "Undo Hunk Stage" },
   },
   l = { "<cmd>HopLineStart<cr>", "HopLineStart" },
+  o = {
+    name = "+Octo",
+    a = { "<cmd>Octo actions<cr>", "List Actions" },
+    c = { "<cmd>Octo comment add<cr>", "Add Comment" },
+    d = { "<cmd>Octo comment delete<cr>", "Delete Comment" },
+    p = {
+      name = "+PR",
+      a = { "<cmd>Octo pr checks<cr>", "Show PR Checks" },
+      b = { "<cmd>Octo pr browser<cr>", "Open PR in Browser" },
+      C = { "<cmd>Octo pr create<cr>", "Create PR" },
+      c = { "<cmd>Octo pr changes<cr>", "Show PR Changes" },
+      d = { "<cmd>Octo pr diff<cr>", "Show PR Diffs" },
+      l = { "<cmd>Octo pr list<cr>", "List PRs" },
+      r = { "<cmd>Octo pr ready<cr>", "Mark PR Ready" },
+      u = { "<cmd>Octo pr url<cr>", "Copy PR URL to clipboard" },
+    },
+    r = {
+      name = "+Review",
+      R = { "<cmd>Octo review resume<cr>", "Resume Review" },
+      C = { "<cmd>Octo pr checkout<cr>", "Checkout PR" },
+      c = { "<cmd>Octo review commit<cr>", "Choose a commit" },
+      n = { "<cmd>Octo review start<cr>", "Start Review" },
+      s = { "<cmd>Octo review submit<cr>", "Submit Review" },
+      r = { "<cmd>Octo thread resolve<cr>", "Mark thread resolved" },
+      t = { "<cmd>Octo review comments<cr>", "View pending comments" },
+      u = { "<cmd>Octo thread unresolve<cr>", "Mark thread unresolved" },
+      x = { "<cmd>Octo review close<cr>", "Close Review" },
+    },
+    u = { "<cmd>Octo repo url<cr>", "Copy repo url to clipboard" },
+  },
   t = {
     name = "+NeoTest",
     a = { '<cmd>lua require("neotest").run.attach()<CR>', "Attach" },
@@ -221,7 +252,6 @@ wk.register({
   s = { "<cmd>HopChar1<cr>", "HopChar 1" },
   w = {
     name = "+Window",
-    d = { "<cmd>bdelete!<cr>", "Force Delete Buffer" },
     o = { "<C-w>o", "Close Other Windows" },
     p = { "<cmd>pclose<cr>", "ClosePreview" },
     x = { "<cmd>close<cr>", "Close" }
