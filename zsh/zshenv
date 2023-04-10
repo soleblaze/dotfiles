@@ -54,6 +54,12 @@ setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
+# Setup XDG paths and directories based off these paths
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export GOROOT=/opt/homebrew/bin
