@@ -1,0 +1,67 @@
+[alias]
+  bm = branch --merged
+  dd = diff --dirstat --find-copies --find-renames --histogram --color
+  discard = !git stash save --keep-index --include-untracked && git stash drop
+  prune = fetch --prune
+  sl = stash list --pretty=format:\"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold magenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(gree  n)(%cr) %C(bold blue)<%an>%C(reset)\"
+  stash-all = stash save --include-untracked
+  undo = reset --soft HEAD^
+  unstage = reset HEAD --
+[core]
+   pager = delta --syntax-theme="cobalt2"
+   editor = nvim
+[delta]
+  features = line-numbers decorations
+  line-numbers = true
+  syntax-theme = cobalt2
+  whitespace-error-style = 22 reverse
+[delta "decorations"]
+  commit-decoration-style = bold yellow box ul
+  file-decoration-style = none
+  file-style = bold yellow ul
+[diff]
+  algorithm = patience
+  colorMoved = default
+  tool = meld
+[difftool]
+  prompt = false
+[difftool "meld"]
+  cmd = meld "$LOCAL" "$REMOTE"
+[merge]
+  tool = meld
+[mergetool "meld"]
+  cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+  #cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+[help]
+  autocorrect = 1
+[http "https://gopkg.in"]
+  followRedirects = true
+[init]
+  defaultBranch = main
+[interactive]
+  diffFilter = delta --color-only --syntax-theme="cobalt2"
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+[push]
+  default = simple
+  followTags = true
+[status]
+  showUntrackedFiles = all
+[user]
+  email = EMAIL
+  name = NAME
+  signingKey = SIGNING KEY
+
+[commit]
+	gpgsign = true
+	verbose = true
+[gpg]
+	format = ssh
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
