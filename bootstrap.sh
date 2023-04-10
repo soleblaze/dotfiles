@@ -105,3 +105,5 @@ if [[ "$SHELL" != "$(brew --prefix)/bin/zsh" ]]; then
   echo "Changing shell to $(brew --prefix)/bin/zsh"
   chsh -s "$(brew --prefix)/bin/zsh"
 fi
+
+mkdir -p ~/.cache/zsh
