@@ -3,6 +3,7 @@ return {
   dependencies = {
     { "ElPiloto/telescope-vimwiki.nvim" },
     { "debugloop/telescope-undo.nvim" },
+    { "jemag/telescope-diff.nvim" },
     { "nvim-lua/plenary.nvim" },
     { "nvim-telescope/telescope-dap.nvim" },
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -26,6 +27,7 @@ return {
     require("telescope").load_extension("yaml_schema")
     require('telescope').load_extension('neoclip')
     require('telescope').load_extension('vimwiki')
+    require("telescope").load_extension("diff")
 
     vim.cmd("command! -bang Keymap Telescope keymaps")
 

@@ -1,4 +1,3 @@
--- map functions
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
   if opts then
@@ -52,7 +51,6 @@ map("n", "<F9>", '<cmd>lua require"toggle-cmp".toggle_completion()<cr>')
 map("n", "<leader>'", "<C-w>s")
 map("n", "<leader>;", "<C-w>v")
 map("n", "<leader>P", '"+P')
-map("n", "<leader>d", "<cmd>bdelete!<cr>")
 map("n", "<leader>p", '"+p')
 map("n", "ZZ", "<cmd>wqa!<cr>")
 map("n", "[l", "<cmd>lprevious<CR>")
@@ -139,6 +137,12 @@ wk.register({
       w = { "<cmd>BufferOrderByWindowNumber<cr>", "Order By Window Number" },
     }
   },
+  d = {
+    name = "+Diff",
+    C = { '<cmd>lua require("telescope").extensions.diff.diff_files({ hidden = true })<cr>', "Compare 2 files" },
+    c = { '<cmd>lua require("telescope").extensions.diff.diff_current({ hidden = true })<cr>',
+      "Compare file with current" },
+  },
   f = {
     name = "+Telescope",
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },
@@ -211,6 +215,7 @@ wk.register({
   s = { "<cmd>HopChar1<cr>", "HopChar 1" },
   w = {
     name = "+Window",
+    d = { "<cmd>bdelete!<cr>", "Force Delete Buffer" },
     o = { "<C-w>o", "Close Other Windows" },
     p = { "<cmd>pclose<cr>", "ClosePreview" },
     x = { "<cmd>close<cr>", "Close" }
