@@ -16,6 +16,7 @@ alias ls="exa --no-time --no-user --git --group-directories-first"
 alias lsize="exa -lF --no-time --no-user --git --group-directories-first --sort=size"
 alias lt="exa -lF --no-user --git --group-directories-first"
 alias man="batman"
+alias pretty="prettybat"
 alias ping='prettyping --nolegend'
 alias vi=nvim
 alias wget=wget --hsts-file="$HOME/.local/share/wget-hsts"
@@ -44,6 +45,14 @@ alias sshnh='ssh -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"
 alias -g ...="../.."
 alias -g ....="../../.."
 alias -g .....="../../../.."
+
+# Misc bat aliases
+alias bathelp='bat --plain --language=help'
+alias bl="bat --paging=never -l log"
+alias tf="tail -f | bat --paging=never -l log"
+function help() {
+    "$@" --help 2>&1 | bathelp
+}
 
 # colima
 if [ "$(uname -m)" == "arm64" ]; then
