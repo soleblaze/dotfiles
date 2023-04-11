@@ -108,3 +108,12 @@ mkdir -p ~/.config/smug
 for i in smug/*; do
   linkFile "$PWD/$i" "$HOME/.config/$i"
 done
+
+mkdir -p ~/.config/git/hooks
+for i in hooks/*; do
+  linkFile "$PWD/$i" "$HOME/.config/git/$i"
+done
+
+if ! grep -q "hookPath" ~/.gitconfig; then
+  git config --global core.hooksPath "$HOME/.config/git"
+fi
