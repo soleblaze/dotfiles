@@ -566,8 +566,6 @@ alias kgwslowideall='kubectl get --watch --show-labels -o=wide --all-namespaces'
 alias kgwslowidef='kubectl get --watch --show-labels -o=wide --recursive -f'
 alias kgwslowidel='kubectl get --watch --show-labels -o=wide -l'
 alias kgwslowiden='kubectl get --watch --show-labels -o=wide --namespace'
-alias klo='kubectl logs -f'
-alias klon='kubectl logs -f --namespace'
 alias kp='kubectl proxy'
 alias kpf='kubectl port-forward'
 alias krm='kubectl delete'
@@ -831,6 +829,13 @@ function kgpln() {
 
 function krsj() {
   kubectl get job -n $1 $2 -o json | jq 'del(.spec.selector)' | jq 'del(.spec.template.metadata.labels)' | kubectl replace --force -f -
+}
+
+function klo {
+  kubectl logs -f $1 | bat --paging=never -l log
+}
+function klon {
+  kubectl logs -f --namespace $1 $2 | bat --paging=never -l log
 }
 
 function klotn {
