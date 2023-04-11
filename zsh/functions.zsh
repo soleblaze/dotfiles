@@ -5,12 +5,14 @@ function catnc() {
     grep -E -v '(^#|^/)' "$1" | sed '/^$/d'
 }
 
-# uses batcat for diff. This is done in a function since columns isn't working
-# properly in blink shell
 function diff() {
-  batdiff --delta --terminal-width=$(($COLUMNS-1)) $1 $2
-}
+  if [ "$#" -ne 2 ]; then
+    command diff "$@"
+    return
+  fi
 
+  git diff --no-index $1 $2;
+}
 
 function cdgb() {
   if git rev-parse --show-toplevel >/dev/null 2>&1; then
