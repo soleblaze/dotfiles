@@ -34,6 +34,7 @@ return {
         "terraform",
         "toml",
         "vim",
+        "vimdoc",
         "yaml",
       },
       sync_install = true,
