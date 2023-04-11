@@ -808,18 +808,29 @@ alias ksysrmsvcl='kubectl --namespace=kube-system delete service -l'
 alias ksysrun='kubectl --namespace=kube-system run --rm --restart=Never --image-pull-policy=IfNotPresent -i -t'
 
 
-function checkvaluerepos() {
-  for i in $(awk '/repository:/{ REPO=$2; next } /tag:/{ print REPO":" $2 }' values.yaml); do
-    if ! docker pull "$i" >/dev/null 2>&1;then
-      echo fail: $i
-    fi
-  done
+function kgpl() {
+  if [ -z "$1" ]; then
+    echo "Usage: kgpl <pod_name>"
+    return 1
+  fi
+
+  POD_NAME="$1"
+  kubectl get pod "$POD_NAME" --template='{{.metadata.labels}}'
+  echo
+}
+
+function kgpln() {
+  if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Usage: kgpln <namespace> <pod_name>"
+    return 1
+  fi
+
+  NAMESPACE="$1"
+  POD_NAME="$2"
+  kubectl get pod -n "$NAMESPACE" "$POD_NAME" --template='{{.metadata.labels}}'
+  echo
 }
 
 function krsj() {
   kubectl get job -n $1 $2 -o json | jq 'del(.spec.selector)' | jq 'del(.spec.template.metadata.labels)' | kubectl replace --force -f -
-}
-
-function krspn() {
-  for pod in $(kubectl get pods -n $1 |grep $2 | cut -d" " -f1); do if kubectl describe pods -n spire "$i" | grep -q $3; then echo "Restarting $i running on $NODE"; kubectl delete -n spire pods "$i"; fi; done
 }
