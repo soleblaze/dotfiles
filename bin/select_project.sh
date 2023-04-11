@@ -69,7 +69,7 @@ if ! [[ -d "$ROOTDIR/$PROJECT" ]]; then
     echo -e "# Project: ${PROJECT}\n" >"${note}"
     if [[ "$JIRA_AUTH_TYPE" ]]; then
       echo -e "## Jira\n" >>"${note}"
-      jira issue view "${PROJECT}" >>"${note}"
+      jira issue view "${PROJECT}" --comments 20 >>"${note}"
     fi
   fi
 
