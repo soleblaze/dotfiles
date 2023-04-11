@@ -29,9 +29,11 @@
   cmd = meld "$LOCAL" "$REMOTE"
 [merge]
   tool = meld
+[mergetool]
+  prompt = false
 [mergetool "meld"]
-  cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-  #cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+  conflictstyle = diff3
+  path = /Applications/Meld.app/Contents/MacOS/Meld
 [help]
   autocorrect = 1
 [http "https://gopkg.in"]
@@ -54,7 +56,6 @@
   email = EMAIL
   name = NAME
   signingKey = SIGNING KEY
-
 [commit]
 	gpgsign = true
 	verbose = true
