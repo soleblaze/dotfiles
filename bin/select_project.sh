@@ -6,6 +6,10 @@ if ! [ "$1" ]; then
   exit 1
 fi
 
+ROOTDIR="$HOME/projects"
+PROJECT="$1"
+TITLE="[$PROJECT]"
+
 # Takes the basic size of the header and adds the length of the title to it
 calculate_length() {
   local hex_number=$1
@@ -26,10 +30,6 @@ generate_rule() {
   STRINGHEX=$(echo -ne "${TITLE}" | xxd -p)
   echo "0a${LENGTH1}080112${LENGTH2}12${LENGTH3}08631a0922070a057469746c6522${LENGTH4}0a${LENGTH5}0a${LENGTH}${STRINGHEX}2a020102" | xxd -r -p | base64
 }
-
-ROOTDIR="$HOME/projects"
-PROJECT="$1"
-TITLE="[$PROJECT]"
 
 if ! [[ -d "$ROOTDIR/$PROJECT" ]]; then
   if [[ "$PROJECT_REPO_BASE" ]]; then
