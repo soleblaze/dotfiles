@@ -4,16 +4,13 @@ env:
 root: ~/projects/${PROJECT}
 windows:
 - name: notes
-  root: /Users/soleblaze/projects/notes
+  root: ../notes
   commands:
     - nvim ${PROJECT}.md
 - name: code
-  root: /Users/soleblaze/projects/${PROJECT}
   commands:
     - nvim
 - name: zsh
-  root: /Users/soleblaze/projects/${PROJECT}
   commands: []
 - name: logged
-  root: /Users/soleblaze/projects/${PROJECT}
   commands: []

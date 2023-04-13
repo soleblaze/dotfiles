@@ -11,9 +11,9 @@ if [ "$TMUX" ] && [ "$PROJECT" ]; then
   fi
 fi
 
-alias open-project='find ~/projects -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | fzf --print0 | xargs -0 -I {} -n 1 -o select_project.sh {}'
+alias op='find ~/projects -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | fzf --print0 | xargs -0 -I {} -n 1 -o select_project.sh {}'
 
-function create-project() {
+function cproj() {
   if ! [[ "$1" ]]; then
     echo "Error: no project name given"
   else

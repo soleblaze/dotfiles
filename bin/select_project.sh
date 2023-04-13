@@ -8,7 +8,7 @@ fi
 
 ROOTDIR="$HOME/projects"
 PROJECT="$1"
-TITLE="[$PROJECT]"
+TITLE="$PROJECT"
 
 # Takes the basic size of the header and adds the length of the title to it
 calculate_length() {
@@ -69,7 +69,8 @@ if ! [[ -d "$ROOTDIR/$PROJECT" ]]; then
     echo -e "# Project: ${PROJECT}\n" >"${note}"
     if [[ "$JIRA_AUTH_TYPE" ]]; then
       echo -e "## Jira\n" >>"${note}"
-      jira issue view "${PROJECT}" --comments 20 >>"${note}"
+      jira issue view "${PROJECT}" --plain --comments 20 >>"${note}"
+      jira issue move "${PROJECT}" "In Progress"
     fi
   fi
 
