@@ -6,6 +6,12 @@ linkFile() {
   fi
 }
 
+installKrewPlugin() {
+  if ! [ -f "$HOME/.krew/bin/kubectl-${1/-/_}" ]; then
+    kubectl krew install "$1"
+  fi
+}
+
 if ! [ -f /opt/homebrew/bin/brew ] && ! [ -f '/usr/local/bin/brew' ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   chmod 755 /opt/homebrew/share || chmod 755 /usr/local/share
@@ -116,4 +122,44 @@ done
 
 if ! grep -q "hookPath" ~/.gitconfig; then
   git config --global core.hooksPath "$HOME/.config/git"
+fi
+
+installKrewPlugin blame
+installKrewPlugin debug-shell
+installKrewPlugin df-pv
+installKrewPlugin exec-as
+installKrewPlugin fuzzy
+installKrewPlugin gadget
+installKrewPlugin ice
+installKrewPlugin images
+installKrewPlugin kluster-capacity
+installKrewPlugin kurt
+installKrewPlugin modify-secret
+installKrewPlugin node-shell
+installKrewPlugin oomd
+installKrewPlugin outdated
+installKrewPlugin pod-inspect
+installKrewPlugin resource-capacity
+installKrewPlugin score
+installKrewPlugin sick-pods
+installKrewPlugin sniff
+installKrewPlugin starboard
+installKrewPlugin status
+installKrewPlugin stern
+installKrewPlugin tree
+installKrewPlugin view-allocations
+
+if [[ "$(uname -m)" != "arm64" ]]; then
+  installKrewPlugin kubescape
+  installKrewPlugin service-tree
+  installKrewPlugin doctor
+  installKrewPlugin view-webhook
+  installKrewPlugin strace
+  installKrewPlugin tap
+  installKrewPlugin trace
+  installKrewPlugin podevents
+  installKrewPlugin popeye
+  installKrewPlugin kubesec-scan
+  installKrewPlugin pod-dive
+  installKrewPlugin flame
 fi
