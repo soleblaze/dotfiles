@@ -2,7 +2,7 @@ return {
   "github/copilot.vim",
   config = function()
     vim.g.copilot_no_tab_map = true
-    vim.g.copilot_assume_mapped = true
+    vim.keymap.set('i', '<Plug>(vimrc:copilot-dummy-map)', 'copilot#Accept("<Tab>")')
 
     local copilot_on = true
     vim.api.nvim_create_user_command("CopilotToggle", function()

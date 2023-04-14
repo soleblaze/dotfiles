@@ -1,8 +1,14 @@
-local wk = require("which-key")
+local wk = require('which-key')
 
 wk.register({
-  ["<C-e>"] = { '<Plug>(copilot-dismiss)', 'Dismiss Copilot' },
-  ["<C-s>"] = { 'copilot#Accept()', 'Accept Copilot', { silent = true, expr = true } },
+  ["<C-s>"] = { function()
+    vim.api.nvim_feedkeys(
+      vim.fn['copilot#Accept'](vim.api.nvim_replace_termcodes('<Tab>', true, true, true)), 'n', true)
+  end, 'Accept Copilot', {
+    silent = true, expr = true } },
+  ["C-e"] = { '<Plug>(copilot-dismiss)', 'Dismiss Copilot' },
+  ["C-n"] = { '<Plug>(copilot-next)', 'Next Copilot Suggestion' },
+  ["C-p"] = { '<Plug>(copilot-previous)', 'Previous Copilot Suggestion' },
   ["<F7>"] = { '<cmd>set spell!<cr>', 'Toggle Spell' },
   ["<F8>"] = { '<cmd>set list!<cr>', 'Toggle List' },
   ["<F9>"] = { '<cmd>lua require("toggle-cmp").toggle_completion()<cr>', 'Toggle Completion' },
@@ -13,14 +19,34 @@ wk.register({
 wk.register({
   K = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover Buffer' },
   ZZ = { '<cmd>wqa!<cr>', 'Save and Quit' },
+  ["<C-h>"] = { '<cmd>NavigatorLeft<cr>', 'Move to Left Pane' },
+  ["<C-j>"] = { '<cmd>NavigatorDown<cr>', 'Move to Down Pane' },
+  ["<C-k>"] = { '<cmd>NavigatorUp<cr>', 'Move to Up Pane' },
+  ["<C-l>"] = { '<cmd>NavigatorRight<cr>', 'Move to Right Pane' },
+  ["<C-n>"] = { '<cmd>BufferNext<cr>', 'Next Buffer' },
+  ["<C-p>"] = { '<cmd>BufferPrevious<cr>', 'Previous Buffer' },
+  ["<F7>"] = { '<cmd>set spell!<cr>', 'Toggle Spell' },
+  ["<F8>"] = { '<cmd>set list!<cr>', 'Toggle List' },
+  ["<F9>"] = { '<cmd>lua require"toggle-cmp".toggle_completion()<cr>', 'Toggle Completion' },
+  ["<Left>"] = { '<cmd>5winc <<cr>', 'Shift Pane Left' },
+  ["<Right>"] = { '<cmd>5winc ><cr>', 'Shift Pane Right' },
   ["["] = {
-    c = { '&diff ? "[c" : "<cmd>Gitsigns prev_hunk<CR>"', "Previous Hunk", { expr = true } },
+    c = { function()
+      if vim.wo.diff then return '[c' end
+      vim.schedule(function() require('gitsigns').prev_hunk() end)
+      return '<Ignore>'
+    end, 'Previous Hunk', { expr = true } },
     d = { '<cmd>lua vim.diagnostic.goto_prev()<CR>', "Previous Diagnostic" },
     l = { '<cmd>lprevious<CR>', "Previous Location" },
     q = { '<cmd>cprevious<CR>', "Previous Quickfix" },
     t = { '<cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>', "Previous Test" },
   },
-  ["]"] = {
+  [']'] = {
+    c = { function()
+      if vim.wo.diff then return ']c' end
+      vim.schedule(function() require('gitsigns').next_hunk() end)
+      return '<Ignore>'
+    end, 'Previous Hunk', { expr = true } },
     d = { '<cmd>lua vim.diagnostic.goto_next()<CR>', "Next Diagnostic" },
     l = { '<cmd>lnext<CR>', "Next Location" },
     q = { '<cmd>cnext<CR>', "Next Quickfix" },
@@ -41,7 +67,7 @@ wk.register({
   },
   s = { '<cmd>HopChar1<cr>', 'Hop Char 1' },
 }, {
-  mode = "v",
+  mode = "n",
 })
 
 wk.register({
@@ -99,17 +125,6 @@ wk.register({
   ["8"] = { '<cmd>BufferGoto 8<CR>', "Buffer 8" },
   ["9"] = { '<cmd>BufferGoto 9<CR>', "Buffer 9" },
   [";"] = { '<C-w>v', "Vertical Split" },
-  ["<C-h>"] = { '<cmd>NavigatorLeft<cr>', 'Move to Left Pane' },
-  ["<C-j>"] = { '<cmd>NavigatorDown<cr>', 'Move to Down Pane' },
-  ["<C-k>"] = { '<cmd>NavigatorUp<cr>', 'Move to Up Pane' },
-  ["<C-l>"] = { '<cmd>NavigatorRight<cr>', 'Move to Right Pane' },
-  ["<C-n>"] = { '<cmd>BufferNext<cr>', 'Next Buffer' },
-  ["<C-p>"] = { '<cmd>BufferPrevious<cr>', 'Previous Buffer' },
-  ["<F7>"] = { '<cmd>set spell!<cr>', 'Toggle Spell' },
-  ["<F8>"] = { '<cmd>set list!<cr>', 'Toggle List' },
-  ["<F9>"] = { '<cmd>lua require"toggle-cmp".toggle_completion()<cr>', 'Toggle Completion' },
-  ["<Left>"] = { '<cmd>5winc <<cr>', 'Shift Pane Left' },
-  ["<Right>"] = { '<cmd>5winc ><cr>', 'Shift Pane Right' },
   ["\""] = { '<C-w>s', "Split" },
   a = { '<cmd>BufferPick<cr>', "Pick Buffer" },
   b = {

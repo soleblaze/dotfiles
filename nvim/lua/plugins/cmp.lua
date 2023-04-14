@@ -81,11 +81,11 @@ return {
       mapping = {
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-e>"] = cmp.mapping(function(fallback)
+        ["<C-e>"] = cmp.mapping(function()
           if cmp and cmp.visible() then
-            cmp.mapping.abort()
+            cmp.abort()
           else
-            fallback()
+            vim.api.nvim_feedkeys(vim.fn['copilot#Dismiss'](), 'i', true)
           end
         end, { "i", "s", }),
         ["<Tab>"] = cmp.mapping(function()
@@ -105,22 +105,22 @@ return {
             fallback()
           end
         end, { "i", "s", }),
-        ["<C-n>"] = cmp.mapping(function(fallback)
+        ["<C-n>"] = cmp.mapping(function()
           if luasnip.jumpable(1) then
             luasnip.jump(1)
           elseif cmp and cmp.visible() then
             cmp.select_next_item()
           else
-            fallback()
+            vim.api.nvim_feedkeys(vim.fn['copilot#Next'](), 'i', true)
           end
         end, { "i", "s", }),
-        ["<C-p>"] = cmp.mapping(function(fallback)
+        ["<C-p>"] = cmp.mapping(function()
           if luasnip.jumpable(-1) then
             luasnip.jump(-1)
           elseif cmp and cmp.visible() then
             cmp.select_prev_item()
           else
-            fallback()
+            vim.api.nvim_feedkeys(vim.fn['copilot#Previous'](), 'i', true)
           end
         end, { "i", "s", }),
         ["<Down>"] = cmp.mapping(function(fallback)
