@@ -81,7 +81,13 @@ return {
       mapping = {
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-e>"] = cmp.mapping.abort(),
+        ["<C-e>"] = cmp.mapping(function(fallback)
+          if cmp and cmp.visible() then
+            cmp.mapping.abort()
+          else
+            fallback()
+          end
+        end, { "i", "s", }),
         ["<Tab>"] = cmp.mapping(function()
           if luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
@@ -143,6 +149,9 @@ return {
         { name = "treesitter", group_index = 2 },
         { name = "buffer",     group_index = 2 },
       },
+      experimental = {
+        ghost_text = false -- this feature conflict with copilot.vim's preview.
+      }
     })
     cmp.event:on("menu_opened", function()
       vim.b.copilot_suggestion_hidden = true

@@ -10,8 +10,8 @@ end
 map("n", "<leader>n", "<cmd>Telescope neoclip<cr>")
 
 -- Resize windows
-map("n", "<Left>", "<cmd>5winc <<cr>")
-map("n", "<Right>", "<cmd>5winc ><cr>")
+vim.keymap.set("n", "<Left>", "<cmd>5winc <<cr>")
+vim.keymap.set("n", "<Right>", "<cmd>5winc ><cr>")
 
 -- treeTS
 map("n", "gm", "<cmd>TSJToggle<cr>")
