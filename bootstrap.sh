@@ -12,6 +12,19 @@ installKrewPlugin() {
   fi
 }
 
+download_tgz() {
+  filename="$1"
+  repo="$2"
+  target="$3"
+  if ! [ -f "$HOME/bin/$1" ]; then
+    url="$(curl -f -sL "https://api.github.com/repos/${repo}/releases/latest" | jq -r '.assets[].browser_download_url' | grep '.tar.gz$' | grep -i "$target")"
+    echo "Downloading: $filename"
+    curl -sL "$url" -o "/tmp/${filename}.tgz"
+    tar -xf "/tmp/${filename}.tgz" -C "$HOME/bin/" "${filename}"
+    rm "/tmp/${filename}.tgz"
+  fi
+}
+
 if ! [ -f /opt/homebrew/bin/brew ] && ! [ -f '/usr/local/bin/brew' ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   chmod 755 /opt/homebrew/share || chmod 755 /usr/local/share
@@ -149,7 +162,11 @@ installKrewPlugin stern
 installKrewPlugin tree
 installKrewPlugin view-allocations
 
-if [[ "$(uname -m)" != "arm64" ]]; then
+if [[ "$(uname -m)" == "arm64" ]]; then
+  download_tgz kubecolor hidetatz/kubecolor Darwin_arm64
+else
+  download_tgz kubecolor hidetatz/kubecolor Darwin_x86_64
+
   installKrewPlugin kubescape
   installKrewPlugin service-tree
   installKrewPlugin doctor
