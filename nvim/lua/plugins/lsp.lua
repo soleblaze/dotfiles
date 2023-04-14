@@ -80,7 +80,10 @@ return {
             vim.diagnostic.reset(nil, bufnr)
           end, 1000)
         end
-      end
+      end,
+      settings = {
+        yaml = { keyOrdering = false }
+      }
     })
 
     local runtime_path = vim.split(package.path, ';')
