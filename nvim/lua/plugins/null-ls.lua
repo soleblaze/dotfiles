@@ -10,6 +10,7 @@ return {
     require("mason-null-ls").setup({
       ensure_installed = {
         "ansiblelint",
+        "beautysh",
         "black",
         "cbfmt",
         "fixjson",
@@ -47,6 +48,11 @@ return {
           extra_args = { "--config", vim.fn.expand('$HOME/.config/vale/vale.ini') },
         }),
         null_ls.builtins.diagnostics.yamllint,
+        null_ls.builtins.diagnostics.zsh,
+        null_ls.builtins.formatting.beautysh.with({
+          filetypes = { "zsh" },
+          args = { "-i", "2", "$FILENAME" },
+        }),
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.cbfmt.with({
           extra_args = { "--config", "/home/neovim/.cbfmt.toml" }
