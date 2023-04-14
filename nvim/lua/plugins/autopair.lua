@@ -3,7 +3,6 @@ return {
   config = function()
     require("nvim-autopairs").setup({
       check_ts = true,
-      ignored_next_char = "[%w%.]", -- will ignore alphanumeric and `.` symbol
       disable_filetype = { "TelescopePrompt", "spectre_panel" },
       fast_wrap = {
         map = "<M-e>",
