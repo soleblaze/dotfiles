@@ -51,7 +51,7 @@ alias bathelp='bat --plain --language=help'
 alias bl="bat --paging=never -l log"
 alias tf="tail -f | bat --paging=never -l log"
 function help() {
-    "$@" --help 2>&1 | bathelp
+  "$@" --help 2>&1 | bathelp
 }
 
 # colima

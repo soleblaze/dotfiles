@@ -18,7 +18,7 @@ source $(brew --prefix)/share/zsh-autopair/autopair.zsh
 
 # Fix issue with man pages being slow
 if [[ $(uname -a) = (#i)*darwin* ]] {
-    typeset -gA FAST_HIGHLIGHT
-    FAST_HIGHLIGHT[chroma-man]=
+  typeset -gA FAST_HIGHLIGHT
+  FAST_HIGHLIGHT[chroma-man]=
 }
 source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh

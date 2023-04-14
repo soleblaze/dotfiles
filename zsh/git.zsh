@@ -33,35 +33,35 @@ alias gs="git status -s"
 
 # git functions
 function gacmp () {
-    git commit -a -m "$*" && git push origin HEAD
+  git commit -a -m "$*" && git push origin HEAD
 }
 
 function gcmp () {
-    git commit -m "$*" && git push origin HEAD
+  git commit -m "$*" && git push origin HEAD
 }
 
 function gm () {
-    if currentBranch=$(git symbolic-ref --short -q HEAD)
-    then
-        git checkout "$1"
-        pull
-        git checkout $currentBranch
-        git rebase "$1"
-    else
-        echo not on any branch
-    fi
-  }
+  if currentBranch=$(git symbolic-ref --short -q HEAD)
+  then
+    git checkout "$1"
+    pull
+    git checkout $currentBranch
+    git rebase "$1"
+  else
+    echo not on any branch
+  fi
+}
 
 function gpf() {
-    if [ -z $1 ]
-        then echo "Need the name of the branch"
+  if [ -z $1 ]
+  then echo "Need the name of the branch"
+  else
+    if [ "$1" == "main" ]
+    then echo "Can't force push to main"
     else
-        if [ "$1" == "main" ]
-            then echo "Can't force push to main"
-        else
-            git push --force-with-lease origin $1
-        fi
+      git push --force-with-lease origin $1
     fi
+  fi
 }
 
 function gss () {

@@ -1,6 +1,6 @@
 #!/bin/zsh
 function set_win_title(){
-    echo -ne "\033]0;$*\007"
+  echo -ne "\033]0;$*\007"
 }
 function ssh() {
   if [ -n "$TMUX" ]

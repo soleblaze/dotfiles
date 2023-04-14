@@ -31,6 +31,6 @@ function title-preexec() {
 autoload -Uz add-zsh-hook
 
 if [[ "$TERM" == (foot*|kitty*|screen*|tmux*|xterm*) ]]; then
-	add-zsh-hook -Uz precmd title-precmd
-	add-zsh-hook -Uz preexec title-preexec
+  add-zsh-hook -Uz precmd title-precmd
+  add-zsh-hook -Uz preexec title-preexec
 fi
