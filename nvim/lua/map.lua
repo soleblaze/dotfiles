@@ -1,123 +1,117 @@
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
--- neoclip
-map("n", "<leader>n", "<cmd>Telescope neoclip<cr>")
-
--- Resize windows
-vim.keymap.set("n", "<Left>", "<cmd>5winc <<cr>")
-vim.keymap.set("n", "<Right>", "<cmd>5winc ><cr>")
-
--- treeTS
-map("n", "gm", "<cmd>TSJToggle<cr>")
-map("n", "gs", "<cmd>TSJSplit<cr>")
-map("n", "gj", "<cmd>TSJJoin<cr>")
-
--- barbar
-map("n", "<C-n>", "<cmd>BufferNext<cr>")
-map("n", "<C-p>", "<cmd>BufferPrevious<cr>")
-map("n", "<leader>a", "<cmd>BufferPick<cr>")
-map("n", "<leader>1", "<cmd>BufferGoto 1<CR>")
-map("n", "<leader>2", "<cmd>BufferGoto 2<CR>")
-map("n", "<leader>3", "<cmd>BufferGoto 3<CR>")
-map("n", "<leader>4", "<cmd>BufferGoto 4<CR>")
-map("n", "<leader>5", "<cmd>BufferGoto 5<CR>")
-map("n", "<leader>6", "<cmd>BufferGoto 6<CR>")
-map("n", "<leader>7", "<cmd>BufferGoto 7<CR>")
-map("n", "<leader>8", "<cmd>BufferGoto 8<CR>")
-map("n", "<leader>9", "<cmd>BufferGoto 9<CR>")
-
--- git signs
-map('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
-map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
-map('o', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-map('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-map('v', '<leader>hs', ':Gitsigns stage_hunk<CR>')
-map('v', '<leader>hr', ':Gitsigns reset_hunk<CR>')
-
--- hop
-map('x', 's', "<cmd>HopChar1<cr>")
-map('v', 's', "<cmd>HopChar1<cr>")
-
--- other
-map("i", "<C-s>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-map("i", "<F7>", "<C-o><cmd>set spell!<cr>")
-map("i", "<F8>", "<C-o><cmd>set list!<cr>")
-map("i", "<F9>", '<C-o><cmd>lua require"toggle-cmp".toggle_completion()<cr>')
-map("n", "<F7>", "<cmd>set spell!<cr>")
-map("n", "<F8>", "<cmd>set list!<cr>")
-map("n", "<F9>", '<cmd>lua require"toggle-cmp".toggle_completion()<cr>')
-map("n", "<leader>'", "<C-w>s")
-map("n", "<leader>;", "<C-w>v")
-map("n", "<leader>D", "<cmd>bd<cr>")
-map("n", "<leader>P", '"+P')
-map("n", "<leader>p", '"+p')
-map("n", "<leader>u", "<cmd>Telescope undo<cr>")
-map("n", "ZZ", "<cmd>wqa!<cr>")
-map("n", "[l", "<cmd>lprevious<CR>")
-map("n", "[q", "<cmd>cprevious<CR>")
-map("n", "[t", "<cmd>tprevious<CR>")
-map("n", "]l", "<cmd>lnext<CR>")
-map("n", "]q", "<cmd>cnext<CR>")
-map("n", "]t", "<cmd>tnext<CR>")
-
--- tmux navigator
-map("n", "<C-h>", '<cmd>NavigatorLeft<cr>')
-map("n", "<C-l>", '<cmd>NavigatorRight<cr>')
-map("n", "<C-k>", '<cmd>NavigatorUp<cr>')
-map("n", "<C-j>", '<cmd>NavigatorDown<cr>')
-
--- refactoring
-map("v", "<leader>re", "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>")
-map("v", "<leader>re", "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>")
-map("v", "<leader>rf", "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>")
-map("v", "<leader>ri", "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>")
-map("v", "<leader>rr", "<Cmd>lua require('refactoring').select_refactor()<CR>")
-map("v", "<leader>rv", "<Cmd>lua require('refactoring').debug.print_var({})<CR>")
-map("v", "<leader>rv", "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>")
-
--- yank
-map("v", "<leader>y", ":OSCYankVisual<cr>")
-map("n", "<leader>y", "<Plug>OSCYankOperator", { noremap = false })
-
--- neotest
-map("n", "[t", '<cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>')
-map("n", "]t", '<cmd>lua require("neotest").jump.next({ status = "failed" })<CR>')
-
--- glow
-map("n", "<leader>m", "<cmd>Glow<cr>")
-map("n", "<C-w>z", "<C-w>|<C-w>_")
-
-
--- LSP
-map("n", "<leader>e", '<cmd>lua vim.diagnostic.open_float()<CR>')
-map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
-map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
-map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
-map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-map("n", "gd", "<cmd>Telescope lsp_definitions<CR>")
-map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-map("n", "gr", "<cmd>Telescope lsp_references<CR>")
-
--- trouble
-map("n", "gR", "<cmd>Trouble lsp_references<cr>")
-
--- dasht
-map("n", "<leader><leader>K", ":Dasht!<Space>")
-map("n", "<leader><leader>k", ":call Dasht(dasht#cursor_search_terms(), '!')<CR>")
-map("n", "<leader>K", ":Dasht<Space>")
-map("n", "<leader>k", ":call Dasht(dasht#cursor_search_terms())<CR>")
-map("v", "<leader><leader>k", "y:<C-U>call Dasht(getreg(0), '!' )<CR>")
-map("v", "<leader>k", "y:<C-U>call Dasht(getreg(0))<CR>")
-
--- Which Key Mappings
 local wk = require("which-key")
+
 wk.register({
+  ["<C-e>"] = { '<Plug>(copilot-dismiss)', 'Dismiss Copilot' },
+  ["<C-s>"] = { 'copilot#Accept()', 'Accept Copilot', { silent = true, expr = true } },
+  ["<F7>"] = { '<cmd>set spell!<cr>', 'Toggle Spell' },
+  ["<F8>"] = { '<cmd>set list!<cr>', 'Toggle List' },
+  ["<F9>"] = { '<cmd>lua require("toggle-cmp").toggle_completion()<cr>', 'Toggle Completion' },
+}, {
+  mode = "i",
+})
+
+wk.register({
+  K = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover Buffer' },
+  ZZ = { '<cmd>wqa!<cr>', 'Save and Quit' },
+  ["["] = {
+    c = { '&diff ? "[c" : "<cmd>Gitsigns prev_hunk<CR>"', "Previous Hunk", { expr = true } },
+    d = { '<cmd>lua vim.diagnostic.goto_prev()<CR>', "Previous Diagnostic" },
+    l = { '<cmd>lprevious<CR>', "Previous Location" },
+    q = { '<cmd>cprevious<CR>', "Previous Quickfix" },
+    t = { '<cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>', "Previous Test" },
+  },
+  ["]"] = {
+    d = { '<cmd>lua vim.diagnostic.goto_next()<CR>', "Next Diagnostic" },
+    l = { '<cmd>lnext<CR>', "Next Location" },
+    q = { '<cmd>cnext<CR>', "Next Quickfix" },
+    t = { '<cmd>lua require("neotest").jump.next({ status = "failed" })<CR>', "Next Test" },
+  },
+  g = {
+    D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', "Declaration" },
+    R = { '<cmd>Trouble lsp_references<cr>', "References" },
+    d = { '<cmd>Telescope lsp_definitions<CR>', "Definition" },
+    i = { '<cmd>lua vim.lsp.buf.implementation()<CR>', "Implementation" },
+    j = { '<cmd>TSJJoin<cr>', "Join" },
+    m = { '<cmd>TSJToggle<cr>', "Toggle" },
+    r = { '<cmd>Telescope lsp_references<CR>', "References" },
+    s = { '<cmd>TSJSplit<cr>', "Split" },
+  },
+  i = {
+    h = { '<cmd><C-U>Gitsigns select_hunk<CR>', "Select Hunk" },
+  },
+  s = { '<cmd>HopChar1<cr>', 'Hop Char 1' },
+}, {
+  mode = "v",
+})
+
+wk.register({
+  c = {
+    name = "+ChatGPT",
+    T = { '<cmd>ChatGPTRun translate<cr>', "Translate" },
+    d = { '<cmd>ChatGPTRun docstring<cr>', "DocString" },
+    e = { '<cmd>ChatGPTRun explain_code<cr>', "Explain Code" },
+    f = { '<cmd>ChatGPTRun fix_bugs<cr>', "Fix Bugs" },
+    g = { '<cmd>ChatGPTRun grammer_correction<cr>', "Grammer Correction" },
+    i = { function() require("chatgpt").edit_with_instructions() end, "Edit with Instructions" },
+    k = { '<cmd>ChatGPTRun keywords<cr>', "Keywords" },
+    o = { '<cmd>ChatGPTRun optimize_code<cr>', "Optimize Code" },
+    r = { '<cmd>ChatGPTRun roxygen_edit<cr>', "Roxygen Edit" },
+    s = { '<cmd>ChatGPTRun summarize<cr>', "Summarize" },
+    t = { '<cmd>ChatGPTRun add_tests<cr>', "Add Tests" },
+  },
+  h = {
+    name = "+GitSigns",
+    r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset Hunk" },
+    s = { "<cmd>lua require('gitsigns').stage_hunk()<cr>", "Stage Hunk" },
+  },
+  k = {
+    name = "+Dasht",
+    s = { "y:<C-U>call Dasht(getreg(0))<CR>", "Search" },
+    b = { "y:<C-U>call Dasht(getreg(0), '!' )<CR>", "Search in Browser" },
+  },
+  r = {
+    name = "+Refactor",
+    e = { "<cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
+    f = { "<cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "Extract Function to File" },
+    i = { "<cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Var" },
+    r = { "<cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Telescope" },
+    v = { "<cmd>lua require('refactoring').debug.print_var({})<CR>", "Debug Print Var" },
+    V = { "<Esc><cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
+  },
+  y = { '<Plug>OSCYankVisual', 'Yank' },
+}, {
+  prefix = "<leader>",
+  mode = "v",
+})
+
+wk.register({
+  D = { '<cmd>bd<cr>', 'Close Buffer' },
+  K = { '<cmd>Dasht!<Space>', 'Dasht' },
+  L = { "<cmd>HopLineStart<cr>", "HopLineStart" },
+  P = { '"+P', 'Paste' },
+  ["1"] = { '<cmd>BufferGoto 1<CR>', "Buffer 1" },
+  ["2"] = { '<cmd>BufferGoto 2<CR>', "Buffer 2" },
+  ["3"] = { '<cmd>BufferGoto 3<CR>', "Buffer 3" },
+  ["4"] = { '<cmd>BufferGoto 4<CR>', "Buffer 4" },
+  ["5"] = { '<cmd>BufferGoto 5<CR>', "Buffer 5" },
+  ["6"] = { '<cmd>BufferGoto 6<CR>', "Buffer 6" },
+  ["7"] = { '<cmd>BufferGoto 7<CR>', "Buffer 7" },
+  ["8"] = { '<cmd>BufferGoto 8<CR>', "Buffer 8" },
+  ["9"] = { '<cmd>BufferGoto 9<CR>', "Buffer 9" },
+  [";"] = { '<C-w>v', "Vertical Split" },
+  ["<C-h>"] = { '<cmd>NavigatorLeft<cr>', 'Move to Left Pane' },
+  ["<C-j>"] = { '<cmd>NavigatorDown<cr>', 'Move to Down Pane' },
+  ["<C-k>"] = { '<cmd>NavigatorUp<cr>', 'Move to Up Pane' },
+  ["<C-l>"] = { '<cmd>NavigatorRight<cr>', 'Move to Right Pane' },
+  ["<C-n>"] = { '<cmd>BufferNext<cr>', 'Next Buffer' },
+  ["<C-p>"] = { '<cmd>BufferPrevious<cr>', 'Previous Buffer' },
+  ["<F7>"] = { '<cmd>set spell!<cr>', 'Toggle Spell' },
+  ["<F8>"] = { '<cmd>set list!<cr>', 'Toggle List' },
+  ["<F9>"] = { '<cmd>lua require"toggle-cmp".toggle_completion()<cr>', 'Toggle Completion' },
+  ["<Left>"] = { '<cmd>5winc <<cr>', 'Shift Pane Left' },
+  ["<Right>"] = { '<cmd>5winc ><cr>', 'Shift Pane Right' },
+  ["\""] = { '<C-w>s', "Split" },
+  a = { '<cmd>BufferPick<cr>', "Pick Buffer" },
   b = {
     name = "+Buffer",
     p = { "<cmd>BufferPin<cr>", "Pin" },
@@ -136,6 +130,7 @@ wk.register({
     name = "+ChatGPT and Copilot",
     T = { '<cmd>ChatGPTRun translate<cr>', "Translate" },
     c = { '<cmd>ChatGPT<cr>', "ChatGPT" },
+    C = { '<cmd>CopilotToggle<cr>', "Toggle CoPilot" },
     d = { '<cmd>ChatGPTRun docstring<cr>', "DocString" },
     e = { '<cmd>ChatGPTRun explain_code<cr>', "Explain Code" },
     f = { '<cmd>ChatGPTRun fix_bugs<cr>', "Fix Bugs" },
@@ -145,7 +140,7 @@ wk.register({
     o = { '<cmd>ChatGPTRun optimize_code<cr>', "Optimize Code" },
     r = { '<cmd>ChatGPTRun roxygen_edit<cr>', "Roxygen Edit" },
     s = { '<cmd>ChatGPTRun summarize<cr>', "Summarize" },
-    S = { '<cmd>Copilot suggestion<cr>', "Toggle Copilot suggestions" },
+    p = { '<cmd>Copilot panel<cr>', "Opens Copilot Panel" },
     t = { '<cmd>ChatGPTRun add_tests<cr>', "Add Tests" },
   },
   d = {
@@ -157,6 +152,7 @@ wk.register({
     l = { '<cmd>Telescope advanced_git_search diff_commit_line<cr>', "Diff Commit Lines" },
     f = { '<cmd>Telescope advanced_git_search diff_commit_file<cr>', "Diff commit Files" },
   },
+  e = { '<cmd>lua vim.diagnostic.open_float()<CR>', "Open Float" },
   f = {
     name = "+Telescope",
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },
@@ -206,7 +202,7 @@ wk.register({
     },
     u = { '<cmd>lua require("gitsigns").undo_stage_hunk()<CR>', "Undo Hunk Stage" },
   },
-  L = { "<cmd>HopLineStart<cr>", "HopLineStart" },
+  k = { '<cmd>call Dasht(dasht#cursor_search_terms())<CR>', 'Dasht Search Term' },
   l = {
     name = "+LSP",
     c = { '<cmd>lua vim.lsp.buf.code_action()<CR>', "Code Action" },
@@ -217,6 +213,8 @@ wk.register({
     q = { '<cmd>lua vim.diagnostic.setloclist()<CR>', "Location List" },
     r = { '<cmd>lua vim.lsp.buf.rename()<CR>', "Rename" },
   },
+  m = { '<cmd>Glow<cr>', 'Glow' },
+  n = { '<cmd>Telescope neoclip<cr>', 'Neoclip' },
   o = {
     name = "+Octo",
     a = { "<cmd>Octo actions<cr>", "List Actions" },
@@ -247,6 +245,7 @@ wk.register({
     },
     u = { "<cmd>Octo repo url<cr>", "Copy repo url to clipboard" },
   },
+  p = { '"+p', 'Paste' },
   t = {
     name = "+NeoTest",
     a = { '<cmd>lua require("neotest").run.attach()<CR>', "Attach" },
@@ -270,11 +269,13 @@ wk.register({
     v = { "<cmd>lua require('refactoring').debug.print_var({ normal = true })<CR>", "Debug Print Var" },
   },
   s = { "<cmd>HopChar1<cr>", "HopChar 1" },
+  u = { '<cmd>Telescope undo<cr>', 'Undo' },
   w = {
     name = "+Window",
     o = { "<C-w>o", "Close Other Windows" },
     p = { "<cmd>pclose<cr>", "ClosePreview" },
-    x = { "<cmd>close<cr>", "Close" }
+    x = { "<cmd>close<cr>", "Close" },
+    z = { '<C-w>|<C-w>_', 'Maximize' },
   },
   x = {
     name = "+Trouble",
@@ -285,6 +286,7 @@ wk.register({
     w = { "<cmd>Trouble workspace_diagnostics<cr>", "WorkSpaceDiag" },
     x = { "<cmd>Trouble<cr>", "Trouble" },
   },
+  y = { '<Plug>OSCYankOperator', 'Yank' },
   Y = {
     name = "+Yaml",
     k = { "<cmd>YAMLYankKey<cr>", "YankKey" },
@@ -296,23 +298,3 @@ wk.register({
   },
   ["/"] = { "<cmd>HopPattern<cr>", "HopPattern" },
 }, { prefix = "<leader>" })
-
-wk.register({
-  c = {
-    name = "+ChatGPT",
-    T = { '<cmd>ChatGPTRun translate<cr>', "Translate" },
-    d = { '<cmd>ChatGPTRun docstring<cr>', "DocString" },
-    e = { '<cmd>ChatGPTRun explain_code<cr>', "Explain Code" },
-    f = { '<cmd>ChatGPTRun fix_bugs<cr>', "Fix Bugs" },
-    g = { '<cmd>ChatGPTRun grammer_correction<cr>', "Grammer Correction" },
-    i = { '<cmd>ChatGPTRun edit_with_instructions<cr>', "Edit with Instructions" },
-    k = { '<cmd>ChatGPTRun keywords<cr>', "Keywords" },
-    o = { '<cmd>ChatGPTRun optimize_code<cr>', "Optimize Code" },
-    r = { '<cmd>ChatGPTRun roxygen_edit<cr>', "Roxygen Edit" },
-    s = { '<cmd>ChatGPTRun summarize<cr>', "Summarize" },
-    t = { '<cmd>ChatGPTRun add_tests<cr>', "Add Tests" },
-  },
-}, {
-  prefix = "<leader>",
-  mode = "v",
-})
