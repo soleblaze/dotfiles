@@ -95,7 +95,6 @@ map("n", "<C-w>z", "<C-w>|<C-w>_")
 
 
 -- LSP
-map("n", "<leader>c", '<cmd>lua vim.lsp.buf.code_action()<CR>')
 map("n", "<leader>e", '<cmd>lua vim.diagnostic.open_float()<CR>')
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
@@ -132,6 +131,21 @@ wk.register({
       l = { "<cmd>BufferOrderByLanguage<cr>", "Order By Language" },
       w = { "<cmd>BufferOrderByWindowNumber<cr>", "Order By Window Number" },
     }
+  },
+  c = {
+    name = "+ChatGPT",
+    T = { '<cmd>ChatGPTRun translate<cr>', "Translate" },
+    c = { '<cmd>ChatGPT<cr>', "ChatGPT" },
+    d = { '<cmd>ChatGPTRun docstring<cr>', "DocString" },
+    e = { '<cmd>ChatGPTRun explain_code<cr>', "Explain Code" },
+    f = { '<cmd>ChatGPTRun fix_bugs<cr>', "Fix Bugs" },
+    g = { '<cmd>ChatGPTRun grammer_correction<cr>', "Grammer Correction" },
+    i = { '<cmd>ChatGPTRun edit_with_instructions<cr>', "Edit with Instructions" },
+    k = { '<cmd>ChatGPTRun keywords<cr>', "Keywords" },
+    o = { '<cmd>ChatGPTRun optimize_code<cr>', "Optimize Code" },
+    r = { '<cmd>ChatGPTRun roxygen_edit<cr>', "Roxygen Edit" },
+    s = { '<cmd>ChatGPTRun summarize<cr>', "Summarize" },
+    t = { '<cmd>ChatGPTRun add_tests<cr>', "Add Tests" },
   },
   d = {
     name = "+Diff",
@@ -194,6 +208,7 @@ wk.register({
   L = { "<cmd>HopLineStart<cr>", "HopLineStart" },
   l = {
     name = "+LSP",
+    c = { '<cmd>lua vim.lsp.buf.code_action()<CR>', "Code Action" },
     h = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', "Signature Help" },
     d = { '<cmd>Telescope lsp_type_definitions<CR>', "Type Definitions" },
     f = { '<cmd>lua vim.lsp.buf.format()<CR>', "Format" },
@@ -280,3 +295,23 @@ wk.register({
   },
   ["/"] = { "<cmd>HopPattern<cr>", "HopPattern" },
 }, { prefix = "<leader>" })
+
+wk.register({
+  c = {
+    name = "+ChatGPT",
+    T = { '<cmd>ChatGPTRun translate<cr>', "Translate" },
+    d = { '<cmd>ChatGPTRun docstring<cr>', "DocString" },
+    e = { '<cmd>ChatGPTRun explain_code<cr>', "Explain Code" },
+    f = { '<cmd>ChatGPTRun fix_bugs<cr>', "Fix Bugs" },
+    g = { '<cmd>ChatGPTRun grammer_correction<cr>', "Grammer Correction" },
+    i = { '<cmd>ChatGPTRun edit_with_instructions<cr>', "Edit with Instructions" },
+    k = { '<cmd>ChatGPTRun keywords<cr>', "Keywords" },
+    o = { '<cmd>ChatGPTRun optimize_code<cr>', "Optimize Code" },
+    r = { '<cmd>ChatGPTRun roxygen_edit<cr>', "Roxygen Edit" },
+    s = { '<cmd>ChatGPTRun summarize<cr>', "Summarize" },
+    t = { '<cmd>ChatGPTRun add_tests<cr>', "Add Tests" },
+  },
+}, {
+  prefix = "<leader>",
+  mode = "v",
+})
