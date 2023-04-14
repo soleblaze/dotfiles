@@ -95,14 +95,8 @@ map("n", "<C-w>z", "<C-w>|<C-w>_")
 
 
 -- LSP
---map("n", "<leader>h", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
-map("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>")
-map("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
-map("n", "<leader>F", "<cmd>lua vim.lsp.buf.format()<CR>")
---map("n", "<leader>o", "<cmd>Telescope lsp_document_symbols<CR>")
-map("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
-map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+map("n", "<leader>c", '<cmd>lua vim.lsp.buf.code_action()<CR>')
+map("n", "<leader>e", '<cmd>lua vim.diagnostic.open_float()<CR>')
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
@@ -197,7 +191,16 @@ wk.register({
     },
     u = { '<cmd>lua require("gitsigns").undo_stage_hunk()<CR>', "Undo Hunk Stage" },
   },
-  l = { "<cmd>HopLineStart<cr>", "HopLineStart" },
+  L = { "<cmd>HopLineStart<cr>", "HopLineStart" },
+  l = {
+    name = "+LSP",
+    h = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', "Signature Help" },
+    d = { '<cmd>Telescope lsp_type_definitions<CR>', "Type Definitions" },
+    f = { '<cmd>lua vim.lsp.buf.format()<CR>', "Format" },
+    o = { '<cmd>Telescope lsp_document_symbols<CR>', "Document Symbols" },
+    q = { '<cmd>lua vim.diagnostic.setloclist()<CR>', "Location List" },
+    r = { '<cmd>lua vim.lsp.buf.rename()<CR>', "Rename" },
+  },
   o = {
     name = "+Octo",
     a = { "<cmd>Octo actions<cr>", "List Actions" },
