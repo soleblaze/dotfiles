@@ -60,9 +60,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export GOROOT=/opt/homebrew/bin
+export GOPATH=$HOME/.local/share/go
+export GOBIN=$GOPATH/.local/share/go/bin
 
 path+="${GOBIN}"
 path+="${HOME}/.yarn/bin"
