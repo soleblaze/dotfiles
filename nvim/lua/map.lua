@@ -45,10 +45,10 @@ map('x', 's', "<cmd>HopChar1<cr>")
 map('v', 's', "<cmd>HopChar1<cr>")
 
 -- other
+map("i", "<C-s>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 map("i", "<F7>", "<C-o><cmd>set spell!<cr>")
 map("i", "<F8>", "<C-o><cmd>set list!<cr>")
 map("i", "<F9>", '<C-o><cmd>lua require"toggle-cmp".toggle_completion()<cr>')
-map("n", "<C-s>", "<cmd>w<cr>")
 map("n", "<F7>", "<cmd>set spell!<cr>")
 map("n", "<F8>", "<cmd>set list!<cr>")
 map("n", "<F9>", '<cmd>lua require"toggle-cmp".toggle_completion()<cr>')
@@ -57,6 +57,7 @@ map("n", "<leader>;", "<C-w>v")
 map("n", "<leader>D", "<cmd>bd<cr>")
 map("n", "<leader>P", '"+P')
 map("n", "<leader>p", '"+p')
+map("n", "<leader>u", "<cmd>Telescope undo<cr>")
 map("n", "ZZ", "<cmd>wqa!<cr>")
 map("n", "[l", "<cmd>lprevious<CR>")
 map("n", "[q", "<cmd>cprevious<CR>")
@@ -64,8 +65,6 @@ map("n", "[t", "<cmd>tprevious<CR>")
 map("n", "]l", "<cmd>lnext<CR>")
 map("n", "]q", "<cmd>cnext<CR>")
 map("n", "]t", "<cmd>tnext<CR>")
-map("v", "<C-s>", "<Esc><cmd>w<cr>")
-map("n", "<leader>u", "<cmd>Telescope undo<cr>")
 
 -- tmux navigator
 map("n", "<C-h>", '<cmd>NavigatorLeft<cr>')
@@ -134,7 +133,7 @@ wk.register({
     }
   },
   c = {
-    name = "+ChatGPT",
+    name = "+ChatGPT and Copilot",
     T = { '<cmd>ChatGPTRun translate<cr>', "Translate" },
     c = { '<cmd>ChatGPT<cr>', "ChatGPT" },
     d = { '<cmd>ChatGPTRun docstring<cr>', "DocString" },
@@ -146,6 +145,7 @@ wk.register({
     o = { '<cmd>ChatGPTRun optimize_code<cr>', "Optimize Code" },
     r = { '<cmd>ChatGPTRun roxygen_edit<cr>', "Roxygen Edit" },
     s = { '<cmd>ChatGPTRun summarize<cr>', "Summarize" },
+    S = { '<cmd>Copilot suggestion<cr>', "Toggle Copilot suggestions" },
     t = { '<cmd>ChatGPTRun add_tests<cr>', "Add Tests" },
   },
   d = {

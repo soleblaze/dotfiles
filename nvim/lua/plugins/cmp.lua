@@ -8,7 +8,6 @@ return {
     { "hrsh7th/cmp-cmdline" },
     { "petertriho/cmp-git" },
     { "saadparwaiz1/cmp_luasnip" },
-    { "zbirenbaum/copilot-cmp" },
     { "onsails/lspkind.nvim" },
 
     -- Snippets
@@ -33,8 +32,6 @@ return {
       cmp_autopairs.on_confirm_done()
     )
 
-    require("copilot_cmp").setup()
-
     require("cmp_git").setup()
 
     local lspkind = require('lspkind')
@@ -57,7 +54,6 @@ return {
           mode = 'symbol',
           maxwidth = 50,
           ellipsis_char = '...',
-          symbol_map = { Copilot = "" },
           before = function(entry, vim_item)
             vim_item.dup = ({
                   buffer = 1,
@@ -140,30 +136,12 @@ return {
         end, {}),
       },
       sources = {
-        { name = "copilot",    group_index = 2 },
         { name = "luasnip",    group_index = 2 },
         { name = "git",        group_index = 2 },
         { name = "nvim_lsp",   group_index = 2 },
         { name = "path",       group_index = 2 },
         { name = "treesitter", group_index = 2 },
         { name = "buffer",     group_index = 2 },
-      },
-      sorting = {
-        priority_weight = 2,
-        comparators = {
-          require("copilot_cmp.comparators").prioritize,
-          -- Below is the default comparitor list and order for nvim-cmp
-          cmp.config.compare.offset,
-          -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
-          cmp.config.compare.exact,
-          cmp.config.compare.sort_text,
-          cmp.config.compare.score,
-          cmp.config.compare.recently_used,
-          cmp.config.compare.locality,
-          cmp.config.compare.kind,
-          cmp.config.compare.length,
-          cmp.config.compare.order,
-        },
       },
     })
     cmp.event:on("menu_opened", function()
