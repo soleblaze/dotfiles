@@ -3,10 +3,10 @@
     "prefix": "fv",
     "body": "fmt.Printf(\"$1 = %+v\\n\", $1)",
     "description": "Snippet for printing a variable"
-  }
+  },
   "Log Variable": {
     "prefix": "lv",
     "body": "log.Printf(\"$1 = %+v\\n\", $1)",
     "description": "Snippet for logging a variable"
-  },
+  }
 }
