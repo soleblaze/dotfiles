@@ -12,6 +12,12 @@ installKrewPlugin() {
   fi
 }
 
+installGHExtension() {
+  if ! [ -d "$HOME/.local/share/gh/extensions/${1##*/}" ]; then
+    gh extension install "$1"
+  fi
+}
+
 download_tgz() {
   filename="$1"
   repo="$2"
@@ -180,3 +186,6 @@ else
   installKrewPlugin pod-dive
   installKrewPlugin flame
 fi
+
+installGHExtension gennaro-tedesco/gh-f
+installGHExtension dlvhdr/gh-dash
