@@ -40,6 +40,10 @@ map('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 map('v', '<leader>hs', ':Gitsigns stage_hunk<CR>')
 map('v', '<leader>hr', ':Gitsigns reset_hunk<CR>')
 
+-- hop
+map('x', 's', "<cmd>HopChar1<cr>")
+map('v', 's', "<cmd>HopChar1<cr>")
+
 -- other
 map("i", "<F7>", "<C-o><cmd>set spell!<cr>")
 map("i", "<F8>", "<C-o><cmd>set list!<cr>")
