@@ -189,3 +189,7 @@ fi
 
 installGHExtension gennaro-tedesco/gh-f
 installGHExtension dlvhdr/gh-dash
+
+if ! which kube-shell >/dev/null; then
+  pip3 install kube-shell
+fi

@@ -79,5 +79,11 @@ for i in ${HOME}/.gem/ruby/*; do
   fi
 done
 
+for i in ${HOME}/Library/Python/*; do
+  if [ -d "$i" ]; then
+    path+="$i/bin"
+  fi
+done
+
 typeset -U PATH
 export PATH
