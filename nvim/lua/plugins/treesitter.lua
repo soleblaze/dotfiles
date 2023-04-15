@@ -3,6 +3,7 @@ return {
   dependencies = {
     "p00f/nvim-ts-rainbow",
     "nvim-treesitter/nvim-treesitter-textobjects",
+    "RRethy/nvim-treesitter-endwise",
   },
   config = function()
     require("nvim-treesitter.configs").setup({
@@ -72,6 +73,9 @@ return {
           },
           include_surrounding_whitespace = true,
         },
+      },
+      endwise = {
+        enable = true,
       },
       rainbow = {
         enable = true,
