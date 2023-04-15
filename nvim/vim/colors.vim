@@ -20,3 +20,5 @@ hi PMenu guifg=#9E9E9E guibg=#193549
 hi PMenuSBar guibg=#626262
 hi PMenuSel guifg=#1C1C1C guibg=#FFC600
 hi PMenuThumb guibg=#BCBCBC
+
+hi TreesitterContext guibg=#1f4461
