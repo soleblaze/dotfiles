@@ -112,7 +112,15 @@ wk.register({
 })
 
 wk.register({
-  D = { '<cmd>bd<cr>', 'Close Buffer' },
+  D = {
+    name = "+Diff",
+    b = { '<cmd>Telescope advanced_git_search diff_branch_file<cr>', "Diff Git Branch" },
+    C = { '<cmd>lua require("telescope").extensions.diff.diff_files({ hidden = true })<cr>', "Compare 2 files" },
+    c = { '<cmd>lua require("telescope").extensions.diff.diff_current({ hidden = true })<cr>',
+      "Compare file with current" },
+    l = { '<cmd>Telescope advanced_git_search diff_commit_line<cr>', "Diff Commit Lines" },
+    f = { '<cmd>Telescope advanced_git_search diff_commit_file<cr>', "Diff commit Files" },
+  },
   K = { '<cmd>Dasht!<Space>', 'Dasht' },
   L = { "<cmd>HopLineStart<cr>", "HopLineStart" },
   P = { '"+P', 'Paste' },
@@ -160,15 +168,7 @@ wk.register({
     p = { '<cmd>Copilot panel<cr>', "Opens Copilot Panel" },
     t = { '<cmd>ChatGPTRun add_tests<cr>', "Add Tests" },
   },
-  d = {
-    name = "+Diff",
-    b = { '<cmd>Telescope advanced_git_search diff_branch_file<cr>', "Diff Git Branch" },
-    C = { '<cmd>lua require("telescope").extensions.diff.diff_files({ hidden = true })<cr>', "Compare 2 files" },
-    c = { '<cmd>lua require("telescope").extensions.diff.diff_current({ hidden = true })<cr>',
-      "Compare file with current" },
-    l = { '<cmd>Telescope advanced_git_search diff_commit_line<cr>', "Diff Commit Lines" },
-    f = { '<cmd>Telescope advanced_git_search diff_commit_file<cr>', "Diff commit Files" },
-  },
+  d = { '<cmd>bd<cr>', 'Close Buffer' },
   e = { '<cmd>lua vim.diagnostic.open_float()<CR>', "Open Float" },
   f = {
     name = "+Telescope",

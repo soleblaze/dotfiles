@@ -5,7 +5,7 @@ return {
     require("chatgpt").setup({
       chat = {
         keymaps = {
-          close = { "<C-e>", "<Esc>" },
+          close = "<C-f>",
           yank_last = "<C-y>",
           scroll_up = "<C-u>",
           scroll_down = "<C-d>",
