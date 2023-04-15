@@ -17,6 +17,7 @@ fi
 ZVM_INIT_MODE=sourcing
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
+
 source $(brew --prefix)/share/zsh-autopair/autopair.zsh
 
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -32,4 +33,5 @@ if [[ $(uname -a) = (#i)*darwin* ]] {
   FAST_HIGHLIGHT[chroma-man]=
 }
 
+source $(brew --prefix)/share/zsh-you-should-use/you-should-use.plugin.zsh
 source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
