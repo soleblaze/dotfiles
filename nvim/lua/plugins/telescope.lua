@@ -10,6 +10,8 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     { "nvim-telescope/telescope-symbols.nvim" },
     { "someone-stole-my-name/yaml-companion.nvim" },
+    { "benfowler/telescope-luasnip.nvim" },
+    { "desdic/telescope-rooter.nvim" },
   },
   config = function()
     require("telescope").setup({
@@ -23,6 +25,11 @@ return {
         advanced_git_search = {
           diff_plugin = "diffview",
         },
+        rooter = {
+          enable = true,
+          patterns = { ".git" },
+          debug = false
+        }
       },
     })
     require("telescope").load_extension("fzf")
@@ -33,6 +40,8 @@ return {
     require('telescope').load_extension('vimwiki')
     require("telescope").load_extension("diff")
     require("telescope").load_extension("advanced_git_search")
+    require('telescope').load_extension('luasnip')
+    require('telescope').load_extension('rooter')
 
     vim.cmd("command! -bang Keymap Telescope keymaps")
 
