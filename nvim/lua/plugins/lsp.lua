@@ -6,6 +6,7 @@ return {
     { 'williamboman/mason.nvim' },
     { "SmiteshP/nvim-navic" },
     { "ray-x/lsp_signature.nvim" },
+    { "b0o/schemastore" },
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
   },
@@ -82,9 +83,21 @@ return {
         end
       end,
       settings = {
-        yaml = { keyOrdering = false }
+        yaml = {
+          keyOrdering = false,
+          schemas = require('schemastore').yaml.schemas(),
+        }
       }
     })
+
+    require('lspconfig').jsonls.setup {
+      settings = {
+        json = {
+          schemas = require('schemastore').json.schemas(),
+          validate = { enable = true },
+        },
+      },
+    }
 
     local runtime_path = vim.split(package.path, ';')
     table.insert(runtime_path, 'lua/?.lua')

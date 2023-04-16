@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 
 vim.opt.autoindent = true
-vim.opt.autochdir = true
 vim.opt.autowrite = true
 vim.opt.cmdheight = 2                                       -- Set the command height at the bottom to 2 lines
 vim.opt.completeopt = { "menuone", "noinsert", "noselect" } -- Completion options (for deoplete)
