@@ -59,8 +59,8 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 -- Setup colorcolumn
-vim.opt.colorcolumn = "80"
 vim.cmd("highlight VirtColumn guifg=#204563 guibg=NONE gui=NONE")
+vim.cmd("highlight ColorColumn guifg=NONE guibg=NONE gui=NONE")
 
 -- disable unused providers
 vim.g.loaded_node_provider = 0
