@@ -62,8 +62,8 @@ return {
           keymaps = {
             ["af"] = "@function.outer",
             ["if"] = "@function.inner",
-            ["ac"] = "@class.outer",
-            ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+            ["ac"] = "@comment.outer",
+            ["ic"] = { query = "@comment.inner", desc = "Select inner part of a comment" },
             ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
           },
           selection_modes = {
