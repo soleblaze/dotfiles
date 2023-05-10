@@ -65,7 +65,6 @@ wk.register({
   i = {
     h = { '<cmd><C-U>Gitsigns select_hunk<CR>', "Select Hunk" },
   },
-  s = { '<cmd>HopChar1<cr>', 'Hop Char 1' },
 }, {
   mode = "n",
 })
@@ -122,7 +121,6 @@ wk.register({
     f = { '<cmd>Telescope advanced_git_search diff_commit_file<cr>', "Diff commit Files" },
   },
   K = { '<cmd>Dasht!<Space>', 'Dasht' },
-  L = { "<cmd>HopLineStart<cr>", "HopLineStart" },
   P = { '"+P', 'Paste' },
   ["1"] = { '<cmd>BufferGoto 1<CR>', "Buffer 1" },
   ["2"] = { '<cmd>BufferGoto 2<CR>', "Buffer 2" },
@@ -295,7 +293,6 @@ wk.register({
     r = { "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Telescope" },
     v = { "<cmd>lua require('refactoring').debug.print_var({ normal = true })<CR>", "Debug Print Var" },
   },
-  s = { "<cmd>HopChar1<cr>", "HopChar 1" },
   u = { '<cmd>Telescope undo<cr>', 'Undo' },
   w = {
     name = "+Window",
@@ -323,5 +320,4 @@ wk.register({
     v = { "<cmd>YAMLYankValue<cr>", "YankValue" },
     y = { "<cmd>YAMLYank<cr>", "Yank" },
   },
-  ["/"] = { "<cmd>HopPattern<cr>", "HopPattern" },
 }, { prefix = "<leader>" })
