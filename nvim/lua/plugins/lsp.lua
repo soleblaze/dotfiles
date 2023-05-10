@@ -4,6 +4,7 @@ return {
   dependencies = {
     { 'neovim/nvim-lspconfig' },
     { 'williamboman/mason.nvim' },
+    { "SmiteshP/nvim-navic" },
     { "b0o/schemastore" },
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
@@ -30,6 +31,12 @@ return {
     })
 
     local lspconfig = require("lspconfig")
+    local navic = require("nvim-navic")
+    local function default_on_attach(client, bufnr)
+      if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+      end
+    end
 
     lspconfig.ansiblels.setup({ on_attach = default_on_attach })
     lspconfig.awk_ls.setup({ on_attach = default_on_attach })
@@ -52,7 +59,8 @@ return {
     })
 
     lspconfig.yamlls.setup({
-      on_attach = function(_, bufnr)
+      on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
         if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
           vim.diagnostic.disable(bufnr)
           vim.defer_fn(function()
@@ -69,6 +77,7 @@ return {
     })
 
     require('lspconfig').jsonls.setup {
+      on_attach = default_on_attach,
       settings = {
         json = {
           schemas = require('schemastore').json.schemas(),
