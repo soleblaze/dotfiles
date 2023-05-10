@@ -1,7 +1,7 @@
 local wk = require('which-key')
 
 wk.register({
-  ["<C-s>"] = { function()
+  ["<C-a>"] = { function()
     vim.api.nvim_feedkeys(
       vim.fn['copilot#Accept'](vim.api.nvim_replace_termcodes('<Tab>', true, true, true)), 'n', true)
   end, 'Accept Copilot', {
@@ -138,8 +138,10 @@ wk.register({
   a = { '<cmd>BufferPick<cr>', "Pick Buffer" },
   b = {
     name = "+Buffer",
-    p = { "<cmd>BufferPin<cr>", "Pin" },
+    a = { "<cmd>Hbac toggle_autoclose<cr>", "Toggle Auto Close" },
+    p = { "<cmd>Hbac toggle_pin<cr>", "Pin" },
     c = { "<cmd>BufferClose<cr>", "Close" },
+    C = { "<cmd>Hbac close_unpinned<cr>", "Close Unpinned" },
     d = { "<cmd>BufferPickDelete<cr>", "Pick Delete" },
     f = { "<cmd>bdelete!<cr>", "Force Delete Buffer" },
     r = { "<cmd>BufferRestore<cr>", "Restore" },
@@ -174,6 +176,7 @@ wk.register({
     name = "+Telescope",
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },
     c = { "<cmd>Telescope quickfix<cr>", "QuickFix" },
+    D = { "Lspsaga show_diagnostics", "Show Diagnostics" },
     d = { "<cmd>Telescope diagnostics<cr>", "Diags" },
     f = { "<cmd>Telescope find_files<cr>", "FindFiles" },
     g = { "<cmd>Telescope live_grep<cr>", "LiveGrep" },
@@ -182,6 +185,7 @@ wk.register({
     j = { "<cmd>Telescope jumplist<cr>", "JumpList" },
     l = { "<cmd>Telescope loclist<cr>", "LocList" },
     m = { "<cmd>Telescope marks<cr>", "Marks" },
+    n = { "<cmd>Telescope notify<cr>", "Notifications" },
     s = { "<cmd>Telescope luasnip<cr>", "Luasnip" },
     y = { "<cmd>Telescope yaml_schema<cr>", "YamlSchema" }
   },
@@ -223,13 +227,18 @@ wk.register({
   k = { '<cmd>call Dasht(dasht#cursor_search_terms())<CR>', 'Dasht Search Term' },
   l = {
     name = "+LSP",
-    c = { '<cmd>lua vim.lsp.buf.code_action()<CR>', "Code Action" },
+    p = { '<cmd>Lspsaga peek_definition<CR>', "Peek Definitions" },
+    g = { '<cmd>Lspsaga goto_definition<CR>', "Goto Definition" },
+    F = { '<cmd>lua vim.lsp.buf.format()<CR>', "Format" },
+    c = { '<cmd>Lspsaga code_action<CR>', "Code Action" },
+    d = { '<cmd>Lspsaga hover_doc<CR>', "Hover Doc" },
+    f = { '<cmd>Lspsaga lsp_finder<CR>', "LSP Finder" },
     h = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', "Signature Help" },
-    d = { '<cmd>Telescope lsp_type_definitions<CR>', "Type Definitions" },
-    f = { '<cmd>lua vim.lsp.buf.format()<CR>', "Format" },
+    i = { '<cmd>Lspsaga incoming_calls<CR>', "Incoming Calls" },
+    I = { '<cmd>Lspsaga outgoing_calls<CR>', "Outgoing Calls" },
     o = { '<cmd>Telescope lsp_document_symbols<CR>', "Document Symbols" },
     q = { '<cmd>lua vim.diagnostic.setloclist()<CR>', "Location List" },
-    r = { '<cmd>lua vim.lsp.buf.rename()<CR>', "Rename" },
+    r = { '<cmd>Lspsaga rename<CR>', "Rename" },
   },
   m = { '<cmd>Glow<cr>', 'Glow' },
   n = { '<cmd>Telescope neoclip<cr>', 'Neoclip' },

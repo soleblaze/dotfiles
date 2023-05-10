@@ -4,8 +4,6 @@ return {
   dependencies = {
     { 'neovim/nvim-lspconfig' },
     { 'williamboman/mason.nvim' },
-    { "SmiteshP/nvim-navic" },
-    { "ray-x/lsp_signature.nvim" },
     { "b0o/schemastore" },
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
@@ -32,26 +30,6 @@ return {
     })
 
     local lspconfig = require("lspconfig")
-    local navic = require("nvim-navic")
-    local function default_on_attach(client, bufnr)
-      navic.attach(client, bufnr)
-
-      local function buf_set_option(...)
-        vim.api.nvim_buf_set_option(bufnr, ...)
-      end
-
-      -- Enable completion triggered by <c-x><c-o>
-      buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-      require("lsp_signature").on_attach({
-        bind = true, -- This is mandatory, otherwise border config won't get registered.
-        fix_pos = true,
-        toggle_key = "<F2>",
-        hi_parameter = "Search",
-        handler_opts = {
-          border = "rounded",
-        },
-      }, bufnr)
-    end
 
     lspconfig.ansiblels.setup({ on_attach = default_on_attach })
     lspconfig.awk_ls.setup({ on_attach = default_on_attach })

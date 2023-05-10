@@ -42,15 +42,8 @@ return {
     require("telescope").load_extension("advanced_git_search")
     require('telescope').load_extension('luasnip')
     require('telescope').load_extension('rooter')
+    require("telescope").load_extension("notify")
 
     vim.cmd("command! -bang Keymap Telescope keymaps")
-
-    -- Open find_files if nvim isn't opened using a file
-    vim.cmd [[
-      augroup TelescopeOnStart
-        autocmd!
-        autocmd VimEnter * if argc() == 0 | silent! execute "Telescope find_files" | endif
-      augroup END
-    ]]
   end,
 }

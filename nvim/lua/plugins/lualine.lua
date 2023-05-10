@@ -1,11 +1,10 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
-    "kyazdani42/nvim-web-devicons",
+    "nvim-tree/nvim-web-devicons",
     "SmiteshP/nvim-navic"
   },
   config = function()
-
     local cobalt2 = require("lualine.themes.cobalt2custom")
 
     local navic = require("nvim-navic")
