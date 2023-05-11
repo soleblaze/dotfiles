@@ -15,5 +15,10 @@ return {
       end
       copilot_on = not copilot_on
     end, { nargs = 0 })
+
+    vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+      pattern = vim.fn.expand('~') .. '/Exercism/*',
+      command = "Copilot disable"
+    })
   end
 }
