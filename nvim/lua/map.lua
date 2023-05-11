@@ -253,8 +253,9 @@ wk.register({
   t = {
     name = "+NeoTest",
     a = { '<cmd>lua require("neotest").run.attach()<CR>', "Attach" },
-    f = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', "CurrentFile" },
-    d = { '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>', "DAP" },
+    f = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', "Current File" },
+    d = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%:p:h"))<CR>', "Current Directory" },
+    D = { '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>', "DAP" },
     e = { '<cmd>lua require("neotest").run.run(vim.fn.getcwd())<CR>', "Everything" },
     l = { '<cmd>lua require("neotest").run.run_last()<CR>', "Last" },
     n = { '<cmd>lua require("neotest").run.run()<CR>', "Run" },
