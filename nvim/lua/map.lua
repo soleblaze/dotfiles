@@ -252,9 +252,18 @@ wk.register({
   },
   p = { '"+p', 'Paste' },
   t = {
-    name = "+NeoTest",
+    name = "+Test",
     a = { '<cmd>lua require("neotest").run.attach()<CR>', "Attach" },
     f = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', "Current File" },
+    c = {
+      C = { '<cmd>CoverageClear<CR>', 'Clear Coverage' },
+      c = { '<cmd>Coverage<CR>', 'Coverage' },
+      g = {
+        '<cmd>lua require("neotest").run.run({vim.fn.getcwd(), extra_args = {"--coverprofile=coverage.out"}})<CR>',
+        "Generate Test Coverage" },
+      s = { '<cmd>CoverageSummary<CR>', 'Show Coverage Summary' },
+      t = { '<cmd>CoverageToggle<CR>', 'Toggle Coverage' },
+    },
     d = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%:p:h"))<CR>', "Current Directory" },
     D = { '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>', "DAP" },
     e = { '<cmd>lua require("neotest").run.run(vim.fn.getcwd())<CR>', "Everything" },
