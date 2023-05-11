@@ -46,7 +46,7 @@ wk.register({
       if vim.wo.diff then return ']c' end
       vim.schedule(function() require('gitsigns').next_hunk() end)
       return '<Ignore>'
-    end, 'Previous Hunk', { expr = true } },
+    end, 'Next Hunk', { expr = true } },
     d = { '<cmd>lua vim.diagnostic.goto_next()<CR>', "Next Diagnostic" },
     l = { '<cmd>lnext<CR>', "Next Location" },
     q = { '<cmd>cnext<CR>', "Next Quickfix" },
