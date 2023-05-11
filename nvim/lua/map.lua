@@ -146,6 +146,7 @@ wk.register({
   e = { '<cmd>lua vim.diagnostic.open_float()<CR>', "Open Float" },
   f = {
     name = "+Telescope",
+    a = { "<cmd>Telescope aerial<cr>", "Aerial" },
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },
     c = { "<cmd>Telescope quickfix<cr>", "QuickFix" },
     D = { "Lspsaga show_diagnostics", "Show Diagnostics" },
