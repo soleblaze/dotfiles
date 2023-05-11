@@ -70,12 +70,6 @@ wk.register({
 })
 
 wk.register({
-  c = {
-    name = "+Copilot",
-    d = { '<CMD>Copilot disable<CR>', "Disable" },
-    e = { '<CMD>Copilot enable<CR>', "Enable" },
-    p = { '<CMD>Copilot panel<CR>', "Panel" },
-  },
   h = {
     name = "+GitSigns",
     r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset Hunk" },
@@ -142,22 +136,11 @@ wk.register({
     }
   },
   c = {
-    name = "+ChatGPT and Copilot",
-    T = { '<cmd>ChatGPTRun translate<cr>', "Translate" },
-    c = { '<cmd>ChatGPT<cr>', "ChatGPT" },
-    C = { '<cmd>CopilotToggle<cr>', "Toggle CoPilot" },
-    d = { '<cmd>ChatGPTRun docstring<cr>', "DocString" },
-    e = { '<cmd>ChatGPTRun explain_code<cr>', "Explain Code" },
-    f = { '<cmd>ChatGPTRun fix_bugs<cr>', "Fix Bugs" },
-    g = { '<cmd>ChatGPTRun grammer_correction<cr>', "Grammer Correction" },
-    i = { '<cmd>ChatGPTRun edit_with_instructions<cr>', "Edit with Instructions" },
-    k = { '<cmd>ChatGPTRun keywords<cr>', "Keywords" },
-    o = { '<cmd>ChatGPTRun optimize_code<cr>', "Optimize Code" },
-    r = { '<cmd>ChatGPTRun code_readability_analysis<cr>', "Code Readability Analysis" },
-    R = { '<cmd>ChatGPTRun roxygen_edit<cr>', "Roxygen Edit" },
-    s = { '<cmd>ChatGPTRun summarize<cr>', "Summarize" },
-    p = { '<cmd>Copilot panel<cr>', "Opens Copilot Panel" },
-    t = { '<cmd>ChatGPTRun add_tests<cr>', "Add Tests" },
+    name = "+Copilot",
+    d = { '<CMD>Copilot disable<CR>', "Disable" },
+    e = { '<CMD>Copilot enable<CR>', "Enable" },
+    p = { '<CMD>Copilot panel<CR>', "Panel" },
+    t = { '<cmd>CopilotToggle<cr>', "Toggle Copilot" },
   },
   d = { '<cmd>bd<cr>', 'Close Buffer' },
   e = { '<cmd>lua vim.diagnostic.open_float()<CR>', "Open Float" },
