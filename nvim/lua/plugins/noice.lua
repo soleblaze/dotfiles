@@ -1,7 +1,7 @@
 return {
   "folke/noice.nvim",
-  "MunifTanjim/nui.nvim",
-  depenedencies = {
+  dependencies = {
+    "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
   },
   config = function()
