@@ -214,7 +214,11 @@ wk.register({
     r = { '<cmd>Lspsaga rename<CR>', "Rename" },
   },
   m = { '<cmd>Glow<cr>', 'Glow' },
-  n = { '<cmd>Telescope neoclip<cr>', 'Neoclip' },
+  n = {
+    name = "Neo Commands",
+    c = { '<cmd>Telescope neoclip<cr>', 'Neoclip' },
+    g = { '<cmd>Neogen<cr>', 'Neogen' },
+  },
   o = {
     name = "+Octo",
     a = { "<cmd>Octo actions<cr>", "List Actions" },
