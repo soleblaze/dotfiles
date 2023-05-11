@@ -5,6 +5,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "antoinemadec/FixCursorHold.nvim",
     "nvim-neotest/neotest-go",
+    "nvim-neotest/neotest-python",
   },
   config = function()
     local neotest_ns = vim.api.nvim_create_namespace("neotest")
@@ -12,7 +13,7 @@ return {
       virtual_text = {
         format = function(diagnostic)
           local message =
-          diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+              diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
           return message
         end,
       },
@@ -21,6 +22,9 @@ return {
       adapters = {
         require("neotest-go"),
       },
+      require("neotest-python")({
+        dap = { justMyCode = false },
+      }),
     })
   end,
 }
