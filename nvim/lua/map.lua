@@ -140,6 +140,7 @@ wk.register({
     d = { '<CMD>Copilot disable<CR>', "Disable" },
     e = { '<CMD>Copilot enable<CR>', "Enable" },
     p = { '<CMD>Copilot panel<CR>', "Panel" },
+    s = { '<CMD>Copilot status<CR>', "Status" },
     t = { '<cmd>CopilotToggle<cr>', "Toggle Copilot" },
   },
   d = { '<cmd>bd<cr>', 'Close Buffer' },
