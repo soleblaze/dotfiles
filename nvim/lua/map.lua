@@ -117,7 +117,14 @@ wk.register({
   ["8"] = { '<cmd>BufferGoto 8<CR>', "Buffer 8" },
   ["9"] = { '<cmd>BufferGoto 9<CR>', "Buffer 9" },
   ["\""] = { '<cmd>FocusSplitNicely<cr>', "Split Nicely" },
-  a = { '<cmd>BufferPick<cr>', "Pick Buffer" },
+  a = {
+    name = "+Copilot",
+    d = { '<CMD>Copilot disable<CR>', "Disable" },
+    e = { '<CMD>Copilot enable<CR>', "Enable" },
+    p = { '<CMD>Copilot panel<CR>', "Panel" },
+    s = { '<CMD>Copilot status<CR>', "Status" },
+    t = { '<cmd>CopilotToggle<cr>', "Toggle Copilot" },
+  },
   b = {
     name = "+Buffer",
     a = { "<cmd>Hbac toggle_autoclose<cr>", "Toggle Auto Close" },
@@ -134,14 +141,7 @@ wk.register({
       w = { "<cmd>BufferOrderByWindowNumber<cr>", "Order By Window Number" },
     }
   },
-  c = {
-    name = "+Copilot",
-    d = { '<CMD>Copilot disable<CR>', "Disable" },
-    e = { '<CMD>Copilot enable<CR>', "Enable" },
-    p = { '<CMD>Copilot panel<CR>', "Panel" },
-    s = { '<CMD>Copilot status<CR>', "Status" },
-    t = { '<cmd>CopilotToggle<cr>', "Toggle Copilot" },
-  },
+  c = { "<cmd>close<cr>", "Close" },
   d = { '<cmd>BufferClose<cr>', 'Close Buffer' },
   e = { '<cmd>lua vim.diagnostic.open_float()<CR>', "Open Float" },
   f = {
