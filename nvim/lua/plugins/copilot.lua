@@ -20,5 +20,9 @@ return {
       pattern = vim.fn.expand('~') .. '/Exercism/*',
       command = "Copilot disable"
     })
+
+    vim.g.copilot_filetypes = {
+      yaml = true
+    }
   end
 }
