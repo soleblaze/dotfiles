@@ -19,10 +19,12 @@ wk.register({
 wk.register({
   K = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover Buffer' },
   ZZ = { '<cmd>wqa!<cr>', 'Save and Quit' },
-  ["<C-h>"] = { '<cmd>FocusSplitLeft<cr>', 'Split Nicely' },
-  ["<C-j>"] = { '<cmd>FocusSplitDown<cr>', 'Split Nicely' },
-  ["<C-k>"] = { '<cmd>FocusSplitUp<cr>', 'Split Nicely' },
-  ["<C-l>"] = { '<cmd>FocusSplitRight<cr>', 'Split Nicely' },
+  ["<C-;>"] = { '<cmd>FocusSplitCycle<cr>', "Cycle Split" },
+  ["<C-'>"] = { '<cmd>FocusSplitNicely<cr>', "Split Nicely" },
+  ["<C-h>"] = { '<cmd>FocusSplitLeft<cr>', 'Split Left' },
+  ["<C-j>"] = { '<cmd>FocusSplitDown<cr>', 'Split Down' },
+  ["<C-k>"] = { '<cmd>FocusSplitUp<cr>', 'Split Up' },
+  ["<C-l>"] = { '<cmd>FocusSplitRight<cr>', 'Split Right' },
   ["<C-n>"] = { '<cmd>BufferNext<cr>', 'Next Buffer' },
   ["<C-p>"] = { '<cmd>BufferPrevious<cr>', 'Previous Buffer' },
   ["<F7>"] = { '<cmd>set spell!<cr>', 'Toggle Spell' },
@@ -116,7 +118,6 @@ wk.register({
   ["7"] = { '<cmd>BufferGoto 7<CR>', "Buffer 7" },
   ["8"] = { '<cmd>BufferGoto 8<CR>', "Buffer 8" },
   ["9"] = { '<cmd>BufferGoto 9<CR>', "Buffer 9" },
-  ["\""] = { '<cmd>FocusSplitNicely<cr>', "Split Nicely" },
   a = {
     name = "+Copilot",
     d = { '<CMD>Copilot disable<CR>', "Disable" },
@@ -309,4 +310,5 @@ wk.register({
     v = { "<cmd>YAMLYankValue<cr>", "YankValue" },
     y = { "<cmd>YAMLYank<cr>", "Yank" },
   },
+  z = { '<cmd>FocusMaximise<cr>', 'Maximize Window' },
 }, { prefix = "<leader>" })
