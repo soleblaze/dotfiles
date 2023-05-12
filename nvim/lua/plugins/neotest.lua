@@ -25,6 +25,37 @@ return {
       require("neotest-python")({
         dap = { justMyCode = false },
       }),
+      consumers = {
+        notify = function(client)
+          client.listeners.results = function(_, results, partial)
+            -- Partial results can be very frequent
+            if partial then
+              return
+            end
+            local pass = 0
+            local fail = 0
+            local skip = 0
+            for _, result in pairs(results) do
+              if result.status == "failed" then
+                fail = fail + 1
+              elseif result.status == "passed" then
+                pass = pass + 1
+              elseif result.status == "skipped" then
+                skip = skip + 1
+              end
+            end
+
+            local output = "Tests completed:\n" .. pass .. " passed, " .. fail ..
+                " failed, " .. skip .. " skipped"
+            if fail > 0 then
+              vim.notify(output, vim.log.levels.ERROR, { title = "Neotest" })
+            else
+              vim.notify(output, vim.log.levels.INFO, { title = "Neotest" })
+            end
+          end
+          return {}
+        end,
+      },
     })
   end,
 }
