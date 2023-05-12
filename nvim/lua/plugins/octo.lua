@@ -1,8 +1,5 @@
 return {
-  -- 'pwntester/octo.nvim',
-  -- Using my own branch until https://github.com/pwntester/octo.nvim/pull/349
-  -- is merged
-  'soleblaze/octo.nvim',
+  'pwntester/octo.nvim',
   requires = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope.nvim',
