@@ -142,7 +142,7 @@ wk.register({
     s = { '<CMD>Copilot status<CR>', "Status" },
     t = { '<cmd>CopilotToggle<cr>', "Toggle Copilot" },
   },
-  d = { '<cmd>bd<cr>', 'Close Buffer' },
+  d = { '<cmd>BufferClose<cr>', 'Close Buffer' },
   e = { '<cmd>lua vim.diagnostic.open_float()<CR>', "Open Float" },
   f = {
     name = "+Telescope",
