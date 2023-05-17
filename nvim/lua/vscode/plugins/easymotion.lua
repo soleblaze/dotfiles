@@ -1,3 +1,0 @@
-return {
-  "asvetliakov/vim-easymotion",
-}

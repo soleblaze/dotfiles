@@ -11,18 +11,34 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
-if vim.g.vscode then
-  require("vscode.settings")
-  require("lazy").setup("vscode.plugins")
-  require("vscode.map")
-else
-  require("settings")
-  require("toggle-autoformat")
-  require("toggle-cmp")
-  require("lazy").setup("plugins")
-  require("map")
-  require("title")
+require("settings")
+require("toggle-autoformat")
+require("toggle-cmp")
+require("lazy").setup(
+  "plugins",
+  {
+    checker = {
+      enabled = true,
+      frequency = 86400,
+    },
+    performance = {
+      rtp = {
+        disabled_plugins = {
+          "gzip",
+          "matchit",
+          "matchparen",
+          "netrwPlugin",
+          "tarPlugin",
+          "tohtml",
+          "tutor",
+          "zipPlugin",
+        },
+      },
+    }
+  }
+)
+require("map")
+require("title")
 
-  vim.cmd("source ~/.config/nvim/vim/toggle.vim")
-  vim.cmd("source ~/.config/nvim/vim/colors.vim")
-end
+vim.cmd("source ~/.config/nvim/vim/toggle.vim")
+vim.cmd("source ~/.config/nvim/vim/colors.vim")
