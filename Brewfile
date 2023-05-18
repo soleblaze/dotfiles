@@ -107,6 +107,7 @@ cask "keyboard-maestro"
 cask "istat-menus"
 cask "iterm2"
 cask "meld"
+cask "obsidian"
 cask "openlens"
 cask "raindropio"
 cask "raycast"
@@ -122,7 +123,6 @@ mas "MindNode", id: 1289197285
 mas "OmniOutliner 5", id: 1142578772
 mas "Save to Raindrop.io", id: 1549370672
 mas "SnippetsLab", id: 1006087419
-mas "TestFlight", id: 899247664
 mas "TextSniper", id: 1528890965
 mas "Things 3", id: 904280696
 mas "Vimari", id: 1480933944

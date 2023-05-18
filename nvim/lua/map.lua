@@ -159,6 +159,7 @@ wk.register({
     j = { "<cmd>Telescope jumplist<cr>", "JumpList" },
     l = { "<cmd>Telescope loclist<cr>", "LocList" },
     m = { "<cmd>Telescope marks<cr>", "Marks" },
+    o = { "<cmd>ObsidianSearch<cr>", "Obsidian" },
     n = { "<cmd>Telescope notify<cr>", "Notifications" },
     s = { "<cmd>Telescope luasnip<cr>", "Luasnip" },
     y = { "<cmd>Telescope yaml_schema<cr>", "YamlSchema" }
