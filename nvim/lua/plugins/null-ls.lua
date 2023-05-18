@@ -19,11 +19,12 @@ return {
         "prettier",
         "shellcheck",
         "shfmt",
-        "vale",
         "yamllint",
       },
       automatic_setup = true
     })
+
+    local h = require("null-ls.helpers")
 
     require("null-ls").setup({
       sources = {
@@ -44,9 +45,6 @@ return {
           args = { "-c", "~/.markdownlint.yaml", "--stdin" },
         }),
         null_ls.builtins.diagnostics.shellcheck,
-        null_ls.builtins.diagnostics.vale.with({
-          extra_args = { "--config", vim.fn.expand('$HOME/.config/vale/vale.ini') },
-        }),
         null_ls.builtins.diagnostics.yamllint,
         null_ls.builtins.diagnostics.zsh,
         null_ls.builtins.formatting.beautysh.with({
