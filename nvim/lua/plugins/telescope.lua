@@ -15,13 +15,13 @@ return {
   },
   config = function()
     require("telescope").setup({
-      extensions = {
-        undo = {
-          layout_strategy = "vertical",
-          layout_config = {
-            preview_height = 0.8,
-          },
+      defaults = {
+        layout_strategy = "vertical",
+        layout_config = {
+          preview_cutoff = 10,
         },
+      },
+      extensions = {
         advanced_git_search = {
           diff_plugin = "diffview",
         },
