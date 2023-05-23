@@ -56,7 +56,6 @@ wk.register({
   },
   g = {
     D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', "Declaration" },
-    R = { '<cmd>Trouble lsp_references<cr>', "References" },
     d = { '<cmd>Telescope lsp_definitions<CR>', "Definition" },
     i = { '<cmd>lua vim.lsp.buf.implementation()<CR>', "Implementation" },
     j = { '<cmd>TSJJoin<cr>', "Join" },
@@ -299,15 +298,6 @@ wk.register({
     p = { "<cmd>pclose<cr>", "ClosePreview" },
     x = { "<cmd>close<cr>", "Close" },
     z = { '<C-w>|<C-w>_', 'Maximize' },
-  },
-  x = {
-    name = "+Trouble",
-    c = { "<cmd>TroubleClose<cr>", "Close" },
-    d = { "<cmd>Trouble document_diagnostics<cr>", "DocDiag" },
-    l = { "<cmd>Trouble loclist<cr>", "LocList" },
-    q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-    w = { "<cmd>Trouble workspace_diagnostics<cr>", "WorkSpaceDiag" },
-    x = { "<cmd>Trouble<cr>", "Trouble" },
   },
   y = { '<Plug>OSCYankOperator', 'Yank' },
   Y = {
