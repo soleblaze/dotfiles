@@ -8,7 +8,7 @@ $git_status\
 $status
 $character"""
 
-right_format = """$kubernetes $docker_context $time"""
+right_format = """$cmd_duration $kubernetes $docker_context $time"""
 
 
 [cmd_duration]
