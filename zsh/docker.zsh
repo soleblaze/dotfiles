@@ -58,6 +58,15 @@ function k3c() {
   ssh -O exit $machine
   k3d cluster create $1
   dtun
+
+  while true; do
+    if kubectl get nodes --no-headers 2>&1 | grep -q E0523; then
+      echo "Waiting for cluster to be ready..."
+      sleep 5
+    else
+      break
+    fi
+  done
 }
 
 function k3ct() {
@@ -69,6 +78,15 @@ function k3ct() {
   machine=$(docker context inspect | jq -r '.[].Endpoints.docker.Host | sub("ssh://"; "")')
   k3d cluster create test
   dtun
+
+  while true; do
+    if kubectl get nodes --no-headers 2>&1 | grep -q E0523; then
+      echo "Waiting for cluster to be ready..."
+      sleep 5
+    else
+      break
+    fi
+  done
 }
 
 function k3del() {
