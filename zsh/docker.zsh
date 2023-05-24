@@ -8,6 +8,7 @@ alias dpsl='docker ps -l'
 alias drmi='docker rmi'
 alias drun='docker run'
 alias dexec='docker exec -it'
+alias dl='docker logs'
 
 alias k3l='k3d cluster list'
 
@@ -60,7 +61,7 @@ function k3c() {
   dtun
 
   while true; do
-    if kubectl get nodes --no-headers 2>&1 | grep -q E0523; then
+    if kubectl get nodes --no-headers 2>&1 | grep -q "couldn't get resource list"; then
       echo "Waiting for cluster to be ready..."
       sleep 5
     else
@@ -80,7 +81,7 @@ function k3ct() {
   dtun
 
   while true; do
-    if kubectl get nodes --no-headers 2>&1 | grep -q E0523; then
+    if kubectl get nodes --no-headers 2>&1 | grep -q "couldn't get resource list"; then
       echo "Waiting for cluster to be ready..."
       sleep 5
     else
