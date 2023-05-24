@@ -7,6 +7,6 @@ fi
 BRANCH_NAME=$(git branch --show-current)
 
 if ! printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -qc "^$BRANCH_NAME$" && [[ "$BRANCH_NAME" ]]; then
-  TICKET=$(echo "$BRANCH_NAME" | sed -E 's/(-[0-9]+)([-0-9.]+|[a-z]+)?/\1/')
+  TICKET=$(echo "$BRANCH_NAME" | sed -E 's/(-[0-9]+)([-0-9.]+|[a-z]+)?/\1/' | tr [:lower:] [:upper:]])
   sed -i '' "1s/^/$TICKET /" "$1"
 fi
