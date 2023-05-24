@@ -1,12 +1,14 @@
 #!/bin/bash
-# prepending commit message.
 if [ -z "$BRANCHES_TO_SKIP" ]; then
-  BRANCHES_TO_SKIP=(master main release)
+  BRANCHES_TO_SKIP=(master release main)
 fi
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+TICKET_NAME=$(echo "$BRANCH_NAME" |
+  sed -E 's/.*\/([[:alpha:]]+-[[:digit:]]+)[^[:alnum:]]*|([[:alpha:]]+-[[:digit:]]+)[^[:alnum:]]*|\b([[:alpha:]]+-[[:digit:]]+)\b/\1\2\3/')
 
-BRANCH_NAME=$(git branch --show-current)
+BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
+ALREADY_IN_MSG=$(head -n1 "$1" | grep -c "$TICKET_NAME")
 
-if ! printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -qc "^$BRANCH_NAME$" && [[ "$BRANCH_NAME" ]]; then
-  TICKET=$(echo "$BRANCH_NAME" | sed -E 's/(-[0-9]+)([-0-9.]+|[a-z]+)?/\1/' | tr [:lower:] [:upper:]])
-  sed -i '' "1s/^/$TICKET /" "$1"
+if [ -n "$BRANCH_NAME" ] && ! [[ "$BRANCH_EXCLUDED" -eq 1 ]] && ! [[ "$ALREADY_IN_MSG" -eq 1 ]]; then
+  sed -i.bak -e "1s/^/$TICKET_NAME /" "$1"
 fi
