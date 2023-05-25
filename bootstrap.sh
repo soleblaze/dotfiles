@@ -188,3 +188,7 @@ installGHExtension dlvhdr/gh-dash
 if ! which kube-shell >/dev/null; then
   pip3 install kube-shell
 fi
+
+if ! pip3 list | grep "libtmux" >/dev/null 2>&1; then
+  pip3 install libtmux
+fi
