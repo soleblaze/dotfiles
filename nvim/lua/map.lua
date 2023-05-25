@@ -6,9 +6,10 @@ wk.register({
       vim.fn['copilot#Accept'](vim.api.nvim_replace_termcodes('<Tab>', true, true, true)), 'n', true)
   end, 'Accept Copilot', {
     silent = true, expr = true } },
-  ["C-e"] = { '<Plug>(copilot-dismiss)', 'Dismiss Copilot' },
-  ["C-n"] = { '<Plug>(copilot-next)', 'Next Copilot Suggestion' },
-  ["C-p"] = { '<Plug>(copilot-previous)', 'Previous Copilot Suggestion' },
+  ["<C-s>"] = { '<Esc>l<Cmd>lua require("nvim-autopairs.fastwrap").show()<CR>', 'FastWrap' },
+  ["<C-e>"] = { '<Plug>(copilot-dismiss)', 'Dismiss Copilot' },
+  ["<C-n>"] = { '<Plug>(copilot-next)', 'Next Copilot Suggestion' },
+  ["<C-p>"] = { '<Plug>(copilot-previous)', 'Previous Copilot Suggestion' },
   ["<F3>"] = { '<cmd>lua require("toggle").diagnostic()<cr>', 'Toggle diagnostics' },
   ["<F5>"] = { '<cmd>lua require("toggle").relativenumber()<cr>', 'Toggle relative number' },
   ["<F7>"] = { '<cmd>set spell!<cr>', 'Toggle Spell' },
