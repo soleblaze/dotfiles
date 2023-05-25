@@ -177,7 +177,6 @@ else
   installKrewPlugin tap
   installKrewPlugin trace
   installKrewPlugin podevents
-  installKrewPlugin popeye
   installKrewPlugin kubesec-scan
   installKrewPlugin pod-dive
   installKrewPlugin flame
