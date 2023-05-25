@@ -17,6 +17,7 @@ function dshell() {
 }
 
 function dtun() {
+  ssh -O exit $machine
   PORTS=()
   machine=$(docker context inspect | jq -r '.[].Endpoints.docker.Host | sub("ssh://"; "")')
   for container in $(docker container ls -q); do
@@ -56,7 +57,6 @@ function k3c() {
   fi
 
   machine=$(docker context inspect | jq -r '.[].Endpoints.docker.Host | sub("ssh://"; "")')
-  ssh -O exit $machine
   k3d cluster create $1
   dtun
 
@@ -73,7 +73,6 @@ function k3c() {
 function k3ct() {
   if k3d cluster list --no-headers |grep -q test; then
     k3d cluster delete test
-    ssh -O exit $machine
   fi
 
   machine=$(docker context inspect | jq -r '.[].Endpoints.docker.Host | sub("ssh://"; "")')
