@@ -40,6 +40,6 @@ require("lazy").setup(
 require("map")
 require("title")
 require("tmux")
+require("colors")
 
 vim.cmd("source ~/.config/nvim/vim/toggle.vim")
-vim.cmd("source ~/.config/nvim/vim/colors.vim")
