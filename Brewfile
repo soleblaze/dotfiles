@@ -1,7 +1,6 @@
 tap "ankitpokhrel/jira-cli"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
 tap "kudobuilder/tap"
 tap "romkatv/powerlevel10k"
 tap "snyk/tap"
