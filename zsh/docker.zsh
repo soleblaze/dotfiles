@@ -17,9 +17,9 @@ function dshell() {
 }
 
 function dtun() {
-  ssh -O exit $machine
   PORTS=()
   machine=$(docker context inspect | jq -r '.[].Endpoints.docker.Host | sub("ssh://"; "")')
+  ssh -O exit $machine
   for container in $(docker container ls -q); do
     PORTS+=($(docker port $container | awk -F "0:" '{printf $2}'))
   done
