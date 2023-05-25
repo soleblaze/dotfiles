@@ -119,8 +119,13 @@ function setTwoWindowsFrames()
   local frontmostWindow = allWindows[1]
   local secondFrontmostWindow = allWindows[2]
 
-  frontmostWindow:setFrame(hs.geometry.rect(1281, 25, 1790, 1271))
-  secondFrontmostWindow:setFrame(hs.geometry.rect(0, 25, 1281, 1271))
+  local screenFrame = hs.screen.mainScreen():frame()
+
+  local leftFrame = hs.geometry.rect(0, 0, 1280, screenFrame.h)
+  local rightFrame = hs.geometry.rect(1280, 0, screenFrame.w - 1280, screenFrame.h)
+
+  frontmostWindow:setFrame(leftFrame)
+  secondFrontmostWindow:setFrame(rightFrame)
 end
 
 -- Switch Window Focus
