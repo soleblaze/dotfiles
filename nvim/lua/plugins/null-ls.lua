@@ -61,7 +61,7 @@ return {
           extra_args = { "--prose-wrap", "always" }
         }),
         null_ls.builtins.formatting.shfmt.with({
-          args = { "-i", "2", "-filename", "$FILENAME" }
+          args = { "-ci", "-p", "-s", "-i", "2", "-bn", "-sr", "-filename", "$FILENAME" }
         }),
         null_ls.builtins.formatting.trim_whitespace.with({
           disabled_filetypes = { "go" },
