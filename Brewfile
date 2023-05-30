@@ -1,4 +1,7 @@
 tap "ankitpokhrel/jira-cli"
+tap "charmbracelet/tap"
+tap "derailed/popeye"
+tap "fluxcd/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "kudobuilder/tap"
@@ -79,8 +82,8 @@ brew "tig"
 brew "tldr"
 brew "tmux"
 brew "vale"
-brew "viddy"
 brew "vhs"
+brew "viddy"
 brew "watch"
 brew "wget"
 brew "xh"
@@ -94,9 +97,12 @@ brew "zsh-fast-syntax-highlighting"
 brew "zsh-history-substring-search"
 brew "zsh-vi-mode"
 brew "zsh-you-should-use"
-cask "bunch"
+cask "1password"
 cask "bartender"
+cask "bunch"
 cask "dash"
+cask "diffusionbee"
+cask "discord"
 cask "elgato-camera-hub"
 cask "elgato-control-center"
 cask "elgato-stream-deck"
@@ -106,27 +112,33 @@ cask "font-dejavu-sans-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
 cask "hammerspoon"
 cask "hookmark"
-cask "karabiner-elements"
-cask "keyboard-maestro"
 cask "istat-menus"
 cask "iterm2"
+cask "keyboard-maestro"
 cask "meld"
+cask "mochi-diffusion"
 cask "monitorcontrol"
 cask "obsidian"
 cask "openlens"
 cask "raindropio"
 cask "raycast"
 cask "rewind"
+cask "screenflow"
 cask "secretive"
 cask "shottr"
 cask "thingsmacsandboxhelper"
 cask "timing"
 cask "visual-studio-code"
+mas "1Password for Safari", id: 1569813296
+mas "Amphetamine", id: 937984704
 mas "Dark Noise", id: 1465439395
+mas "Dark Noise", id: 1465439395
+mas "Day One", id: 1055511498
 mas "GoodLinks", id: 1474335294
 mas "Keep It", id: 1272768911
 mas "MindNode", id: 1289197285
 mas "OmniOutliner 5", id: 1142578772
+mas "Reeder", id: 1529448980
 mas "Save to Raindrop.io", id: 1549370672
 mas "SnippetsLab", id: 1006087419
 mas "TextSniper", id: 1528890965
