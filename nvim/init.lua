@@ -12,8 +12,6 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("settings")
-require("toggle-autoformat")
-require("toggle-cmp")
 require("toggle")
 require("lazy").setup(
   "plugins",

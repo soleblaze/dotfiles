@@ -58,4 +58,52 @@ M.diagnostic = function()
   end
 end
 
+vim.api.nvim_create_autocmd({
+  "BufWritePre",
+}, {
+  callback = function()
+    if vim.g.autoFormat then
+      vim.lsp.buf.format()
+    end
+  end,
+})
+
+vim.g.autoFormat = true
+
+M.autoFormat = function()
+  if vim.g.autoFormat then
+    vim.g.autoFormat = false
+    vim.notify("autoFormat disabled")
+  else
+    vim.g.autoFormat = true
+    vim.notify("autoFormat enabled")
+  end
+end
+
+vim.g.cmp_toggle = false
+
+M.cmp = function()
+  local ok, cmp = pcall(require, "cmp")
+  if ok then
+    local next_cmp_toggle = not vim.g.cmp_toggle
+    if next_cmp_toggle then
+      print("completion on")
+    else
+      print("completion off")
+    end
+    cmp.setup({
+      enabled = function()
+        vim.g.cmp_toggle = next_cmp_toggle
+        if next_cmp_toggle then
+          return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+        else
+          return next_cmp_toggle
+        end
+      end,
+    })
+  else
+    print("completion not available")
+  end
+end
+
 return M

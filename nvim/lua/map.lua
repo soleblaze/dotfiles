@@ -12,9 +12,10 @@ wk.register({
   ["<C-p>"] = { '<Plug>(copilot-previous)', 'Previous Copilot Suggestion' },
   ["<F3>"] = { '<cmd>lua require("toggle").diagnostic()<cr>', 'Toggle diagnostics' },
   ["<F5>"] = { '<cmd>lua require("toggle").relativenumber()<cr>', 'Toggle relative number' },
+  ["<F6>"] = { '<cmd>lua require("toggle").autoFormat()<cr>', 'Toggle auto format' },
   ["<F7>"] = { '<cmd>set spell!<cr>', 'Toggle Spell' },
   ["<F8>"] = { '<cmd>set list!<cr>', 'Toggle List' },
-  ["<F9>"] = { '<cmd>lua require("toggle-cmp").toggle_completion()<cr>', 'Toggle Completion' },
+  ["<F4>"] = { '<cmd>lua require("toggle").cmp()<cr>', 'Toggle cmp' },
 }, {
   mode = "i",
 })
@@ -31,10 +32,11 @@ wk.register({
   ["<C-n>"] = { '<cmd>BufferNext<cr>', 'Next Buffer' },
   ["<C-p>"] = { '<cmd>BufferPrevious<cr>', 'Previous Buffer' },
   ["<F3>"] = { '<cmd>lua require("toggle").diagnostic()<cr>', 'Toggle diagnostics' },
+  ["<F4>"] = { '<cmd>lua require("toggle").cmp()<cr>', 'Toggle cmp' },
   ["<F5>"] = { '<cmd>lua require("toggle").relativenumber()<cr>', 'Toggle relative number' },
+  ["<F6>"] = { '<cmd>lua require("toggle").autoFormat()<cr>', 'Toggle auto format' },
   ["<F7>"] = { '<cmd>set spell!<cr>', 'Toggle Spell' },
   ["<F8>"] = { '<cmd>set list!<cr>', 'Toggle List' },
-  ["<F9>"] = { '<cmd>lua require"toggle-cmp".toggle_completion()<cr>', 'Toggle Completion' },
   ["<Left>"] = { '<cmd>5winc <<cr>', 'Shift Pane Left' },
   ["<Right>"] = { '<cmd>5winc ><cr>', 'Shift Pane Right' },
   ["["] = {
