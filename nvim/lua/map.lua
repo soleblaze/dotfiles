@@ -23,12 +23,10 @@ wk.register({
 wk.register({
   K = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover Buffer' },
   ZZ = { '<cmd>wqa!<cr>', 'Save and Quit' },
-  ["<C-;>"] = { '<cmd>FocusSplitCycle<cr>', "Cycle Split" },
-  ["<C-'>"] = { '<cmd>FocusSplitNicely<cr>', "Split Nicely" },
-  ["<C-h>"] = { '<cmd>FocusSplitLeft<cr>', 'Split Left' },
-  ["<C-j>"] = { '<cmd>FocusSplitDown<cr>', 'Split Down' },
-  ["<C-k>"] = { '<cmd>FocusSplitUp<cr>', 'Split Up' },
-  ["<C-l>"] = { '<cmd>FocusSplitRight<cr>', 'Split Right' },
+  ["<C-h>"] = { '<cmd>NavigatorLeft<cr>', 'Navigator Left' },
+  ["<C-j>"] = { '<cmd>NavigatorDown<cr>', 'Navigator Down' },
+  ["<C-k>"] = { '<cmd>NavigatorUp<cr>', 'Navigator Up' },
+  ["<C-l>"] = { '<cmd>NavigatorRight<cr>', 'Navigator Right' },
   ["<C-n>"] = { '<cmd>BufferNext<cr>', 'Next Buffer' },
   ["<C-p>"] = { '<cmd>BufferPrevious<cr>', 'Previous Buffer' },
   ["<F3>"] = { '<cmd>lua require("toggle").diagnostic()<cr>', 'Toggle diagnostics' },
@@ -336,5 +334,4 @@ wk.register({
     v = { "<cmd>YAMLYankValue<cr>", "YankValue" },
     y = { "<cmd>YAMLYank<cr>", "Yank" },
   },
-  z = { '<cmd>FocusMaximise<cr>', 'Maximize Window' },
 }, { prefix = "<leader>" })
