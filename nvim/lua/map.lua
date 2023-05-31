@@ -82,7 +82,10 @@ wk.register({
     name = "+AI",
     n = { "<cmd>NeoAIContext<cr>", "NeoAI" },
     i = { "<cmd>NeoAIInjectContext<cr>", "NeoAI Inject" },
-  }
+    r = {
+      name = "+Refactor"
+    },
+  },
   h = {
     name = "+GitSigns",
     r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset Hunk" },
@@ -131,6 +134,7 @@ wk.register({
   ["9"] = { '<cmd>BufferGoto 9<CR>', "Buffer 9" },
   a = {
     name = "+AI",
+    C = { '<cmd>NeoAIInjectCode<cr>', "Inject Code" },
     c = {
       name = "+Copilot",
       d = { '<CMD>Copilot disable<CR>', "Disable" },
@@ -140,8 +144,10 @@ wk.register({
       t = { '<cmd>CopilotToggle<cr>', "Toggle Copilot" },
     },
     i = { '<cmd>NeoAIInject<cr>', "Inject" },
-    c = { '<cmd>NeoAIInjectCode<cr>', "Inject Code" },
     n = { '<cmd>NeoAI<cr>', "NeoAI" },
+    r = {
+      name = "+Refactor"
+    },
     t = { '<cmd>NeoAIToggle<cr>', "Toggle NeoAI" },
   },
   b = {
