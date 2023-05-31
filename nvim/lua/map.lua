@@ -78,6 +78,11 @@ wk.register({
 })
 
 wk.register({
+  a = {
+    name = "+AI",
+    n = { "<cmd>NeoAIContext<cr>", "NeoAI" },
+    i = { "<cmd>NeoAIInjectContext<cr>", "NeoAI Inject" },
+  }
   h = {
     name = "+GitSigns",
     r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset Hunk" },
@@ -126,7 +131,6 @@ wk.register({
   ["9"] = { '<cmd>BufferGoto 9<CR>', "Buffer 9" },
   a = {
     name = "+AI",
-    T = { '<cmd>ChatGPTRun translate<cr>', "Translate" },
     c = {
       name = "+Copilot",
       d = { '<CMD>Copilot disable<CR>', "Disable" },
@@ -135,17 +139,10 @@ wk.register({
       s = { '<CMD>Copilot status<CR>', "Status" },
       t = { '<cmd>CopilotToggle<cr>', "Toggle Copilot" },
     },
-    d = { '<cmd>ChatGPTRun docstring<cr>', "DocString" },
-    e = { '<cmd>ChatGPTRun explain_code<cr>', "Explain Code" },
-    f = { '<cmd>ChatGPTRun fix_bugs<cr>', "Fix Bugs" },
-    g = { '<cmd>ChatGPTRun grammer_correction<cr>', "Grammer Correction" },
-    i = { function() require("chatgpt").edit_with_instructions() end, "Edit with Instructions" },
-    k = { '<cmd>ChatGPTRun keywords<cr>', "Keywords" },
-    o = { '<cmd>ChatGPTRun optimize_code<cr>', "Optimize Code" },
-    r = { '<cmd>ChatGPTRun code_readability_analysis<cr>', "Code Readability Analysis" },
-    R = { '<cmd>ChatGPTRun roxygen_edit<cr>', "Roxygen Edit" },
-    s = { '<cmd>ChatGPTRun summarize<cr>', "Summarize" },
-    t = { '<cmd>ChatGPTRun add_tests<cr>', "Add Tests" },
+    i = { '<cmd>NeoAIInject<cr>', "Inject" },
+    c = { '<cmd>NeoAIInjectCode<cr>', "Inject Code" },
+    n = { '<cmd>NeoAI<cr>', "NeoAI" },
+    t = { '<cmd>NeoAIToggle<cr>', "Toggle NeoAI" },
   },
   b = {
     name = "+Buffer",
