@@ -9,6 +9,7 @@ tap "romkatv/powerlevel10k"
 tap "snyk/tap"
 brew "act"
 brew "ansifilter"
+brew "asciinema"
 brew "bat"
 brew "bat-extras"
 brew "charmbracelet/tap/mods"
@@ -101,6 +102,8 @@ cask "1password"
 cask "bartender"
 cask "bunch"
 cask "dash"
+cask "devonagent"
+cask "devonthink"
 cask "diffusionbee"
 cask "discord"
 cask "elgato-camera-hub"
@@ -135,7 +138,6 @@ mas "Dark Noise", id: 1465439395
 mas "Dark Noise", id: 1465439395
 mas "Day One", id: 1055511498
 mas "GoodLinks", id: 1474335294
-mas "Keep It", id: 1272768911
 mas "MindNode", id: 1289197285
 mas "OmniOutliner 5", id: 1142578772
 mas "Reeder", id: 1529448980
