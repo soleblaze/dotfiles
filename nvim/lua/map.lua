@@ -68,9 +68,6 @@ wk.register({
     r = { '<cmd>Telescope lsp_references<CR>', "References" },
     s = { '<cmd>TSJSplit<cr>', "Split" },
   },
-  i = {
-    h = { '<cmd><C-U>Gitsigns select_hunk<CR>', "Select Hunk" },
-  },
 }, {
   mode = "n",
 })
