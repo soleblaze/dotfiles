@@ -101,11 +101,6 @@ wk.register({
     r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset Hunk" },
     s = { "<cmd>lua require('gitsigns').stage_hunk()<cr>", "Stage Hunk" },
   },
-  k = {
-    name = "+Dasht",
-    s = { "y:<C-U>call Dasht(getreg(0))<CR>", "Search" },
-    b = { "y:<C-U>call Dasht(getreg(0), '!' )<CR>", "Search in Browser" },
-  },
   r = {
     name = "+Refactor",
     e = { "<cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
@@ -131,7 +126,7 @@ wk.register({
     l = { '<cmd>Telescope advanced_git_search diff_commit_line<cr>', "Diff Commit Lines" },
     f = { '<cmd>Telescope advanced_git_search diff_commit_file<cr>', "Diff commit Files" },
   },
-  K = { '<cmd>Dasht!<Space>', 'Dasht' },
+  K = { "<cmd>Dash<cr>", "Dash" },
   P = { '"+P', 'Paste' },
   ["1"] = { '<cmd>BufferGoto 1<CR>', "Buffer 1" },
   ["2"] = { '<cmd>BufferGoto 2<CR>', "Buffer 2" },
@@ -238,7 +233,7 @@ wk.register({
     },
     u = { '<cmd>lua require("gitsigns").undo_stage_hunk()<CR>', "Undo Hunk Stage" },
   },
-  k = { '<cmd>call Dasht(dasht#cursor_search_terms())<CR>', 'Dasht Search Term' },
+  k = { "<cmd>DashWord<cr>", "Dash Word" },
   l = {
     name = "+LSP",
     P = { '<cmd>Lspsaga peek_definition<CR>', "Peek Definitions" },
