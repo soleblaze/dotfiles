@@ -346,4 +346,5 @@ wk.register({
     v = { "<cmd>YAMLYankValue<cr>", "YankValue" },
     y = { "<cmd>YAMLYank<cr>", "Yank" },
   },
+  z = { "<cmd>Lazy update<cr>", "Lazy Update" },
 }, { prefix = "<leader>" })
