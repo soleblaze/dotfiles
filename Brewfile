@@ -127,6 +127,7 @@ cask "meld"
 cask "mochi-diffusion"
 cask "monitorcontrol"
 cask "obsidian"
+cask "omnifocus"
 cask "openlens"
 cask "raindropio"
 cask "raycast"
@@ -134,7 +135,6 @@ cask "rewind"
 cask "screenflow"
 cask "secretive"
 cask "shottr"
-cask "thingsmacsandboxhelper"
 cask "timing"
 cask "visual-studio-code"
 mas "1Password for Safari", id: 1569813296
@@ -149,7 +149,6 @@ mas "Reeder", id: 1529448980
 mas "Save to Raindrop.io", id: 1549370672
 mas "SnippetsLab", id: 1006087419
 mas "TextSniper", id: 1528890965
-mas "Things 3", id: 904280696
 mas "Vimari", id: 1480933944
 mas "Wipr", id: 1320666476
 mas "Wireguard", id: 1451685025
