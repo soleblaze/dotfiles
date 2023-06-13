@@ -140,7 +140,6 @@ cask "visual-studio-code"
 mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
 mas "Dark Noise", id: 1465439395
-mas "Dark Noise", id: 1465439395
 mas "Day One", id: 1055511498
 mas "GoodLinks", id: 1474335294
 mas "MindNode", id: 1289197285
