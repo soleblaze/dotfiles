@@ -126,7 +126,6 @@ wk.register({
     l = { '<cmd>Telescope advanced_git_search diff_commit_line<cr>', "Diff Commit Lines" },
     f = { '<cmd>Telescope advanced_git_search diff_commit_file<cr>', "Diff commit Files" },
   },
-  K = { "<cmd>Dash<cr>", "Dash" },
   P = { '"+P', 'Paste' },
   ["1"] = { '<cmd>BufferGoto 1<CR>', "Buffer 1" },
   ["2"] = { '<cmd>BufferGoto 2<CR>', "Buffer 2" },
@@ -233,7 +232,6 @@ wk.register({
     },
     u = { '<cmd>lua require("gitsigns").undo_stage_hunk()<CR>', "Undo Hunk Stage" },
   },
-  k = { "<cmd>DashWord<cr>", "Dash Word" },
   l = {
     name = "+LSP",
     P = { '<cmd>Lspsaga peek_definition<CR>', "Peek Definitions" },
