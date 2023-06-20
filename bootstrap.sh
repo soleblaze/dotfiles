@@ -61,11 +61,11 @@ for i in init.lua ftplugin snippets vim; do
   linkFile "$PWD/nvim/$i" ~/.config/nvim/$i
 done
 
-pushd "$PWD/nvim/lua" >/dev/null || exit
+pushd "$PWD/nvim/lua" > /dev/null || exit
 for i in *; do
   linkFile "$PWD/$i" "$HOME/.config/nvim/lua/$i"
 done
-popd >/dev/null || exit
+popd > /dev/null || exit
 
 touch ~/.config/nvim/lua/local.lua
 
@@ -91,7 +91,7 @@ linkFile "$(brew --prefix)/bin/docker-buildx" ~/.docker/cli-plugins/docker-build
 
 if ! [ -e "$HOME/.docker/scan/config.json" ]; then
   mkdir -p ~/.docker/scan
-  echo "{}" >~/.docker/scan/config.json
+  echo "{}" > ~/.docker/scan/config.json
 fi
 
 linkFile "$PWD/tmux/tmux.conf" ~/.tmux.conf
@@ -117,7 +117,7 @@ if ! grep -q "$(brew --prefix)/bin/zsh" /etc/shells; then
   echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
 fi
 
-if [[ "$SHELL" != "$(brew --prefix)/bin/zsh" ]]; then
+if [[ $SHELL != "$(brew --prefix)/bin/zsh" ]]; then
   echo "Changing shell to $(brew --prefix)/bin/zsh"
   chsh -s "$(brew --prefix)/bin/zsh"
 fi
@@ -185,10 +185,14 @@ fi
 installGHExtension gennaro-tedesco/gh-f
 installGHExtension dlvhdr/gh-dash
 
-if ! which kube-shell >/dev/null; then
+if ! which kube-shell > /dev/null; then
   pip3 install kube-shell
 fi
 
-if ! pip3 list | grep "libtmux" >/dev/null 2>&1; then
+if ! pip3 list | grep "libtmux" > /dev/null 2>&1; then
   pip3 install libtmux
+fi
+
+if brew autoupdate status | grep -q 'Autoupdate is not configured'; then
+  brew autoupdate start
 fi
