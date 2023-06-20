@@ -107,7 +107,6 @@ cask "bunch"
 cask "dash"
 cask "devonagent"
 cask "devonthink"
-cask "discord"
 cask "element"
 cask "elgato-camera-hub"
 cask "elgato-control-center"
@@ -128,15 +127,11 @@ cask "meld"
 cask "obsidian"
 cask "omnifocus"
 cask "raycast"
-cask "rewind"
 cask "screenflow"
 cask "secretive"
 cask "timing"
-mas "Dark Noise", id: 1465439395
 mas "MindNode", id: 1289197285
 mas "OmniOutliner 5", id: 1142578772
-mas "Reeder", id: 1529448980
 mas "SnippetsLab", id: 1006087419
 mas "TextSniper", id: 1528890965
 mas "Wipr", id: 1320666476
-mas "Wireguard", id: 1451685025
