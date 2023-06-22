@@ -5,11 +5,14 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$status
-$character"""
-
-right_format = """$cmd_duration $kubernetes $docker_context $time"""
-
+$fill\
+$cmd_duration\
+$kubernetes\
+$docker_context\
+$python
+$status\
+$character
+"""
 
 [cmd_duration]
 format = '[⏱ $duration]($style)'
@@ -33,7 +36,7 @@ format = '[$symbol$context]($style) '
 format = '[$symbol$stack]($style) '
 
 [python]
-format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style) '
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style) '
 
 [status]
 disabled = false
@@ -42,3 +45,6 @@ format = '[$status]($style) '
 [time]
 disabled = false
 format = '[$time]($style)'
+
+[fill]
+symbol = ' '
