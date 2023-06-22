@@ -35,6 +35,10 @@ alias sih="sudo -i -H"
 alias svi="sudo -e"
 alias sz="source ~/.zshrc"
 
+# python aliases
+alias va='source .venv/bin/activate'
+alias vd='deactivate'
+
 # bat aliases
 alias cat='bat -p --pager=never'
 alias catl='bat --pager=never'
