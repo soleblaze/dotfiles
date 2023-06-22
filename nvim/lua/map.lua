@@ -239,6 +239,16 @@ wk.register({
     n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Next" },
     p = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Prev" },
   },
+  i = {
+    name = "+DAP",
+    b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+    c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
+    d = { "<cmd>lua require('dap').disconnect()<cr>", "Disconnect" },
+    i = { "<cmd>lua require('dap').step_into()<cr>", "Step Into" },
+    o = { "<cmd>lua require('dap').step_over()<cr>", "Step Over" },
+    p = { function() require('dap-python').test_method() end, "Debug Python Method" },
+    r = { "<cmd>lua require('dap').repl.toggle()<cr>", "Toggle Repl" },
+  },
   l = {
     name = "+LSP",
     P = { '<cmd>Lspsaga peek_definition<CR>', "Peek Definitions" },

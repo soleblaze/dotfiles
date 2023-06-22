@@ -13,13 +13,17 @@ return {
         "beautysh",
         "black",
         "cbfmt",
+        "debugpy",
         "fixjson",
         "golangci_lint",
         "jsonlint",
         "prettier",
+        "pydocstyle",
         "shellcheck",
         "shfmt",
         "yamllint",
+        "mypy",
+        "ruff"
       },
       automatic_setup = true
     })
@@ -41,6 +45,9 @@ return {
         null_ls.builtins.diagnostics.markdownlint.with({
           args = { "-c", "~/.markdownlint.yaml", "--stdin" },
         }),
+        null_ls.builtins.diagnostics.mypy,
+        null_ls.builtins.diagnostics.pydocstyle,
+        null_ls.builtins.diagnostics.ruff,
         null_ls.builtins.diagnostics.shellcheck,
         null_ls.builtins.diagnostics.yamllint,
         null_ls.builtins.diagnostics.zsh,
