@@ -188,7 +188,7 @@ wk.register({
     f = { "<cmd>Telescope find_files<cr>", "FindFiles" },
     g = { "<cmd>Telescope live_grep<cr>", "LiveGrep" },
     h = { "<cmd>Telescope help_tags<cr>", "HelpTags" },
-    i = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "FindInBuffer" },
+    i = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Find In Buffer" },
     j = { "<cmd>Telescope jumplist<cr>", "JumpList" },
     l = { "<cmd>Telescope loclist<cr>", "LocList" },
     m = { "<cmd>Telescope marks<cr>", "Marks" },
@@ -231,6 +231,13 @@ wk.register({
       b = { '<cmd>Gitsigns toggle_current_line_blame<CR>', "Toggle Current Line Blame" },
     },
     u = { '<cmd>lua require("gitsigns").undo_stage_hunk()<CR>', "Undo Hunk Stage" },
+  },
+  h = {
+    name = "+Harpoon",
+    f = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add File" },
+    m = { "<cmd>Telescope harpoon marks<cr>", "Marks" },
+    n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Next" },
+    p = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Prev" },
   },
   l = {
     name = "+LSP",

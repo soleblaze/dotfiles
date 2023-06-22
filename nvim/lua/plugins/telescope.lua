@@ -1,9 +1,11 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
-    { "aaronhallaert/advanced-git-search.nvim" },
     { "ElPiloto/telescope-vimwiki.nvim" },
+    { "aaronhallaert/advanced-git-search.nvim" },
+    { "benfowler/telescope-luasnip.nvim" },
     { "debugloop/telescope-undo.nvim" },
+    { "desdic/telescope-rooter.nvim" },
     { "jemag/telescope-diff.nvim" },
     { "nvim-lua/plenary.nvim" },
     { "nvim-telescope/telescope-dap.nvim" },
@@ -11,10 +13,9 @@ return {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make"
     },
+
     { "nvim-telescope/telescope-symbols.nvim" },
     { "someone-stole-my-name/yaml-companion.nvim" },
-    { "benfowler/telescope-luasnip.nvim" },
-    { "desdic/telescope-rooter.nvim" },
   },
   config = function()
     require("telescope").setup({
@@ -43,6 +44,7 @@ return {
     require("telescope").load_extension("refactoring")
     require("telescope").load_extension("undo")
     require("telescope").load_extension("yaml_schema")
+    require('telescope').load_extension('harpoon')
     require('telescope').load_extension('luasnip')
     require('telescope').load_extension('neoclip')
     require('telescope').load_extension('rooter')
