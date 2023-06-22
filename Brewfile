@@ -135,4 +135,5 @@ mas "MindNode", id: 1289197285
 mas "OmniOutliner 5", id: 1142578772
 mas "SnippetsLab", id: 1006087419
 mas "TextSniper", id: 1528890965
+mas "Vimari", id: 1480933944
 mas "Wipr", id: 1320666476
