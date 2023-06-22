@@ -1,8 +1,12 @@
 return {
-  "romgrk/barbar.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  config = function()
-    require("bufferline").setup {
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
       icons = {
         button = ' ',
         buffer_index = true,
@@ -11,5 +15,5 @@ return {
       clickable = false,
       maximum_padding = 1,
     }
-  end
+  },
 }
