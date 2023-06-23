@@ -202,6 +202,7 @@ wk.register({
     B = { '<cmd>Telescope advanced_git_search changed_on_branch<cr>', "List changes on current branch" },
     L = { '<cmd>Telescope advanced_git_search search_log_content<cr>', "Search all commits" },
     D = { '<cmd>Gitsigns diffthis ~ split=botright<CR>', "Diff File" },
+    P = { "<cmd>lua require('neogit').open({'push'})<cr>", "Neogit Push" },
     R = { '<cmd>lua require("gitsigns").reset_buffer()<CR>', "Reset Buffer" },
     S = { '<cmd>lua require("gitsigns").stage_buffer()<CR>', "Stage Buffer" },
     U = { '<cmd>lua require("gitsigns").reset_buffer_index()<CR>', "Reset Buffer Index", },
