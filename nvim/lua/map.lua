@@ -335,11 +335,11 @@ wk.register({
   },
   r = {
     name = "+Repl",
-    H = { '<cmd>IronHide<cr>', 'Hide' },
-    S = { '<cmd>IronRepl<cr>', 'Start' },
     F = { '<cmd>IronFocus<cr>', 'Focus' },
-    h = { '<cmd>IronReplHere<cr>', 'Here' },
-    r = { '<cmd>IronRestart<cr>', 'Restart' },
+    H = { '<cmd>IronReplHere<cr>', 'Here' },
+    R = { '<cmd>IronRestart<cr>', 'Restart' },
+    S = { '<cmd>IronRepl<cr>', 'Start' },
+    h = { '<cmd>IronHide<cr>', 'Hide' },
   },
   u = { '<cmd>Telescope undo<cr>', 'Undo' },
   w = {
