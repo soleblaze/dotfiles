@@ -17,6 +17,7 @@ return {
         "fixjson",
         "golangci_lint",
         "jsonlint",
+        "markdownlint",
         "prettier",
         "pydocstyle",
         "shellcheck",
