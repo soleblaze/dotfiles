@@ -21,6 +21,16 @@ wk.register({
 })
 
 wk.register({
+  ["<Esc>"] = { '<C-\\><C-n>', 'Escape Terminal Mode' },
+  ["<C-h>"] = { '<C-\\><C-n><cmd>NavigatorLeft<cr>', 'Navigator Left' },
+  ["<C-j>"] = { '<C-\\><C-n><cmd>NavigatorDown<cr>', 'Navigator Down' },
+  ["<C-k>"] = { '<C-\\><C-n><cmd>NavigatorUp<cr>', 'Navigator Up' },
+  ["<C-l>"] = { '<C-\\><C-n><cmd>NavigatorRight<cr>', 'Navigator Right' },
+}, {
+  mode = "t"
+})
+
+wk.register({
   K = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover Buffer' },
   ZZ = { '<cmd>wqa!<cr>', 'Save and Quit' },
   ["<C-h>"] = { '<cmd>NavigatorLeft<cr>', 'Navigator Left' },
@@ -100,15 +110,6 @@ wk.register({
     name = "+GitSigns",
     r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset Hunk" },
     s = { "<cmd>lua require('gitsigns').stage_hunk()<cr>", "Stage Hunk" },
-  },
-  r = {
-    name = "+Refactor",
-    e = { "<cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
-    f = { "<cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "Extract Function to File" },
-    i = { "<cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Var" },
-    r = { "<cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Telescope" },
-    v = { "<cmd>lua require('refactoring').debug.print_var({})<CR>", "Debug Print Var" },
-    V = { "<Esc><cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
   },
   y = { '<Plug>OSCYankVisual', 'Yank' },
 }, {
@@ -333,14 +334,12 @@ wk.register({
     x = { '<cmd>lua require("neotest").run.stop()<CR>', "Stop" },
   },
   r = {
-    name = "+Refactor",
-    b = { "<Cmd>lua require('refactoring').refactor('Extract Block')<CR>", "Extract Block" },
-    c = { "<cmd>lua require('refactoring').debug.cleanup({})<CR>", "Debug Cleanup" },
-    f = { "<Cmd>lua require('refactoring').refactor('Extract Block To File')<CR>", "Extract Block to File" },
-    i = { "<Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Var" },
-    p = { "<cmd>lua require('refactoring').debug.printf({below = false})<CR>", "Debug" },
-    r = { "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Telescope" },
-    v = { "<cmd>lua require('refactoring').debug.print_var({ normal = true })<CR>", "Debug Print Var" },
+    name = "+Repl",
+    H = { '<cmd>IronHide<cr>', 'Hide' },
+    S = { '<cmd>IronRepl<cr>', 'Start' },
+    F = { '<cmd>IronFocus<cr>', 'Focus' },
+    h = { '<cmd>IronReplHere<cr>', 'Here' },
+    r = { '<cmd>IronRestart<cr>', 'Restart' },
   },
   u = { '<cmd>Telescope undo<cr>', 'Undo' },
   w = {

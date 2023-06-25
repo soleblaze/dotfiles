@@ -41,7 +41,6 @@ return {
     require("telescope").load_extension("diff")
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("notify")
-    require("telescope").load_extension("refactoring")
     require("telescope").load_extension("undo")
     require("telescope").load_extension("yaml_schema")
     require('telescope').load_extension('harpoon')
