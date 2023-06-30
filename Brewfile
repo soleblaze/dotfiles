@@ -118,7 +118,6 @@ cask "elgato-wave-link"
 cask "font-dejavu"
 cask "font-dejavu-sans-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
-cask "hammerspoon"
 cask "hazel"
 cask "hookmark"
 cask "google-chrome"
@@ -134,6 +133,7 @@ cask "screenflow"
 cask "secretive"
 cask "timing"
 mas "MindNode", id: 1289197285
+mas "Moom", id: 419330170
 mas "OmniOutliner 5", id: 1142578772
 mas "SnippetsLab", id: 1006087419
 mas "TextSniper", id: 1528890965

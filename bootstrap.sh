@@ -109,9 +109,6 @@ if ! [[ -f "$HOME/.terminfo/74/tmux-256color" ]]; then
   tic -x "$PWD/terminfo/tmux-256color.terminfo"
 fi
 
-mkdir -p ~/.hammerspoon
-linkFile "$PWD/hammerspoon/init.lua" ~/.hammerspoon/init.lua
-
 if ! grep -q "$(brew --prefix)/bin/zsh" /etc/shells; then
   echo "Adding $(brew --prefix)/bin/zsh to /etc/shells"
   echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
