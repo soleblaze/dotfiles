@@ -41,7 +41,11 @@ if [ -f "/opt/homebrew/bin/brew" ]; then
 else
   eval "$(/usr/localbin/brew shellenv)"
 fi
-brew bundle
+brew bundle --file Brewfile.base
+
+if brew autoupdate status | grep -q 'Autoupdate is not configured'; then
+  brew autoupdate start
+fi
 
 mkdir -p ~/.local/share
 
@@ -69,14 +73,6 @@ popd > /dev/null || exit
 
 touch ~/.config/nvim/lua/local.lua
 
-mkdir -p ~/.config/karabiner
-linkFile "$PWD/karabiner/karabiner.json" ~/.config/karabiner/karabiner.json
-
-linkFile ~/Library/Mobile\ Documents/com~apple~CloudDocs ~/iCloud
-
-# Disable ApplePressandHold
-defaults write -g ApplePressAndHoldEnabled -bool false
-
 linkFile "$PWD/linters/cbfmt.toml" ~/.cbfmt.toml
 linkFile "$PWD/linters/golangci.yml" ~/.golangci.yml
 linkFile "$PWD/linters/markdownlint.yaml" ~/.markdownlint.yaml
@@ -94,21 +90,6 @@ if ! [ -e "$HOME/.docker/scan/config.json" ]; then
   echo "{}" > ~/.docker/scan/config.json
 fi
 
-linkFile "$PWD/tmux/tmux.conf" ~/.tmux.conf
-if ! [ -f ~/.tmux/plugins/tpm/bin/install_plugins ]; then
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  ~/.tmux/plugins/tpm/bin/install_plugins
-fi
-
-mkdir -p ~/bin
-for file in bin/*; do
-  linkFile "$PWD/$file" "$HOME/$file"
-done
-
-if ! [[ -f "$HOME/.terminfo/74/tmux-256color" ]]; then
-  tic -x "$PWD/terminfo/tmux-256color.terminfo"
-fi
-
 if ! grep -q "$(brew --prefix)/bin/zsh" /etc/shells; then
   echo "Adding $(brew --prefix)/bin/zsh to /etc/shells"
   echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
@@ -121,75 +102,93 @@ fi
 
 mkdir -p ~/.cache/zsh
 
-mkdir -p ~/.config/smug
-
-for i in smug/*; do
-  linkFile "$PWD/$i" "$HOME/.config/$i"
-done
-
 mkdir -p ~/.config/git/hooks
 for i in hooks/*; do
   linkFile "$PWD/$i" "$HOME/.config/git/$i"
 done
 
 if ! grep -q "hookPath" ~/.gitconfig; then
-  git config --global core.hooksPath "$HOME/.config/git"
+  git config --global core.hooksPath "$HOME/.config/git/hooks/"
 fi
 
-installKrewPlugin blame
-installKrewPlugin debug-shell
-installKrewPlugin df-pv
-installKrewPlugin exec-as
-installKrewPlugin fuzzy
-installKrewPlugin gadget
-installKrewPlugin ice
-installKrewPlugin images
-installKrewPlugin kluster-capacity
-installKrewPlugin kurt
-installKrewPlugin modify-secret
-installKrewPlugin node-shell
-installKrewPlugin oomd
-installKrewPlugin outdated
-installKrewPlugin pod-inspect
-installKrewPlugin resource-capacity
-installKrewPlugin score
-installKrewPlugin sick-pods
-installKrewPlugin sniff
-installKrewPlugin starboard
-installKrewPlugin status
-installKrewPlugin stern
-installKrewPlugin tree
-installKrewPlugin view-allocations
+if [ -f "$HOME/.config/desktop.mode" ]; then
+  brew bundle --file Brewfile.desktop
 
-if [[ "$(uname -m)" == "arm64" ]]; then
-  download_tgz kubecolor hidetatz/kubecolor Darwin_arm64
-else
-  download_tgz kubecolor hidetatz/kubecolor Darwin_x86_64
+  mkdir -p ~/.config/karabiner
+  linkFile "$PWD/karabiner/karabiner.json" ~/.config/karabiner/karabiner.json
 
-  installKrewPlugin kubescape
-  installKrewPlugin service-tree
-  installKrewPlugin doctor
-  installKrewPlugin view-webhook
-  installKrewPlugin strace
-  installKrewPlugin tap
-  installKrewPlugin trace
-  installKrewPlugin podevents
-  installKrewPlugin kubesec-scan
-  installKrewPlugin pod-dive
-  installKrewPlugin flame
-fi
+  linkFile ~/Library/Mobile\ Documents/com~apple~CloudDocs ~/iCloud
 
-installGHExtension gennaro-tedesco/gh-f
-installGHExtension dlvhdr/gh-dash
+  # Disable ApplePressandHold
+  defaults write -g ApplePressAndHoldEnabled -bool false
 
-if ! which kube-shell > /dev/null; then
-  pip3 install kube-shell
-fi
+  linkFile "$PWD/tmux/tmux.conf" ~/.tmux.conf
+  if ! [ -f ~/.tmux/plugins/tpm/bin/install_plugins ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ~/.tmux/plugins/tpm/bin/install_plugins
+  fi
 
-if ! pip3 list | grep "libtmux" > /dev/null 2>&1; then
-  pip3 install libtmux
-fi
+  mkdir -p ~/bin
+  for file in bin/*; do
+    linkFile "$PWD/$file" "$HOME/$file"
+  done
 
-if brew autoupdate status | grep -q 'Autoupdate is not configured'; then
-  brew autoupdate start
+  if ! [[ -f "$HOME/.terminfo/74/tmux-256color" ]]; then
+    tic -x "$PWD/terminfo/tmux-256color.terminfo"
+  fi
+
+  mkdir -p ~/.config/smug
+
+  for i in smug/*; do
+    linkFile "$PWD/$i" "$HOME/.config/$i"
+  done
+
+  installKrewPlugin blame
+  installKrewPlugin df-pv
+  installKrewPlugin fuzzy
+  installKrewPlugin gadget
+  installKrewPlugin ice
+  installKrewPlugin images
+  installKrewPlugin kluster-capacity
+  installKrewPlugin oomd
+  installKrewPlugin pod-inspect
+  installKrewPlugin resource-capacity
+  installKrewPlugin score
+  installKrewPlugin sick-pods
+  installKrewPlugin sniff
+  installKrewPlugin starboard
+  installKrewPlugin status
+  installKrewPlugin stern
+  installKrewPlugin tree
+  installKrewPlugin view-allocations
+
+  if [[ "$(uname -m)" == "arm64" ]]; then
+    download_tgz kubecolor hidetatz/kubecolor Darwin_arm64
+  else
+    download_tgz kubecolor hidetatz/kubecolor Darwin_x86_64
+
+    installKrewPlugin kubescape
+    installKrewPlugin service-tree
+    installKrewPlugin doctor
+    installKrewPlugin view-webhook
+    installKrewPlugin strace
+    installKrewPlugin tap
+    installKrewPlugin trace
+    installKrewPlugin podevents
+    installKrewPlugin kubesec-scan
+    installKrewPlugin pod-dive
+    installKrewPlugin flame
+  fi
+
+  installGHExtension gennaro-tedesco/gh-f
+  installGHExtension dlvhdr/gh-dash
+
+  if ! which kube-shell > /dev/null; then
+    pip3 install kube-shell
+  fi
+
+  if ! pip3 list | grep "libtmux" > /dev/null 2>&1; then
+    pip3 install libtmux
+  fi
+
 fi
