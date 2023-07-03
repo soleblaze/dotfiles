@@ -2,7 +2,14 @@ return {
   "folke/flash.nvim",
   event = "VeryLazy",
   ---@type Flash.Config
-  opts = {},
+  opts = {
+    search = {
+      mode = function(str)
+        return "\\<" .. str
+      end,
+    },
+
+  },
   keys = {
     {
       "s",
