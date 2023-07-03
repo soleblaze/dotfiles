@@ -23,5 +23,8 @@ return {
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim"
-  }
+  },
+  cond = function()
+    return os.getenv("OPENAI_API_KEY") ~= nil
+  end
 }

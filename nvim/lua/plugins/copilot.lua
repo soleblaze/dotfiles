@@ -24,5 +24,11 @@ return {
     vim.g.copilot_filetypes = {
       yaml = true
     }
+  end,
+  cond = function()
+    local filepath = vim.fn.expand('~') .. '/.config/nvim/copilot.enable'
+    local exists = vim.loop.fs_stat(filepath)
+    return exists and exists.type == 'file'
   end
+
 }
