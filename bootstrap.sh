@@ -122,12 +122,6 @@ if [ -f "$HOME/.config/desktop.mode" ]; then
   # Disable ApplePressandHold
   defaults write -g ApplePressAndHoldEnabled -bool false
 
-  linkFile "$PWD/tmux/tmux.conf" ~/.tmux.conf
-  if ! [ -f ~/.tmux/plugins/tpm/bin/install_plugins ]; then
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    ~/.tmux/plugins/tpm/bin/install_plugins
-  fi
-
   mkdir -p ~/bin
   for file in bin/*; do
     linkFile "$PWD/$file" "$HOME/$file"
@@ -137,9 +131,9 @@ if [ -f "$HOME/.config/desktop.mode" ]; then
     tic -x "$PWD/terminfo/tmux-256color.terminfo"
   fi
 
-  mkdir -p ~/.config/smug
+  mkdir -p ~/.config/kitty
 
-  for i in smug/*; do
+  for i in kitty/*; do
     linkFile "$PWD/$i" "$HOME/.config/$i"
   done
 

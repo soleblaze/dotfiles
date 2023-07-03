@@ -22,10 +22,6 @@ wk.register({
 
 wk.register({
   ["<Esc>"] = { '<C-\\><C-n>', 'Escape Terminal Mode' },
-  ["<C-h>"] = { '<C-\\><C-n><cmd>NavigatorLeft<cr>', 'Navigator Left' },
-  ["<C-j>"] = { '<C-\\><C-n><cmd>NavigatorDown<cr>', 'Navigator Down' },
-  ["<C-k>"] = { '<C-\\><C-n><cmd>NavigatorUp<cr>', 'Navigator Up' },
-  ["<C-l>"] = { '<C-\\><C-n><cmd>NavigatorRight<cr>', 'Navigator Right' },
 }, {
   mode = "t"
 })
@@ -33,10 +29,6 @@ wk.register({
 wk.register({
   K = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover Buffer' },
   ZZ = { '<cmd>wqa!<cr>', 'Save and Quit' },
-  ["<C-h>"] = { '<cmd>NavigatorLeft<cr>', 'Navigator Left' },
-  ["<C-j>"] = { '<cmd>NavigatorDown<cr>', 'Navigator Down' },
-  ["<C-k>"] = { '<cmd>NavigatorUp<cr>', 'Navigator Up' },
-  ["<C-l>"] = { '<cmd>NavigatorRight<cr>', 'Navigator Right' },
   ["<C-n>"] = { '<cmd>BufferNext<cr>', 'Next Buffer' },
   ["<C-p>"] = { '<cmd>BufferPrevious<cr>', 'Previous Buffer' },
   ["<F3>"] = { '<cmd>lua require("toggle").diagnostic()<cr>', 'Toggle diagnostics' },
