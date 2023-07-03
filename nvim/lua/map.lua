@@ -103,7 +103,7 @@ wk.register({
     r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset Hunk" },
     s = { "<cmd>lua require('gitsigns').stage_hunk()<cr>", "Stage Hunk" },
   },
-  y = { '<Plug>OSCYankVisual', 'Yank' },
+  y = { '"+y', 'Yank' },
 }, {
   prefix = "<leader>",
   mode = "v",
@@ -343,7 +343,7 @@ wk.register({
     x = { "<cmd>close<cr>", "Close" },
     z = { '<C-w>|<C-w>_', 'Maximize' },
   },
-  y = { '<Plug>OSCYankOperator', 'Yank' },
+  y = { '"+y', 'Yank' },
   Y = {
     name = "+Yaml",
     k = { "<cmd>YAMLYankKey<cr>", "YankKey" },
