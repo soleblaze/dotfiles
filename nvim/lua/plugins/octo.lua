@@ -1,5 +1,6 @@
 return {
   'pwntester/octo.nvim',
+  event = "VeryLazy",
   requires = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope.nvim',

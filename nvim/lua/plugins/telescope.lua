@@ -1,7 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
-    { "ElPiloto/telescope-vimwiki.nvim" },
     { "aaronhallaert/advanced-git-search.nvim" },
     { "benfowler/telescope-luasnip.nvim" },
     { "debugloop/telescope-undo.nvim" },
@@ -15,7 +14,6 @@ return {
     },
 
     { "nvim-telescope/telescope-symbols.nvim" },
-    { "someone-stole-my-name/yaml-companion.nvim" },
   },
   config = function()
     require("telescope").setup({
@@ -42,12 +40,9 @@ return {
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("notify")
     require("telescope").load_extension("undo")
-    require("telescope").load_extension("yaml_schema")
     require('telescope').load_extension('harpoon')
     require('telescope').load_extension('luasnip')
-    require('telescope').load_extension('neoclip')
     require('telescope').load_extension('rooter')
-    require('telescope').load_extension('vimwiki')
 
     vim.cmd("command! -bang Keymap Telescope keymaps")
   end,

@@ -25,7 +25,6 @@ wk.register({
 }, {
   mode = "t"
 })
-
 wk.register({
   K = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover Buffer' },
   ZZ = { '<cmd>wqa!<cr>', 'Save and Quit' },
@@ -173,10 +172,8 @@ wk.register({
   e = { '<cmd>lua vim.diagnostic.open_float()<CR>', "Open Float" },
   f = {
     name = "+Telescope",
-    a = { "<cmd>Telescope aerial<cr>", "Aerial" },
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },
     c = { "<cmd>Telescope quickfix<cr>", "QuickFix" },
-    D = { "Lspsaga show_diagnostics", "Show Diagnostics" },
     d = { "<cmd>Telescope diagnostics<cr>", "Diags" },
     f = { "<cmd>Telescope find_files<cr>", "FindFiles" },
     g = { "<cmd>Telescope live_grep<cr>", "LiveGrep" },
@@ -185,7 +182,6 @@ wk.register({
     j = { "<cmd>Telescope jumplist<cr>", "JumpList" },
     l = { "<cmd>Telescope loclist<cr>", "LocList" },
     m = { "<cmd>Telescope marks<cr>", "Marks" },
-    o = { "<cmd>ObsidianSearch<cr>", "Obsidian" },
     n = { "<cmd>Telescope notify<cr>", "Notifications" },
     s = { "<cmd>Telescope luasnip<cr>", "Luasnip" },
     y = { "<cmd>Telescope yaml_schema<cr>", "YamlSchema" }
@@ -245,33 +241,12 @@ wk.register({
   },
   l = {
     name = "+LSP",
-    P = { '<cmd>Lspsaga peek_definition<CR>', "Peek Definitions" },
-    g = { '<cmd>Lspsaga goto_definition<CR>', "Goto Definition" },
     F = { '<cmd>lua vim.lsp.buf.format()<CR>', "Format" },
-    c = { '<cmd>Lspsaga code_action<CR>', "Code Action" },
-    d = { '<cmd>Lspsaga hover_doc<CR>', "Hover Doc" },
-    f = { '<cmd>Lspsaga lsp_finder<CR>', "LSP Finder" },
     h = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', "Signature Help" },
-    i = { '<cmd>Lspsaga incoming_calls<CR>', "Incoming Calls" },
-    I = { '<cmd>Lspsaga outgoing_calls<CR>', "Outgoing Calls" },
     o = { '<cmd>Telescope lsp_document_symbols<CR>', "Document Symbols" },
-    p = {
-      name = "+Goto Preview",
-      d = { '<cmd>lua require("goto-preview").goto_preview_definition()<CR>', "Goto Preview Definition" },
-      t = { '<cmd>lua require("goto-preview").goto_preview_type_definition()<CR>', "Goto Preview Type Definition" },
-      i = { '<cmd>lua require("goto-preview").goto_preview_implementation()<CR>', "Goto Preview Implementation" },
-      p = { '<cmd>lua require("goto-preview").close_all_win()<CR>', "Close All Windows" },
-      r = { '<cmd>lua require("goto-preview").goto_preview_references()<CR>', "Goto Preview References" },
-    },
     q = { '<cmd>lua vim.diagnostic.setloclist()<CR>', "Location List" },
-    r = { '<cmd>Lspsaga rename<CR>', "Rename" },
   },
   m = { '<cmd>Glow<cr>', 'Glow' },
-  n = {
-    name = "Neo Commands",
-    c = { '<cmd>Telescope neoclip<cr>', 'Neoclip' },
-    g = { '<cmd>Neogen<cr>', 'Neogen' },
-  },
   o = {
     name = "+Octo",
     a = { "<cmd>Octo actions<cr>", "List Actions" },
