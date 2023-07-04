@@ -28,6 +28,12 @@ wk.register({
 wk.register({
   K = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover Buffer' },
   ZZ = { '<cmd>wqa!<cr>', 'Save and Quit' },
+  ["<C-;>"] = { '<C-w>s', "Split Horizontal" },
+  ["<C-'>"] = { '<C-w>v', "Split Vertical" },
+  ["<C-h>"] = { '<C-w>h', 'Split Left' },
+  ["<C-j>"] = { '<C-w>j', 'Split Down' },
+  ["<C-k>"] = { '<C-w>k', 'Split Up' },
+  ["<C-l>"] = { '<C-w>l', 'Split Right' },
   ["<C-n>"] = { '<cmd>BufferNext<cr>', 'Next Buffer' },
   ["<C-p>"] = { '<cmd>BufferPrevious<cr>', 'Previous Buffer' },
   ["<F3>"] = { '<cmd>lua require("toggle").diagnostic()<cr>', 'Toggle diagnostics' },
@@ -168,7 +174,7 @@ wk.register({
     }
   },
   c = { "<cmd>close<cr>", "Close" },
-  d = { '<cmd>BufferClose<cr>', 'Close Buffer' },
+  d = { '<cmd>bd<cr>', 'Close Buffer' },
   e = { '<cmd>lua vim.diagnostic.open_float()<CR>', "Open Float" },
   f = {
     name = "+Telescope",
