@@ -15,7 +15,7 @@ $character
 """
 
 [cmd_duration]
-format = '[⏱ $duration]($style)'
+format = '[⏱ $duration]($style) '
 min_time = 5_000
 
 [docker_context]
