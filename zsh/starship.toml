@@ -1,4 +1,5 @@
 format = """
+$hostname \
 $directory\
 $git_branch\
 $git_commit\
@@ -22,11 +23,17 @@ min_time = 5_000
 only_with_files = false
 format = '[$symbol$context]($style) '
 
+[fill]
+symbol = ' '
+
 [git_branch]
 format = '[$symbol$branch]($style) '
 
 [golang]
 format = '[$symbol($version)]($style) '
+
+[hostname]
+format = '[$hostname]($style)'
 
 [kubernetes]
 disabled = false
@@ -45,6 +52,3 @@ format = '[$status]($style) '
 [time]
 disabled = false
 format = '[$time]($style)'
-
-[fill]
-symbol = ' '
