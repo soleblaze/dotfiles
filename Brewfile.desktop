@@ -52,6 +52,7 @@ cask "raycast"
 cask "screenflow"
 cask "secretive"
 cask "timing"
+cask "visual-studio-code"
 
 mas "MindNode", id: 1289197285
 mas "Moom", id: 419330170
