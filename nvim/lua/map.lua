@@ -98,6 +98,7 @@ wk.register({
     i = { function() require("chatgpt").edit_with_instructions() end, "Edit with Instructions" },
     k = { '<cmd>ChatGPTRun keywords<cr>', "Keywords" },
     o = { '<cmd>ChatGPTRun optimize_code<cr>', "Optimize Code" },
+    p = { '<cmd>ChatGPTRun add_pytests<cr>', "Add Pytests" },
     r = { '<cmd>ChatGPTRun code_readability_analysis<cr>', "Code Readability Analysis" },
     R = { '<cmd>ChatGPTRun roxygen_edit<cr>', "Roxygen Edit" },
     s = { '<cmd>ChatGPTRun summarize<cr>', "Summarize" },

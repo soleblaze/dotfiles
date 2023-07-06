@@ -17,6 +17,7 @@ return {
       popup_input = {
         submit = "<C-s>",
       },
+      actions_paths = { vim.fn.stdpath("config") .. "/chatgpt.json" },
     })
   end,
   dependencies = {
