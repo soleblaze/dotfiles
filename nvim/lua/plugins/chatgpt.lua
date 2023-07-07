@@ -3,21 +3,46 @@ return {
   event = "VeryLazy",
   config = function()
     require("chatgpt").setup({
-      chat = {
+      actions_paths = { vim.fn.stdpath("config") .. "/chatgpt.json" },
+      edit_with_instructions = {
+        diff = false,
         keymaps = {
-          close = "<C-f>",
-          yank_last = "<C-y>",
-          scroll_up = "<C-u>",
-          scroll_down = "<C-d>",
+          close = "<C-c>",
+          accept = "<C-a>",
+          toggle_diff = "<C-d>",
           toggle_settings = "<C-o>",
-          new_session = "<C-n>",
           cycle_windows = "<Tab>",
+          use_output_as_input = "<C-i>",
         },
       },
-      popup_input = {
-        submit = "<C-s>",
+      chat = {
+        keymaps = {
+          close = { "<C-c>" },
+          yank_last = "<C-y>",
+          yank_last_code = "<C-k>",
+          scroll_up = "<C-u>",
+          scroll_down = "<C-d>",
+          new_session = "<C-n>",
+          cycle_windows = "<Tab>",
+          cycle_modes = "<C-f>",
+          select_session = "<Space>",
+          rename_session = "r",
+          delete_session = "d",
+          draft_message = "<C-d>",
+          toggle_settings = "<C-o>",
+          toggle_message_role = "<C-r>",
+          toggle_system_role_open = "<C-s>",
+        },
       },
-      actions_paths = { vim.fn.stdpath("config") .. "/chatgpt.json" },
+      openai_params = {
+        model = "gpt-3.5-turbo",
+        frequency_penalty = 0,
+        presence_penalty = 0,
+        max_tokens = 2048,
+        temperature = 0,
+        top_p = 1,
+        n = 1,
+      },
     })
   end,
   dependencies = {

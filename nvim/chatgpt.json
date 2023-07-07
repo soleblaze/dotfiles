@@ -3,12 +3,9 @@
     "type": "chat",
     "opts": {
       "template": "You're a expert python developer. Implement tests using pytest for the following code.\n\nCode:\n```{{input}}\n```\n\nTests:\n```",
-      "strategy": "edit",
       "params": {
         "model": "gpt-3.5-turbo",
-        "stop": [
-          "```"
-        ]
+        "stop": ["```"]
       }
     }
   }
