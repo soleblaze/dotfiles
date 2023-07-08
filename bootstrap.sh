@@ -6,29 +6,11 @@ linkFile() {
   fi
 }
 
-installKrewPlugin() {
-  if ! [ -f "$HOME/.krew/bin/kubectl-${1/-/_}" ]; then
-    kubectl krew install "$1"
-  fi
-}
-
-installGHExtension() {
-  if ! [ -d "$HOME/.local/share/gh/extensions/${1##*/}" ]; then
-    gh extension install "$1"
-  fi
-}
-
 download_tgz() {
   filename="$1"
   repo="$2"
   target="$3"
-  if ! [ -f "$HOME/bin/$1" ]; then
-    url="$(curl -f -sL "https://api.github.com/repos/${repo}/releases/latest" | jq -r '.assets[].browser_download_url' | grep '.tar.gz$' | grep -i "$target")"
-    echo "Downloading: $filename"
-    curl -sL "$url" -o "/tmp/${filename}.tgz"
-    tar -xf "/tmp/${filename}.tgz" -C "$HOME/bin/" "${filename}"
-    rm "/tmp/${filename}.tgz"
-  fi
+  if ! [ -f "$HOME/bin/$1" ]; then url="$(curl -f -sL "https://api.github.com/repos/${repo}/releases/latest" | jq -r '.assets[].browser_download_url' | grep '.tar.gz$' | grep -i "$target")" echo "Downloading: $filename" curl -sL "$url" -o "/tmp/${filename}.tgz" tar -xf "/tmp/${filename}.tgz" -C "$HOME/bin/" "${filename}" rm "/tmp/${filename}.tgz" fi
 }
 
 if ! [ -f /opt/homebrew/bin/brew ] && ! [ -f '/usr/local/bin/brew' ]; then
@@ -61,7 +43,7 @@ fi
 
 mkdir -p ~/.config/nvim/lua
 
-for i in init.lua ftplugin snippets vim; do
+for i in chatgpt.json init.lua ftplugin snippets vim; do
   linkFile "$PWD/nvim/$i" ~/.config/nvim/$i
 done
 
@@ -107,10 +89,6 @@ for i in hooks/*; do
   linkFile "$PWD/$i" "$HOME/.config/git/$i"
 done
 
-if ! grep -q "hookPath" ~/.gitconfig; then
-  git config --global core.hooksPath "$HOME/.config/git/hooks/"
-fi
-
 if [ -f "$HOME/.config/desktop.mode" ]; then
   brew bundle --file Brewfile.desktop
 
@@ -122,67 +100,9 @@ if [ -f "$HOME/.config/desktop.mode" ]; then
   # Disable ApplePressandHold
   defaults write -g ApplePressAndHoldEnabled -bool false
 
-  mkdir -p ~/bin
-  for file in bin/*; do
-    linkFile "$PWD/$file" "$HOME/$file"
-  done
-
-  if ! [[ -f "$HOME/.terminfo/74/tmux-256color" ]]; then
-    tic -x "$PWD/terminfo/tmux-256color.terminfo"
-  fi
-
   mkdir -p ~/.config/kitty
 
   for i in kitty/*; do
     linkFile "$PWD/$i" "$HOME/.config/$i"
   done
-
-  installKrewPlugin blame
-  installKrewPlugin df-pv
-  installKrewPlugin fuzzy
-  installKrewPlugin gadget
-  installKrewPlugin ice
-  installKrewPlugin images
-  installKrewPlugin kluster-capacity
-  installKrewPlugin oomd
-  installKrewPlugin pod-inspect
-  installKrewPlugin resource-capacity
-  installKrewPlugin score
-  installKrewPlugin sick-pods
-  installKrewPlugin sniff
-  installKrewPlugin starboard
-  installKrewPlugin status
-  installKrewPlugin stern
-  installKrewPlugin tree
-  installKrewPlugin view-allocations
-
-  if [[ "$(uname -m)" == "arm64" ]]; then
-    download_tgz kubecolor hidetatz/kubecolor Darwin_arm64
-  else
-    download_tgz kubecolor hidetatz/kubecolor Darwin_x86_64
-
-    installKrewPlugin kubescape
-    installKrewPlugin service-tree
-    installKrewPlugin doctor
-    installKrewPlugin view-webhook
-    installKrewPlugin strace
-    installKrewPlugin tap
-    installKrewPlugin trace
-    installKrewPlugin podevents
-    installKrewPlugin kubesec-scan
-    installKrewPlugin pod-dive
-    installKrewPlugin flame
-  fi
-
-  installGHExtension gennaro-tedesco/gh-f
-  installGHExtension dlvhdr/gh-dash
-
-  if ! which kube-shell > /dev/null; then
-    pip3 install kube-shell
-  fi
-
-  if ! pip3 list | grep "libtmux" > /dev/null 2>&1; then
-    pip3 install libtmux
-  fi
-
 fi
