@@ -97,12 +97,12 @@ if [ -f "$HOME/.config/desktop.mode" ]; then
 
   linkFile ~/Library/Mobile\ Documents/com~apple~CloudDocs ~/iCloud
 
-  # Disable ApplePressandHold
-  defaults write -g ApplePressAndHoldEnabled -bool false
 
   mkdir -p ~/.config/kitty
 
   for i in kitty/*; do
     linkFile "$PWD/$i" "$HOME/.config/$i"
   done
+
+
 fi
