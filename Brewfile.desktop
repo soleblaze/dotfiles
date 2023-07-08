@@ -1,9 +1,13 @@
+tap "fluxcd/tap"
 tap "hidetatz/tap"
 tap "homebrew/cask-fonts"
 
 brew "exercism"
+brew "fluxcd/tap/flux"
+brew "helm"
 brew "hidetatz/tap/kubecolor"
 brew "k3d"
+brew "kubernetes-cli"
 brew "mas"
 
 cask "bartender"
