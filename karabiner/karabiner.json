@@ -22,9 +22,7 @@
                 "from": {
                   "key_code": "caps_lock",
                   "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
+                    "optional": ["any"]
                   }
                 },
                 "to": [
@@ -42,25 +40,39 @@
             ]
           },
           {
-            "description": "Change tab to command+control+option+shift if pressed alone",
+            "description": "Change right command to command+control+option+shift",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "tab",
+                  "key_code": "right_command",
                   "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
+                    "optional": ["any"]
                   }
                 },
                 "to": [
                   {
                     "key_code": "left_shift",
-                    "modifiers": [
-                      "left_command",
-                      "left_control",
-                      "left_option"
-                    ]
+                    "modifiers": ["left_command", "left_control", "left_option"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change tab to command+control+option+shift if pressed with another key",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "tab",
+                  "modifiers": {
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_shift",
+                    "modifiers": ["left_command", "left_control", "left_option"]
                   }
                 ],
                 "to_if_alone": [
@@ -90,9 +102,7 @@
                 "to": [
                   {
                     "key_code": "page_down",
-                    "modifiers": [
-                      "left_shift"
-                    ]
+                    "modifiers": ["left_shift"]
                   }
                 ],
                 "type": "basic"
@@ -112,9 +122,7 @@
                 "to": [
                   {
                     "key_code": "page_up",
-                    "modifiers": [
-                      "left_shift"
-                    ]
+                    "modifiers": ["left_shift"]
                   }
                 ],
                 "type": "basic"
