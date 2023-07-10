@@ -31,6 +31,7 @@ alias rgs="batgrep -s"
 
 # Other Aliases
 alias ndu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias ndv="nvim -c DiffviewOpen"
 alias sih="sudo -i -H"
 alias svi="sudo -e"
 alias sz="source ~/.zshrc"
