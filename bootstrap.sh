@@ -34,19 +34,8 @@ if ! [ -d ~/.config/bat ]; then
   bat cache --build
 fi
 
-mkdir -p ~/.config/nvim/lua
-
-for i in chatgpt.json init.lua ftplugin snippets vim; do
-  linkFile "$PWD/nvim/$i" ~/.config/nvim/$i
-done
-
-pushd "$PWD/nvim/lua" > /dev/null || exit
-for i in *; do
-  linkFile "$PWD/$i" "$HOME/.config/nvim/lua/$i"
-done
-popd > /dev/null || exit
-
-touch ~/.config/nvim/lua/local.lua
+mkdir -p ~/.config/helix
+linkFile "$PWD/helix/config.toml" ~/.config/helix/config.toml
 
 linkFile "$PWD/linters/cbfmt.toml" ~/.cbfmt.toml
 linkFile "$PWD/linters/golangci.yml" ~/.golangci.yml

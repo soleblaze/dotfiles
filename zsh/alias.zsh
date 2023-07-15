@@ -7,6 +7,7 @@ alias df="duf --hide-mp '*ystem*olume*,*ecovery,/dev'"
 alias du="dust -b"
 alias free="free -h"
 alias grep="grep --color -i"
+alias hx="helix"
 alias la="exa -a --no-time --no-user --git --group-directories-first"
 alias ld="exa -D --no-time --no-user --git --group-directories-first"
 alias ldl="exa -lFD --no-time --no-user --git --group-directories-first"
@@ -20,7 +21,6 @@ alias man="batman"
 alias pretty="prettybat"
 alias ping='prettyping --nolegend'
 alias sed='gsed'
-alias vi=nvim
 alias watch='viddy'
 alias wget=wget --hsts-file="$HOME/.local/share/wget-hsts"
 
@@ -31,7 +31,6 @@ alias rgs="batgrep -s"
 
 # Other Aliases
 alias ndu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
-alias ndv="nvim -c DiffviewOpen"
 alias sih="sudo -i -H"
 alias svi="sudo -e"
 alias sz="source ~/.zshrc"

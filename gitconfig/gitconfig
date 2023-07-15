@@ -9,7 +9,7 @@
   unstage = reset HEAD --
 [core]
    pager = delta --syntax-theme="cobalt2"
-   editor = nvim
+   editor = helix
 [delta]
   features = line-numbers decorations
   line-numbers = true

@@ -27,7 +27,7 @@ if [ -e "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/sock
 fi
 
 export BAT_THEME="cobalt2"
-export EDITOR="nvim"
+export EDITOR="helix"
 export HISTFILE="${HOME}/.zsh_history"
 export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
 export HISTSIZE=25000
@@ -59,7 +59,6 @@ export GOBIN=$GOPATH/bin
 
 path+="${GOBIN}"
 path+="${HOME}/.yarn/bin"
-path+="${HOME}/.local/share/nvim/mason/bin"
 path=("${HOME}/bin" "${HOME}/.local/bin" "${HOME}/.krew/bin" $path)
 
 for i in ${HOME}/.local/share/gem/ruby/*; do

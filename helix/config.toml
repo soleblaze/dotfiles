@@ -1,0 +1,33 @@
+theme = "base16_transparent"
+
+[editor]
+mouse = false
+shell = ["zsh", "-c"]
+line-number = "relative"
+true-color = true
+bufferline = "multiple"
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["version-control", "file-name", "file-modification-indicator"]
+right = ["spinner", "diagnostics", "file-type", "position" ]
+mode.insert = "I"
+mode.normal = "N"
+mode.select = "S"
+
+[editor.lsp]
+display-inlay-hints = true
+
+[editor.whitespace.render]
+tab = "all"
+
+[editor.whitespace.characters]
+tab = "→"
+[editor.indent-guides]
+render = true
+character = "▏"
+skip-levels = 1
+
+[editor.soft-wrap]
+enable = true
