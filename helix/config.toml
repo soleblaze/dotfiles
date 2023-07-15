@@ -9,9 +9,8 @@ bufferline = "multiple"
 color-modes = true
 
 [editor.statusline]
-left = ["mode", "spinner"]
-center = ["version-control", "file-name", "file-modification-indicator"]
-right = ["spinner", "diagnostics", "file-type", "position" ]
+left = ["mode", "spacer", "version-control", "spacer", "separator", "file-name", "file-modification-indicator"]
+right = ["spinner", "diagnostics", "workspace-diagnostics", "file-type", "position-percentage"]
 mode.insert = "I"
 mode.normal = "N"
 mode.select = "S"
@@ -31,3 +30,17 @@ skip-levels = 1
 
 [editor.soft-wrap]
 enable = true
+
+[keys.normal]
+C-n = "goto_next_buffer"
+C-p = "goto_previous_buffer"
+
+[keys.normal."]"]
+c = "goto_next_change"
+g = "goto_next_comment"
+[keys.normal."["]
+c = "goto_prev_change"
+g = "goto_prev_comment"
+
+[keys.normal."space"]
+c = ":buffer-close"
