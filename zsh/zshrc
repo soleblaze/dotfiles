@@ -15,12 +15,13 @@ fi
 
 # Plugins that need to be sourced last
 ZVM_INIT_MODE=sourcing
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
+if type brew &>/dev/null; then
+  source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+  source $(brew --prefix)/share/zsh-autopair/autopair.zsh
+  source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+fi
 
-source $(brew --prefix)/share/zsh-autopair/autopair.zsh
-
-source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
@@ -33,9 +34,11 @@ if [[ $(uname -a) = (#i)*darwin* ]] {
   FAST_HIGHLIGHT[chroma-man]=
 }
 
-source $(brew --prefix)/share/zsh-you-should-use/you-should-use.plugin.zsh
-source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+if type brew &>/dev/null; then
+  source $(brew --prefix)/share/zsh-you-should-use/you-should-use.plugin.zsh
+  source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+  export PATH="$(brew --prefix)/bin:$PATH"
+fi
 
 
-export PATH="$(brew --prefix)/bin:$PATH"
 typeset -U PATH

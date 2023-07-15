@@ -1,0 +1,12 @@
+[Unit]
+Description=Clipman
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/wl-paste -t text --watch clipman store --no-persist
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=sway-session.target
+

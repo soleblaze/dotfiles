@@ -64,13 +64,32 @@ function help() {
 }
 
 # colima
-if [ "$(uname -m)" == "arm64" ]; then
-  if /Volumes/Macintosh\ HD/usr/sbin/system_profiler SPHardwareDataType | grep -q Ultra; then
-    alias cs='colima start --arch aarch64 --vm-type=vz --vz-rosetta --cpu 12 --memory 42'
+if which colima 2>&1 >/dev/null; then
+  if [ "$(uname -m)" == "arm64" ]; then
+    if /Volumes/Macintosh\ HD/usr/sbin/system_profiler SPHardwareDataType | grep -q Ultra; then
+      alias cs='colima start --arch aarch64 --vm-type=vz --vz-rosetta --cpu 12 --memory 42'
+    else
+      alias cs='colima start --arch aarch64 --vm-type=vz --vz-rosetta --cpu 2 --memory 4'
+    fi
   else
-    alias cs='colima start --arch aarch64 --vm-type=vz --vz-rosetta --cpu 2 --memory 4'
+    alias cs='colima start --cpu 2 --memory 4'
   fi
-else
-  alias cs='colima start --cpu 2 --memory 4'
+  alias cstop='colima stop'
 fi
-alias cstop='colima stop'
+
+# Arch Linux
+if grep -q Arch /etc/*release 2>&1 >/dev/null; then
+  alias pac="sudo pacman -S"
+  alias pacq="pacman -Q"
+  alias pacr="sudo pacman -Rs"
+  alias pacs="pacman -Ss"
+  alias pacsy="sudo pacman -Sy"
+  alias pacsyu="sudo pacman -Syu"
+  alias pacu="sudo pacman -U"
+  alias pacz="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+  alias pacrz="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
+  alias ya="yay -S"
+  alias yas="yay -Ss"
+  alias yau="yay -Su"
+  alias bdf="btrfs filesystem df"
+fi
