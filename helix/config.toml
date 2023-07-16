@@ -34,6 +34,7 @@ enable = true
 [keys.normal]
 C-n = "goto_next_buffer"
 C-p = "goto_previous_buffer"
+D = "kill_to_line_end"
 
 [keys.normal."]"]
 c = "goto_next_change"
