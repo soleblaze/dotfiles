@@ -40,5 +40,10 @@ if type brew &>/dev/null; then
   export PATH="$(brew --prefix)/bin:$PATH"
 fi
 
-
 typeset -U PATH
+
+if type zellij &>/dev/null; then
+  if [[ -z "$ZELLIJ" ]]; then
+    zellij attach  main -c
+  fi
+fi
