@@ -17,7 +17,6 @@ fi
 ZVM_INIT_MODE=sourcing
 
 if type brew &>/dev/null; then
-  source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
   source $(brew --prefix)/share/zsh-autopair/autopair.zsh
   source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 fi

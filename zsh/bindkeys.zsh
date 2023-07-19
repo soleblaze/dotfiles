@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 #bind keys
+bindkey -e
 bindkey "\e[1~" beginning-of-line # Home
 bindkey "\e[4~" end-of-line # End
 bindkey "\e[5~" beginning-of-history # PageUp
