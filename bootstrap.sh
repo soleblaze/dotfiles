@@ -36,6 +36,7 @@ fi
 
 mkdir -p ~/.config/helix
 linkFile "$PWD/helix/config.toml" ~/.config/helix/config.toml
+linkFile "$PWD/helix/languages.toml" ~/.config/helix/languages.toml
 
 linkFile "$PWD/linters/cbfmt.toml" ~/.cbfmt.toml
 linkFile "$PWD/linters/golangci.yml" ~/.golangci.yml

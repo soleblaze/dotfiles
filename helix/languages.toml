@@ -1,0 +1,19 @@
+[[language]]
+name = "bash"
+auto-format = true
+
+[[language]]
+name = "go"
+auto-format = true
+
+[[language]]
+name = "markdown"
+auto-format = true
+
+[[language]]
+name = "python"
+auto-format = true
+
+[[language]]
+name = "toml"
+auto-format = true

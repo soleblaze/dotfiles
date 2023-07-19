@@ -9,8 +9,22 @@ bufferline = "multiple"
 color-modes = true
 
 [editor.statusline]
-left = ["mode", "spacer", "version-control", "spacer", "separator", "file-name", "file-modification-indicator"]
-right = ["spinner", "diagnostics", "workspace-diagnostics", "file-type", "position-percentage"]
+left = [
+  "mode",
+  "spacer",
+  "version-control",
+  "spacer",
+  "separator",
+  "file-name",
+  "file-modification-indicator",
+]
+right = [
+  "spinner",
+  "diagnostics",
+  "workspace-diagnostics",
+  "file-type",
+  "position-percentage",
+]
 mode.insert = "I"
 mode.normal = "N"
 mode.select = "S"
