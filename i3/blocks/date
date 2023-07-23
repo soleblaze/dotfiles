@@ -1,0 +1,4 @@
+#!/bin/sh
+
+date="$(date +%l:%M)"
+echo "<span foreground='#ffffff' background='#808080'> T </span><span foreground='#ffffff' background='#1478db'> $date </span>"

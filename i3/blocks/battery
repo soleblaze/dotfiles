@@ -1,0 +1,22 @@
+#!/bin/sh
+
+BAT="${BLOCK_INSTANCE:-BAT1}"
+upower="$(upower -i /org/freedesktop/UPower/devices/battery_${BAT})"
+status="$(echo "$upower" | grep state | awk '{print $2}')"
+watts="$(echo "$upower" | grep energy-rate | awk '{printf "%.2fw", $2}')"
+
+GRAY="<span rise='2000' foreground='#ffffff' background='#808080'>"
+BLUE="<span foreground='#ffffff' background='#1478db'>"
+SPACER="<span font='6'> </span>"
+COLOREND="</span>"
+END="<span font='8'>  </span>"
+
+if [ "$status" = "charging" ]; then
+  label="C"
+  TIME="TBD"
+else
+  label="B"
+  TIME=$(echo "$upower" | grep 'time to empty' | awk '$5>1 {print $4substr($5,1,1)}')
+fi
+
+echo "${GRAY} ${label} ${COLOREND}${BLUE} ${TIME} ${COLOREND}${END}${GRAY} W ${COLOREND}${BLUE} ${watts} ${COLOREND}${END}"

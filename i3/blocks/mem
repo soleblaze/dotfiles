@@ -1,0 +1,6 @@
+#!/bin/env bash
+
+#memorypercentage="$(free -m | grep Mem| awk '{printf "%.1f%%", $3/$2*100}')"
+memoryfree="$(free -h --si | grep Mem | awk '{print $7}')"
+
+echo "<span foreground='#ffffff' background='#808080'> M </span><span foreground='#ffffff' background='#1478db'> $memoryfree </span>"

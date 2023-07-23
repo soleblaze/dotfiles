@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#------------------------------------------------------------------------
+
+# if no interface is found, use the first device with a global scope
+INTERFACE="${BLOCK_INSTANCE:-wlan0}"
+IPADDR=$(ip addr show $IF | perl -n -e "/$AF ([^\/]+).* scope global/ && print \$1 and exit")
+# get external ip from duch website
+WANIP=$(curl -s http://whatismijnip.nl | cut -d " " -f 5)
+SSID=$(iwgetid $INTERFACE -r)
+QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+
+#------------------------------------------------------------------------
+
+# if the machine has no battery or wireless connection, the corresponding block should display error.
+[[ ! -d /sys/class/net/${INTERFACE}/wireless ]] \
+  || [[ "$(cat /sys/class/net/$INTERFACE/operstate)" == 'down' ]] && echo "<span foreground='#ffffff' background='#808080'> 睊 </span><span foreground='#ffffff' background='#1478db'> X </span><span font='8'>  </span>"
+
+#------------------------------------------------------------------------
+
+if [[ $QUALITY -ge 60 ]]; then
+  echo "<span foreground='#ffffff' background='#808080'> W </span><span foreground='#ffffff' background='#1478db'> $SSID </span><span font='8'>  </span>"
+elif [[ $QUALITY -lt 40 ]]; then
+  echo "<span foreground='#ffffff' background='#808080'> W </span><span foreground='#ffffff' background='#ff2600'> $SSID</span><span font='8'>  </span>" #red
+elif [[ $QUALITY -lt 60 ]]; then
+  echo "<span foreground='#ffffff' background='#808080'> W </span><span foreground='#ffffff' background='#00c5c7'> $SSID</span><span font='8'>  </span>" # cyan
+fi
+
+#-----------------------------------------------------------------------
+
+# mouse buttons
+
+case $BLOCK_BUTTON in
+  1) netmenu-xy ;;                                                                                       # switch profiles with netmenu
+  3) termite --name "WiFi-menu" -e "sh -c 'echo 'WiFi-menu:' && sudo wifi-menu -o'" "$@" &> /dev/null ;; # connect with wifi-menu
+esac
