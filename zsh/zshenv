@@ -27,7 +27,7 @@ if [ -e "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/sock
 fi
 
 export BAT_THEME="cobalt2"
-export EDITOR="helix"
+export EDITOR="nvim"
 export HISTFILE="${HOME}/.zsh_history"
 export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
 export HISTSIZE=25000
