@@ -34,9 +34,11 @@ if ! [ -d ~/.config/bat ]; then
   bat cache --build
 fi
 
-mkdir -p ~/.config/helix
-linkFile "$PWD/helix/config.toml" ~/.config/helix/config.toml
-linkFile "$PWD/helix/languages.toml" ~/.config/helix/languages.toml
+mkdir -p ~/.config/nvim/lua
+
+for i in *; do
+  linkFile "$PWD/nvim/$i" "$HOME/.config/nvim/$i"
+done
 
 linkFile "$PWD/linters/cbfmt.toml" ~/.cbfmt.toml
 linkFile "$PWD/linters/golangci.yml" ~/.golangci.yml
@@ -80,12 +82,10 @@ if [ -f "$HOME/.config/desktop.mode" ]; then
 
   linkFile ~/Library/Mobile\ Documents/com~apple~CloudDocs ~/iCloud
 
-
   mkdir -p ~/.config/kitty
 
   for i in kitty/*; do
     linkFile "$PWD/$i" "$HOME/.config/$i"
   done
-
 
 fi
