@@ -9,7 +9,6 @@ brew "hidetatz/tap/kubecolor"
 brew "k3d"
 brew "kubernetes-cli"
 brew "mas"
-brew "zellij"
 
 cask "bartender"
 cask "discord"
