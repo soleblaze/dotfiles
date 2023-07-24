@@ -171,6 +171,8 @@ exec udiskie
 exec unclutter
 exec nm-applet
 exec dunst
+exec blueman-applet
+exec nextcloud
 exec xautolock -time 7 -locker "i3lock -F -i ~/pictures/wallpaper/lock.png" -corners --00  -cornerdelay 4 -cornerredelay 4
 
 exec --no-startup-id xmodmap ~/.Xmodmap
