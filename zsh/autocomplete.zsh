@@ -1,8 +1,4 @@
 #!/bin/zsh
-if type brew &>/dev/null; then
-  FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
 
 FPATH="$HOME/git/dotfiles/zsh/completions:$FPATH"
 
@@ -69,7 +65,3 @@ if [ $commands[k3d] ]; then
   source <(k3d completion zsh)
 fi
 
-if [ $commands[gcloud] ]; then
-  source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-  source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-fi
