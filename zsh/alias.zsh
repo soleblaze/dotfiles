@@ -3,7 +3,7 @@
 # Override Commands
 alias diff="batdiff --delta"
 alias dig="dog"
-alias df="duf --hide-mp '*ystem*olume*,*ecovery,/dev'"
+alias df="duf"
 alias du="dust -b"
 alias free="free -h"
 alias grep="grep --color -i"
@@ -61,20 +61,6 @@ alias tf="tail -f | bat --paging=never -l log"
 function help() {
   "$@" --help 2>&1 | bathelp
 }
-
-# colima
-if which colima 2>&1 >/dev/null; then
-  if [ "$(uname -m)" == "arm64" ]; then
-    if /Volumes/Macintosh\ HD/usr/sbin/system_profiler SPHardwareDataType | grep -q Ultra; then
-      alias cs='colima start --arch aarch64 --vm-type=vz --vz-rosetta --cpu 12 --memory 42'
-    else
-      alias cs='colima start --arch aarch64 --vm-type=vz --vz-rosetta --cpu 2 --memory 4'
-    fi
-  else
-    alias cs='colima start --cpu 2 --memory 4'
-  fi
-  alias cstop='colima stop'
-fi
 
 # Arch Linux
 if grep -q Arch /etc/*release 2>&1 >/dev/null; then
