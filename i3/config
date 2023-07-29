@@ -3,7 +3,8 @@ set $hyper Mod3
 
 font pango:DejaVuSansM Nerd Font Mono 13
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
+smart_borders on
 
 #make notifications behave
 for_window [instance="Download"] floating enable
