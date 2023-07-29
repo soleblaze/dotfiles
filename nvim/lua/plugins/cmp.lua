@@ -15,12 +15,12 @@ return {
       local luasnip = require("luasnip")
       local cmp = require("cmp")
 
-      opts.sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "path" },
-        { name = "copilot", group_index = 2 },
-      })
+      opts.sources = cmp.config.sources(vim.tbl_filter(function(source)
+        if source.name == "buffer" then
+          return false
+        end
+        return true
+      end, opts.sources))
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<C-n>"] = cmp.mapping(function(fallback)
