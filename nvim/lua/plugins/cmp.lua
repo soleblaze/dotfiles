@@ -15,6 +15,13 @@ return {
       local luasnip = require("luasnip")
       local cmp = require("cmp")
 
+      opts.sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "path" },
+        { name = "copilot", group_index = 2 },
+      })
+
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<C-n>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
