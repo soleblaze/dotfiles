@@ -33,6 +33,7 @@ alias ndu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias sih="sudo -i -H"
 alias svi="sudo -e"
 alias sz="source ~/.zshrc"
+alias pbcopy="xsel -b"
 
 # python aliases
 alias va='source .venv/bin/activate'
