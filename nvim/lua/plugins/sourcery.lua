@@ -13,9 +13,5 @@ return {
         sourcery = {},
       },
     },
-    setup = {
-      sourcery = function(_, opts)
-      end,
-    },
   },
 }
