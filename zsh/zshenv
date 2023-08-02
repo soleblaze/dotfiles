@@ -20,6 +20,7 @@ elif [ -e "$XDG_RUNTIME_DIR/gcr/ssh" ]; then
   export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 fi
 
+export BROWSER=qutebrowser
 export BAT_THEME="cobalt2"
 export EDITOR="nvim"
 export HISTFILE="${HOME}/.zsh_history"
