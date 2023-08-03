@@ -6,7 +6,6 @@ return {
     end,
     keys = {
       {
-        "+P",
         "<leader>y",
         "<Plug>OSCYankOperator",
         desc = "Yank to System Clipboard",
