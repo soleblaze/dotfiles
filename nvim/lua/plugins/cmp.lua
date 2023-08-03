@@ -21,27 +21,68 @@ return {
       return true
     end, opts.sources))
 
-    opts.mapping = vim.tbl_extend("force", opts.mapping, {
-      ["<C-n>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        elseif luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        elseif has_words_before() then
-          cmp.complete()
+    opts.mapping = {
+      ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<C-e>"] = cmp.mapping(function()
+        if cmp and cmp.visible() then
+          cmp.abort()
         else
-          fallback()
+          vim.api.nvim_feedkeys(vim.fn['copilot#Dismiss'](), 'i', true)
         end
-      end, { "i", "s" }),
-      ["<C-p>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
+      end, { "i", "s", }),
+      ["<Tab>"] = cmp.mapping(function()
+        if luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        else
+          cmp.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = false,
+          })
+        end
+      end, { "i", "s", }),
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
+        if luasnip.jumpable(-1) then
           luasnip.jump(-1)
         else
           fallback()
         end
-      end, { "i", "s" }),
-    })
+      end, { "i", "s", }),
+      ["<C-n>"] = cmp.mapping(function()
+        if luasnip.jumpable(1) then
+          luasnip.jump(1)
+        elseif cmp and cmp.visible() then
+          cmp.select_next_item()
+        else
+          vim.api.nvim_feedkeys(vim.fn['copilot#Next'](), 'i', true)
+        end
+      end, { "i", "s", }),
+      ["<C-p>"] = cmp.mapping(function()
+        if luasnip.jumpable(-1) then
+          luasnip.jump(-1)
+        elseif cmp and cmp.visible() then
+          cmp.select_prev_item()
+        else
+          vim.api.nvim_feedkeys(vim.fn['copilot#Previous'](), 'i', true)
+        end
+      end, { "i", "s", }),
+      ["<Down>"] = cmp.mapping(function(fallback)
+        if cmp and cmp.visible() then
+          cmp.select_next_item()
+        else
+          fallback()
+        end
+      end, { "i", "s", }),
+      ["<Up>"] = cmp.mapping(function(fallback)
+        if cmp and cmp.visible() then
+          cmp.select_prev_item()
+        else
+          fallback()
+        end
+      end, { "i", "s", }),
+      ["<CR>"] = cmp.mapping(function()
+        cmp.autopairs.on_confirm_done({ map_char = { tex = "" } })
+      end, {}),
+    }
   end,
 }
