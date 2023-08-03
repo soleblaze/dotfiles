@@ -18,3 +18,13 @@ end
 map("n", "<C-n>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<C-p>", "<cmd>bprevious<cr>", { desc = "Previous Buffer" })
 map("n", "<leader>d", "<cmd>bdelete<cr>", { desc = "Delete Buffer" })
+map("n", "<leader>fn",
+  function()
+    require('telescope.builtin').live_grep({ cwd = vim.env.HOME .. "/Nextcloud/Notes/" })
+  end,
+  { desc = "Find in Notes" })
+map("n", "<leader>fN",
+  function()
+    require('telescope.builtin').find_files({ cwd = vim.env.HOME .. "/Nextcloud/Notes/" })
+  end,
+  { desc = "Find in Notes" })
