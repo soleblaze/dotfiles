@@ -34,6 +34,7 @@ alias sih="sudo -i -H"
 alias svi="sudo -e"
 alias sz="source ~/.zshrc"
 alias pbcopy="xsel -b"
+alias note='nvim +"Telescope live_grep cwd=$HOME/Nextcloud/Notes/"'
 
 # python aliases
 alias va='source .venv/bin/activate'
