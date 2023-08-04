@@ -36,6 +36,7 @@ bindsym $hyper+l exec i3lock -F -i ~/pictures/wallpaper/lock.png
 bindsym $hyper+b exec qutebrowser
 bindsym $hyper+a exec pavucontrol
 bindsym $hyper+F12 exec systemctl poweroff
+bindsym $mod+x exec --no-startup-id zsh -c "$HOME/bin/rofi-task"
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/pictures/screenshots/ 2>/dev/null'
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -132,9 +133,10 @@ mode "resize" {
 }
 
 # Assign clients to specific workspaces
-assign [class="Firefox"] $ws2
 assign [class="Chromium"] $ws2
+assign [class="Firefox"] $ws2
 assign [class="google-chrome"] $ws2
+assign [class="librewolf"] $ws2
 assign [class="qutebrowser"] $ws2
 
 assign [Class="Slack"] $ws3
@@ -174,6 +176,7 @@ exec nm-applet
 exec dunst
 exec blueman-applet
 exec nextcloud
+exec lxpolkit
 exec xss-lock -- i3lock -F -i ~/pictures/wallpaper/lock.png
 exec xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Tapping Enabled" 1
 
