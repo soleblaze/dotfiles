@@ -21,3 +21,7 @@ function cdgb() {
     echo "Not in a git repo."
   fi
 }
+
+function sshkitty {
+  infocmp -a xterm-kitty | ssh $1 tic -x -o \~/.terminfo /dev/stdin
+}
