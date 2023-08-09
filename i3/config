@@ -180,6 +180,7 @@ exec nextcloud
 exec lxpolkit
 exec xss-lock -- i3lock -F -i ~/pictures/wallpaper/lock.png
 exec xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Tapping Enabled" 1
+exec picom
 
 exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id xcape -e 'Control_R=Escape;Super_R=Tab'
