@@ -31,7 +31,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 2
 bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
 # Application shortcuts
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty -e tmux new-session -As main
+bindsym $hyper+Return exec alacritty
 bindsym $hyper+l exec i3lock -F -i ~/pictures/wallpaper/lock.png
 bindsym $hyper+b exec qutebrowser
 bindsym $hyper+a exec pavucontrol
