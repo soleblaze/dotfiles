@@ -20,9 +20,11 @@ fi
 
 mkdir -p ~/.config/nvim
 
+pushd nvim || exit
 for i in *; do
-	linkFile "$PWD/nvim/$i" "$HOME/.config/nvim/$i"
+	linkFile "$PWD/$i" "$HOME/.config/nvim/$i"
 done
+popd
 
 linkFile "$PWD/linters/cbfmt.toml" ~/.cbfmt.toml
 linkFile "$PWD/linters/golangci.yml" ~/.golangci.yml
@@ -44,8 +46,11 @@ for i in hooks/*; do
 	linkFile "$PWD/$i" "$HOME/.config/git/$i"
 done
 
-mkdir -p ~/.config/kitty
+mkdir -p ~/.config/alacritty
+linkFile "$PWD/alacritty/alacritty.yml" ~/.config/alacritty/alacritty.yml
 
-for i in kitty/*; do
-	linkFile "$PWD/$i" "$HOME/.config/$i"
-done
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+linkFile "$PWD/tmux/tmux.conf" ~/.tmux.conf
