@@ -9,6 +9,7 @@ alias prmi='podman rmi'
 alias prun='podman run'
 alias pexec='podman exec -it'
 alias pl='podman logs'
+alias pstop='podman stop'
 
 function pshell() {
   podman exec -it $1 /bin/bash
