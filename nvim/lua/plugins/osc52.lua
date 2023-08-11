@@ -18,7 +18,7 @@ return {
       },
       {
         "<leader>p",
-        "+p",
+        "\"+p",
         desc = "Paste from System Clipboard"
       },
     }
