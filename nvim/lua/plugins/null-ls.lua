@@ -14,6 +14,10 @@ return {
         nls.builtins.formatting.trim_whitespace.with({
           disabled_filetypes = { "go" },
         }),
+        nls.builtins.formatting.prettierd.with({
+          disabled_filetypes = { "go", "yaml" },
+          extra_args = { "--prose-wrap", "always" },
+        })
       }),
     }
   end,
