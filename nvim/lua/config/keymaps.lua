@@ -28,3 +28,8 @@ map("n", "<leader>fN",
     require('telescope.builtin').find_files({ cwd = vim.env.HOME .. "/Nextcloud/Notes/" })
   end,
   { desc = "Find in Notes" })
+
+
+-- Remove gj/gk lazyvim mapping override
+vim.keymap.del({ "n", "x" }, "j")
+vim.keymap.del({ "n", "x" }, "k")
