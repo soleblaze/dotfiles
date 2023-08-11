@@ -33,3 +33,13 @@ map("n", "<leader>fN",
 -- Remove gj/gk lazyvim mapping override
 vim.keymap.del({ "n", "x" }, "j")
 vim.keymap.del({ "n", "x" }, "k")
+
+map({ "n", "v", "i" }, "<F3>", function() require("toggle").diagnostic() end, { desc = "Toggle Diagnostics" })
+map({ "n", "v", "i" }, "<F4>", function() require("toggle").cmp() end, { desc = "Toggle cmp" })
+map({ "n", "v", "i" }, "<F5>", function() require("toggle").relativenumber() end, { desc = "Toggle Relative Number" })
+map({ "n", "v", "i" }, "<F6>", function() require("toggle").autoFormat() end, { desc = "Toggle Auto Format" })
+map({ "n", "v", "i" }, "<F7>", "<cmd>set spell!<cr>", { desc = "Toggle Spell" })
+map({ "n", "v", "i" }, "<F8>", "<cmd>set list!<cr>", { desc = "Toggle List" })
+
+map("n", "<leader>wc", function() require("toggle").quickfix() end, { desc = "Toggle Quickfix" })
+map("n", "<leader>wl", function() require("toggle").location() end, { desc = "Toggle Location List" })
