@@ -5,3 +5,4 @@ vim.opt.cursorline = false
 vim.opt.wrap = true
 vim.opt.clipboard = ""
 vim.opt.mouse = ""
+vim.opt.linebreak = true
