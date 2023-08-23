@@ -52,8 +52,10 @@ bindsym $hyper+b exec zsh -c "qutebrowser"
 bindsym $hyper+l exec swaylock -f -i ~/.config/sway/lock.png
 bindsym $mod+Return exec $term tmux new -A -s x2
 bindsym $hyper+Return exec $term
-bindsym $mod+backslash exec clipman pick -t CUSTOM --tool-args="fuzzel -d"
-bindsym $mod+bracketright exec clipman clear -t CUSTOM --tool-args="fuzzel -d"
+bindsym $mod+backslash exec clipman pick -t CUSTOM --histpath="$HOME/.cache/clipman.json" --tool-args="fuzzel -d"
+bindsym $hyper+backslash exec clipman clear -a --histpath="$HOME/.cache/clipman.json" 
+bindsym $mod+bracketright exec clipman clear -t CUSTOM --tool-args="fuzzel -d" --histpath="$HOME/.cache/clipman.json" 
+bindsym $mod+x exec zsh -lc "$HOME/bin/fuzzel-task"
 
 floating_modifier $mod normal
 
@@ -174,4 +176,6 @@ bar swaybar_command waybar
 
 include /etc/sway/config.d/*
 
+
+exec "dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY"
 exec "systemctl --user import-environment {,WAYLAND_}DISPLAY SWAYSOCK; systemctl --user start sway-session.target"

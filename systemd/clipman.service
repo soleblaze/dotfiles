@@ -3,7 +3,7 @@ Description=Clipman
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/wl-paste -t text --watch clipman store --no-persist
+ExecStart=/usr/bin/wl-paste -t text --watch clipman store --no-persist --histpath="$HOME/.cache/clipman.json
 Restart=on-failure
 RestartSec=60
 
