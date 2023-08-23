@@ -14,7 +14,8 @@ END="<span font='8'>  </span>"
 
 if [ "$status" = "charging" ]; then
   label="C"
-  TEXT="TBD"
+  tte=$(echo "$upower" | grep 'time to full' | awk '$5>1 {print $4substr($5,1,1)}')
+  TEXT="${percentage} (${tte})"
 else
   label="B"
   tte=$(echo "$upower" | grep 'time to empty' | awk '$5>1 {print $4substr($5,1,1)}')

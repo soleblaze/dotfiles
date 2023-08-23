@@ -179,7 +179,7 @@ exec blueman-applet
 exec nextcloud
 exec lxpolkit
 exec xss-lock -- i3lock -F -i ~/pictures/wallpaper/lock.png
-exec xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id ~/bin/touchpad.sh
 exec picom
 
 exec --no-startup-id ~/bin/keymap.sh

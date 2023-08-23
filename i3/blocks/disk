@@ -2,4 +2,4 @@
 
 drivepath="${BLOCK_INSTANCE:-$HOME}"
 freespace=$(df -h $drivepath | tail -n1 | awk '{print $4}')
-echo "<span foreground='#ffffff' background='#808080'> D </span><span foreground='#ffffff' background='#1478db'> ${freespace} </span>"
+echo "<span foreground='#ffffff' background='#808080'> D </span><span foreground='#ffffff' background='#1478db'> ${freespace} </span><span font='8'></span><span font='8'>  </span>"
