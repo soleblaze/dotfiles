@@ -1,4 +1,0 @@
-xkb_symbols "rightalt" {
-  modifier_map Mod3 { Alt_R };
-  modifier_map Mod1 { Alt_L };
-};
