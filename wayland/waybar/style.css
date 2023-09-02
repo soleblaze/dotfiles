@@ -1,0 +1,146 @@
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: "DejaVu Sans", "Font Awesome 6 Free", "Font Awesome 6 Brands";
+  font-size: 12px;
+  min-height: 20px;
+}
+
+window#waybar {
+  background-color: #275d84;
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button {
+  padding: 0 2px;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+#mode {
+  background-color: #64727d;
+  border-bottom: 3px solid #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#tray,
+#mode,
+#scratchpad,
+#wireplumber,
+#mpd {
+  padding: 0 10px;
+  color: #ffffff;
+  background-color: #275d84;
+}
+
+#idle_inhibitor {
+  padding: 0 0px;
+  color: #ffffff;
+  background-color: #275d84;
+}
+
+#custom-battery,
+#custom-clock,
+#custom-cpu,
+#custom-mem,
+#custom-temp,
+#custom-tray {
+  color: #ffffff;
+  background-color: #808080;
+  padding: 0 6px;
+}
+
+#custom-disk {
+  color: #ffffff;
+  background-color: #808080;
+  padding: 0 7px;
+  font-weight: bold;
+}
+
+#custom-network,
+#custom-audio {
+  color: #ffffff;
+  background-color: #808080;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+#window,
+#workspaces {
+  margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+tooltip {
+  background: rgba(31, 70, 98, 0.8);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: white;
+}

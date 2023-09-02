@@ -1,0 +1,3 @@
+! option = symbols
+  mod3:rightalt    = +mod3(rightalt)
+! include %S/evdev
