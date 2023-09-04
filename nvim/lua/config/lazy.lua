@@ -32,7 +32,10 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  checker = { enabled = true },
+  checker = {
+    enabled = true,
+    frequency = 259200,
+  },
   performance = {
     rtp = {
       disabled_plugins = {
