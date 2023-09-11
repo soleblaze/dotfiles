@@ -16,6 +16,7 @@ alias lla="eza --lFa --no-time --no-user --git --group-directories-first"
 alias ls="eza --no-time --no-user --git --group-directories-first"
 alias lsize="eza -lF --no-time --no-user --git --group-directories-first --sort=size"
 alias lt="eza -lF --no-user --git --group-directories-first"
+alias lu="eza -glF --git --group-directories-first"
 alias man="batman"
 alias pretty="prettybat"
 alias ping='prettyping --nolegend'
