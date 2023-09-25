@@ -9,6 +9,7 @@ $git_status\
 $fill\
 $cmd_duration\
 $kubernetes\
+$docker_context\
 $python
 $status\
 $character
@@ -17,6 +18,10 @@ $character
 [cmd_duration]
 format = '[⏱ $duration]($style) '
 min_time = 5_000
+
+[docker_context]
+only_with_files = false
+format = '[$symbol$context]($style) '
 
 [fill]
 symbol = ' '

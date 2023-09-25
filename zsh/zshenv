@@ -14,13 +14,20 @@ setopt nonomatch
 setopt noshwordsplit
 setopt prompt_subst
 
+# Start homebrew
+if [ -f "/opt/homebrew/bin/brew" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -f "/usr/local/bin/brew" ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+
 if [ -e "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh" ]; then
   export SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 elif [ -e "$XDG_RUNTIME_DIR/gcr/ssh" ]; then
   export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 fi
 
-export BROWSER=qutebrowser
 export BAT_THEME="cobalt2"
 export EDITOR="nvim"
 export HISTFILE="${HOME}/.zsh_history"

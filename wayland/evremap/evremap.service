@@ -1,8 +1,0 @@
-[Service]
-WorkingDirectory=/
-ExecStart=bash -c "/usr/bin/evremap remap /etc/evremap/sway.toml"
-Restart=always
-
-
-[Install]
-WantedBy=multi-user.target

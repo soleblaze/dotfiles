@@ -16,21 +16,21 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
 backward-delete-local () {
-  local WORDCHARS='*?_[]~&;!#$%^(){}<>,"'"'"
+  local WORDCHARS='*?_[]~/&;!#$%^(){}<>,"'"'"
   zle .backward-delete-word
 }
 zle -N backward-delete-local
 bindkey '^w' backward-delete-local
 
 backward-word-local () {
-  local WORDCHARS='*?_[]~&;!#$%^(){}<>,"'"'"
+  local WORDCHARS='*?_[]~/&;!#$%^(){}<>,"'"'"
   zle .backward-word
 }
 zle -N backward-word-local
 bindkey '^b' backward-word-local
 
 forward-word-local () {
-  local WORDCHARS='*?_[]~&;!#$%^(){}<>,"'"'"
+  local WORDCHARS='*?_[]~/&;!#$%^(){}<>,"'"'"
   zle .forward-word
 }
 zle -N forward-word-local

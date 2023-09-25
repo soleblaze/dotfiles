@@ -1,6 +1,0 @@
-#!/bin/bash
-set -euo pipefail
-
-selector=$(pinboard bookmarks | jq -r '.[] | .description[0:60] + "" + .tags + "" + .href' | column -t -s'' | fuzzel -d -p "❯ " -w 80)
-
-xdg-open "$(echo $selector | awk '{print $NF}')"

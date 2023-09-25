@@ -1,7 +1,0 @@
-#!/bin/bash
-set -euo pipefail
-
-output="$(/usr/bin/task projects | grep -Ev '([pP]roject|projects|---)' |
-	awk '{print $1}' | sed '/^$/d' | rofi -dmenu)"
-
-notify-send "TaskWarrior" "$(task add project:$output)"

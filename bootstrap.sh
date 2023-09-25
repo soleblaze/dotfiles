@@ -1,10 +1,26 @@
 #!/bin/bash
 
 linkFile() {
-	if ! [ -L "$2" ]; then
-		ln -s "$1" "$2"
-	fi
+  if ! [ -L "$2" ]; then
+    ln -s "$1" "$2"
+  fi
 }
+
+if ! [ -f /opt/homebrew/bin/brew ] && ! [ -f '/usr/local/bin/brew' ]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  chmod 755 /opt/homebrew/share || chmod 755 /usr/local/share
+fi
+
+if [ -f "/opt/homebrew/bin/brew" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  eval "$(/usr/localbin/brew shellenv)"
+fi
+brew bundle --file Brewfile.base
+
+if brew autoupdate status | grep -q 'Autoupdate is not configured'; then
+  brew autoupdate start
+fi
 
 mkdir -p ~/.local/share
 
@@ -12,19 +28,17 @@ linkFile "$PWD/zsh/zshrc" ~/.zshrc
 linkFile "$PWD/zsh/zshenv" ~/.zshenv
 
 if ! [ -d ~/.config/bat ]; then
-	mkdir -p ~/.config/bat/themes
-	linkFile "$PWD/bat/config" ~/.config/bat/config
-	git clone https://github.com/wesbos/cobalt2.git ~/.config/bat/themes/cobalt2
-	bat cache --build
+  mkdir -p ~/.config/bat/themes
+  linkFile "$PWD/bat/config" ~/.config/bat/config
+  git clone https://github.com/wesbos/cobalt2.git ~/.config/bat/themes/cobalt2
+  bat cache --build
 fi
 
 mkdir -p ~/.config/nvim
 
-pushd nvim || exit
-for i in *; do
-	linkFile "$PWD/$i" "$HOME/.config/nvim/$i"
+for i in nvim/*; do
+  linkFile "$PWD/$i" "$HOME/.config/$i"
 done
-popd
 
 linkFile "$PWD/linters/cbfmt.toml" ~/.cbfmt.toml
 linkFile "$PWD/linters/golangci.yml" ~/.golangci.yml
@@ -35,22 +49,32 @@ linkFile "$PWD/linters/yamllint.yml" ~/.config/yamllint/config
 
 linkFile "$PWD/zsh/starship.toml" ~/.config/starship.toml
 
-if [[ $SHELL != "/usr/bin/zsh" ]]; then
-	chsh -s "/usr/bin/zsh"
+mkdir -p ~/.docker/cli-plugins
+linkFile "$(brew --prefix)/bin/docker-buildx" ~/.docker/cli-plugins/docker-buildx
+
+if ! [ -e "$HOME/.docker/scan/config.json" ]; then
+  mkdir -p ~/.docker/scan
+  echo "{}" > ~/.docker/scan/config.json
+fi
+
+if ! grep -q "$(brew --prefix)/bin/zsh" /etc/shells; then
+  echo "Adding $(brew --prefix)/bin/zsh to /etc/shells"
+  echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
+fi
+
+if [[ $SHELL != "$(brew --prefix)/bin/zsh" ]]; then
+  echo "Changing shell to $(brew --prefix)/bin/zsh"
+  chsh -s "$(brew --prefix)/bin/zsh"
 fi
 
 mkdir -p ~/.cache/zsh
 
 mkdir -p ~/.config/git/hooks
 for i in hooks/*; do
-	linkFile "$PWD/$i" "$HOME/.config/git/$i"
+  linkFile "$PWD/$i" "$HOME/.config/git/$i"
 done
 
-mkdir -p ~/.config/alacritty
-linkFile "$PWD/alacritty/alacritty.yml" ~/.config/alacritty/alacritty.yml
+mkdir -p ~/.config/karabiner
+linkFile "$PWD/karabiner/karabiner.json" ~/.config/karabiner/karabiner.json
 
-if [ ! -d ~/.tmux/plugins/tpm ]; then
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
-
-linkFile "$PWD/tmux/tmux.conf" ~/.tmux.conf
+linkFile ~/Library/Mobile\ Documents/com~apple~CloudDocs ~/iCloud

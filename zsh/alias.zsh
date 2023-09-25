@@ -3,7 +3,7 @@
 # Override Commands
 alias diff="batdiff --delta"
 alias dig="dog"
-alias df="duf"
+alias df="duf --hide-mp '*ystem*olume*,*ecovery,/dev'"
 alias du="dust -b"
 alias free="free -h"
 alias grep="grep --color -i"
@@ -20,6 +20,7 @@ alias lu="eza -glF --git --group-directories-first"
 alias man="batman"
 alias pretty="prettybat"
 alias ping='prettyping --nolegend'
+alias sed='gsed'
 alias vi="nvim"
 alias watch='viddy'
 alias wget=wget --hsts-file="$HOME/.local/share/wget-hsts"
@@ -34,8 +35,6 @@ alias ndu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias sih="sudo -i -H"
 alias svi="sudo -e"
 alias sz="source ~/.zshrc"
-alias pbcopy="xsel -b"
-alias notes='nvim +"Telescope live_grep cwd=$HOME/Nextcloud/Notes/"'
 
 # python aliases
 alias va='source .venv/bin/activate'
@@ -63,19 +62,16 @@ function help() {
   "$@" --help 2>&1 | bathelp
 }
 
-# Arch Linux
-if grep -q Arch /etc/*release 2>&1 >/dev/null; then
-  alias pac="sudo pacman -S"
-  alias pacq="pacman -Q"
-  alias pacr="sudo pacman -Rs"
-  alias pacs="pacman -Ss"
-  alias pacsy="sudo pacman -Sy"
-  alias pacsyu="sudo pacman -Syu"
-  alias pacu="sudo pacman -U"
-  alias pacz="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
-  alias pacrz="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
-  alias ya="yay -S"
-  alias yas="yay -Ss"
-  alias yau="yay -Su"
-  alias bdf="btrfs filesystem df"
+# colima
+if which colima 2>&1 >/dev/null; then
+  if [ "$(uname -m)" == "arm64" ]; then
+    if /Volumes/Macintosh\ HD/usr/sbin/system_profiler SPHardwareDataType | grep -q Ultra; then
+      alias cs='colima start --arch aarch64 --vm-type=vz --vz-rosetta --cpu 12 --memory 42'
+    else
+      alias cs='colima start --arch aarch64 --vm-type=vz --vz-rosetta --cpu 2 --memory 4'
+    fi
+  else
+    alias cs='colima start --cpu 2 --memory 4'
+  fi
+  alias cstop='colima stop'
 fi
