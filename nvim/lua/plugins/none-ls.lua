@@ -1,9 +1,9 @@
 return {
-  "jose-elias-alvarez/null-ls.nvim",
+  "nvimtools/none-ls.nvim",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = { "mason.nvim" },
   opts = function(_, opts)
-    local nls = require("null-ls")
+    local nls = require("none-ls")
     return {
       vim.list_extend(opts.sources, {
         nls.builtins.diagnostics.zsh,
