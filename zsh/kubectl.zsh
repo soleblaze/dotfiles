@@ -73,6 +73,7 @@ alias kgallwowidesl='kubecolor get --all-namespaces --watch -o=wide --show-label
 alias kgallwoyaml='kubecolor get --all-namespaces --watch -o=yaml'
 alias kgallwsl='kubecolor get --all-namespaces --watch --show-labels'
 alias kgallwslowide='kubecolor get --all-namespaces --watch --show-labels -o=wide'
+alias kgc='kubectl config get-contexts'
 alias kgcm='kubecolor get configmap'
 alias kgcmall='kubecolor get configmap --all-namespaces'
 alias kgcmallojson='kubecolor get configmap --all-namespaces -o=json'
@@ -523,6 +524,7 @@ alias kgsvcwoyaml='kubecolor get service --watch -o=yaml'
 alias kgsvcwoyamlall='kubecolor get service --watch -o=yaml --all-namespaces'
 alias kgsvcwoyamll='kubecolor get service --watch -o=yaml -l'
 alias kgsvcwoyamln='kubecolor get service --watch -o=yaml --namespace'
+alias kgu='kubectl config use-context'
 alias kgw='kubecolor get --watch'
 alias kgwall='kubecolor get --watch --all-namespaces'
 alias kgwallojson='kubecolor get --watch --all-namespaces -o=json'
@@ -806,7 +808,6 @@ alias ksysrmsvc='kubecolor --namespace=kube-system delete service'
 alias ksysrmsvcall='kubecolor --namespace=kube-system delete service --all'
 alias ksysrmsvcl='kubecolor --namespace=kube-system delete service -l'
 alias ksysrun='kubecolor --namespace=kube-system run --rm --restart=Never --image-pull-policy=IfNotPresent -i -t'
-
 
 function kgpl() {
   if [ -z "$1" ]; then
