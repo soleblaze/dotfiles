@@ -61,6 +61,14 @@ if [ $commands[flux] ]; then
   source <(flux completion zsh)
 fi
 
+if [ $commands[talosctl] ]; then
+  source <(talosctl completion zsh)
+fi
+
+if [ $commands[clusterctl] ]; then
+  source <(clusterctl completion zsh)
+fi
+
 if [ $commands[helm] ]; then
   source <(helm completion zsh)
 fi
