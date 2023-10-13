@@ -35,6 +35,10 @@ if not vim.g.vscode then
   vim.keymap.del({ "n", "x" }, "j")
   vim.keymap.del({ "n", "x" }, "k")
 
+  -- Remove Move Line Up/Down mappings
+  vim.keymap.del({ "i", "n", "x" }, "<M-j>")
+  vim.keymap.del({ "i", "n", "x" }, "<M-k>")
+
   map({ "n", "v", "i" }, "<F3>", function() require("toggle").diagnostic() end, { desc = "Toggle Diagnostics" })
   map({ "n", "v", "i" }, "<F4>", function() require("toggle").cmp() end, { desc = "Toggle cmp" })
   map({ "n", "v", "i" }, "<F5>", function() require("toggle").relativenumber() end, { desc = "Toggle Relative Number" })
@@ -44,12 +48,11 @@ if not vim.g.vscode then
 
   map("n", "<leader>wc", function() require("toggle").quickfix() end, { desc = "Toggle Quickfix" })
   map("n", "<leader>wl", function() require("toggle").location() end, { desc = "Toggle Location List" })
-
 else
   local keymap = vim.api.nvim_set_keymap
 
   local function notify(cmd)
-      return string.format("<cmd>call VSCodeNotify('%s')<CR>", cmd)
+    return string.format("<cmd>call VSCodeNotify('%s')<CR>", cmd)
   end
 
   keymap("n", "<leader>D", notify 'editor.action.revealDefinitionAside', { silent = true })
