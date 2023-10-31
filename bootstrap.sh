@@ -6,20 +6,43 @@ linkFile() {
   fi
 }
 
-if ! [ -f /opt/homebrew/bin/brew ] && ! [ -f '/usr/local/bin/brew' ]; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  chmod 755 /opt/homebrew/share || chmod 755 /usr/local/share
-fi
+if [ "$(uname -o)" == "Darwin" ]; then
 
-if [ -f "/opt/homebrew/bin/brew" ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-  eval "$(/usr/localbin/brew shellenv)"
-fi
-brew bundle --file Brewfile.base
+  if ! [ -f /opt/homebrew/bin/brew ] && ! [ -f '/usr/local/bin/brew' ]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    chmod 755 /opt/homebrew/share || chmod 755 /usr/local/share
+  fi
 
-if brew autoupdate status | grep -q 'Autoupdate is not configured'; then
-  brew autoupdate start
+  if [ -f "/opt/homebrew/bin/brew" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  else
+    eval "$(/usr/localbin/brew shellenv)"
+  fi
+  brew bundle --file Brewfile
+
+  if brew autoupdate status | grep -q 'Autoupdate is not configured'; then
+    brew autoupdate start
+  fi
+
+  mkdir -p ~/.docker/cli-plugins
+  linkFile "$(brew --prefix)/bin/docker-buildx" ~/.docker/cli-plugins/docker-buildx
+
+  if ! [ -e "$HOME/.docker/scan/config.json" ]; then
+    mkdir -p ~/.docker/scan
+    echo "{}" > ~/.docker/scan/config.json
+  fi
+
+  if ! grep -q "$(brew --prefix)/bin/zsh" /etc/shells; then
+    echo "Adding $(brew --prefix)/bin/zsh to /etc/shells"
+    echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
+  fi
+
+  if [[ $SHELL != "$(brew --prefix)/bin/zsh" ]]; then
+    echo "Changing shell to $(brew --prefix)/bin/zsh"
+    chsh -s "$(brew --prefix)/bin/zsh"
+  fi
+  linkFile "$PWD/zsh/starship.toml" ~/.config/starship.toml
+
 fi
 
 mkdir -p ~/.local/share
@@ -47,26 +70,6 @@ linkFile "$PWD/linters/markdownlint.yaml" ~/.markdownlint.yaml
 mkdir -p ~/.config/yamllint
 linkFile "$PWD/linters/yamllint.yml" ~/.config/yamllint/config
 
-linkFile "$PWD/zsh/starship.toml" ~/.config/starship.toml
-
-mkdir -p ~/.docker/cli-plugins
-linkFile "$(brew --prefix)/bin/docker-buildx" ~/.docker/cli-plugins/docker-buildx
-
-if ! [ -e "$HOME/.docker/scan/config.json" ]; then
-  mkdir -p ~/.docker/scan
-  echo "{}" > ~/.docker/scan/config.json
-fi
-
-if ! grep -q "$(brew --prefix)/bin/zsh" /etc/shells; then
-  echo "Adding $(brew --prefix)/bin/zsh to /etc/shells"
-  echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
-fi
-
-if [[ $SHELL != "$(brew --prefix)/bin/zsh" ]]; then
-  echo "Changing shell to $(brew --prefix)/bin/zsh"
-  chsh -s "$(brew --prefix)/bin/zsh"
-fi
-
 mkdir -p ~/.cache/zsh
 
 mkdir -p ~/.config/git/hooks
@@ -74,7 +77,8 @@ for i in hooks/*; do
   linkFile "$PWD/$i" "$HOME/.config/git/$i"
 done
 
-mkdir -p ~/.config/karabiner
-linkFile "$PWD/karabiner/karabiner.json" ~/.config/karabiner/karabiner.json
+linkFile "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
 
-linkFile ~/Library/Mobile\ Documents/com~apple~CloudDocs ~/iCloud
+if ! [ -d "$HOME/.tmux/plugins/tpm" ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
