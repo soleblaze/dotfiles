@@ -2,7 +2,6 @@
 
 # Override Commands
 alias diff="batdiff --delta"
-alias dig="dog"
 alias df="duf --hide-mp '*ystem*olume*,*ecovery,/dev'"
 alias du="dust -b"
 alias free="free -h"
