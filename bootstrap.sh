@@ -82,3 +82,17 @@ linkFile "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
 if ! [ -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+if [ "$SETUP_AI" == "true" ]; then
+  if [ "$(uname -o)" == "Darwin" ]; then
+    brew tap appleboy/tap
+    brew install codegpt
+
+    brew tap k8sgpt-ai/k8sgpt
+    brew install k8sgpt
+  else
+    # TODO: Add Linux installation for k8sgpt and codegpt
+  fi
+
+  pipx install shell-gpt
+fi
