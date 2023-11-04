@@ -53,10 +53,6 @@ if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
 fi
 
-if [ $commands[kubecolor] ]; then
-  compdef kubecolor=kubectl
-fi
-
 if [ $commands[flux] ]; then
   source <(flux completion zsh)
 fi
