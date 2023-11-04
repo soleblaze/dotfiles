@@ -11,4 +11,6 @@ if [ "$(uname -o)" == "Darwin" ]; then
     alias cs='colima start --cpu 2 --memory 4'
   fi
   alias cstop='colima stop'
+
+  alias sed='gsed'
 fi
