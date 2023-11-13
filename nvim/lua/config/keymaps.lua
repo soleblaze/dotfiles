@@ -19,6 +19,8 @@ if not vim.g.vscode then
   map("n", "<C-n>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
   map("n", "<C-p>", "<cmd>bprevious<cr>", { desc = "Previous Buffer" })
   map("n", "<leader>d", "<cmd>bdelete<cr>", { desc = "Delete Buffer" })
+  map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show Diagnostics" })
+
   map("n", "<leader>fn", function()
     require("telescope.builtin").live_grep({ cwd = vim.env.HOME .. "/Nextcloud/Notes/" })
   end, { desc = "Find in Notes" })
