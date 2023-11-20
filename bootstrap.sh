@@ -41,9 +41,10 @@ if [ "$(uname -o)" == "Darwin" ]; then
     echo "Changing shell to $(brew --prefix)/bin/zsh"
     chsh -s "$(brew --prefix)/bin/zsh"
   fi
-  linkFile "$PWD/zsh/starship.toml" ~/.config/starship.toml
 
 fi
+
+linkFile "$PWD/zsh/starship.toml" ~/.config/starship.toml
 
 mkdir -p ~/.local/share
 
@@ -90,7 +91,7 @@ if [ "$SETUP_AI" == "true" ]; then
 
     brew tap k8sgpt-ai/k8sgpt
     brew install k8sgpt
-  else
+    #else
     # TODO: Add Linux installation for k8sgpt and codegpt
   fi
 
