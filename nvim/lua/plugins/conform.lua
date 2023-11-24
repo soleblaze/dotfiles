@@ -12,7 +12,7 @@ return {
     },
     format = {
       async = false,
-      lsp_fallback = "always",
+      lsp_fallback = true,
       quiet = false,
       timeout_ms = 3000,
     },
