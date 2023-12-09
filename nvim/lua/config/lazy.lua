@@ -19,16 +19,15 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
     },
-    { import = "lazyvim.plugins.extras.lang.markdown" },
-    { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.vscode" },
+    { import = "plugins" },
+  },
   defaults = {
     lazy = false,
     version = false,
   },
   checker = {
-    enabled = true,
-    frequency = 259200,
+    enabled = false,
   },
   performance = {
     rtp = {
