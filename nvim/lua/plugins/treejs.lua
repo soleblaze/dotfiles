@@ -1,5 +1,6 @@
 return {
   "Wansmer/treesj",
+  vscode = true,
   keys = {
     { "gJ", "<cmd>TSJToggle<cr>", desc = "Join Line" },
     { "gS", "<cmd>TSJSplit<cr>", desc = "Split Line" },
