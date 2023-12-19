@@ -69,10 +69,6 @@ if [ $commands[helm] ]; then
   source <(helm completion zsh)
 fi
 
-if [ $commands[k3d] ]; then
-  source <(k3d completion zsh)
-fi
-
 if [ $commands[gcloud] ]; then
   source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
   source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"

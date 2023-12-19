@@ -1,5 +1,5 @@
 #!/usr/zsh
-if grep -q Arch /etc/*release 2>&1 >/dev/null; then
+if [ "$(uname -o)" == "Linux" ] && grep -q Arch /etc/*release 2>&1 >/dev/null; then
   alias pac="sudo pacman -S"
   alias pacq="pacman -Q"
   alias pacr="sudo pacman -Rs"

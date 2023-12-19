@@ -2,6 +2,7 @@
 
 # Override Commands
 alias diff="batdiff --delta"
+alias df="duf --hide-mp '*ystem*olume*,*ecovery,/dev'"
 alias du="dust -b"
 alias free="free -h"
 alias grep="grep --color -i"
@@ -18,6 +19,7 @@ alias lu="eza -glF --git --group-directories-first"
 alias man="batman"
 alias pretty="prettybat"
 alias ping='prettyping --nolegend'
+alias sed='gsed'
 alias vi="nvim"
 alias wget=wget --hsts-file="$HOME/.local/share/wget-hsts"
 
@@ -57,4 +59,3 @@ alias tf="tail -f | bat --paging=never -l log"
 function help() {
   "$@" --help 2>&1 | bathelp
 }
-

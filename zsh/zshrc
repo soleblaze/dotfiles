@@ -14,8 +14,10 @@ fi
 # Plugins that need to be sourced last
 ZVM_INIT_MODE=sourcing
 
-source $HOME/git/dotfiles/zsh/plugins/autopair.zsh
-source $HOME/git/dotfiles/zsh/plugins/zsh-history-substring-search.zsh
+if type brew &>/dev/null; then
+  source $(brew --prefix)/share/zsh-autopair/autopair.zsh
+  source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+fi
 
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -29,7 +31,10 @@ if [[ $(uname -a) = (#i)*darwin* ]] {
   FAST_HIGHLIGHT[chroma-man]=
 }
 
-source $HOME/git/dotfiles/zsh/plugins/you-should-use.plugin.zsh
-source $HOME/git/dotfiles/zsh/plugins/fast-syntax-highlighting.plugin.zsh
+if type brew &>/dev/null; then
+  source $(brew --prefix)/share/zsh-you-should-use/you-should-use.plugin.zsh
+  source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+  export PATH="$(brew --prefix)/bin:$PATH"
+fi
 
 typeset -U PATH
