@@ -81,11 +81,12 @@ cask "font-dejavu"
 cask "font-dejavu-sans-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
 cask "google-chrome"
+cask "hammerspoon"
 cask "hazel"
 cask "iterm2"
 cask "karabiner-elements"
-cask "multipass"
 cask "obsidian"
+cask "orbstack"
 cask "raycast"
 cask "screenflow"
 cask "secretive"
@@ -96,7 +97,6 @@ mas "Dark Noise", id: 1465439395
 mas "Day One", id: 1055511498
 mas "Ivory", id: 6444602274
 mas "MindNode", id: 1289197285
-mas "Moom", id: 419330170
 mas "OmniOutliner", id: 1142578772
 mas "Reeder", id: 1529448980
 mas "Screens", id: 1224268771
