@@ -7,7 +7,6 @@ brew "asciinema"
 brew "bat"
 brew "bat-extras"
 brew "binutils"
-brew "colima"
 brew "docker"
 brew "docker-buildx"
 brew "dos2unix"
@@ -20,9 +19,11 @@ brew "ffmpeg"
 brew "findutils"
 brew "fzf"
 brew "gawk"
+brew "gh"
 brew "git"
 brew "git-delta"
 brew "git-extras"
+brew "git-lfs"
 brew "glances"
 brew "glow"
 brew "gnu-sed"
@@ -34,12 +35,13 @@ brew "ipython"
 brew "jdupes"
 brew "jhead"
 brew "jq"
+brew "node"
+brew "jupyterlab"
 brew "mas"
 brew "mosh"
 brew "ncdu"
 brew "neovim"
 brew "nmap"
-brew "node"
 brew "pipx"
 brew "virtualenv"
 brew "poetry"
@@ -49,7 +51,6 @@ brew "rdfind"
 brew "ripgrep"
 brew "ruby"
 brew "rust"
-brew "sad"
 brew "sd"
 brew "shellcheck"
 brew "so"
@@ -83,26 +84,11 @@ cask "font-symbols-only-nerd-font"
 cask "google-chrome"
 cask "hammerspoon"
 cask "hazel"
-cask "iterm2"
 cask "karabiner-elements"
+cask "kitty"
 cask "obsidian"
-cask "orbstack"
 cask "raycast"
 cask "screenflow"
 cask "secretive"
 cask "tailscale"
 cask "visual-studio-code"
-mas "1Password for Safari", id: 1569813296
-mas "Dark Noise", id: 1465439395
-mas "Day One", id: 1055511498
-mas "Ivory", id: 6444602274
-mas "MindNode", id: 1289197285
-mas "OmniOutliner", id: 1142578772
-mas "Reeder", id: 1529448980
-mas "Screens", id: 1224268771
-mas "Slack", id: 803453959
-mas "SnippetsLab", id: 1006087419
-mas "TextSniper", id: 1528890965
-mas "Vimari", id: 1480933944
-mas "Wipr", id: 1320666476
-mas "Xcode", id: 497799835
