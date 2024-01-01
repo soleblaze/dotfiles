@@ -11,13 +11,10 @@ if [ "$(uname -o)" == "Darwin" ]; then
   if ! [ -f /opt/homebrew/bin/brew ] && ! [ -f '/usr/local/bin/brew' ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     chmod 755 /opt/homebrew/share || chmod 755 /usr/local/share
+    sudo softwareupdate --install-rosetta
   fi
 
-  if [ -f "/opt/homebrew/bin/brew" ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-  else
-    eval "$(/usr/localbin/brew shellenv)"
-  fi
+  eval "$(/opt/homebrew/bin/brew shellenv)"
   brew bundle --file Brewfile
 
   if brew autoupdate status | grep -q 'Autoupdate is not configured'; then
@@ -27,10 +24,6 @@ if [ "$(uname -o)" == "Darwin" ]; then
   mkdir -p ~/.docker/cli-plugins
   linkFile "$(brew --prefix)/bin/docker-buildx" ~/.docker/cli-plugins/docker-buildx
 
-  if ! [ -e "$HOME/.docker/scan/config.json" ]; then
-    mkdir -p ~/.docker/scan
-    echo "{}" > ~/.docker/scan/config.json
-  fi
 
   if ! grep -q "$(brew --prefix)/bin/zsh" /etc/shells; then
     echo "Adding $(brew --prefix)/bin/zsh to /etc/shells"
@@ -64,6 +57,12 @@ for i in nvim/*; do
   linkFile "$PWD/$i" "$HOME/.config/$i"
 done
 
+mkdir -p ~/.config/kitty
+
+for i in kitty/*; do
+  linkFile "$PWD/$i" "$HOME/.config/$i"
+done
+
 linkFile "$PWD/linters/cbfmt.toml" ~/.cbfmt.toml
 linkFile "$PWD/linters/golangci.yml" ~/.golangci.yml
 linkFile "$PWD/linters/markdownlint.yaml" ~/.markdownlint.yaml
@@ -84,16 +83,8 @@ if ! [ -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-if [ "$SETUP_AI" == "true" ]; then
-  if [ "$(uname -o)" == "Darwin" ]; then
-    brew tap appleboy/tap
-    brew install codegpt
+mkdir -p ~/.hammerspoon
+linkFile "$PWD/hammerspoon/init.lua" "$HOME/.hammerspoon/init.lua"
 
-    brew tap k8sgpt-ai/k8sgpt
-    brew install k8sgpt
-    #else
-    # TODO: Add Linux installation for k8sgpt and codegpt
-  fi
-
-  pipx install shell-gpt
-fi
+mkdir -p ~/.config/karabiner
+linkFile "$PWD/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
