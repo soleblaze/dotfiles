@@ -6,37 +6,6 @@ linkFile() {
   fi
 }
 
-if [ "$(uname -o)" == "Darwin" ]; then
-
-  if ! [ -f /opt/homebrew/bin/brew ] && ! [ -f '/usr/local/bin/brew' ]; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    chmod 755 /opt/homebrew/share || chmod 755 /usr/local/share
-    sudo softwareupdate --install-rosetta
-  fi
-
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  brew bundle --file Brewfile
-
-  if brew autoupdate status | grep -q 'Autoupdate is not configured'; then
-    brew autoupdate start
-  fi
-
-  mkdir -p ~/.docker/cli-plugins
-  linkFile "$(brew --prefix)/bin/docker-buildx" ~/.docker/cli-plugins/docker-buildx
-
-
-  if ! grep -q "$(brew --prefix)/bin/zsh" /etc/shells; then
-    echo "Adding $(brew --prefix)/bin/zsh to /etc/shells"
-    echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
-  fi
-
-  if [[ $SHELL != "$(brew --prefix)/bin/zsh" ]]; then
-    echo "Changing shell to $(brew --prefix)/bin/zsh"
-    chsh -s "$(brew --prefix)/bin/zsh"
-  fi
-
-fi
-
 linkFile "$PWD/zsh/starship.toml" ~/.config/starship.toml
 
 mkdir -p ~/.local/share
@@ -72,19 +41,16 @@ linkFile "$PWD/linters/yamllint.yml" ~/.config/yamllint/config
 
 mkdir -p ~/.cache/zsh
 
-mkdir -p ~/.config/git/hooks
-for i in hooks/*; do
-  linkFile "$PWD/$i" "$HOME/.config/git/$i"
-done
-
 linkFile "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
 
 if ! [ -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-mkdir -p ~/.hammerspoon
-linkFile "$PWD/hammerspoon/init.lua" "$HOME/.hammerspoon/init.lua"
+linkFile "$PWD/foot" "$HOME/.config/foot"
+linkFile "$PWD/fuzzel" "$HOME/.config/fuzzel"
+linkFile "$PWD/sway" "$HOME/.config/sway"
+linkFile "$PWD/waybar" "$HOME/.config/waybar"
 
-mkdir -p ~/.config/karabiner
-linkFile "$PWD/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
+linkFile "$PWD/systemd/dunst.service" "$HOME/.config/systemd/user/dunst.service"
+linkFile "$PWD/systemd/sway-session.target" "$HOME/.config/systemd/user/sway-session.target"
