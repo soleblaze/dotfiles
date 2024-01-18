@@ -8,7 +8,7 @@ input type:keyboard {
   xkb_options "mod3:rightalt"
 }
 
-input 1267:12624:ELAN0670:00_04F3:3150_Touchpad {
+input type:touchpad {
   tap enabled
 }
 
@@ -42,21 +42,16 @@ bindsym XF86AudioRaiseVolume exec pamixer -i 5
 bindsym XF86AudioLowerVolume exec pamixer -d 5
 bindsym XF86AudioMute exec pamixer -t
 
-bindsym XF86MonBrightnessUp exec light -A 2
-bindsym XF86MonBrightnessDown exec light -U 2
+bindsym XF86MonBrightnessUp exec brightnessctl s 2%+
+bindsym XF86MonBrightnessDown exec brightnessctl s 2%-
 
 # Application shortcuts
 bindsym $hyper+F11 exec systemctl suspend
 bindsym $hyper+F12 exec systemctl poweroff
 bindsym $hyper+a exec pavucontrol
-bindsym $hyper+b exec zsh -c "qutebrowser"
 bindsym $hyper+l exec swaylock -f -i ~/.config/sway/lock.png
 bindsym $mod+Return exec $term
 bindsym $hyper+Return exec $term
-bindsym $mod+backslash exec clipman pick -t CUSTOM --histpath="$HOME/.cache/clipman.json" --tool-args="fuzzel -d"
-bindsym $hyper+backslash exec clipman clear -a --histpath="$HOME/.cache/clipman.json" 
-bindsym $mod+bracketright exec clipman clear -t CUSTOM --tool-args="fuzzel -d" --histpath="$HOME/.cache/clipman.json" 
-bindsym $mod+x exec zsh -lc "$HOME/bin/fuzzel-task"
 
 floating_modifier $mod normal
 
