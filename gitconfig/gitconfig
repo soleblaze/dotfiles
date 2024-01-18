@@ -53,14 +53,8 @@
 [status]
   showUntrackedFiles = all
 [user]
-  email = EMAIL
-  name = NAME
-  signingKey = SIGNING KEY
-[commit]
-	gpgsign = true
-	verbose = true
-[gpg]
-	format = ssh
+  email = soleblaze@skyshadows.net
+  name = Soleblaze
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
