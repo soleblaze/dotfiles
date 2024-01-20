@@ -47,10 +47,20 @@ if ! [ -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
+# Wayland
 linkFile "$PWD/foot" "$HOME/.config/foot"
 linkFile "$PWD/fuzzel" "$HOME/.config/fuzzel"
 linkFile "$PWD/sway" "$HOME/.config/sway"
 linkFile "$PWD/waybar" "$HOME/.config/waybar"
-
 linkFile "$PWD/systemd/dunst.service" "$HOME/.config/systemd/user/dunst.service"
 linkFile "$PWD/systemd/sway-session.target" "$HOME/.config/systemd/user/sway-session.target"
+
+# X11
+linkFile "$PWD/i3" "$HOME/.config/i3"
+linkFile "$PWD/i3/i3blocks.conf" "$HOME/.i3blocks.conf"
+linkFile "$PWD/picom" "$HOME/.config/picom"
+linkFile "$PWD/rofi" "$HOME/.config/rofi"
+linkFile "$PWD/alacritty" "$HOME/.config/alacritty"
+linkFile "$PWD/x11/Xresources" "$HOME/.Xresources"
+mkdir -p ~/bin
+linkFile "$PWD/bin/rofi-task" "$HOME/bin/rofi-task"

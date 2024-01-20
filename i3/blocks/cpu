@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cpuusage="$(mpstat 1 1 | tail -n1 | awk '{printf "%.1f%%", 100 - $12}')"
+temp="$(sensors | grep Package | awk '{print $4}' | tr -d '°+')"
+
+if [[ "$temp" ]]; then
+  echo "<span foreground='#ffffff' background='#808080' > C </span><span foreground='#ffffff' background='#1478db'> $cpuusage </span><span font='8'>  </span><span foreground='#ffffff' background='#808080'> T </span><span foreground='#ffffff' background='#1478db'> $temp </span><span font='8'>  </span>"
+else
+  echo "<span foreground='#ffffff' background='#808080'> C </span><span foreground='#ffffff' background='#1478db'> $cpuusage </span><span font='8'>  </span>"
+fi
