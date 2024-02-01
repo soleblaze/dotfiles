@@ -5,8 +5,11 @@ font pango:DejaVuSansM Nerd Font Mono 12
 for_window [class="^.*"] border pixel 2
 smart_borders on
 
+floating_minimum_size 150 x 100
+floating_maximum_size 960 x 720
+
 #make notifications behave
-#for_window [instance="Download"] floating enable
+for_window [instance="Download"] floating enable
 for_window [window_role="plugin_ui"] floating enable
 for_window [title="Menu Update"] floating enable
 for_window [title="___"] floating enable
