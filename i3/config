@@ -6,7 +6,7 @@ for_window [class="^.*"] border pixel 2
 smart_borders on
 
 #make notifications behave
-for_window [instance="Download"] floating enable
+#for_window [instance="Download"] floating enable
 for_window [window_role="plugin_ui"] floating enable
 for_window [title="Menu Update"] floating enable
 for_window [title="___"] floating enable
@@ -177,8 +177,8 @@ exec blueman-applet
 exec nextcloud
 exec lxqt-policykit-agent
 exec xss-lock -- i3lock -f -i ~/pictures/wallpaper/lock.png
-exec xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Tapping Enabled" 1
-exec xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Accel Speed" .25
+exec xinput set-prop "SYNA310F:00 06CB:CEA9 Touchpad" "libinput Tapping Enabled" 1
+exec xinput set-prop "SYNA310F:00 06CB:CEA9 Touchpad" "libinput Accel Speed" .25
 exec picom
 
 exec --no-startup-id ~/bin/keymap.sh

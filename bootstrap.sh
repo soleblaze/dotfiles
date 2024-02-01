@@ -64,3 +64,5 @@ linkFile "$PWD/alacritty" "$HOME/.config/alacritty"
 linkFile "$PWD/x11/Xresources" "$HOME/.Xresources"
 mkdir -p ~/bin
 linkFile "$PWD/bin/rofi-task" "$HOME/bin/rofi-task"
+
+linkFile "$PWD/dunst" "$HOME/.config/dunst"

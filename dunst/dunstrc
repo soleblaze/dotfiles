@@ -1,0 +1,27 @@
+[global]
+    browser = qutebrowser
+    dmenu = /usr/bin/rofi --show dmenu -p dunst:
+    follow = mouse
+    font = "Nerd Font, Noto Color Emoji 12, DejaVu Sans Mono"
+    history_length = 20
+    transparency = 0 
+    word_wrap = yes
+    offset = 5x5
+    icon_theme = hicolor
+    enable_recursive_icon_lookup = true
+
+[urgency_low]
+    background = "#214561"
+    foreground = "#ffffff"
+    timeout = 5
+
+[urgency_normal]
+    background = "#1F4662"
+    foreground = "#ffffff"
+    timeout = 5
+
+[urgency_critical]
+    background = "#ff0900"
+    foreground = "#ffffff"
+    timeout = 10
+# vim: ft=cfg
