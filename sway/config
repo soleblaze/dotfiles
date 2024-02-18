@@ -1,6 +1,6 @@
 set $mod Mod4
 set $hyper Mod1+Mod3
-set $term kitty
+set $term foot
 set $menu fuzzel
 
 input type:keyboard {
@@ -15,7 +15,7 @@ input type:touchpad {
 # Looks
 font pango:DejaVuSansM Nerd Font 10
 
-output eDP-1 scale 1.5
+output eDP-1 scale 2
 output eDP-1 bg ~/.config/sway/wallpaper.png fill
 default_border none
 smart_borders on

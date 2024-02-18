@@ -82,7 +82,7 @@
     "tooltip": false
   },
   "network": {
-    "interface": "wlp0s20f3",
+    "interface": "wlan0",
     "format": "{ifname}",
     "format-wifi": "{essid} ({signalStrength}%)",
     "format-ethernet": "Ethernet",

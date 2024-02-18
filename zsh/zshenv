@@ -46,6 +46,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 export SWAYSHOT_SCREENSHOTS="$HOME/pictures/screenshots"
+export QT_QPA_PLATFORM=wayland
 
 export GOPATH=$HOME/.local/share/go
 export GOBIN=$GOPATH/bin
