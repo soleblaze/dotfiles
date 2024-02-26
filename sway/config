@@ -50,7 +50,7 @@ bindsym $hyper+F11 exec systemctl suspend
 bindsym $hyper+F12 exec systemctl poweroff
 bindsym $hyper+a exec pavucontrol
 bindsym $hyper+l exec swaylock -f -i ~/.config/sway/lock.png
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec $term tmux new-session -ADs main
 bindsym $hyper+Return exec $term
 
 floating_modifier $mod normal
