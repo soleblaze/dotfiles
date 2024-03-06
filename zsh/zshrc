@@ -7,6 +7,8 @@ for i in $HOME/git/dotfiles/zsh/*.zsh; do
   source "$i"
 done
 
+source /usr/share/fzf/shell/key-bindings.zsh
+
 if [ -f "$HOME/.zshrc_local" ]; then
   source ~/.zshrc_local
 fi
@@ -15,7 +17,7 @@ fi
 ZVM_INIT_MODE=sourcing
 
 source ~/git/dotfiles/zsh/plugins/autopair.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/git/dotfiles/zsh/plugins/zsh-history-substring-search.zsh
 
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
