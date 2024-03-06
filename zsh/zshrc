@@ -7,7 +7,6 @@ for i in $HOME/git/dotfiles/zsh/*.zsh; do
   source "$i"
 done
 
-source /usr/share/fzf/shell/key-bindings.zsh
 
 if [ -f "$HOME/.zshrc_local" ]; then
   source ~/.zshrc_local

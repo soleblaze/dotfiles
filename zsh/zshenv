@@ -18,6 +18,10 @@ if [ -e "$XDG_RUNTIME_DIR/gcr/ssh" ]; then
   export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 fi
 
+if [ -d "/home/linuxbrew/.linuxbrew/bin" ]; then
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
+
 export BAT_THEME="cobalt2"
 export EDITOR="nvim"
 export HISTFILE="${HOME}/.zsh_history"

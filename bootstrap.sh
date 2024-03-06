@@ -6,6 +6,12 @@ linkFile() {
   fi
 }
 
+if ! [ -d "/home/linuxbrew/.linuxbrew/bin" ]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  brew bundle
+fi
+
 linkFile "$PWD/zsh/starship.toml" ~/.config/starship.toml
 
 mkdir -p ~/.local/share
@@ -19,18 +25,6 @@ if ! [ -d ~/.config/bat ]; then
   git clone https://github.com/wesbos/cobalt2.git ~/.config/bat/themes/cobalt2
   bat cache --build
 fi
-
-mkdir -p ~/.config/nvim
-
-for i in nvim/*; do
-  linkFile "$PWD/$i" "$HOME/.config/$i"
-done
-
-mkdir -p ~/.config/kitty
-
-for i in kitty/*; do
-  linkFile "$PWD/$i" "$HOME/.config/$i"
-done
 
 linkFile "$PWD/linters/cbfmt.toml" ~/.cbfmt.toml
 linkFile "$PWD/linters/golangci.yml" ~/.golangci.yml
@@ -48,21 +42,25 @@ if ! [ -d "$HOME/.tmux/plugins/tpm" ]; then
 fi
 
 # Wayland
-linkFile "$PWD/foot" "$HOME/.config/foot"
-linkFile "$PWD/fuzzel" "$HOME/.config/fuzzel"
-linkFile "$PWD/sway" "$HOME/.config/sway"
-linkFile "$PWD/waybar" "$HOME/.config/waybar"
-linkFile "$PWD/systemd/dunst.service" "$HOME/.config/systemd/user/dunst.service"
-linkFile "$PWD/systemd/sway-session.target" "$HOME/.config/systemd/user/sway-session.target"
+if [ "$1" == "wayland" ]; then
+  linkFile "$PWD/foot" "$HOME/.config/foot"
+  linkFile "$PWD/fuzzel" "$HOME/.config/fuzzel"
+  linkFile "$PWD/sway" "$HOME/.config/sway"
+  linkFile "$PWD/waybar" "$HOME/.config/waybar"
+  linkFile "$PWD/systemd/dunst.service" "$HOME/.config/systemd/user/dunst.service"
+  linkFile "$PWD/systemd/sway-session.target" "$HOME/.config/systemd/user/sway-session.target"
+  linkFile "$PWD/dunst" "$HOME/.config/dunst"
+fi
 
 # X11
-linkFile "$PWD/i3" "$HOME/.config/i3"
-linkFile "$PWD/i3/i3blocks.conf" "$HOME/.i3blocks.conf"
-linkFile "$PWD/picom" "$HOME/.config/picom"
-linkFile "$PWD/rofi" "$HOME/.config/rofi"
-linkFile "$PWD/alacritty" "$HOME/.config/alacritty"
-linkFile "$PWD/x11/Xresources" "$HOME/.Xresources"
-mkdir -p ~/bin
-linkFile "$PWD/bin/rofi-task" "$HOME/bin/rofi-task"
-
-linkFile "$PWD/dunst" "$HOME/.config/dunst"
+if [ "$1" == "x11" ]; then
+  linkFile "$PWD/i3" "$HOME/.config/i3"
+  linkFile "$PWD/i3/i3blocks.conf" "$HOME/.i3blocks.conf"
+  linkFile "$PWD/picom" "$HOME/.config/picom"
+  linkFile "$PWD/rofi" "$HOME/.config/rofi"
+  linkFile "$PWD/alacritty" "$HOME/.config/alacritty"
+  linkFile "$PWD/x11/Xresources" "$HOME/.Xresources"
+  mkdir -p ~/bin
+  linkFile "$PWD/bin/rofi-task" "$HOME/bin/rofi-task"
+  linkFile "$PWD/dunst" "$HOME/.config/dunst"
+fi
