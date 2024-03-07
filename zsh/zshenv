@@ -57,6 +57,7 @@ export GOBIN=$GOPATH/bin
 
 path+="${GOBIN}"
 path+="${HOME}/.yarn/bin"
+path+="${HOME}/.cargo/bin"
 path=("${HOME}/bin" "${HOME}/.local/bin" "${HOME}/.krew/bin" $path)
 
 for i in ${HOME}/.local/share/gem/ruby/*; do

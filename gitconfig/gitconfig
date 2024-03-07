@@ -1,6 +1,7 @@
 [alias]
   bm = branch --merged
   dd = diff --dirstat --find-copies --find-renames --histogram --color
+  dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
   discard = !git stash save --keep-index --include-untracked && git stash drop
   prune = fetch --prune
   sl = stash list --pretty=format:\"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold magenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(gree  n)(%cr) %C(bold blue)<%an>%C(reset)\"
@@ -22,18 +23,14 @@
 [diff]
   algorithm = patience
   colorMoved = default
-  tool = meld
+  external = difft
+  tool = difft
 [difftool]
   prompt = false
-[difftool "meld"]
-  cmd = meld "$LOCAL" "$REMOTE"
-[merge]
-  tool = meld
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
 [mergetool]
   prompt = false
-[mergetool "meld"]
-  conflictstyle = diff3
-  path = /Applications/Meld.app/Contents/MacOS/Meld
 [help]
   autocorrect = 1
 [http "https://gopkg.in"]
@@ -56,7 +53,11 @@
   email = soleblaze@skyshadows.net
   name = Soleblaze
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+[pull]
+  rebase = true
+[commit]
+  gpgsign = false
