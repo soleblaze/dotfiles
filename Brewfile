@@ -102,7 +102,6 @@ mas "Kagi for Safari", id: 1622835804
 mas "Bear Markdown Notes", id: 1091189122
 mas "MindNode", id: 1289197285
 mas "OmniFocus", id: 1542143627
-mas "Overcast", id: 888422857
 mas "Reeder", id: 1529448980
 mas "Screens 4", id: 1224268771
 mas "Slack for Desktop", id: 803453959
@@ -114,4 +113,3 @@ mas "Wipr", id: 1320666476
 mas "Wireguard", id: 1451685025
 mas "Vimari", id: 1480933944
 mas "Day One", id: 1055511498
-mas "UniFi", id: 1057750338
