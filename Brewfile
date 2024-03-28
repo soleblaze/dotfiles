@@ -96,6 +96,7 @@ cask "meld"
 cask "raycast"
 cask "screenflow"
 cask "secretive"
+cask "setapp"
 cask "visual-studio-code"
 cask "yubico-yubikey-manager"
 mas "Kagi for Safari", id: 1622835804
