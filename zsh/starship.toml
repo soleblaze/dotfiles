@@ -9,7 +9,8 @@ $git_status\
 $fill\
 $cmd_duration\
 $kubernetes\
-$docker_context\
+$docker_context \
+$gcloud \
 $python
 $status\
 $character
@@ -52,3 +53,7 @@ format = '[$status]($style) '
 [time]
 disabled = false
 format = '[$time]($style)'
+
+[gcloud]
+symbol = '️󱇶 '
+format = '[$symbol$project]($style) '

@@ -14,12 +14,16 @@ setopt nonomatch
 setopt noshwordsplit
 setopt prompt_subst
 
-if [ -e "$XDG_RUNTIME_DIR/gcr/ssh" ]; then
-  export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+# Start homebrew
+if [ -f "/opt/homebrew/bin/brew" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -f "/usr/local/bin/brew" ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-if [ -d "/home/linuxbrew/.linuxbrew/bin" ]; then
-  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+if [ -e "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh" ]; then
+  export SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 fi
 
 export BAT_THEME="cobalt2"
@@ -43,14 +47,6 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
-
-# Setup XDG paths and directories based off these paths
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_CACHE_HOME="$HOME/.cache"
-export SWAYSHOT_SCREENSHOTS="$HOME/pictures/screenshots"
-export QT_QPA_PLATFORM=wayland
 
 export GOPATH=$HOME/.local/share/go
 export GOBIN=$GOPATH/bin

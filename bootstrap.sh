@@ -6,10 +6,30 @@ linkFile() {
   fi
 }
 
-if ! [ -d "/home/linuxbrew/.linuxbrew/bin" ]; then
+if ! [ -f /opt/homebrew/bin/brew ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-  brew bundle
+  chmod 755 /opt/homebrew/share
+  sudo softwareupdate --install-rosetta
+fi
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew bundle
+
+if brew autoupdate status | grep -q 'Autoupdate is not configured'; then
+  brew autoupdate start
+fi
+
+mkdir -p ~/.docker/cli-plugins
+linkFile "$(brew --prefix)/bin/docker-buildx" ~/.docker/cli-plugins/docker-buildx
+
+if ! grep -q "$(brew --prefix)/bin/zsh" /etc/shells; then
+  echo "Adding $(brew --prefix)/bin/zsh to /etc/shells"
+  echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
+fi
+
+if [[ $SHELL != "$(brew --prefix)/bin/zsh" ]]; then
+  echo "Changing shell to $(brew --prefix)/bin/zsh"
+  chsh -s "$(brew --prefix)/bin/zsh"
 fi
 
 linkFile "$PWD/zsh/starship.toml" ~/.config/starship.toml
@@ -26,6 +46,12 @@ if ! [ -d ~/.config/bat ]; then
   bat cache --build
 fi
 
+mkdir -p ~/.config/nvim
+
+for i in nvim/*; do
+  linkFile "$PWD/$i" "$HOME/.config/$i"
+done
+
 linkFile "$PWD/linters/cbfmt.toml" ~/.cbfmt.toml
 linkFile "$PWD/linters/golangci.yml" ~/.golangci.yml
 linkFile "$PWD/linters/markdownlint.yaml" ~/.markdownlint.yaml
@@ -41,26 +67,8 @@ if ! [ -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-# Wayland
-if [ "$1" == "wayland" ]; then
-  linkFile "$PWD/foot" "$HOME/.config/foot"
-  linkFile "$PWD/fuzzel" "$HOME/.config/fuzzel"
-  linkFile "$PWD/sway" "$HOME/.config/sway"
-  linkFile "$PWD/waybar" "$HOME/.config/waybar"
-  linkFile "$PWD/systemd/dunst.service" "$HOME/.config/systemd/user/dunst.service"
-  linkFile "$PWD/systemd/sway-session.target" "$HOME/.config/systemd/user/sway-session.target"
-  linkFile "$PWD/dunst" "$HOME/.config/dunst"
-fi
+mkdir -p ~/.hammerspoon
+linkFile "$PWD/hammerspoon/init.lua" "$HOME/.hammerspoon/init.lua"
 
-# X11
-if [ "$1" == "x11" ]; then
-  linkFile "$PWD/i3" "$HOME/.config/i3"
-  linkFile "$PWD/i3/i3blocks.conf" "$HOME/.i3blocks.conf"
-  linkFile "$PWD/picom" "$HOME/.config/picom"
-  linkFile "$PWD/rofi" "$HOME/.config/rofi"
-  linkFile "$PWD/alacritty" "$HOME/.config/alacritty"
-  linkFile "$PWD/x11/Xresources" "$HOME/.Xresources"
-  mkdir -p ~/bin
-  linkFile "$PWD/bin/rofi-task" "$HOME/bin/rofi-task"
-  linkFile "$PWD/dunst" "$HOME/.config/dunst"
-fi
+mkdir -p ~/.config/karabiner
+linkFile "$PWD/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"

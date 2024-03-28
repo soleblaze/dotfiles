@@ -1,7 +1,0 @@
-#!/bin/bash
-INSTANCE="${BLOCK_INSTANCE:-tun0}"
-
-# This script checks to see if tun0 interface exists and is up
-if ip addr | grep -q "${INSTANCE}"; then
-  echo "<span background='#808080' foreground='#ffffff'> VPN </span>"
-fi
