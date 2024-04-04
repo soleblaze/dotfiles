@@ -21,11 +21,6 @@ elif [ -f "/usr/local/bin/brew" ]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-
-if [ -e "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh" ]; then
-  export SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
-fi
-
 export BAT_THEME="cobalt2"
 export EDITOR="nvim"
 export HISTFILE="${HOME}/.zsh_history"
