@@ -14,12 +14,7 @@ setopt nonomatch
 setopt noshwordsplit
 setopt prompt_subst
 
-# Start homebrew
-if [ -f "/opt/homebrew/bin/brew" ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [ -f "/usr/local/bin/brew" ]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export BAT_THEME="cobalt2"
 export EDITOR="nvim"

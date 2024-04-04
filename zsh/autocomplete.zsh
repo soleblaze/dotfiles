@@ -1,13 +1,13 @@
 #!/bin/zsh
 if type brew &>/dev/null; then
-  FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  FPATH="/opt/homebrew/share/zsh-completions:$FPATH"
+  FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
 fi
 
 FPATH="$HOME/git/dotfiles/zsh/completions:$FPATH"
 
 # Enable smart autocompletion
-autoload -Uz compinit && compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+autoload -Uz compinit && compinit -u -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 setopt complete_in_word
 
 # Enable menu selection when hitting tab twice
@@ -70,6 +70,6 @@ if [ $commands[helm] ]; then
 fi
 
 if [ $commands[gcloud] ]; then
-  source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-  source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+  source "/opt/homebrew/share/google-cloud-sdk/path.zsh.inc"
+  source "/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc"
 fi
