@@ -91,15 +91,14 @@ cask "karabiner-elements"
 cask "keyboard-maestro"
 cask "little-snitch"
 cask "meld"
+cask "obsidan"
 cask "openlens"
 cask "raycast"
 cask "screenflow"
-cask "secretive"
 cask "setapp"
 cask "visual-studio-code"
 cask "yubico-yubikey-manager"
 mas "Kagi for Safari", id: 1622835804
-mas "Bear Markdown Notes", id: 1091189122
 mas "MindNode", id: 1289197285
 mas "OmniFocus", id: 1542143627
 mas "Reeder", id: 1529448980
