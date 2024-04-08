@@ -111,4 +111,3 @@ mas "Noir - Dark Mode for Safari", id: 1592917505
 mas "Wipr", id: 1320666476
 mas "Wireguard", id: 1451685025
 mas "Vimari", id: 1480933944
-mas "Day One", id: 1055511498

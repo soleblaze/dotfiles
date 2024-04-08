@@ -1,4 +1,14 @@
 #!/bin/bash
+GH_EXTENSIONS=(
+  HaywardMorihara/gh-tidy
+  dlvhdr/gh-dash
+  gennaro-tedesco/gh-f
+  github/gh-copilot
+  seachicken/gh-poi
+)
+# extensions to look at in the future
+#meiji163/gh-notify
+#chelnak/gh-changelog
 
 linkFile() {
   if ! [ -L "$2" ]; then
@@ -72,3 +82,12 @@ linkFile "$PWD/hammerspoon/init.lua" "$HOME/.hammerspoon/init.lua"
 
 mkdir -p ~/.config/karabiner
 linkFile "$PWD/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
+
+echo "Installing Github Extensions"
+for i in "${GH_EXTENSIONS[@]}"; do
+  if gh extension list | grep -q "$i"; then
+    gh extension upgrade "$i"
+    continue
+  fi
+  gh extension install "$i"
+done
