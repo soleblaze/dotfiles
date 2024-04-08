@@ -104,7 +104,6 @@ mas "OmniFocus", id: 1542143627
 mas "Reeder", id: 1529448980
 mas "Screens 4", id: 1224268771
 mas "Slack for Desktop", id: 803453959
-mas "SnippetsLab", id: 1006087419
 mas "TextSniper", id: 1528890965
 mas "Tailscale", id: 1475387142
 mas "Noir - Dark Mode for Safari", id: 1592917505
