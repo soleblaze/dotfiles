@@ -5,7 +5,8 @@ local function action(cmd)
   return string.format("<cmd>lua require('vscode-neovim').action('%s')<CR>", cmd)
 end
 
-keymap("n", "<leader>a", action("workbench.action.openQuickChat.copilot"), { silent = true })
+keymap("n", "<leader>ai", action("workbench.action.openQuickChat.copilot"), { silent = true })
+keymap("n", "<leader>at", action("github.copilot.toggleCopilot"), { silent = true })
 keymap("n", "<leader>D", action("editor.action.revealDefinitionAside"), { silent = true })
 keymap("n", "<leader>F", action("editor.action.formatDocument"), { silent = true })
 keymap("n", "<leader>P", '"+P', { silent = true })
