@@ -19,6 +19,7 @@ if type brew &>/dev/null; then
   source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 fi
 
+
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
@@ -35,6 +36,10 @@ if type brew &>/dev/null; then
   source $(brew --prefix)/share/zsh-you-should-use/you-should-use.plugin.zsh
   source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
   export PATH="$(brew --prefix)/bin:$PATH"
+fi
+
+if type rbenv &>/dev/null; then
+  eval "$(rbenv init -)"
 fi
 
 typeset -U PATH
