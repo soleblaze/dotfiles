@@ -83,6 +83,8 @@ linkFile "$PWD/hammerspoon/init.lua" "$HOME/.hammerspoon/init.lua"
 mkdir -p ~/.config/karabiner
 linkFile "$PWD/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 
+linkFile "$PWD/wezterm/wezterm.lua" "$HOME/.wezterm.lua"
+
 echo "Installing Github Extensions"
 for i in "${GH_EXTENSIONS[@]}"; do
   if gh extension list | grep -q "$i"; then
