@@ -17,8 +17,22 @@ end
 
 map("n", "<C-n>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<C-p>", "<cmd>bprevious<cr>", { desc = "Previous Buffer" })
-map("n", "<leader>d", "<cmd>bdelete<cr>", { desc = "Delete Buffer" })
 map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show Diagnostics" })
+
+map("n", "<leader>d", function()
+  local bd = require("mini.bufremove").delete
+  if vim.bo.modified then
+    local choice = vim.fn.confirm(("Save changes to %q?"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
+    if choice == 1 then -- Yes
+      vim.cmd.write()
+      bd(0)
+    elseif choice == 2 then -- No
+      bd(0, true)
+    end
+  else
+    bd(0)
+  end
+end, { desc = "Delete Buffer" })
 
 -- Remove gj/gk lazyvim mapping override
 vim.keymap.del({ "n", "x" }, "j")
