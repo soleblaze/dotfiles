@@ -17,15 +17,8 @@ end
 
 map("n", "<C-n>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<C-p>", "<cmd>bprevious<cr>", { desc = "Previous Buffer" })
-map("n", "<leader>D", "<cmd>bdelete<cr>", { desc = "Delete Buffer" })
+map("n", "<leader>d", "<cmd>bdelete<cr>", { desc = "Delete Buffer" })
 map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show Diagnostics" })
-
-map("n", "<leader>fn", function()
-  require("telescope.builtin").live_grep({ cwd = vim.env.HOME .. "/Nextcloud/Notes/" })
-end, { desc = "Find in Notes" })
-map("n", "<leader>fN", function()
-  require("telescope.builtin").find_files({ cwd = vim.env.HOME .. "/Nextcloud/Notes/" })
-end, { desc = "Find in Notes" })
 
 -- Remove gj/gk lazyvim mapping override
 vim.keymap.del({ "n", "x" }, "j")
@@ -34,6 +27,13 @@ vim.keymap.del({ "n", "x" }, "k")
 -- Remove Move Line Up/Down mappings
 vim.keymap.del({ "i", "n", "x" }, "<M-j>")
 vim.keymap.del({ "i", "n", "x" }, "<M-k>")
+
+-- Change Split Window Mappings
+vim.keymap.del({ "n" }, "<leader>|")
+vim.keymap.del({ "n" }, "<leader>-")
+map("n", "<leader>'", "<C-W>s", { desc = "Split Window Below", remap = true })
+map("n", "<leader>;", "<C-W>v", { desc = "Split Window Right", remap = true })
+
 map({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to System Clipboard" })
 map("n", "<leader>p", '"+p', { desc = "Paste from System Clipboard" })
 map("n", "<leader>P", '"+{', { desc = "Paste from System Clipboard" })
