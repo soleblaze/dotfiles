@@ -2,6 +2,9 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+local fqdn = wezterm.hostname()
+local hostname = fqdn:match("([^%.]+)")
+
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
@@ -51,8 +54,6 @@ local function bind_if(cond, key, mods, action)
 end
 
 wezterm.on("update-status", function(window)
-	local fqdn = wezterm.hostname()
-	local hostname = fqdn:match("([^%.]+)")
 	window:set_right_status(
 		wezterm.format({ { Background = { Color = "#275D84" } }, { Text = " " .. hostname .. " " } })
 	)
@@ -95,8 +96,14 @@ config.window_decorations = "RESIZE"
 config.font = wezterm.font({
 	family = "DejaVuSansM Nerd Font Mono",
 })
-config.font_size = 20.0
+config.font_size = 22.0
 config.dpi = 140
+
+if hostname == "c15" then
+	config.font_size = 22.0
+else
+	config.font_size = 20.0
+end
 
 config.command_palette_font_size = 20.0
 config.command_palette_fg_color = "#fefefe"
