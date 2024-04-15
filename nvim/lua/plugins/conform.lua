@@ -8,6 +8,7 @@ return {
       ["sh"] = { "shfmt" },
       python = { "isort", "black" },
       packer = { "packer_fmt" },
+      yaml = { "yamlfmt" },
     },
     formatters = {
       shfmt = {

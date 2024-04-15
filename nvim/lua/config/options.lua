@@ -8,3 +8,5 @@ vim.opt.mouse = ""
 vim.opt.linebreak = true
 vim.g.loaded_perl_provider = 0
 vim.g.autoformat = true
+
+package.cpath = package.cpath .. ";~/.luarocks/lib/lua/5.1/?.so"

@@ -9,7 +9,7 @@ return {
       "isort",
       "prettierd",
       "rubocop",
-      "yamlfix",
+      "yamlfmt",
       "yamllint",
       "tflint",
       "trivy",
