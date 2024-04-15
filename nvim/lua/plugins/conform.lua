@@ -16,6 +16,9 @@ return {
       mdformat = {
         prepend_args = { "--wrap", "80" },
       },
+      fixjson = {
+        prepend_args = { "-i 4" },
+      },
     },
     format = {
       async = false,
