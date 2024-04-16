@@ -1,6 +1,6 @@
 return {
   {
-    "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
     keys = {
       { "<leader>aCd", "<cmd>Copilot disable<cr>", desc = "Disable Copilot" },
       { "<leader>aCd", "<cmd>Copilot disable<cr>", desc = "Disable Copilot", mode = "v" },
@@ -10,13 +10,15 @@ return {
       { "<leader>aCp", "<cmd>Copilot panel<cr>", desc = "Copilot Panel", mode = "v" },
       { "<leader>aCs", "<cmd>Copilot status<cr>", desc = "Copilot Status" },
       { "<leader>aCs", "<cmd>Copilot status<cr>", desc = "Copilot Status", mode = "v" },
+      { "<leader>aCt", "<cmd>CopilotToggle<cr>", desc = "Toggle Copilot" },
+      { "<leader>aCt", "<cmd>CopilotToggle<cr>", desc = "Toggle Copilot", mode = "v" },
     },
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
     dependencies = {
-      { "github/copilot.vim" },
+      { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim" },
     },
     opts = {},
