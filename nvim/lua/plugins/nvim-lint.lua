@@ -4,7 +4,9 @@ return {
   opts = {
     linters_by_ft = {
       ansible = { "ansible_lint" },
+      bash = { "shellcheck" },
       commit = { "commitlint" },
+      sh = { "shellcheck" },
       zsh = { "zsh" },
     },
   },
