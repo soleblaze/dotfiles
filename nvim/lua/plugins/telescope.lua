@@ -17,9 +17,9 @@ return {
     },
   },
   keys = {
-    { "<leader>fg", Util.telescope("live_grep"),      desc = "Grep (root dir)" },
-    { "<leader>/",  false },
+    { "<leader>fg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
+    { "<leader>/", false },
     { "<leader>gc", false },
     { "<leader>gC", "<cmd>Telescope git_commits<CR>", desc = "commits" },
-  }
+  },
 }
