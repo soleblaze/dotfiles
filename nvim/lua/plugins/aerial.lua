@@ -8,5 +8,9 @@ return {
         min_width = 20,
       },
     },
+    keys = {
+      { "<leader>cS", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
+      { "<leader>cs", "<cmd>Telescope aerial<cr>", desc = "Aerial (Telescope)" },
+    },
   },
 }
