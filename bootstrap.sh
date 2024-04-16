@@ -64,7 +64,7 @@ done
 
 linkFile "$PWD/linters/cbfmt.toml" ~/.cbfmt.toml
 linkFile "$PWD/linters/golangci.yml" ~/.golangci.yml
-linkFile "$PWD/linters/markdownlint.yaml" ~/.markdownlint.yaml
+linkFile "$PWD/linters/markdownlintrc" ~/.markdownlintrc
 
 mkdir -p ~/.config/yamllint
 linkFile "$PWD/linters/yamllint.yml" ~/.config/yamllint/config
