@@ -1,10 +1,12 @@
 local icons = require("lazyvim.config").icons
+local cobalt2 = require("lualine.themes.cobalt2custom")
 
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
   opts = {
     options = {
+      theme = cobalt2,
       section_separators = "",
       component_separators = "",
     },
