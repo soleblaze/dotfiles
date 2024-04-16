@@ -37,7 +37,7 @@ return {
         vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#1f4461" })
         vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = "#C7C7C7" })
         vim.api.nvim_set_hl(0, "FlashCurrent", { link = "IncSearch" })
-        vim.api.nvim_set_hl(0, "FlashLabel", { bg = "#3ad900", fg = "#000000" })
+        vim.api.nvim_set_hl(0, "FlashLabel", { bg = "#1478db", fg = "#000000" })
         vim.api.nvim_set_hl(0, "FlashMatch", { bg = "#00c5c7", fg = "#000000" })
         vim.api.nvim_set_hl(0, "FlashPrompt", { link = "MsgArea" })
         vim.api.nvim_set_hl(0, "FlashPromptIcon", { link = "Special" })
