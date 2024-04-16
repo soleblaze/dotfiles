@@ -39,6 +39,15 @@ return {
             end
           end,
         },
+        {
+          "aerial",
+          sep = " ",
+          sep_icon = "",
+          depth = 5,
+          dense = false,
+          dense_sep = ".",
+          colored = true,
+        },
       },
       lualine_x = {
         {
