@@ -14,9 +14,6 @@ return {
       shfmt = {
         prepend_args = { "-ci", "-s", "-i", "2", "-bn", "-sr" },
       },
-      fixjson = {
-        prepend_args = { "-i 4" },
-      },
     },
     format = {
       async = false,
