@@ -1,0 +1,13 @@
+{
+  "variable": {
+    "prefix": "tf-var",
+    "description": "Define a variable",
+    "body": [
+      "variable \"${1}\" {",
+      "  type = \"${2:string}\"",
+      "  default = \"${3}\"",
+      " description = \"${4}\"",
+      "}"
+    ]
+  }
+}

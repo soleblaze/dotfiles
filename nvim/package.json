@@ -1,0 +1,18 @@
+{
+    "name": "custom-snippets",
+    "engines": {
+        "vscode": "^1.11.0"
+    },
+    "contributes": {
+        "snippets": [
+            {
+                "language": "go",
+                "path": "./snippets/go.json"
+            },
+            {
+                "language": "terraform",
+                "path": "./snippets/terraform.json"
+            }
+        ]
+    }
+}
