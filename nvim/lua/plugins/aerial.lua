@@ -9,8 +9,8 @@ return {
       },
     },
     keys = {
-      { "<leader>cS", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
-      { "<leader>cs", "<cmd>Telescope aerial<cr>", desc = "Aerial (Telescope)" },
+      { "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
+      { "<leader>fs", "<cmd>Telescope aerial<cr>", desc = "Aerial (Symbols)" },
     },
   },
 }
