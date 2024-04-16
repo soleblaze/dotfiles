@@ -1,9 +1,9 @@
 return {
-  "beauwilliams/focus.nvim",
-  config = function()
-    require("focus").setup({
+  "nvim-focus/focus.nvim",
+  opts = {
+    ui = {
       cursorline = false,
-      hybridnumber = true
-    })
-  end,
+      hybridnumber = true,
+    },
+  },
 }
