@@ -16,7 +16,7 @@ return {
     opts = {
       icons = {
         button = " ",
-        buffer_index = true,
+        buffer_index = false,
         filetype = { enabled = false },
         separator_at_end = false,
       },
@@ -26,16 +26,6 @@ return {
     keys = {
       { "<C-n>", "<cmd>BufferNext<cr>", desc = "Next Buffer" },
       { "<C-p>", "<cmd>BufferPrevious<cr>", desc = "Previous Buffer" },
-      { "<leader>d", "<cmd>BufferClose<CR>", desc = "Delete Buffer" },
-      { "<leader>1", "<cmd>BufferGoto 1<CR>", desc = "GoTo Buffer 1" },
-      { "<leader>2", "<cmd>BufferGoto 2<CR>", desc = "GoTo Buffer 2" },
-      { "<leader>3", "<cmd>BufferGoto 3<CR>", desc = "GoTo Buffer 3" },
-      { "<leader>4", "<cmd>BufferGoto 4<CR>", desc = "GoTo Buffer 4" },
-      { "<leader>5", "<cmd>BufferGoto 5<CR>", desc = "GoTo Buffer 5" },
-      { "<leader>6", "<cmd>BufferGoto 6<CR>", desc = "GoTo Buffer 6" },
-      { "<leader>7", "<cmd>BufferGoto 7<CR>", desc = "GoTo Buffer 7" },
-      { "<leader>8", "<cmd>BufferGoto 8<CR>", desc = "GoTo Buffer 8" },
-      { "<leader>9", "<cmd>BufferGoto 9<CR>", desc = "GoTo Buffer 9" },
       { "<leader>bP", "<cmd>BufferPin<CR>", desc = "Pin Buffer" },
       { "<leader>bp", "<cmd>BufferPick<CR>", desc = "Pick Buffer" },
       { "<leader>br", "<cmd>BufferRestore<CR>", desc = "Restore Buffer" },
