@@ -8,10 +8,10 @@ $git_metrics\
 $git_status\
 $fill\
 $cmd_duration\
-$kubernetes\
-$docker_context \
+$python \
 $gcloud \
-$python
+$kubernetes\
+$docker_context
 $status\
 $character
 """
