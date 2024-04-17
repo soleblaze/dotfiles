@@ -40,8 +40,8 @@ alias vd='deactivate'
 
 # bat aliases
 alias cat='bat -p --pager=never'
-alias catl='bat --pager=never'
-alias catp='bat'
+alias catl='bat --style header,snip,grid --pager=never'
+alias catp='bat --style header,snip,grid'
 
 # ssh aliases
 alias scpnh='scp -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
