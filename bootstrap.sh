@@ -83,6 +83,9 @@ linkFile "$PWD/hammerspoon/init.lua" "$HOME/.hammerspoon/init.lua"
 mkdir -p ~/.config/karabiner
 linkFile "$PWD/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 
+mkdir -p ~/.config/atuin
+linkFile "$PWD/atuin/config.toml" "$HOME/.config/atuin/config.toml"
+
 linkFile "$PWD/wezterm/wezterm.lua" "$HOME/.wezterm.lua"
 
 echo "Installing Github Extensions"
