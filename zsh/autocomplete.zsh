@@ -1,8 +1,4 @@
 #!/bin/zsh
-if type brew &>/dev/null; then
-  FPATH="/opt/homebrew/share/zsh-completions:$FPATH"
-  FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
-fi
 
 FPATH="$HOME/git/dotfiles/zsh/completions:$FPATH"
 
@@ -69,7 +65,3 @@ if [ $commands[helm] ]; then
   source <(helm completion zsh)
 fi
 
-if [ $commands[gcloud] ]; then
-  source "/opt/homebrew/share/google-cloud-sdk/path.zsh.inc"
-  source "/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc"
-fi

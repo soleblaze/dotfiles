@@ -78,10 +78,7 @@ brew "zsh-fast-syntax-highlighting"
 brew "zsh-history-substring-search"
 brew "zsh-vi-mode"
 brew "zsh-you-should-use"
-cask "1password"
 cask "bartender"
-cask "devonagent"
-cask "devonthink"
 cask "discord"
 cask "font-dejavu"
 cask "font-dejavu-sans-mono-nerd-font"
@@ -91,14 +88,11 @@ cask "hazel"
 cask "istat-menus"
 cask "karabiner-elements"
 cask "keyboard-maestro"
-cask "little-snitch"
 cask "meld"
 cask "obsidan"
-cask "openlens"
 cask "raycast"
 cask "screenflow"
 cask "setapp"
-cask "visual-studio-code"
 cask "wezterm"
 cask "yubico-yubikey-manager"
 mas "Kagi for Safari", id: 1622835804
@@ -109,7 +103,6 @@ mas "Screens 4", id: 1224268771
 mas "Slack for Desktop", id: 803453959
 mas "TextSniper", id: 1528890965
 mas "Tailscale", id: 1475387142
-mas "Noir - Dark Mode for Safari", id: 1592917505
 mas "Wipr", id: 1320666476
 mas "Wireguard", id: 1451685025
 mas "Vimari", id: 1480933944

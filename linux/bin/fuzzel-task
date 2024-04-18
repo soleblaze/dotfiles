@@ -2,6 +2,6 @@
 set -euo pipefail
 
 output="$(/usr/bin/task projects | grep -Ev '([pP]roject|projects|---)' |
-	awk '{print $1}' | sed '/^$/d' | rofi -dmenu)"
+	awk '{print $1}' | sed '/^$/d' | fuzzel -d -p 'task ❯ ')"
 
-notify-send "TaskWarrior" "$(task add project:$output)"
+task add project:$output
