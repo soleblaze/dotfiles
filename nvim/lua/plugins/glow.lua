@@ -4,7 +4,7 @@ return {
     config = true,
     cmd = "Glow",
     keys = {
-      { "m", "<cmd>Glow<cr>", desc = "Glow" },
+      { "<leader>m", "<cmd>Glow<cr>", desc = "Glow" },
     },
   },
 }
