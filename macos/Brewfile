@@ -6,13 +6,12 @@ tap "homebrew/services"
 tap "siderolabs/talos"
 brew "ansible"
 brew "ansifilter"
+brew "asciinema"
 brew "atuin"
 brew "bat"
 brew "bat-extras"
 brew "binutils"
 brew "charmbracelet/tap/mods"
-brew "charmbracelet/tap/vhs"
-brew "glow"
 brew "colima", restart_service: true
 brew "difftastic"
 brew "docker"
@@ -24,22 +23,26 @@ brew "dust"
 brew "exercism"
 brew "eza"
 brew "fd"
+brew "ffmpeg"
 brew "findutils"
 brew "fzf"
 brew "gawk"
 brew "geeqie"
-brew "gimp"
+brew "gh"
 brew "git"
 brew "git-delta"
 brew "git-extras"
 brew "git-lfs"
-brew "github"
-brew "gitui"
 brew "glances"
+brew "glow"
 brew "gnu-sed"
 brew "gnupg"
+brew "gnuplot"
+brew "gnutls"
 brew "go"
+brew "gtk+3"
 brew "helm"
+brew "iperf3"
 brew "ipython"
 brew "jaq"
 brew "jdupes"
@@ -55,21 +58,34 @@ brew "nmap"
 brew "node"
 brew "packer"
 brew "pipx"
+brew "poetry"
+brew "pre-commit"
 brew "prettyping"
 brew "procs"
+brew "python-build"
+brew "python@3.11"
 brew "rbenv"
 brew "rdfind"
 brew "ripgrep"
+brew "ruby"
+brew "rust"
 brew "sd"
 brew "shellcheck"
 brew "siderolabs/talos/talosctl"
+brew "so"
+brew "socat"
 brew "starship"
 brew "terraform"
 brew "tmux"
+brew "unbound"
+brew "vale"
+brew "vhs"
+brew "virtualenv"
 brew "wget"
-brew "yt-dlp"
-brew "yq"
 brew "xh"
+brew "yarn"
+brew "yq"
+brew "yt-dlp"
 brew "zoxide"
 brew "zsh"
 brew "zsh-autopair"
@@ -78,31 +94,54 @@ brew "zsh-fast-syntax-highlighting"
 brew "zsh-history-substring-search"
 brew "zsh-vi-mode"
 brew "zsh-you-should-use"
+cask "1password"
+cask "1password-cli"
+cask "backblaze"
 cask "bartender"
 cask "discord"
 cask "font-dejavu"
 cask "font-dejavu-sans-mono-nerd-font"
+cask "font-symbols-only-nerd-font"
+cask "fujitsu-scansnap-home"
+cask "github"
 cask "google-chrome"
 cask "hammerspoon"
 cask "hazel"
-cask "istat-menus"
 cask "karabiner-elements"
-cask "keyboard-maestro"
 cask "meld"
-cask "obsidan"
+cask "multipass"
+cask "obsidian"
+cask "onyx"
+cask "openlens"
+cask "raindropio"
 cask "raycast"
 cask "screenflow"
+cask "secretive"
 cask "setapp"
+cask "visual-studio-code"
 cask "wezterm"
 cask "yubico-yubikey-manager"
-mas "Kagi for Safari", id: 1622835804
+mas "1Password for Safari", id: 1569813296
+mas "Bear", id: 1091189122
+mas "com.kagimacOS.Kagi-Search", id: 1622835804
+mas "Dark Noise", id: 1465439395
+mas "Diarly", id: 1387167765
+mas "GoodLinks", id: 1474335294
+mas "Ivory", id: 6444602274
+mas "Keep It", id: 1272768911
+mas "Keynote", id: 409183694
 mas "MindNode", id: 1289197285
+mas "Noir", id: 1592917505
+mas "Numbers", id: 409203825
 mas "OmniFocus", id: 1542143627
+mas "OmniOutliner", id: 1142578772
+mas "Pages", id: 409201541
 mas "Reeder", id: 1529448980
-mas "Screens 4", id: 1224268771
-mas "Slack for Desktop", id: 803453959
+mas "Save to Raindrop.io", id: 1549370672
+mas "Screens", id: 1224268771
+mas "Slack", id: 803453959
 mas "TextSniper", id: 1528890965
-mas "Tailscale", id: 1475387142
-mas "Wipr", id: 1320666476
-mas "Wireguard", id: 1451685025
+mas "Things", id: 904280696
 mas "Vimari", id: 1480933944
+mas "Wipr", id: 1320666476
+mas "WireGuard", id: 1451685025
