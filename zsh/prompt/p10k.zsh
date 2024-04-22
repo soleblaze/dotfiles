@@ -129,7 +129,7 @@
   typeset -g POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION=''
 
   #####################################[ vcs: git status ]######################################
-  typeset -g POWERLEVEL9K_VCS_BRANCH_ICON='\uF126 '
+  typeset -g POWERLEVEL9K_VCS_BRANCH_ICON=' '
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
 
   function my_git_formatter() {
