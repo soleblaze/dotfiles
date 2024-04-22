@@ -3,11 +3,11 @@ return {
   opts = {
     formatters_by_ft = {
       ["*"] = { "trim_whitespace" },
-      ["json"] = { "fixjson" },
+      bash = { "shfmt" },
+      json = { "fixjson" },
       markdown = { "prettierd", "markdownlint-cli2" },
-      ["sh"] = { "shfmt" },
-      python = { "isort", "black" },
       packer = { "packer_fmt" },
+      sh = { "shfmt" },
       yaml = { "yamlfmt" },
     },
     formatters = {
