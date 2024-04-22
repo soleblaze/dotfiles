@@ -5,7 +5,7 @@ return {
       "ansible-lint",
       "fixjson",
       "hclfmt",
-      "markdownlint-cli2",
+      "markdownlint",
       "isort",
       "prettierd",
       "rubocop",
