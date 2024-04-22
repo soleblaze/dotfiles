@@ -46,7 +46,6 @@
   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_{LEFT,RIGHT}_WHITESPACE=
   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SUBSEGMENT_SEPARATOR='%012F)%012F┄%012F('
   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SEGMENT_SEPARATOR=''
-  typeset -g POWERLEVEL9K_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_ICON_BEFORE_CONTENT=true
   typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
@@ -78,15 +77,16 @@
   ################################[ prompt_char: prompt symbol ]################################
   typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=10
   typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=9
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION='❯'
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION='❯'
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIVIS_CONTENT_EXPANSION='❯'
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIOWR_CONTENT_EXPANSION='❯'
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION='%B❯'
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION='%B❯'
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIVIS_CONTENT_EXPANSION='%B❯'
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIOWR_CONTENT_EXPANSION='%B❯'
   typeset -g POWERLEVEL9K_PROMPT_CHAR_OVERWRITE_STATE=true
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=''
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
 
   ##################################[ dir: current directory ]##################################
+  typeset -g POWERLEVEL9K_DIR_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=2
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=..
@@ -129,6 +129,7 @@
   typeset -g POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION=''
 
   #####################################[ vcs: git status ]######################################
+  typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_VCS_BRANCH_ICON=' '
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
 
@@ -220,6 +221,7 @@
   typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=178
 
   ##########################[ status: exit code of the last command ]###########################
+  typeset -g POWERLEVEL9K_STATUS_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_STATUS_EXTENDED_STATES=true
 
   typeset -g POWERLEVEL9K_STATUS_OK=false
@@ -244,6 +246,7 @@
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_VISUAL_IDENTIFIER_EXPANSION='✘'
 
   ###################[ command_execution_time: duration of the last command ]###################
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=5
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=0
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=6
@@ -251,9 +254,11 @@
 
 
   #######################[ direnv: direnv status (https://direnv.net/) ]########################
+  typeset -g POWERLEVEL9K_DIRENV_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_DIRENV_FOREGROUND=178
 
   ###########[ timewarrior: timewarrior tracking status (https://timewarrior.net/) ]############
+  typeset -g POWERLEVEL9K_TIMEWARRIOR_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   # Timewarrior color.
   typeset -g POWERLEVEL9K_TIMEWARRIOR_FOREGROUND=110
   # If the tracked task is longer than 24 characters, truncate and append "…".
@@ -266,6 +271,7 @@
   # typeset -g POWERLEVEL9K_TIMEWARRIOR_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ##############[ taskwarrior: taskwarrior task count (https://taskwarrior.org/) ]##############
+  typeset -g POWERLEVEL9K_TASKWARRIOR_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   # Taskwarrior color.
   typeset -g POWERLEVEL9K_TASKWARRIOR_FOREGROUND=74
 
@@ -287,6 +293,7 @@
 
 
   ##################################[ context: user@hostname ]##################################
+  typeset -g POWERLEVEL9K_CONTEXT_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=2
   typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%l'
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=1
@@ -297,6 +304,7 @@
 
 
   ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
+  typeset -g POWERLEVEL9K_VIRTUALENV_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=37
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=false
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_WITH_PYENV=false
@@ -318,15 +326,17 @@
   # 1. Display just "$P9K_CONTENT" if it's equal to "$P9K_PYENV_PYTHON_VERSION" or
   #    starts with "$P9K_PYENV_PYTHON_VERSION/".
   # 2. Otherwise display "$P9K_CONTENT $P9K_PYENV_PYTHON_VERSION".
-  typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='${P9K_CONTENT}${${P9K_CONTENT:#$P9K_PYENV_PYTHON_VERSION(|/*)}:+ $P9K_PYENV_PYTHON_VERSION}'
+  typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='%B${P9K_CONTENT}${${P9K_CONTENT:#$P9K_PYENV_PYTHON_VERSION(|/*)}:+ $P9K_PYENV_PYTHON_VERSION}'
 
   ################[ goenv: go environment (https://github.com/syndbg/goenv) ]################
+  typeset -g POWERLEVEL9K_GOENV_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_GOENV_FOREGROUND=37
   typeset -g POWERLEVEL9K_GOENV_SOURCES=(shell local global)
   typeset -g POWERLEVEL9K_GOENV_PROMPT_ALWAYS_SHOW=false
   typeset -g POWERLEVEL9K_GOENV_SHOW_SYSTEM=true
 
   #############[ rbenv: ruby version from rbenv (https://github.com/rbenv/rbenv) ]##############
+  typeset -g POWERLEVEL9K_RBENV_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_RBENV_FOREGROUND=168
   typeset -g POWERLEVEL9K_RBENV_SOURCES=(shell local global)
   typeset -g POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=false
@@ -379,9 +389,9 @@
   #   - P9K_KUBECONTEXT_CLOUD_ACCOUNT=123456789012
   #   - P9K_KUBECONTEXT_CLOUD_ZONE=us-east-1
   #   - P9K_KUBECONTEXT_CLOUD_CLUSTER=my-cluster-01
-  typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION=
+  typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION='%B'
   # Show P9K_KUBECONTEXT_CLOUD_CLUSTER if it's not empty and fall back to P9K_KUBECONTEXT_NAME.
-  POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION+='${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}'
+  POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION+='${P9K_KUBECONTEXT_CLOUD_CLUSRER:-${P9K_KUBECONTEXT_NAME}}'
   # Append the current context's namespace if it's not "default".
   POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION+='${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
 
@@ -399,11 +409,12 @@
   typeset -g POWERLEVEL9K_AWS_CLASSES=(
       '*'       DEFAULT)
   typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND=208
-  typeset -g POWERLEVEL9K_AWS_CONTENT_EXPANSION='${P9K_AWS_PROFILE//\%/%%}${P9K_AWS_REGION:+ ${P9K_AWS_REGION//\%/%%}}'
+  typeset -g POWERLEVEL9K_AWS_CONTENT_EXPANSION='%B${P9K_AWS_PROFILE//\%/%%}${P9K_AWS_REGION:+ ${P9K_AWS_REGION//\%/%%}}'
 
   ##########[ azure: azure account name (https://docs.microsoft.com/en-us/cli/azure) ]##########
   #typeset -g POWERLEVEL9K_AZURE_SHOW_ON_COMMAND='az|terraform|pulumi|terragrunt'
 
+  typeset -g POWERLEVEL9K_AZURE_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_AZURE_CLASSES=(
       '*'         OTHER)
 
@@ -437,8 +448,8 @@
   # and COMPLETE. You can also hide gcloud in state PARTIAL by setting
   # POWERLEVEL9K_GCLOUD_PARTIAL_VISUAL_IDENTIFIER_EXPANSION and
   # POWERLEVEL9K_GCLOUD_PARTIAL_CONTENT_EXPANSION to empty.
-  typeset -g POWERLEVEL9K_GCLOUD_PARTIAL_CONTENT_EXPANSION='${P9K_GCLOUD_PROJECT_ID//\%/%%}'
-  typeset -g POWERLEVEL9K_GCLOUD_COMPLETE_CONTENT_EXPANSION='${P9K_GCLOUD_PROJECT_NAME//\%/%%}'
+  typeset -g POWERLEVEL9K_GCLOUD_PARTIAL_CONTENT_EXPANSION='%B${P9K_GCLOUD_PROJECT_ID//\%/%%}'
+  typeset -g POWERLEVEL9K_GCLOUD_COMPLETE_CONTENT_EXPANSION='%B${P9K_GCLOUD_PROJECT_NAME//\%/%%}'
 
   # Send a request to Google (by means of `gcloud projects describe ...`) to obtain project name
   # this often. Negative value disables periodic polling. In this mode project name is retrieved
@@ -446,6 +457,7 @@
   typeset -g POWERLEVEL9K_GCLOUD_REFRESH_PROJECT_NAME_SECONDS=60
 
   ####################################[ time: current time ]####################################
+  typeset -g POWERLEVEL9K_TIME_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_TIME_FOREGROUND=3
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
   typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=false
