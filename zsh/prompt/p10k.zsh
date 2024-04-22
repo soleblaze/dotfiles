@@ -28,7 +28,7 @@
     terraform
     gcloud
     kubecontext
-    pyenv
+    virtualenv
     context
     newline
     status
@@ -270,27 +270,9 @@
   ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
   typeset -g POWERLEVEL9K_VIRTUALENV_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=37
-  typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=false
+  typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=true
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_WITH_PYENV=false
   typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
-
-  ################[ pyenv: python environment (https://github.com/pyenv/pyenv) ]################
-  typeset -g POWERLEVEL9K_PYENV_FOREGROUND=37
-  typeset -g POWERLEVEL9K_PYENV_SOURCES=(shell local global)
-  typeset -g POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=false
-  typeset -g POWERLEVEL9K_PYENV_SHOW_SYSTEM=true
-
-  # Pyenv segment format. The following parameters are available within the expansion.
-  #
-  # - P9K_CONTENT                Current pyenv environment (pyenv version-name).
-  # - P9K_PYENV_PYTHON_VERSION   Current python version (python --version).
-  #
-  # The default format has the following logic:
-  #
-  # 1. Display just "$P9K_CONTENT" if it's equal to "$P9K_PYENV_PYTHON_VERSION" or
-  #    starts with "$P9K_PYENV_PYTHON_VERSION/".
-  # 2. Otherwise display "$P9K_CONTENT $P9K_PYENV_PYTHON_VERSION".
-  typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='%B${P9K_CONTENT}${${P9K_CONTENT:#$P9K_PYENV_PYTHON_VERSION(|/*)}:+ $P9K_PYENV_PYTHON_VERSION}'
 
   ################[ goenv: go environment (https://github.com/syndbg/goenv) ]################
   typeset -g POWERLEVEL9K_GOENV_CONTENT_EXPANSION='%B${P9K_CONTENT}'
@@ -307,7 +289,7 @@
   typeset -g POWERLEVEL9K_RBENV_SHOW_SYSTEM=true
 
   #############[ kubecontext: current kubernetes context (https://kubernetes.io/) ]#############
-  #typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern|kubeseal|skaffold|kubent|kubecolor|cmctl|sparkctl'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern|kubeseal|skaffold|kubent|kubecolor|cmctl|sparkctl'
 
   typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
       '*'       DEFAULT)
@@ -385,7 +367,7 @@
   typeset -g POWERLEVEL9K_AZURE_OTHER_FOREGROUND=32
 
   ##########[ gcloud: google cloud account and project (https://cloud.google.com/) ]###########
-  #typeset -g POWERLEVEL9K_GCLOUD_SHOW_ON_COMMAND='gcloud|gcs|gsutil'
+  typeset -g POWERLEVEL9K_GCLOUD_SHOW_ON_COMMAND='gcloud|gcs|gsutil|terraform|terragrunt|pulumi'
    # Google cloud color.
   typeset -g POWERLEVEL9K_GCLOUD_FOREGROUND=32
 
@@ -427,7 +409,7 @@
   typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=false
   typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION=
 
-  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
+  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
   typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
   typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
 
