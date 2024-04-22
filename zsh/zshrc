@@ -56,4 +56,5 @@ fi
 
 typeset -U PATH
 
+ZLE_RPROMPT_INDENT=0
 [[ ! -f ~/git/dotfiles/zsh/prompt/p10k.zsh ]] || source ~/git/dotfiles/zsh/prompt/p10k.zsh
