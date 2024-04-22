@@ -88,8 +88,6 @@ mkdir -p ~/.cache/zsh
 mkdir -p ~/.config/atuin
 linkFile "$PWD/atuin/config.toml" "$HOME/.config/atuin/config.toml"
 
-linkFile "$PWD/wezterm/wezterm.lua" "$HOME/.wezterm.lua"
-
 echo "Installing Github Extensions"
 for i in "${GH_EXTENSIONS[@]}"; do
   if gh extension list | grep -q "$i"; then
@@ -98,3 +96,7 @@ for i in "${GH_EXTENSIONS[@]}"; do
   fi
   gh extension install "$i"
 done
+
+mkdir -p ~/bin
+linkFile "$PWD/bin/tmux-switch-sessions.sh" "$HOME/bin/tmux-switch-sessions.sh"
+linkFile "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
