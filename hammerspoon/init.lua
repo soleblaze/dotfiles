@@ -27,9 +27,9 @@ function MoveWindowToHalf(position)
 
 	-- Set left and right window size multipler based on the monitor aspect ratio
 	if screenFrame.w / screenFrame.h > 2 then
-		multiplier = .42
+		multiplier = 0.42
 	else
-		multiplier = .5
+		multiplier = 0.5
 	end
 
 	if position == "right" then
@@ -108,10 +108,6 @@ function displayWindowSize()
 	end
 end
 
--- Hint Shortcut
-hs.hints.hintChars = { "a", "s", "d", "f", "g", "h", "j", "k", "l" }
-hs.hints.showTitleThresh = 0
-
 -- Bind Keys
 
 hs.hotkey.bind(hyper, "=", displayWindowSize)
@@ -128,6 +124,3 @@ hs.hotkey.bind(hyper, "i", function()
 	MoveWindowToHalf("right")
 end)
 hs.hotkey.bind(hyper, "o", toggleFullScreen)
-hs.hotkey.bind(hyper, "w", function()
-	hs.hints.windowHints()
-end)

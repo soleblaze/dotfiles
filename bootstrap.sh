@@ -15,45 +15,37 @@ linkFile() {
     ln -s "$1" "$2"
   fi
 }
-if [ "$(uname -a)" == "Darwin" ]; then
-  mkdir -p ~/.hammerspoon
-  linkFile "$PWD/macos/hammerspoon/init.lua" "$HOME/.hammerspoon/init.lua"
 
-  mkdir -p ~/.config/karabiner
-  linkFile "$PWD/macos/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
+mkdir -p ~/.hammerspoon
+linkFile "$PWD/hammerspoon/init.lua" "$HOME/.hammerspoon/init.lua"
 
-  if ! [ -f /opt/homebrew/bin/brew ]; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    chmod 755 /opt/homebrew/share
-    sudo softwareupdate --install-rosetta
-  fi
+mkdir -p ~/.config/karabiner
+linkFile "$PWD/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  brew bundle --file ./macos/Brewfile
+if ! [ -f /opt/homebrew/bin/brew ]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  chmod 755 /opt/homebrew/share
+  sudo softwareupdate --install-rosetta
+fi
 
-  if brew autoupdate status | grep -q 'Autoupdate is not configured'; then
-    brew autoupdate start
-  fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew bundle --file ./Brewfile
 
-  mkdir -p ~/.docker/cli-plugins
-  linkFile "$(brew --prefix)/bin/docker-buildx" ~/.docker/cli-plugins/docker-buildx
+if brew autoupdate status | grep -q 'Autoupdate is not configured'; then
+  brew autoupdate start
+fi
 
-  if ! grep -q "$(brew --prefix)/bin/zsh" /etc/shells; then
-    echo "Adding $(brew --prefix)/bin/zsh to /etc/shells"
-    echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
-  fi
+mkdir -p ~/.docker/cli-plugins
+linkFile "$(brew --prefix)/bin/docker-buildx" ~/.docker/cli-plugins/docker-buildx
 
-  if [[ $SHELL != "$(brew --prefix)/bin/zsh" ]]; then
-    echo "Changing shell to $(brew --prefix)/bin/zsh"
-    chsh -s "$(brew --prefix)/bin/zsh"
-  fi
-else
-  linkFile "$PWD/fuzzel" "$HOME/.config/fuzzel"
-  linkFile "$PWD/sway" "$HOME/.config/sway"
-  linkFile "$PWD/waybar" "$HOME/.config/waybar"
-  linkFile "$PWD/systemd/dunst.service" "$HOME/.config/systemd/user/dunst.service"
-  linkFile "$PWD/systemd/sway-session.target" "$HOME/.config/systemd/user/sway-session.target"
-  linkFile "$PWD/dunst" "$HOME/.config/dunst"
+if ! grep -q "$(brew --prefix)/bin/zsh" /etc/shells; then
+  echo "Adding $(brew --prefix)/bin/zsh to /etc/shells"
+  echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
+fi
+
+if [[ $SHELL != "$(brew --prefix)/bin/zsh" ]]; then
+  echo "Changing shell to $(brew --prefix)/bin/zsh"
+  chsh -s "$(brew --prefix)/bin/zsh"
 fi
 
 linkFile "$PWD/zsh/starship.toml" ~/.config/starship.toml
@@ -76,7 +68,7 @@ for i in nvim/*; do
   linkFile "$PWD/$i" "$HOME/.config/$i"
 done
 
-linkFile "$PWD/linters/cbfmt.toml" ~/.cbfmt.toml
+linkFile "$PWD/inters/cbfmt.toml" ~/.cbfmt.toml
 linkFile "$PWD/linters/golangci.yml" ~/.golangci.yml
 linkFile "$PWD/linters/markdownlintrc" ~/.markdownlintrc
 
