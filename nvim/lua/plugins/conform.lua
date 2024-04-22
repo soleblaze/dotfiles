@@ -3,11 +3,9 @@ return {
   opts = {
     formatters_by_ft = {
       ["*"] = { "trim_whitespace" },
-      bash = { "shfmt" },
       json = { "fixjson" },
       markdown = { "prettierd", "markdownlint-cli2" },
       packer = { "packer_fmt" },
-      sh = { "shfmt" },
       yaml = { "yamlfmt" },
     },
     formatters = {
