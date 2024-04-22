@@ -73,9 +73,6 @@ return {
           fallback()
         end
       end, { "i", "s" }),
-      ["<CR>"] = cmp.mapping(function()
-        cmp.autopairs.on_confirm_done({ map_char = { tex = "" } })
-      end, {}),
     }
   end,
 }
