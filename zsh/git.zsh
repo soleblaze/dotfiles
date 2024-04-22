@@ -33,6 +33,9 @@ alias grb="git rebase"
 alias grh="git reset HEAD"
 alias gs="git status -s"
 
+# github functions
+alias ghb="gh browse"
+
 # git functions
 function gacmp () {
   git commit -a -m "$*" && git push origin HEAD
