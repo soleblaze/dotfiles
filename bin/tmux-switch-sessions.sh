@@ -5,7 +5,7 @@ basepath="${HOME}/git"
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find "$basepath" -mindepth 1 -maxdepth 2 -type d -name .git | sed 's|'"${basepath}"'/\(.*\)/.git|\1|' | fzf)
+  selected=$(find "$basepath" -mindepth 1 -maxdepth 3 -type d -name .git | sed 's|'"${basepath}"'/\(.*\)/.git|\1|' | fzf)
 fi
 
 if [[ -z $selected ]]; then
