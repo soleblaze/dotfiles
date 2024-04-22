@@ -25,14 +25,11 @@
   )
 
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
-    context
-    direnv
-    pyenv
-    kubecontext
     terraform
     gcloud
-    #timewarrior
-    #taskwarrior
+    kubecontext
+    pyenv
+    context
     newline
     status
     command_execution_time
@@ -257,39 +254,6 @@
   typeset -g POWERLEVEL9K_DIRENV_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   typeset -g POWERLEVEL9K_DIRENV_FOREGROUND=178
 
-  ###########[ timewarrior: timewarrior tracking status (https://timewarrior.net/) ]############
-  typeset -g POWERLEVEL9K_TIMEWARRIOR_CONTENT_EXPANSION='%B${P9K_CONTENT}'
-  # Timewarrior color.
-  typeset -g POWERLEVEL9K_TIMEWARRIOR_FOREGROUND=110
-  # If the tracked task is longer than 24 characters, truncate and append "…".
-  # Tip: To always display tasks without truncation, delete the following parameter.
-  # Tip: To hide task names and display just the icon when time tracking is enabled, set the
-  # value of the following parameter to "".
-  typeset -g POWERLEVEL9K_TIMEWARRIOR_CONTENT_EXPANSION='${P9K_CONTENT:0:24}${${P9K_CONTENT:24}:+…}'
-
-  # Custom icon.
-  # typeset -g POWERLEVEL9K_TIMEWARRIOR_VISUAL_IDENTIFIER_EXPANSION='⭐'
-
-  ##############[ taskwarrior: taskwarrior task count (https://taskwarrior.org/) ]##############
-  typeset -g POWERLEVEL9K_TASKWARRIOR_CONTENT_EXPANSION='%B${P9K_CONTENT}'
-  # Taskwarrior color.
-  typeset -g POWERLEVEL9K_TASKWARRIOR_FOREGROUND=74
-
-  # Taskwarrior segment format. The following parameters are available within the expansion.
-  #
-  # - P9K_TASKWARRIOR_PENDING_COUNT   The number of pending tasks: `task +PENDING count`.
-  # - P9K_TASKWARRIOR_OVERDUE_COUNT   The number of overdue tasks: `task +OVERDUE count`.
-  #
-  # Zero values are represented as empty parameters.
-  #
-  # The default format:
-  #
-  #   '${P9K_TASKWARRIOR_OVERDUE_COUNT:+"!$P9K_TASKWARRIOR_OVERDUE_COUNT/"}$P9K_TASKWARRIOR_PENDING_COUNT'
-  #
-  # typeset -g POWERLEVEL9K_TASKWARRIOR_CONTENT_EXPANSION='$P9K_TASKWARRIOR_PENDING_COUNT'
-
-  # Custom icon.
-  # typeset -g POWERLEVEL9K_TASKWARRIOR_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
 
   ##################################[ context: user@hostname ]##################################
