@@ -28,12 +28,12 @@ return {
       { "<leader>bP", "<cmd>BufferPin<CR>", desc = "Pin Buffer" },
       { "<leader>bp", "<cmd>BufferPick<CR>", desc = "Pick Buffer" },
       { "<leader>br", "<cmd>BufferRestore<CR>", desc = "Restore Buffer" },
-
       { "<leader>bb", "<cmd>BufferOrderByBufferNumber<CR>", desc = "Order By Buffer" },
       { "<leader>bn", "<cmd>BufferOrderByName<CR>", desc = "Order By Name" },
       { "<leader>bd", "<cmd>BufferOrderByDirectory<CR>", desc = "Order By Directory" },
       { "<leader>bl", "<cmd>BufferOrderByLanguage<CR>", desc = "Order By Language" },
       { "<leader>bw", "<cmd>BufferOrderByWindowNumber<CR>", desc = "Order By Window" },
+      { "<leader>d", "<cmd>BufferClose<CR>", desc = "Close Buffer" },
     },
   },
 }
