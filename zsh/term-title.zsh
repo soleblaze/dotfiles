@@ -12,18 +12,22 @@ function title-precmd() {
     print -Pn "\e]2;${PWD/#$HOME/~}\a"
   fi
 
-  if [[ "$PWD" == "$HOME" ]]; then
-    print -n "\ekz:~\e\\"
-  else
-    print -n "\ekz:${PWD##*/}\e\\"
+  if [ "$TMUX" ]; then
+    if [[ "$PWD" == "$HOME" ]]; then
+      print -n "\ekz:~\e\\"
+    else
+      print -n "\ekz:${PWD##*/}\e\\"
+    fi
   fi
 }
 
 function title-preexec() {
-    cmd_name="${1%% *}"
-    if [[ ! ${excluded_commands[(r)$cmd_name]} ]]; then
-    print -n "\ek${cmd_name}\e\\"
-     fi
+    if [ "$TMUX" ]; then
+      cmd_name="${1%% *}"
+      if [[ ! ${excluded_commands[(r)$cmd_name]} ]]; then
+        print -n "\ek${cmd_name}\e\\"
+      fi
+    fi
 }
 
 autoload -Uz add-zsh-hook

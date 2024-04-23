@@ -6,7 +6,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
 
 eval "$(zoxide init zsh)"
 
@@ -23,9 +22,11 @@ fi
 ZVM_INIT_MODE=sourcing
 
 if [ "$(uname)" == "Darwin" ]; then
+  source "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
   source $(brew --prefix)/share/zsh-autopair/autopair.zsh
   source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 else
+  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 fi
@@ -41,16 +42,17 @@ if [ "$(uname)" == "Darwin" ]; then
   typeset -gA FAST_HIGHLIGHT
   FAST_HIGHLIGHT[chroma-man]=
 
-  source $(brew --prefix)/share/zsh-you-should-use/you-should-use.plugin.zsh
-  source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
   export PATH="$(brew --prefix)/bin:$PATH"
 fi
 
-if type atuin &>/dev/null; then
+source ~/git/dotfiles/zsh/plugins/you-should-use.plugin.zsh
+source ~/git/dotfiles/zsh/plugins/fast-syntax-highlighting.plugin.zsh
+
+if [ $commands[atuin] ]; then
   eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
-if type rbenv &>/dev/null; then
+if [ $commands[rbenv] ]; then
   eval "$(rbenv init -)"
 fi
 

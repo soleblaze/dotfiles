@@ -1,0 +1,13 @@
+[Unit]
+Description=Dunst
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/dunst
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=sway-session.target
+

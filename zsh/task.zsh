@@ -1,5 +1,5 @@
 #!/bin/zsh
-if type task &>/dev/null; then
+if  [ $commands[task] ]; then
   alias ta="task add"
   alias th="task history"
   alias tl="task ls"

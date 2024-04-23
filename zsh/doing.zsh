@@ -2,7 +2,7 @@
 
 # Doing Aliases
 # https://github.com/ttscoff/doing
-if [ -e "$(brew --prefix)/bin/doing" ]; then
+if  [ $commands[doing] ]; then
   alias dn="doing now"
   alias ddone="doing done"
   alias dl="doing last"
