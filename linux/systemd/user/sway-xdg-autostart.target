@@ -1,0 +1,7 @@
+[Unit]
+Description=XDG autostart for Sway session
+Documentation=man:systemd.special(7) man:systemd-xdg-autostart-generator(8)
+Documentation=https://github.com/alebastr/sway-systemd
+BindsTo=xdg-desktop-autostart.target
+PartOf=sway-session.target
+After=sway-session.target
