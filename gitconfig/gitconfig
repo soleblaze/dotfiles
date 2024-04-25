@@ -51,7 +51,7 @@
   showUntrackedFiles = all
 [user]
   email = soleblaze@skyshadows.net
-  name = Soleblaze
+  name = soleblaze
 [filter "lfs"]
   process = git-lfs filter-process
   required = true
