@@ -48,12 +48,10 @@ if [ "$(uname -a)" == "Darwin" ]; then
     chsh -s "$(brew --prefix)/bin/zsh"
   fi
 else
-  mkdir -p "$HOME/.config/systemd/user"
   linkFile "$PWD/linux/fuzzel" "$HOME/.config/fuzzel"
   linkFile "$PWD/linux/sway" "$HOME/.config/sway"
   linkFile "$PWD/linux/waybar" "$HOME/.config/waybar"
-  linkFile "$PWD/linux/systemd/dunst.service" "$HOME/.config/systemd/user/dunst.service"
-  linkFile "$PWD/linux/systemd/sway-session.target" "$HOME/.config/systemd/user/sway-session.target"
+  linkFile "$PWD/linux/systemd" "$HOME/.config/systemd"
   linkFile "$PWD/linux/dunst" "$HOME/.config/dunst"
 fi
 
