@@ -15,6 +15,9 @@ linkFile() {
     ln -s "$1" "$2"
   fi
 }
+
+mkdir -p ~/bin
+
 if [ "$(uname -a)" == "Darwin" ]; then
   mkdir -p ~/.hammerspoon
   linkFile "$PWD/macos/hammerspoon/init.lua" "$HOME/.hammerspoon/init.lua"
@@ -55,7 +58,12 @@ else
 
   mkdir -p ~/.config/systemd/user
   for i in "$PWD/linux/systemd/"*; do
-    linkFile "$i" "$HOME/.config/systemd/user/$(basename "$i")"; done
+    linkFile "$i" "$HOME/.config/systemd/user/$(basename "$i")";
+  done
+
+  for i in "$PWD/linux/bin/"*; do
+    linkFile "$i" "$HOME/bin/$(basename "$i")";
+  done
 
   mkdir -p ~/.config/qutebrowser
   linkFile "$PWD/linux/qutebrowser/config.py" "$HOME/.config/qutebrowser/config.py"
@@ -100,7 +108,6 @@ for i in "${GH_EXTENSIONS[@]}"; do
   gh extension install "$i"
 done
 
-mkdir -p ~/bin
 linkFile "$PWD/bin/tmux-switch-sessions.sh" "$HOME/bin/tmux-switch-sessions.sh"
 linkFile "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
 

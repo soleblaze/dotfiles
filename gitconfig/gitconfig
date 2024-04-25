@@ -23,8 +23,6 @@
 [diff]
   algorithm = patience
   colorMoved = default
-  external = difft
-  tool = difft
 [difftool]
   prompt = false
 [difftool "difftastic"]
