@@ -20,7 +20,6 @@ alias lu="eza -glF --git --group-directories-first"
 alias man="batman"
 alias pretty="prettybat"
 alias ping='prettyping --nolegend'
-alias sed='gsed'
 alias vi="nvim"
 alias wget=wget --hsts-file="$HOME/.local/share/wget-hsts"
 

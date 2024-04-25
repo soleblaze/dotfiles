@@ -51,8 +51,14 @@ else
   linkFile "$PWD/linux/fuzzel" "$HOME/.config/fuzzel"
   linkFile "$PWD/linux/sway" "$HOME/.config/sway"
   linkFile "$PWD/linux/waybar" "$HOME/.config/waybar"
-  linkFile "$PWD/linux/systemd" "$HOME/.config/systemd"
   linkFile "$PWD/linux/dunst" "$HOME/.config/dunst"
+
+  mkdir -p ~/.config/systemd/user
+  for i in "$PWD/linux/systemd/"*; do
+    linkFile "$i" "$HOME/.config/systemd/user/$(basename "$i")"; done
+
+  mkdir -p ~/.config/qutebrowser
+  linkFile "$PWD/linux/qutebrowser/config.py" "$HOME/.config/qutebrowser/config.py"
 fi
 
 mkdir -p ~/.local/share

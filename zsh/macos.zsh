@@ -11,6 +11,7 @@ if [ "$(uname -o)" == "Darwin" ]; then
     alias cs='colima start --cpu 2 --memory 4'
   fi
   alias cstop='colima stop'
+  alias sed='gsed'
 
   source $(brew --prefix fzf)/shell/completion.zsh
   source $(brew --prefix fzf)/shell/key-bindings.zsh

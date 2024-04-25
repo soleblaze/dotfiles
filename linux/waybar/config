@@ -57,7 +57,8 @@
     "tooltip": false
   },
   "temperature": {
-    "format": "{temperatureC}°"
+    "format": "{temperatureC}°",
+    "hwmon-path": ["/sys/class/hwmon/hwmon3/temp1_input"]
   },
   "custom/mem": {
     "format": "",
