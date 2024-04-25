@@ -55,6 +55,7 @@ else
   linkFile "$PWD/linux/sway" "$HOME/.config/sway"
   linkFile "$PWD/linux/waybar" "$HOME/.config/waybar"
   linkFile "$PWD/linux/dunst" "$HOME/.config/dunst"
+  linkFile "$PWD/linux/foot" "$HOME/.config/foot"
 
   mkdir -p ~/.config/systemd/user
   for i in "$PWD/linux/systemd/"*; do

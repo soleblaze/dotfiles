@@ -1,5 +1,4 @@
 acpica
-acpilight
 amd-ucode
 atuin
 base
@@ -27,7 +26,6 @@ freerdp
 fuzzel
 fwupd
 fzf
-gdm
 geeqie
 gist
 git
@@ -39,10 +37,8 @@ glow
 grim
 gst-plugin-pipewire
 htop
-hub
+iio-sensor-proxy
 imv
-intel-media-driver
-intel-ucode
 interception-dual-function-keys
 ipython
 iwd
@@ -50,10 +46,14 @@ jaq
 jq
 libfido2
 libpulse
-libva-intel-driver
+libva-mesa-driver
 libvncserver
 linux
 linux-firmware
+linux-hardened
+ly
+man-db
+mesa-vdpau
 mosh
 mpv
 nano
@@ -62,12 +62,12 @@ neomutt
 neovim
 network-manager-applet
 networkmanager
-newsboat
 nmap
 notmuch
 npm
 obs-studio
 obsidian
+openssh
 pacman-contrib
 pavucontrol
 pipewire
@@ -88,7 +88,6 @@ ruby
 rust
 sbctl
 sd
-seahorse
 shellcheck
 slurp
 smartmontools
@@ -104,6 +103,7 @@ swaybg
 swayidle
 swaylock
 task
+tesseract-data-eng
 thermald
 tlp
 tmux
@@ -116,7 +116,7 @@ udisks2
 vim
 vit
 vlc
-vulkan-intel
+vulkan-radeon
 waybar
 weechat
 wf-recorder
@@ -124,6 +124,7 @@ wget
 wireguard-tools
 wireless_tools
 wireplumber
+wpa_supplicant
 xdg-utils
 xh
 xorg-server
@@ -134,4 +135,5 @@ yq
 yt-dlp
 zathura-pdf-mupdf
 zoxide
+zram-generator
 zsh
