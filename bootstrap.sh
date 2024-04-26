@@ -57,6 +57,14 @@ else
   linkFile "$PWD/linux/dunst" "$HOME/.config/dunst"
   linkFile "$PWD/linux/foot" "$HOME/.config/foot"
 
+  linkFile "$PWD/linux/i3" "$HOME/.config/i3"
+  linkFile "$PWD/linux/i3/i3blocks.conf" "$HOME/.i3blocks.conf"
+  linkFile "$PWD/linux/picom" "$HOME/.config/picom"
+  linkFile "$PWD/linux/rofi" "$HOME/.config/rofi"
+  linkFile "$PWD/linux/x11/Xresources" "$HOME/.Xresources"
+  linkFile "$PWD/linux/alacritty/" "$HOME/.config/alacritty"
+
+
   mkdir -p ~/.config/systemd/user
   for i in "$PWD/linux/systemd/"*; do
     linkFile "$i" "$HOME/.config/systemd/user/$(basename "$i")";

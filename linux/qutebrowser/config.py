@@ -571,7 +571,7 @@ c.colors.tabs.selected.even.bg = "#214561"
 #   - auto: Use the system-wide color scheme setting.
 #   - light: Force a light theme.
 #   - dark: Force a dark theme.
-c.colors.webpage.preferred_color_scheme = "dark"
+#c.colors.webpage.preferred_color_scheme = "dark"
 
 # Render all web contents using a dark theme. Example configurations
 # from Chromium's `chrome://flags`:  - "With simple HSL/CIELAB/RGB-based
@@ -585,7 +585,7 @@ c.colors.webpage.preferred_color_scheme = "dark"
 # - "With increased text contrast": Set
 # `colors.webpage.darkmode.increase_text_contrast` (QtWebEngine 6.3+)
 # Type: Bool
-c.colors.webpage.darkmode.enabled = True
+#c.colors.webpage.darkmode.enabled = True
 
 # Default font families to use. Whenever "default_family" is used in a
 # font setting, it's replaced with the fonts listed here. If set to an
@@ -598,19 +598,19 @@ c.fonts.default_family = ["DejaVu Sans Mono"]
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = "12pt"
+c.fonts.default_size = "14pt"
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = "12pt default_family"
+c.fonts.completion.entry = "14pt default_family"
 
 # Font used in the completion categories.
 # Type: Font
-c.fonts.completion.category = "bold 12pt default_family"
+c.fonts.completion.category = "bold 14pt default_family"
 
 # Font used for the debugging console.
 # Type: Font
-c.fonts.debug_console = "12pt default_family"
+c.fonts.debug_console = "14pt default_family"
 
 # Font used for the downloadbar.
 # Type: Font
@@ -618,7 +618,7 @@ c.fonts.downloads = "default_size default_family"
 
 # Font used for the hints.
 # Type: Font
-c.fonts.hints = "bold 12pt default_family"
+c.fonts.hints = "bold 14pt default_family"
 
 # Font family for standard fonts.
 # Type: FontFamily
@@ -638,20 +638,20 @@ c.fonts.web.family.sans_serif = "DejaVu Sans"
 
 # Default font size (in pixels) for regular text.
 # Type: Int
-c.fonts.web.size.default = 14
+c.fonts.web.size.default = 16
 
 # Default font size (in pixels) for fixed-pitch text.
 # Type: Int
-c.fonts.web.size.default_fixed = 14
+c.fonts.web.size.default_fixed = 16
 
 # Hard minimum font size (in pixels).
 # Type: Int
-c.fonts.web.size.minimum = 14
+c.fonts.web.size.minimum = 16
 
 # Minimum logical font size (in pixels) that is applied when zooming
 # out.
 # Type: Int
-c.fonts.web.size.minimum_logical = 14
+c.fonts.web.size.minimum_logical = 16
 
 # Level for in-memory logs.
 # Type: LogLevel

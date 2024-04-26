@@ -1,0 +1,11 @@
+#!/bin/bash
+
+volume="$(pamixer --get-volume-human)"
+
+case $BLOCK_BUTTON in
+  1) pamixer -t ;;   # left click, mute/unmute
+  4) pamixer -i 5 ;; # scroll up, increase
+  5) pamixer -d 5 ;; # scroll down, decrease
+esac
+
+echo "<span foreground='#ffffff' background='#808080'> S </span><span foreground='#ffffff' background='#1478db'> $volume </span><span font='8'>  </span>"
