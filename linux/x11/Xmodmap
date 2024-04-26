@@ -1,0 +1,15 @@
+clear   lock 
+clear   control
+clear   mod1
+clear   mod3
+clear   mod4
+
+keycode 66  = Control_R
+keycode 23 = Super_R
+keycode 105 = Hyper_L
+keycode 247  = Tab
+
+add     mod1 = Alt_L Alt_R Meta_L 
+add     mod3 = Hyper_L
+add     mod4 = Super_L Super_R
+add     control = Control_R Control_L

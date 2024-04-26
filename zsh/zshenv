@@ -1,4 +1,9 @@
 #!/bin/zsh
+#
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
 
 umask 022
 
@@ -37,6 +42,7 @@ export LESS=-R
 export PAGER="less -R"
 export SAVEHIST=25000
 export MAKEFLAGS="-j"
+
 
 export EZA_COLORS=di=34:bd=33:cd=33:so=31:ex=32:ur=33:uw=31:ux=32:ue=32:uu=33:gu=33:lc=31:df=32:sn=32:nb=32:nk=32:nm=32:ng=32:nt=32
 

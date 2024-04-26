@@ -62,6 +62,7 @@ else
   linkFile "$PWD/linux/picom" "$HOME/.config/picom"
   linkFile "$PWD/linux/rofi" "$HOME/.config/rofi"
   linkFile "$PWD/linux/x11/Xresources" "$HOME/.Xresources"
+  linkFile "$PWD/linux/x11/Xmodmap" "$HOME/.Xmodmap"
   linkFile "$PWD/linux/alacritty/" "$HOME/.config/alacritty"
 
 

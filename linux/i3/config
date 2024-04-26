@@ -1,4 +1,5 @@
 set $mod Mod4
+set $hyper Mod3
 
 font pango:DejaVuSansM Nerd Font Mono 12
 
@@ -35,9 +36,10 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 2%-
 # Application shortcuts
 bindsym $mod+Return exec alacritty -e tmux new-session -As main
 bindsym $mod+shift+Return exec alacritty
-bindsym $mod+F1 exec i3lock -F -i ~/pictures/wallpaper/lock.png
-bindsym $mod+a exec pavucontrol
-bindsym $mod+F12 exec systemctl poweroff
+bindsym $hyper+l exec i3lock -F -i ~/pictures/wallpaper/lock.png
+bindsym $hyper+b exec qutebrowser
+bindsym $hyper+a exec pavucontrol
+bindsym $hyper+F12 exec systemctl poweroff
 bindsym $mod+x exec --no-startup-id zsh -c "$HOME/bin/rofi-task"
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/pictures/screenshots/ 2>/dev/null'
 
@@ -169,14 +171,16 @@ bar {
 }
 
 exec --no-startup-id xrandr --dpi 168 --output eDP-1 --auto
-#exec dispwin ~/.config/color/laptop.icc
+exec dispwin ~/.config/color/laptop.icc
 exec nitrogen --restore
 exec udiskie
 exec unclutter
 exec dunst
 # exec blueman-applet
 exec lxqt-policykit-agent
-exec xss-lock -- i3lock -f -i ~/pictures/wallpaper/lock.png
+exec xss-lock -- i3lock -F -i ~/pictures/wallpaper/lock.png
 exec xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Tapping Enabled" 1
-# exec xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Accel Speed" .25
+exec xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Accel Speed" .25
 exec picom
+
+exec ~/bin/keymap.sh
