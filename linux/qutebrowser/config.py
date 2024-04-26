@@ -571,21 +571,21 @@ c.colors.tabs.selected.even.bg = "#214561"
 #   - auto: Use the system-wide color scheme setting.
 #   - light: Force a light theme.
 #   - dark: Force a dark theme.
-#c.colors.webpage.preferred_color_scheme = "dark"
+c.colors.webpage.preferred_color_scheme = "dark"
 
 # Render all web contents using a dark theme. Example configurations
 # from Chromium's `chrome://flags`:  - "With simple HSL/CIELAB/RGB-based
-# inversion": Set   `colors.webpage.darkmode.algorithm` accordingly.  -
-# "With selective image inversion": Set
-# `colors.webpage.darkmode.policy.images` to `smart`.  - "With selective
-# inversion of non-image elements": Set
+# inversion": Set  `colors.webpage.darkmode.algorithm` accordingly.
+# - "With selective image inversion": Set
+# `colors.webpage.darkmode.policy.images` to `smart`.
+# - "With selective inversion of non-image elements": Set
 # `colors.webpage.darkmode.threshold.text` to 150 and
-# `colors.webpage.darkmode.threshold.background` to 205.  - "With
-# selective inversion of everything": Combines the two variants   above.
+# `colors.webpage.darkmode.threshold.background` to 205.
+# - "With selective inversion of everything": Combines the two variants   above.
 # - "With increased text contrast": Set
 # `colors.webpage.darkmode.increase_text_contrast` (QtWebEngine 6.3+)
 # Type: Bool
-#c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.enabled = True
 
 # Default font families to use. Whenever "default_family" is used in a
 # font setting, it's replaced with the fonts listed here. If set to an
