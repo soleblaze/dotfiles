@@ -1,0 +1,9 @@
+1password
+1password-cli
+dropbox
+exercism
+i3lock-color
+qutebrowser-git
+task2
+yay
+zsh-theme-powerlevel10k-git
