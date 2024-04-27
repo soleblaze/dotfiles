@@ -14,6 +14,7 @@ for_window [instance="Download"] floating enable
 for_window [window_role="plugin_ui"] floating enable
 for_window [title="Menu Update"] floating enable
 for_window [title="___"] floating enable
+for_window [class="io.github.alainm23.planify.quick-add"] floating enable
 
 # Set specific windows as floating
 for_window [class="Pavucontrol"] floating enable
@@ -40,7 +41,7 @@ bindsym $hyper+l exec i3lock -F -i ~/pictures/wallpaper/lock.png
 bindsym $hyper+a exec pavucontrol
 bindsym $hyper+b exec --no-startup-id zsh -c qutebrowser
 bindsym $hyper+F12 exec systemctl poweroff
-bindsym $mod+x exec --no-startup-id zsh -c "$HOME/bin/rofi-task"
+bindsym Mod1+$mod+space exec --no-startup-id flatpak run --command=io.github.alainm23.planify.quick-add io.github.alainm23.planify
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/pictures/screenshots/ 2>/dev/null'
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -143,18 +144,21 @@ assign [class="google-chrome"] $ws2
 assign [class="librewolf"] $ws2
 assign [class="qutebrowser"] $ws2
 
-assign [class="Obsidian"] $ws2
+assign [class="obsidian"] $ws3
+assign [class="^io.github.alainm23.planify$"] $ws3
 
-assign [Class="Slack"] $ws4
-assign [Class="discord"] $ws4
+assign [class="Slack"] $ws4
+assign [class="discord"] $ws4
 
-assign [class="Geeqie"] $ws5
-assign [class="Gimp"] $ws5
-assign [class="Mplayer"] $ws5
-assign [class="Vlc"] $ws5
+assign [class="1password"] $ws5
 
-assign [class="Remmina"] $ws6
-assign [class="Virt-manager"] $ws6
+assign [class="Geeqie"] $ws6
+assign [class="Gimp"] $ws6
+assign [class="Mplayer"] $ws6
+assign [class="Vlc"] $ws6
+
+assign [class="Remmina"] $ws7
+assign [class="Virt-manager"] $ws7
 
 bar {
     position top
