@@ -37,7 +37,6 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 2%-
 bindsym $mod+Return exec alacritty -e tmux new-session -As main
 bindsym $mod+shift+Return exec alacritty
 bindsym $hyper+l exec i3lock -F -i ~/pictures/wallpaper/lock.png
-bindsym $hyper+b exec qutebrowser
 bindsym $hyper+a exec pavucontrol
 bindsym $hyper+F12 exec systemctl poweroff
 bindsym $mod+x exec --no-startup-id zsh -c "$HOME/bin/rofi-task"
@@ -143,21 +142,26 @@ assign [class="google-chrome"] $ws2
 assign [class="librewolf"] $ws2
 assign [class="qutebrowser"] $ws2
 
-assign [Class="Slack"] $ws3
-assign [Class="discord"] $ws3
+assign [class="Obsidian"] $ws2
 
-assign [class="Geeqie"] $ws4
-assign [class="Gimp"] $ws4
-assign [class="Mplayer"] $ws4
-assign [class="Vlc"] $ws4
+assign [Class="Slack"] $ws4
+assign [Class="discord"] $ws4
 
-assign [class="Remmina"] $ws5
-assign [class="Virt-manager"] $ws5
+assign [class="Geeqie"] $ws5
+assign [class="Gimp"] $ws5
+assign [class="Mplayer"] $ws5
+assign [class="Vlc"] $ws5
+
+assign [class="Remmina"] $ws6
+assign [class="Virt-manager"] $ws6
 
 bar {
     position top
     status_command i3blocks
     tray_output primary
+    mode hide
+    modifier Mod2
+    hidden_state hide
 
     colors {
       background #1F4662
@@ -169,6 +173,8 @@ bar {
       urgent_workspace   #1F4662 #ff2600 #FFFFFF
     }
 }
+
+bindsym $hyper+b bar hidden_state toggle
 
 exec --no-startup-id xrandr --dpi 168 --output eDP-1 --auto
 exec dispwin ~/.config/color/laptop.icc
