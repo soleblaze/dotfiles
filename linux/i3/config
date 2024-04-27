@@ -41,7 +41,7 @@ bindsym $hyper+l exec i3lock -F -i ~/pictures/wallpaper/lock.png
 bindsym $hyper+a exec pavucontrol
 bindsym $hyper+b exec --no-startup-id zsh -c qutebrowser
 bindsym $hyper+F12 exec systemctl poweroff
-bindsym Mod1+$mod+space exec --no-startup-id flatpak run --command=io.github.alainm23.planify.quick-add io.github.alainm23.planify
+bindsym Mod1+$mod+space exec --no-startup-id zsh -c ~/bin/rofi-task
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/pictures/screenshots/ 2>/dev/null'
 
 # Use Mouse+$mod to drag floating windows to their wanted position
