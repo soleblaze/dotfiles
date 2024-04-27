@@ -38,6 +38,7 @@ bindsym $mod+Return exec alacritty -e tmux new-session -As main
 bindsym $mod+shift+Return exec alacritty
 bindsym $hyper+l exec i3lock -F -i ~/pictures/wallpaper/lock.png
 bindsym $hyper+a exec pavucontrol
+bindsym $hyper+b exec --no-startup-id zsh -c qutebrowser
 bindsym $hyper+F12 exec systemctl poweroff
 bindsym $mod+x exec --no-startup-id zsh -c "$HOME/bin/rofi-task"
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/pictures/screenshots/ 2>/dev/null'
@@ -159,9 +160,6 @@ bar {
     position top
     status_command i3blocks
     tray_output primary
-    mode hide
-    modifier Mod2
-    hidden_state hide
 
     colors {
       background #1F4662
@@ -174,19 +172,17 @@ bar {
     }
 }
 
-bindsym $hyper+b bar hidden_state toggle
-
 exec --no-startup-id xrandr --dpi 168 --output eDP-1 --auto
 exec dispwin ~/.config/color/laptop.icc
 exec nitrogen --restore
 exec udiskie
 exec unclutter
 exec dunst
-# exec blueman-applet
+exec dropbox
 exec lxqt-policykit-agent
 exec xss-lock -- i3lock -F -i ~/pictures/wallpaper/lock.png
 exec xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Tapping Enabled" 1
 exec xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Accel Speed" .25
 exec picom
+exec xmodmap ~/.Xmodmap
 
-exec ~/bin/keymap.sh
