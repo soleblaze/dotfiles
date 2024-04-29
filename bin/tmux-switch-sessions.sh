@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
-basepath="${HOME}/git"
-
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find "$basepath" -mindepth 1 -maxdepth 3 -type d -name .git | sed 's|'"${basepath}"'/\(.*\)/.git|\1|' | fzf)
+  selected=$(find ~/git ~/work -mindepth 1 -maxdepth 3 -type d -name .git | sed 's|'"${HOME}"'/\(.*\)/.git|\1|' | fzf)
 fi
 
 if [[ -z $selected ]]; then
@@ -13,7 +11,7 @@ if [[ -z $selected ]]; then
 fi
 
 selected_name="${selected##*/}"
-selected_path="${basepath}/${selected}"
+selected_path="${HOME}/${selected}"
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
