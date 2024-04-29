@@ -3,16 +3,16 @@ return {
   {
     "zbirenbaum/copilot.lua",
     keys = {
-      { "<leader>aCd", "<cmd>Copilot disable<cr>", desc = "Disable Copilot" },
-      { "<leader>aCd", "<cmd>Copilot disable<cr>", desc = "Disable Copilot", mode = "v" },
-      { "<leader>aCe", "<cmd>Copilot enable<cr>", desc = "Enable Copilot" },
-      { "<leader>aCe", "<cmd>Copilot enable<cr>", desc = "Enable Copilot", mode = "v" },
-      { "<leader>aCp", "<cmd>Copilot panel<cr>", desc = "Copilot Panel" },
-      { "<leader>aCp", "<cmd>Copilot panel<cr>", desc = "Copilot Panel", mode = "v" },
-      { "<leader>aCs", "<cmd>Copilot status<cr>", desc = "Copilot Status" },
-      { "<leader>aCs", "<cmd>Copilot status<cr>", desc = "Copilot Status", mode = "v" },
-      { "<leader>aCt", "<cmd>CopilotToggle<cr>", desc = "Toggle Copilot" },
-      { "<leader>aCt", "<cmd>CopilotToggle<cr>", desc = "Toggle Copilot", mode = "v" },
+      { "<leader>acd", "<cmd>Copilot disable<cr>", desc = "Disable Copilot" },
+      { "<leader>acd", "<cmd>Copilot disable<cr>", desc = "Disable Copilot", mode = "v" },
+      { "<leader>ace", "<cmd>Copilot enable<cr>", desc = "Enable Copilot" },
+      { "<leader>ace", "<cmd>Copilot enable<cr>", desc = "Enable Copilot", mode = "v" },
+      { "<leader>acp", "<cmd>Copilot panel<cr>", desc = "Copilot Panel" },
+      { "<leader>acp", "<cmd>Copilot panel<cr>", desc = "Copilot Panel", mode = "v" },
+      { "<leader>acs", "<cmd>Copilot status<cr>", desc = "Copilot Status" },
+      { "<leader>acs", "<cmd>Copilot status<cr>", desc = "Copilot Status", mode = "v" },
+      { "<leader>act", "<cmd>Copilot toggle<cr>", desc = "Toggle Copilot" },
+      { "<leader>act", "<cmd>Copilot toggle<cr>", desc = "Toggle Copilot", mode = "v" },
     },
   },
   {
@@ -39,12 +39,17 @@ return {
         end,
         desc = "CopilotChat - Chat with current buffer",
       },
-      { "<leader>ac", "<cmd>CopilotChat<cr>", desc = "CopilotChat - Chat" },
-      { "<leader>ad", "<cmd>CopilotChatDocs<cr>", desc = "CopilotChat - Add Docs" },
-      { "<leader>ae", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
+      { "<leader>aC", "<cmd>CopilotChatCommit<cr>", desc = "CopilotChat - Write Commit Message" },
+      { "<leader>aS", "<cmd>CopilotChatCommitStaged<cr>", desc = "CopilotChat - Write Commit Message for Staged" },
+      { "<leader>ad", "<cmd>CopilotChatDocs<cr>", desc = "CopilotChat - Add Docs", mode = "v" },
+      { "<leader>ae", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code", mode = "v" },
       { "<leader>af", "<cmd>CopilotChatFixDiagnostic<cr>", desc = "CopilotChat - Fix Diagnostic" },
-      { "<leader>ar", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
+      { "<leader>af", "<cmd>CopilotChatFixDiagnostic<cr>", desc = "CopilotChat - Fix Diagnostic", mode = "v" },
+      { "<leader>ai", "<cmd>CopilotChat<cr>", desc = "CopilotChat - Chat" },
+      { "<leader>ao", "<cmd>CopilotChatOptimize<cr>", desc = "CopilotChat - Optimize Code", mode = "v" },
+      { "<leader>ar", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code", mode = "v" },
       { "<leader>at", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
+      { "<leader>at", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests", mode = "v" },
       { "<leader>aw", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle" },
       { "<leader>aw", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle", mode = "v" },
       {
@@ -56,6 +61,17 @@ return {
           end
         end,
         desc = "CopilotChat - Quick chat",
+      },
+      {
+        "<leader>aq",
+        function()
+          local input = vim.fn.input("Quick Chat: ")
+          if input ~= "" then
+            require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+          end
+        end,
+        desc = "CopilotChat - Quick chat",
+        mode = "v",
       },
       {
         "<leader>ah",
