@@ -409,7 +409,7 @@
   typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION=
 
   typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
-  typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+  typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
   typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
 
   (( ! $+functions[p10k] )) || p10k reload
