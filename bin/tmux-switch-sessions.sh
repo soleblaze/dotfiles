@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/git ~/work -mindepth 1 -maxdepth 3 -type d -name .git | sed 's|'"${HOME}"'/\(.*\)/.git|\1|' | fzf)
+  selected=$(find ~/git ~/work -mindepth 1 -maxdepth 3 -type d -name .git | sed 's|'"${HOME}"'/\(.*\)/.git|\1|' | fzf-tmux -p --reverse -1 -0 +m)
 fi
 
 if [[ -z $selected ]]; then
