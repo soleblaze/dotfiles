@@ -38,7 +38,7 @@ return {
               local action_state = require("telescope.actions.state")
               local prompt = action_state.get_current_line()
               actions.close(prompt_bufnr)
-              vim.cmd.tabedit(NOTE_DIR .. "/" .. prompt)
+              vim.cmd.tabedit(NOTE_DIR .. "/" .. prompt .. ".md")
             end,
           },
         },
