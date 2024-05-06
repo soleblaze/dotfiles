@@ -9,3 +9,5 @@ vim.o.linebreak = true
 vim.o.mouse = ""
 vim.o.title = true
 vim.o.wrap = true
+vim.wo.conceallevel = 2
+vim.wo.foldlevel = 99
