@@ -2,6 +2,19 @@ package.cpath = package.cpath .. ";" .. vim.fn.expand("~") .. "/.luarocks/lib/lu
 return {
   {
     "zbirenbaum/copilot.lua",
+    opts = {
+      filetypes = {
+        yaml = true,
+        markdown = false,
+        help = false,
+        gitcommit = false,
+        gitrebase = false,
+        hgcommit = false,
+        svn = false,
+        cvs = false,
+        ["."] = false,
+      },
+    },
     keys = {
       { "<leader>acd", "<cmd>Copilot disable<cr>", desc = "Disable Copilot" },
       { "<leader>acd", "<cmd>Copilot disable<cr>", desc = "Disable Copilot", mode = "v" },
