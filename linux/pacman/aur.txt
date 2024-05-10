@@ -1,7 +1,6 @@
 1password
 1password-cli
-aichat-bin
-aichat-bin-debug
+aichat
 dropbox
 exercism
 i3lock-color
