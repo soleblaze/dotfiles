@@ -40,10 +40,6 @@ fi
 source ~/git/dotfiles/zsh/plugins/you-should-use.plugin.zsh
 source ~/git/dotfiles/zsh/plugins/fast-syntax-highlighting.plugin.zsh
 
-if [ $commands[atuin] ]; then
-  eval "$(atuin init zsh --disable-up-arrow)"
-fi
-
 if [ $commands[rbenv] ]; then
   eval "$(rbenv init -)"
 fi

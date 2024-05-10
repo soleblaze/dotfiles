@@ -13,9 +13,6 @@ if [ "$(uname -o)" == "Darwin" ]; then
   alias cstop='colima stop'
   alias sed='gsed'
 
-  source $(brew --prefix fzf)/shell/completion.zsh
-  source $(brew --prefix fzf)/shell/key-bindings.zsh
-
   FPATH="/opt/homebrew/share/zsh-completions:$FPATH"
   FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
 

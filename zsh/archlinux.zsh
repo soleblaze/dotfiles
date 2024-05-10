@@ -12,7 +12,4 @@ if [ "$(uname -o)" == "GNU/Linux" ] && grep -q Arch /etc/*release 2>&1 >/dev/nul
   alias ya="yay -S"
   alias yas="yay -Ss"
   alias yau="yay -Su"
-
-  source /usr/share/fzf/key-bindings.zsh
-  source /usr/share/fzf/completion.zsh
 fi
