@@ -9,6 +9,8 @@ base
 base-devel
 bat
 bat-extras
+bc
+bind
 brightnessctl
 btrfs-progs
 catdoc
@@ -27,6 +29,7 @@ efibootmgr
 eza
 fcron
 fd
+fdupes
 feh
 foot
 fprintd
@@ -111,6 +114,7 @@ qt6-wayland
 recoll
 reflector
 remmina
+rmlint
 rofi
 ruby
 rust
