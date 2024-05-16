@@ -20,18 +20,14 @@ setopt nonomatch
 setopt noshwordsplit
 setopt prompt_subst
 
-if [ "$(uname)" == "Darwin" ];then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  export SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
-else
-  export BROWSER="qutebrowser"
+export BROWSER="qutebrowser"
 
-  if ! pgrep -u "$USER" ssh-agent >/dev/null; then
-    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
-  fi
-  if [[ ! "$SSH_AUTH_SOCK" ]]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" > /dev/null
-  fi
+if ! pgrep -u "$USER" ssh-agent >/dev/null; then
+  ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+  source "$XDG_RUNTIME_DIR/ssh-agent.env" > /dev/null
 fi
 
 export BAT_THEME="cobalt2"

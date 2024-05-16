@@ -13,29 +13,15 @@ fi
 # Plugins that need to be sourced last
 ZVM_INIT_MODE=sourcing
 
-if [ "$(uname)" == "Darwin" ]; then
-  source "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
-  source $(brew --prefix)/share/zsh-autopair/autopair.zsh
-  source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-else
-  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-  source ~/git/dotfiles/zsh/plugins/autopair.zsh
-  source ~/git/dotfiles/zsh/plugins/zsh-history-substring-search.zsh
-fi
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source ~/git/dotfiles/zsh/plugins/autopair.zsh
+source ~/git/dotfiles/zsh/plugins/zsh-history-substring-search.zsh
 
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-
-if [ "$(uname)" == "Darwin" ]; then
-  # Fix issue with man pages being slow
-  typeset -gA FAST_HIGHLIGHT
-  FAST_HIGHLIGHT[chroma-man]=
-
-  export PATH="$(brew --prefix)/bin:$PATH"
-fi
 
 source ~/git/dotfiles/zsh/plugins/you-should-use.plugin.zsh
 source ~/git/dotfiles/zsh/plugins/fast-syntax-highlighting.plugin.zsh
