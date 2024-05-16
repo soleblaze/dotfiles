@@ -1,6 +1,8 @@
 #!/bin/zsh
 
 # Override Commands
+alias vu="nmcli c up"
+alias vd="nmcli c down"
 alias diff="batdiff --delta"
 alias df="duf --hide-mp '*ystem*olume*,*ecovery,/dev'"
 alias du="dust -b"
@@ -35,7 +37,6 @@ alias sz="source ~/.zshrc"
 
 # python aliases
 alias va='source .venv/bin/activate'
-alias vd='deactivate'
 
 # bat aliases
 alias cat='bat -p --pager=never'

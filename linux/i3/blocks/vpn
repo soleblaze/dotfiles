@@ -1,7 +1,9 @@
 #!/bin/bash
-INSTANCE="${BLOCK_INSTANCE:-tun0}"
 
 # This script checks to see if tun0 interface exists and is up
-if ip addr | grep -q "${INSTANCE}"; then
-  echo "<span background='#808080' foreground='#ffffff'> VPN </span>"
+if ip addr | grep -q "POINTOPOINT,NOARP,UP,LOWER_UP"; then
+  vpn=$(ip addr |grep "POINTOPOINT,NOARP,UP,LOWER_UP" | awk -F ': ' '{print $2}')
+  echo "<span foreground='#ffffff' background='#808080'> V </span><span foreground='#ffffff' background='#1478db'> "$vpn" </span><span font='8'>  </span>"
+else
+  echo "<span foreground='#ffffff' background='#808080'> V </span><span foreground='#ffffff' background='#1478db'> X </span><span font='8'>  </span>"
 fi
