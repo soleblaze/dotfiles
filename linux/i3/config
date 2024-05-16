@@ -36,7 +36,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 2%-
 
 # Application shortcuts
 bindsym $mod+Return exec alacritty -e tmux new-session -As main
-bindsym $mod+shift+Return exec alacritty
+bindsym $hyper+Return exec alacritty
 bindsym $hyper+l exec ~/bin/lock-and-notify.sh
 bindsym $hyper+a exec pavucontrol
 bindsym $hyper+b exec --no-startup-id zsh -c qutebrowser
