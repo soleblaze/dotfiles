@@ -2,19 +2,6 @@ package.cpath = package.cpath .. ";" .. vim.fn.expand("~") .. "/.luarocks/lib/lu
 return {
   {
     "zbirenbaum/copilot.lua",
-    opts = {
-      filetypes = {
-        yaml = true,
-        markdown = false,
-        help = false,
-        gitcommit = false,
-        gitrebase = false,
-        hgcommit = false,
-        svn = false,
-        cvs = false,
-        ["."] = false,
-      },
-    },
     keys = {
       { "<leader>acd", "<cmd>Copilot disable<cr>", desc = "Disable Copilot" },
       { "<leader>acd", "<cmd>Copilot disable<cr>", desc = "Disable Copilot", mode = "v" },
@@ -27,6 +14,24 @@ return {
       { "<leader>act", "<cmd>Copilot toggle<cr>", desc = "Toggle Copilot" },
       { "<leader>act", "<cmd>Copilot toggle<cr>", desc = "Toggle Copilot", mode = "v" },
     },
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+        filetypes = {
+          yaml = true,
+          markdown = false,
+          help = false,
+          gitcommit = false,
+          gitrebase = false,
+          hgcommit = false,
+          svn = false,
+          cvs = false,
+          ["."] = false,
+        },
+      })
+      vim.cmd("Copilot disable")
+    end,
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
