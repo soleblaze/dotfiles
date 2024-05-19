@@ -146,7 +146,7 @@ c.content.mouse_lock = False
 # Value to send in the `Accept-Language` header. Note that the value
 # read from JavaScript is always the global value.
 # Type: String
-#config.set("content.headers.accept_language", "", "https://matchmaker.krunker.io/*")
+# config.set("content.headers.accept_language", "", "https://matchmaker.krunker.io/*")
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -390,6 +390,7 @@ c.url.searchengines = {
     "b": "https://pinboard.in/search/u:soleblaze?query={}",
     "g": "https://www.google.com/search?q={}",
     "gw": "https://gswiki.play.net/index.php?search={}&title=Special%3ASearch&go=Go",
+    "k": "https://kagi.com/search?q={}",
     "ps": "https://ps.lichproject.org/items?s={}&f=F_B",
     "r": "https://reddit.com/r/{}",
     "w": "https://en.wikipedia.org/w/index.php?search={}",
