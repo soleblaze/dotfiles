@@ -5,7 +5,7 @@ return {
       { "nvim-telescope/telescope.nvim" },
     },
     opts = {
-      snippetDir = vim.fn.stdpath("config"),
+      jsonFormatter = "jq",
     },
     keys = {
       {
