@@ -26,16 +26,13 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.ui.treesitter-context" },
 
-
     { import = "lazyvim.plugins.extras.coding.copilot" },
+    { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.editor.aerial" },
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
     { import = "lazyvim.plugins.extras.editor.mini-diff" },
     { import = "lazyvim.plugins.extras.editor.mini-move" },
     { import = "lazyvim.plugins.extras.editor.refactoring" },
-
-    { import = "lazyvim.plugins.extras.formatting.black" },
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
 
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.go" },
@@ -47,7 +44,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.util.dot" },
 
-    { import = "lazyvim.plugins.extras.vscode" },
     { import = "plugins" },
   },
   defaults = {
