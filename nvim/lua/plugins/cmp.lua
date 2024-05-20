@@ -4,7 +4,6 @@ return {
     "hrsh7th/cmp-emoji",
   },
   opts = function(_, opts)
-    local luasnip = require("luasnip")
     local cmp = require("cmp")
 
     opts.sources = cmp.config.sources(vim.tbl_filter(function(source)
@@ -16,59 +15,31 @@ return {
 
     opts.mapping = {
       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-e>"] = cmp.mapping.abort(),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-e>"] = cmp.mapping(function(fallback)
-        if cmp and cmp.visible() then
-          cmp.abort()
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-      ["<Tab>"] = cmp.mapping(function()
-        if luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        else
+      ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+      ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+      ["<Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
           cmp.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = false,
           })
+        elseif vim.snippet.active({ direction = 1 }) then
+          vim.schedule(function()
+            vim.snippet.jump(1)
+          end)
+        else
+          fallback()
         end
       end, { "i", "s" }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if luasnip.jumpable(-1) then
-          luasnip.jump(-1)
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-      ["<C-n>"] = cmp.mapping(function(fallback)
-        if luasnip.jumpable(1) then
-          luasnip.jump(1)
-        elseif cmp and cmp.visible() then
-          cmp.select_next_item()
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-      ["<C-p>"] = cmp.mapping(function(fallback)
-        if luasnip.jumpable(-1) then
-          luasnip.jump(-1)
-        elseif cmp and cmp.visible() then
+        if cmp.visible() then
           cmp.select_prev_item()
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-      ["<Down>"] = cmp.mapping(function(fallback)
-        if cmp and cmp.visible() then
-          cmp.select_next_item()
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-      ["<Up>"] = cmp.mapping(function(fallback)
-        if cmp and cmp.visible() then
-          cmp.select_prev_item()
+        elseif vim.snippet.active({ direction = -1 }) then
+          vim.schedule(function()
+            vim.snippet.jump(-1)
+          end)
         else
           fallback()
         end
