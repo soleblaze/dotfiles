@@ -1,4 +1,4 @@
 #!/usr/bin/bash
-i3lock -n -F -c 193549
+i3lock -n -c 193549
 
- notify-send "doing last" "$(doing last)"
+notify-send "doing last" "$(doing last)"
