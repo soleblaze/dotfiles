@@ -177,7 +177,6 @@ bar {
 }
 
 exec --no-startup-id xrandr --dpi 168 --output eDP-1 --auto
-exec dispwin ~/.config/color/laptop.icc
 exec feh --bg-scale ~/pictures/wallpaper/wallpaper.png
 exec udiskie
 exec unclutter
