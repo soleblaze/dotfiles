@@ -32,7 +32,7 @@
   "sway/workspaces": {
     "disable-scroll": true,
     "format": "{icon}",
-    "persistent_workspaces": {
+    "persistent-workspaces": {
       "1": [],
       "2": [],
       "3": [],
@@ -58,7 +58,9 @@
   },
   "temperature": {
     "format": "{temperatureC}°",
-    "hwmon-path": ["/sys/class/hwmon/hwmon3/temp1_input"]
+    "hwmon-path": [
+      "/sys/class/hwmon/hwmon3/temp1_input"
+    ]
   },
   "custom/mem": {
     "format": "",
