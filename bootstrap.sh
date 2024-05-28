@@ -17,13 +17,16 @@ linkFile() {
 }
 
 mkdir -p ~/bin
+mkdir -p ~/.config/sway/config.d
+mkdir -p ~/.config/obsidian
 
 linkFile "$PWD/fuzzel" "$HOME/.config/fuzzel"
 linkFile "$PWD/waybar" "$HOME/.config/waybar"
 linkFile "$PWD/dunst" "$HOME/.config/dunst"
 linkFile "$PWD/foot" "$HOME/.config/foot"
+linkFile "$PWD/chromium/chromium-flags.conf" "$HOME/.config/chromium-flags.conf"
+linkFile "$PWD/obsidian/user-flags.conf" "$HOME/.config/obsidian/user-flags.conf"
 
-mkdir -p ~/.config/sway/config.d
 linkFile "$PWD/sway/config" "$HOME/.config/sway/config"
 for i in "$PWD/sway/config.d/"*; do
   linkFile "$i" "$HOME/.config/sway/config.d/$(basename "$i")"
