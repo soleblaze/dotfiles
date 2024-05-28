@@ -1,4 +1,0 @@
-#!/bin/sh
-
-date="$(date +'%a %D')"
-echo "<span foreground='#ffffff' background='#808080'> D </span><span foreground='#ffffff' background='#1478db'> $date </span><span font='8'>  </span>"

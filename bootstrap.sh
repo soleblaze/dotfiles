@@ -19,27 +19,23 @@ linkFile() {
 mkdir -p ~/bin
 
 linkFile "$PWD/fuzzel" "$HOME/.config/fuzzel"
-linkFile "$PWD/sway" "$HOME/.config/sway"
 linkFile "$PWD/waybar" "$HOME/.config/waybar"
 linkFile "$PWD/dunst" "$HOME/.config/dunst"
 linkFile "$PWD/foot" "$HOME/.config/foot"
 
-linkFile "$PWD/i3" "$HOME/.config/i3"
-linkFile "$PWD/i3/i3blocks.conf" "$HOME/.i3blocks.conf"
-linkFile "$PWD/picom" "$HOME/.config/picom"
-linkFile "$PWD/rofi" "$HOME/.config/rofi"
-linkFile "$PWD/x11/Xresources" "$HOME/.Xresources"
-linkFile "$PWD/x11/Xmodmap" "$HOME/.Xmodmap"
-linkFile "$PWD/alacritty/" "$HOME/.config/alacritty"
-
+mkdir -p ~/.config/sway/config.d
+linkFile "$PWD/sway/config" "$HOME/.config/sway/config"
+for i in "$PWD/sway/config.d/"*; do
+  linkFile "$i" "$HOME/.config/sway/config.d/$(basename "$i")"
+done
 
 mkdir -p ~/.config/systemd/user
 for i in "$PWD/systemd/"*; do
-  linkFile "$i" "$HOME/.config/systemd/user/$(basename "$i")";
+  linkFile "$i" "$HOME/.config/systemd/user/$(basename "$i")"
 done
 
 for i in "$PWD/bin/"*; do
-  linkFile "$i" "$HOME/bin/$(basename "$i")";
+  linkFile "$i" "$HOME/bin/$(basename "$i")"
 done
 
 mkdir -p ~/.config/qutebrowser

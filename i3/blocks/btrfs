@@ -1,5 +1,0 @@
-#!/bin/bash
-
-drivepath="${BLOCK_INSTANCE:-$HOME}"
-freespace=$(btrfs fi us -h $drivepath 2>/dev/null| grep 'Free (estimated)' | awk '{print $3}' | sed 's/iB$//')
-echo "<span foreground='#ffffff' background='#808080'> D </span><span foreground='#ffffff' background='#1478db'> ${freespace} </span><span font='8'></span><span font='8'>  </span>"

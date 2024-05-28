@@ -3,8 +3,7 @@
 aichat
 dropbox
 exercism
-i3lock-color
-qutebrowser-git
+google-cloud-cli
 task2
 yay
 zsh-theme-powerlevel10k-git
