@@ -6,7 +6,7 @@ PartOf=graphical-session.target
 [Service]
 Type=simple
 ExecStart=/usr/bin/swayidle -w \
-        unlock 'pkill -xu "$USER" -SIGUSR1 swaylock'
+        unlock 'pkill -xu "$USER" -SIGUSR1 swaylock' \
             timeout 300 'swaylock -f -c 193549' \
             timeout 600 'swaymsg "output * dpms off"' \
                 resume 'swaymsg "output * dpms on"' \
