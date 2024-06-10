@@ -1,0 +1,36 @@
+format = """
+$hostname \
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$fill\
+$cmd_duration\
+$status
+$character
+"""
+
+[cmd_duration]
+format = '[ $duration]($style) '
+min_time = 5_000
+
+[fill]
+symbol = ' '
+
+[git_branch]
+format = '[$symbol$branch]($style) '
+
+[hostname]
+format = '[$hostname]($style)'
+ssh_only = false
+
+[status]
+disabled = false
+format = '[$status]($style) '
+
+[time]
+disabled = false
+format = '[$time]($style)'
+

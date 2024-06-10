@@ -1,5 +1,6 @@
 #!/bin/zsh
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 
 # My dotfiles
 for i in $HOME/git/dotfiles/zsh/*.zsh; do
@@ -13,7 +14,6 @@ fi
 # Plugins that need to be sourced last
 ZVM_INIT_MODE=sourcing
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/doc/pkgfile/command-not-found.zsh
 
 
@@ -37,6 +37,3 @@ if [ $commands[rbenv] ]; then
 fi
 
 typeset -U PATH
-
-ZLE_RPROMPT_INDENT=0
-[[ ! -f ~/git/dotfiles/zsh/prompt/p10k.zsh ]] || source ~/git/dotfiles/zsh/prompt/p10k.zsh

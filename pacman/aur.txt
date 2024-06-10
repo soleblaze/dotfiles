@@ -6,4 +6,3 @@ exercism
 google-cloud-cli
 task2
 yay
-zsh-theme-powerlevel10k-git
