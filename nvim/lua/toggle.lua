@@ -30,6 +30,7 @@ M.location = function()
   vim.cmd("lopen")
 end
 
+
 M.relativenumber = function()
   if vim.o.relativenumber then
     vim.o.relativenumber = false
@@ -40,11 +41,23 @@ M.relativenumber = function()
   end
 end
 
+
+M.conceal = function()
+  if vim.o.conceallevel ~= 0 then
+    vim.o.conceallevel = 0
+    vim.notify("conceal disabled")
+  else
+    vim.o.conceallevel = 2
+    vim.notify("conceal enabled")
+  end
+end
+
+
 local diagnostictoggle = true
 
 M.diagnostic = function()
   if diagnostictoggle then
-    vim.diagnostic.disable()
+    vim.diagnostic.enable(false)
     vim.diagnostic.config({ virtual_text = false })
     diagnostictoggle = false
     vim.notify("diagnostic disabled")

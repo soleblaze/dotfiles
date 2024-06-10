@@ -11,9 +11,4 @@ return {
       disable_commit_confirmation = true,
     })
   end,
-  keys = {
-    { "<leader>gp", "<cmd>lua require('neogit').open({'push'})<cr>", desc = "Neogit Push" },
-    { "<leader>gc", "<cmd>lua require('neogit').open({'commit'})<cr>", desc = "Neogit Commit" },
-    { "<leader>gn", "<cmd>lua require('neogit').open()<cr>", desc = "Neogit" },
-  },
 }

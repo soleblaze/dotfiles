@@ -1,25 +1,30 @@
-local Util = require("lazyvim.util")
 return {
-  "telescope.nvim",
+  "nvim-telescope/telescope.nvim",
+  cmd = "Telescope",
+  version = false,
   dependencies = {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",
-    config = function()
-      require("telescope").load_extension("fzf")
-    end,
-  },
-  opts = {
-    defaults = {
-      layout_strategy = "vertical",
-      layout_config = {
-        preview_cutoff = 10,
-      },
+    { "nvim-lua/plenary.nvim" },
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
     },
-  },
-  keys = {
-    { "<leader>fg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
-    { "<leader>/", false },
-    { "<leader>gc", false },
-    { "<leader>gC", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+    opts = {
+      defaults = {
+        layout_strategy = "vertical",
+        layout_config = {
+          preview_cutoff = 10,
+        },
+      },
+      extensions = {
+        advanced_git_search = {
+          diff_plugin = "diffview",
+        },
+        rooter = {
+          enable = true,
+          patterns = { ".git" },
+          debug = false
+        }
+      },
+    }
   },
 }

@@ -1,9 +1,12 @@
 return {
   "folke/which-key.nvim",
-  optional = true,
+  event = "VeryLazy",
   opts = {
-    defaults = {
-      ["<leader>a"] = { name = "+ai" },
-    },
+    plugins = { spelling = true },
   },
+  config = function(_, opts)
+    local wk = require("which-key")
+    wk.setup(opts)
+    wk.register(opts.defaults)
+  end,
 }

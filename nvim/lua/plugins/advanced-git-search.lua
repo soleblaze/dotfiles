@@ -10,8 +10,5 @@ return {
       "tpope/vim-fugitive",
       "tpope/vim-rhubarb",
     },
-    keys = {
-      { "<leader>ga", "<cmd>AdvancedGitSearch<cr>", desc = "Advanced Git Search" },
-    },
   },
 }
